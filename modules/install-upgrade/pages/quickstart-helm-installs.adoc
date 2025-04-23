@@ -32,7 +32,7 @@ For an example set of production cluster values, see the DataStax production-rea
 
 DataStax recommends these hardware resources for running Luna Streaming in a Kubernetes environment: +
 
-include::partial$helm-chart-recommendations.adoc[]
+include::ROOT:partial$helm-chart-recommendations.adoc[]
 
 For the local machine running the Helm chart, you will need: +
 
@@ -427,7 +427,7 @@ Using these keys, it will generate tokens for each role listed in `superUserRole
 
 === Manual secret creation for token authentication
 
-include::partial$manually-create-credentials.adoc[]
+include::ROOT:partial$manually-create-credentials.adoc[]
 
 [#tls]
 == Manually configuring certificate secrets for TLS

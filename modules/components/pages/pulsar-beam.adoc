@@ -19,11 +19,11 @@ You will need the following prerequisites in place to complete this guide:
 
 == Install Luna Streaming Helm chart
 
-include::partial$install-helm.adoc[]
+include::ROOT:partial$install-helm.adoc[]
 
 == Forward service port
 
-include::partial$port-forward-beam.adoc[]
+include::ROOT:partial$port-forward-beam.adoc[]
 
 == Start a message consumer
 
@@ -118,7 +118,7 @@ The payload is base64 encoded. Simply decode the string to see the actual messag
 ====
 
 == Clean up
-include::partial$cleanup-terminal-and-helm.adoc[]
+include::ROOT:partial$cleanup-terminal-and-helm.adoc[]
 
 == Next steps
 
