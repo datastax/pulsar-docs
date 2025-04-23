@@ -30,16 +30,16 @@ The Trino CLI uses the "X-TRINO-USER" header for authentications but Presto expe
 
 == Install Luna Streaming Helm chart
 
-include::partial$install-helm.adoc[]
+include::ROOT:partial$install-helm.adoc[]
 
 == Forward service port
 
 We need to interact with services in the K8s cluster, so let’s map a few ports to those services.
 There’s no need to forward Pulsar’s messaging service ports.
 
-include::partial$port-forward-sql.adoc[]
+include::ROOT:partial$port-forward-sql.adoc[]
 
-include::partial$port-forward-web-service.adoc[]
+include::ROOT:partial$port-forward-web-service.adoc[]
 
 == Confirm Presto is available
 
@@ -246,7 +246,7 @@ Connection established......
 ----
 
 == Clean up
-include::partial$cleanup-terminal-and-helm.adoc[]
+include::ROOT:partial$cleanup-terminal-and-helm.adoc[]
 
 == What's next?
 

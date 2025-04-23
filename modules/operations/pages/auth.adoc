@@ -8,11 +8,11 @@ The Helm chart includes tooling to automatically create the necessary secrets, o
 
 == Automatically generating secrets for Pulsar token authentication
 
-include::partial$auto-create-credentials.adoc[]
+include::ROOT:partial$auto-create-credentials.adoc[]
 
 == Manually generating secrets for Pulsar token authentication
 
-include::partial$manually-create-credentials.adoc[]
+include::ROOT:partial$manually-create-credentials.adoc[]
 
 == TLS
 
