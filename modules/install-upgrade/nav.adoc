@@ -4,4 +4,3 @@
 * xref:ROOT:install-aks.adoc[]
 * xref:ROOT:install-eks.adoc[]
 * xref:ROOT:install-gke.adoc[]
-* xref:supported-versions.adoc[]
