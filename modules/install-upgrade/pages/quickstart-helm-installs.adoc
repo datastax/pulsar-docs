@@ -1,6 +1,11 @@
 = Quick Start for Helm Chart installs
 :page-tag: luna-streaming,dev,admin,install,pulsar
 
+[IMPORTANT]
+====
+The DataStax production-ready Helm chart is now deprecated. For new deployments, we recommend using the DataStax https://github.com/datastax/kaap/[KAAP operator Helm chart], which provides Kubernetes-native autoscaling and simplified management for Apache Pulsar clusters. For more information, see the xref:kaap-operator::index.adoc[Kubernetes Autoscaling for Apache Pulsar (KAAP)] documentation.
+====
+
 You have options for installing *DataStax Luna Streaming*:
 
 * Via the provided *DataStax Helm chart* for an existing Kubernetes environment locally or with a cloud provider, as covered in this topic. +
@@ -27,11 +32,6 @@ The resulting configuration includes support for:
 * Ingress for all HTTP ports (Pulsar Admin Console, Prometheus, Grafana, others)
 
 == Prerequisites
-
-[IMPORTANT]
-====
-The DataStax production-ready Helm chart is now deprecated. For new deployments, we recommend using the DataStax https://github.com/datastax/kaap/[KAAP operator Helm chart], which provides Kubernetes-native autoscaling and simplified management for Apache Pulsar clusters.
-====
 
 DataStax recommends these hardware resources for running Luna Streaming in a Kubernetes environment: +
 
