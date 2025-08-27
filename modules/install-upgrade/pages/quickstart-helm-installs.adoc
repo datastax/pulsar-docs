@@ -28,7 +28,10 @@ The resulting configuration includes support for:
 
 == Prerequisites
 
-For an example set of production cluster values, see the DataStax production-ready https://github.com/datastax/pulsar-helm-chart[Helm chart]. +
+[IMPORTANT]
+====
+The DataStax production-ready Helm chart is now deprecated. For new deployments, we recommend using the DataStax https://github.com/datastax/kaap/[KAAP operator Helm chart], which provides Kubernetes-native autoscaling and simplified management for Apache Pulsar clusters.
+====
 
 DataStax recommends these hardware resources for running Luna Streaming in a Kubernetes environment: +
 
