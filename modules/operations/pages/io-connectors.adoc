@@ -42,7 +42,6 @@ The DataStax enhanced Cassandra sink connector offers the following advantages o
 === ElasticSearch sink
 
 To configure, deploy, and use the ElasticSearch sink connector, see the xref:io-elastic-sink.adoc[Elasticsearch sink connector documentation].
-// To configure, deploy, and use the ElasticSearch sink connector, see the https://pulsar.apache.org/docs/next/io-elasticsearch-sink/[Pulsar documentation].
 
 [#jdbc-clickhouse-sink]
 === JDBC-Clickhouse sink
@@ -104,8 +103,3 @@ To configure, deploy, and use the Kinesis source connector, see the https://puls
 == Next steps
 
 For more on Pulsar IO connectors, see the https://pulsar.apache.org/docs/en/io-overview/[Pulsar documentation].
-
-
-
-
-
