@@ -109,13 +109,10 @@ The data of our new message will be output. Enter Ctrl-C to exit the shell.
 This my first message
 ----
 
-== Summary
+== Next steps
 
-Pulsar and Starlight for Kafka are a powerful pair! +
 Kafka users and existing applications using Kafka can enjoy the many benefits of a Pulsar cluster, while never having to change tooling or libraries.
 Other folks that are more comfortable with Pulsar tooling and clients can also interact with the same topics. Together, new and legacy applications work together to create modern solutions.
-
-== Next steps
 
 Here are links to other guides and resource you might be interested in.
 

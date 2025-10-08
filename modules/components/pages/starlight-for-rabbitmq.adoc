@@ -59,13 +59,10 @@ received message: test
 deleted test-queue queue
 ----
 
-== Summary
+== Next steps
 
-Wow! That was easy. +
 The Luna Helm chart deployed Starlight for RabbitMQ on the Pulsar proxy and opened the correct port.
 Your application will now "talk" to Pulsar as if it were a real RabbitMQ host.
-
-== Next steps
 
 * xref:streaming-learning:use-cases-architectures:starlight/rabbitmq/index.adoc[Messaging with Starlight for RabbitMQ]
 * xref:pulsar-beam.adoc[]

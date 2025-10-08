@@ -1,4 +1,4 @@
-Return to each window running an open process and enter `ctrl-c` to end the process. +
+Return to each window running an open process and enter `ctrl-c` to end the process.
 To completely remove all traces of the Helm chart, remove the namespace.
 [source,shell]
 ----

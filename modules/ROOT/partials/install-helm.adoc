@@ -5,7 +5,7 @@
 include::https://raw.githubusercontent.com/datastaxdevs/luna-streaming-examples/using-s4k-guide/install.sh[tag=helm-repo-add]
 ----
 
-. Install the Helm chart using a minimalist values file. +
+. Install the Helm chart using a minimalist values file.
 This command creates a Helm release named "my-pulsar-cluster" using the DataStax Luna Helm chart, within the K8s namespace "datastax-pulsar".
 The minimal cluster creates only the essential components and has no ingress or load balanced services.
 +

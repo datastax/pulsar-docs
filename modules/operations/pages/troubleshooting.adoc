@@ -9,7 +9,8 @@ To troubleshoot Luna Streaming, look at these potential issues:
 [#checkquotas]
 == Check quotas
 
-In some cases, pods can become unhealthy. The root cause might be an insufficient quota. You can check quotas in the cloud provider's user interface. +
+In some cases, pods can become unhealthy. The root cause might be an insufficient quota. You can check quotas in the cloud provider's user interface.
+
 For example, in the Google Cloud (GCP) console, check for any unhealthy pods in your GKE project. Then in the *IAM & Admin* section of the GCP console, navigate to *Quotas*. Look for any reported issues with backend services:
 
 image::gcp-quota-example1.png[GCP Quota]
