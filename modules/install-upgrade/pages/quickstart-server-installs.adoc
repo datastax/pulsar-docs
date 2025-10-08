@@ -37,6 +37,7 @@ The journal device should be 20GB. The ledger volume device should be sized to h
 * DataStax recommends a separate data disk volume for ZooKeeper.
 
 * Operating System Settings
++
 Disable Swap and set Linux Transparent Huge Pages (THP) to `madvice`.
 Check this setting with `cat /sys/kernel/mm/transparent_hugepage/enabled` and `cat /sys/kernel/mm/transparent_hugepage/defrag`
 
@@ -44,7 +45,7 @@ Check this setting with `cat /sys/kernel/mm/transparent_hugepage/enabled` and `c
 == Installation
 
 . Download the DataStax Luna Streaming tarball from the https://github.com/datastax/pulsar/releases[DataStax GitHub repo]. There are three versions of Luna Streaming currently available:
-
++
 [cols="1,1"]
 [%autowidth]
 |===
