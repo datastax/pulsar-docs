@@ -248,7 +248,7 @@ Connection established......
 == Clean up
 include::ROOT:partial$cleanup-terminal-and-helm.adoc[]
 
-== What's next?
+== Next steps
 
 * xref:pulsar-beam.adoc[]
 * xref:admin-console-tutorial.adoc[]

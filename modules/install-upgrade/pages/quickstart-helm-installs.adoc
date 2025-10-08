@@ -464,6 +464,6 @@ Follow along with this video from our *Five Minutes About Pulsar* series to get 
 
 video::hEBP_IVQqQM[youtube, list=PL2g2h-wyI4SqeKH16czlcQ5x4Q_z-X7_m]
 
-== What's next?
+== Next steps
 
 To learn about installing Luna Streaming for Bare Metal/VM, see xref:install-upgrade:quickstart-server-installs.adoc[Quickstart for Bare Metal/VM Installs].

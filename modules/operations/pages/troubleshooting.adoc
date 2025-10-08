@@ -87,7 +87,7 @@ You should receive a confirmation the message was produced:
 
 This means your Pulsar cluster is functional. If the message isn't produced, double-check your message syntax. 
 
-== What's next?
+== Next steps
 
 To view your cluster, brokers, and connectors in a user interface, see the xref:components:admin-console-tutorial.adoc[Admin Console Tutorial].
 

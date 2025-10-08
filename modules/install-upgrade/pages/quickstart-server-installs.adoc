@@ -95,7 +95,7 @@ Admin Console requires https://nodejs.org/download/release/latest-v14.x/[NodeJS 
 * *Pulsar Heartbeat:* Monitors Pulsar cluster availability. +
 Download the latest version from the https://github.com/datastax/pulsar-heartbeat/releases/[DataStax GitHub repo] and follow the instructions xref:components:heartbeat-vm.adoc[here]. +
 
-== What's next?
+== Next steps
 
 * For initializing Pulsar components like BookKeeper and ZooKeeper, see the https://pulsar.apache.org/docs/deploy-bare-metal[Pulsar documentation].
 

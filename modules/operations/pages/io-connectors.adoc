@@ -101,7 +101,7 @@ To configure, deploy, and use the Kafka source connector, see the https://pulsar
 
 To configure, deploy, and use the Kinesis source connector, see the https://pulsar.apache.org/docs/next/io-kinesis-source#configuration[Pulsar documentation].
 
-== What's next?
+== Next steps
 
 For more on Pulsar IO connectors, see the https://pulsar.apache.org/docs/en/io-overview/[Pulsar documentation].
 
