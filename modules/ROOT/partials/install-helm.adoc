@@ -1,4 +1,4 @@
-. Add the DataStax Helm chart repo to your Helm store.
+. Add the DataStax Helm chart repo to your Helm store:
 +
 [source,shell]
 ----
@@ -21,7 +21,8 @@ helm install \
   datastax-pulsar/pulsar
 ----
 
-. Wait for the broker pod to be in a running state. You might see a few restarts as your components start up.
+. Wait for the broker pod to be in a running state.
+You might see a few restarts as your components start up.
 +
 [source,shell,subs="attributes+"]
 ----

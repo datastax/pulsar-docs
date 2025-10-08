@@ -1,6 +1,0 @@
-In a separate terminal window, port forward the Starlight for Kafka service:
-
-[source,shell]
-----
-kubectl port-forward -n datastax-pulsar service/pulsar-proxy 9092:9092
-----
