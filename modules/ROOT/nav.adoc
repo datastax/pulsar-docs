@@ -16,7 +16,10 @@
 * xref:components:heartbeat-vm.adoc[]
 * xref:components:pulsar-beam.adoc[]
 * xref:components:pulsar-sql.adoc[]
-* xref:components:starlight.adoc[]
+* Starlight
+** xref:components:starlight.adoc[]
+** xref:components:starlight-for-rabbitmq.adoc[]
+** xref:components:starlight-for-kafka.adoc[]
 
 .Operations
 * xref:operations:auth.adoc[]
