@@ -8,8 +8,6 @@ By adding the Starlight for RabbitMQ protocol handler to your Pulsar cluster, yo
 
 == Prerequisites
 
-You will need the following prerequisites in place to complete this guide:
-
 * https://helm.sh/docs/intro/install/[Helm 3 CLI] (we used version 3.8.0)
 * https://kubernetes.io/docs/tasks/tools/[Kubectl CLI] (we used version 1.23.4)
 * Python (we used version 3.8.10)
@@ -21,7 +19,8 @@ include::partial$install-helm.adoc[]
 
 == Forward service port
 
-We will need to interact with a few of the services in the K8s cluster. Let’s map a few ports to those services.
+You'll need to interact with a few of the services in the K8s cluster.
+Map a few ports to those services.
 
 include::partial$port-forward-web-service.adoc[]
 
@@ -59,13 +58,10 @@ received message: test
 deleted test-queue queue
 ----
 
-== Summary
+== Next steps
 
-Wow! That was easy. +
 The Luna Helm chart deployed Starlight for RabbitMQ on the Pulsar proxy and opened the correct port.
 Your application will now "talk" to Pulsar as if it were a real RabbitMQ host.
-
-== What's next?
 
 * xref:streaming-learning:use-cases-architectures:starlight/rabbitmq/index.adoc[Messaging with Starlight for RabbitMQ]
 * xref:pulsar-beam.adoc[]

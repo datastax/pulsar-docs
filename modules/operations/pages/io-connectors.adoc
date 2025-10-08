@@ -34,8 +34,6 @@ include::partial$sink-connectors.adoc[tag=sink-experimental]
 [#source-experimental]
 include::partial$source-connectors.adoc[tag=source-experimental]
 
-== What's next?
+== Next steps
 
-For more on connectors and Pulsar, see our xref:streaming-learning:pulsar-io:connectors/index.adoc[] learning page, or check the https://pulsar.apache.org/docs/2.11.x/io-overview/[Pulsar documentation].
-
-
+For more on connectors and Pulsar, see xref:streaming-learning:pulsar-io:connectors/index.adoc[] and the https://pulsar.apache.org/docs/2.11.x/io-overview/[Pulsar documentation].

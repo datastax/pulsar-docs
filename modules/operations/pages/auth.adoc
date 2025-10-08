@@ -109,11 +109,11 @@ pulsar@pulsar-bastion-85c9b777f6-gt9ct:/pulsar$ bin/pulsar-admin --auth-params "
 
 You're now using Keycloak tokens with `pulsar-admin` CLI.
 
-=== Alternative method 
+=== Alternative method
 
-An alternative method for retrieving and using a Keycloak token from the bastion pod is to create a file with the Keycloak client credentials first. 
+An alternative method for retrieving and using a Keycloak token from the bastion pod is to create a file with the Keycloak client credentials first.
 
-. Retrieve the client credentials from Keycloak as above. 
+. Retrieve the client credentials from Keycloak as above.
 . Create a `creds.json` file and enter your retrieved credentials in this format:
 +
 ----
@@ -128,18 +128,15 @@ An alternative method for retrieving and using a Keycloak token from the bastion
 +
 ----
 pulsar@pulsar-broker-79b87f786d-tjvm7:/pulsar$ bin/pulsar-admin \
---auth-plugin "org.apache.pulsar.client.impl.auth.oauth2.AuthenticationOAuth2" 
---auth-params '{"privateKey":"file:///pulsar/creds.json","issuerUrl":"http://test-keycloak:8081/auth/realms/pulsar","audience":"I dont matter"}' 
---tenants list 
+--auth-plugin "org.apache.pulsar.client.impl.auth.oauth2.AuthenticationOAuth2"
+--auth-params '{"privateKey":"file:///pulsar/creds.json","issuerUrl":"http://test-keycloak:8081/auth/realms/pulsar","audience":"I dont matter"}'
+--tenants list
 public
 pulsar
 ----
 
 You're now using Keycloak tokens with `pulsar-admin` CLI.
 
-== What's next?
+== Next steps
 
 To connect with the Pulsar Admin console and start sending and consuming messages, see xref:components:admin-console-tutorial.adoc[Admin Console].
-
-
-

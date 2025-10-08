@@ -37,7 +37,6 @@ $ ./pulsar-heartbeat-{heartbeat-version}-linux-amd64
 2022/01/11 15:16:57  info config file /Users/username/go/src/github.com/datastax/pulsar-heartbeat/config/runtime.yml
 ----
 
-== Next
+== Next steps
 
-Learn more about monitoring your cluster with Heartbeat xref:pulsar-monitor.adoc[here].
-
+Learn more about monitoring your cluster with Heartbeat, see xref:pulsar-monitor.adoc[].

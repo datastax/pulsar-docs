@@ -35,21 +35,21 @@ The JDBC-PostgreSQL sink connector reads messages from Apache Pulsar topics and 
 xref:streaming-learning:pulsar-io:connectors/sinks/jdbc-postgres.adoc[JDBC PostgreSQL sink documentation]
 
 [#jdbc-sqlite-sink]
-=== *JDBC-SQLite* 
+=== JDBC-SQLite
 
 The JDBC-SQLite sink connector reads messages from Apache Pulsar topics and writes them to JDBC-SQLite systems.
 
 xref:streaming-learning:pulsar-io:connectors/sinks/jdbc-sqllite.adoc[JDBC SQLite sink documentation]
 
 [#kafka-sink]
-=== *Kafka* 
+=== Kafka
 
 The Kafka sink connector reads messages from Apache Pulsar topics and writes them to Kafka systems.
 
 xref:streaming-learning:pulsar-io:connectors/sinks/kafka.adoc[Kafka sink documentation]
 
 [#kinesis-sink]
-=== Kinesis 
+=== Kinesis
 
 The Kinesis sink connector reads messages from Apache Pulsar topics and writes them to Kinesis systems.
 
@@ -64,41 +64,41 @@ xref:streaming-learning:pulsar-io:connectors/sinks/snowflake.adoc[Snowflake sink
 // end::production[]
 
 // tag::sink-experimental[]
-Cloud Storage +
-Kinetica +
-Aerospike +
-Azure DocumentDB +
-Azure Data Explorer (Kusto) +
-Batch Data Generator +
-Big Query +
-CoAP +
-Couchbase +
-DataDog +
-Diffusion +
-Flume +
-Apache Geode +
-Hazelcast +
-Apache HBase +
-HDFS 2 +
-HDFS 3 +
-Humio +
-InfluxDB +
-JMS +
-Apache Kudu +
-MarkLogic +
-MongoDB +
-MQTT +
-Neo4J +
-New Relic +
-OrientDB +
-Apache Phoenix +
-PLC4X +
-RabbitMQ +
-Redis +
-SAP HANA +
-SingleStore +
-Apache Solr +
-Splunk +
-XTDB +
-Zeebe +
+* Cloud Storage
+* Kinetica
+* Aerospike
+* Azure DocumentDB
+* Azure Data Explorer (Kusto)
+* Batch Data Generator
+* Big Query
+* CoAP
+* Couchbase
+* DataDog
+* Diffusion
+* Flume
+* Apache Geode
+* Hazelcast
+* Apache HBase
+* HDFS 2
+* HDFS 3
+* Humio
+* InfluxDB
+* JMS
+* Apache Kudu
+* MarkLogic
+* MongoDB
+* MQTT
+* Neo4J
+* New Relic
+* OrientDB
+* Apache Phoenix
+* PLC4X
+* RabbitMQ
+* Redis
+* SAP HANA
+* SingleStore
+* Apache Solr
+* Splunk
+* XTDB
+* Zeebe
 // end::sink-experimental[]

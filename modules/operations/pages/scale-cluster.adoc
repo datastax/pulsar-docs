@@ -1,17 +1,18 @@
 = Scaling your Luna Streaming cluster
 
-This page will show you how to scale Luna Streaming clusters up for more compute capacity, or down for less.
+You can scale Luna Streaming clusters up for more compute capacity and down for less capacity.
 
 include::partial$operator-scaling.adoc[]
 
-== Installing Pulsar cluster
+== Instal Pulsar cluster
 
-For our Pulsar cluster installation, use this https://github.com/datastax/pulsar-helm-chart[Helm chart]. 
+For our Pulsar cluster installation, use this https://github.com/datastax/pulsar-helm-chart[Helm chart].
 
-To start the cluster, use the values provided in this https://github.com/datastax/pulsar-helm-chart/blob/master/examples/dev-values.yaml[YAML file].
+To start the cluster, use the values provided in this https://github.com/datastax/pulsar-helm-chart/blob/master/examples/dev-values.yaml[YAML file]:
 
+[source,bash]
 ----
-$ diff ~/dev-values.yaml ~/dev-values_large.yaml 
+diff ~/dev-values.yaml ~/dev-values_large.yaml
 40c40,47
 <   replicaCount: 1
 ---
@@ -35,99 +36,103 @@ $ diff ~/dev-values.yaml ~/dev-values_large.yaml
 
 . Create the cluster by installing Pulsar with `dev-values_large.yaml`:
 +
+[source,bash]
 ----
-$ helm install pulsar -f ~/dev-values_large.yaml --wait datastax-pulsar/pulsar
+helm install pulsar -f ~/dev-values_large.yaml --wait datastax-pulsar/pulsar
 ----
 
-== Generating data
+== Generate data
 
 . Generate data in your namespaces:
 +
+[source,bash]
 ----
-$ bin/pulsar-admin namespaces set-retention public/default -t -1 -s 100M
-$ bin/pulsar-client produce test1 -n 500 -m "sdasdsdsadsadsad"
-$ bin/pulsar-client produce test2 -n 500 -m "sdasdsdsadsadsad"
-$ bin/pulsar-client produce test3 -n 500 -m "sdasdsdsadsadsad"
+bin/pulsar-admin namespaces set-retention public/default -t -1 -s 100M
+bin/pulsar-client produce test1 -n 500 -m "sdasdsdsadsadsad"
+bin/pulsar-client produce test2 -n 500 -m "sdasdsdsadsadsad"
+bin/pulsar-client produce test3 -n 500 -m "sdasdsdsadsadsad"
 ----
 
 . Ensure all bookies have some ledgers assigned to them:
 +
+[source,bash]
 ----
-$ ./bin/bookkeeper shell listledgers -meta | grep pulsar-bookkeeper-3
+./bin/bookkeeper shell listledgers -meta | grep pulsar-bookkeeper-3
 ----
 
-== Downscaling bookies
+== Scale down bookies
 
-. To downscale a bookie, change the `replicaCount` value in the YAML file to a number less than the current `replicaCount`:
+. To scale down a bookie, change the `replicaCount` value in the YAML file to a number less than the current `replicaCount`:
 +
+[source,yaml]
 ----
  bookkeeper:
     replicaCount: 3
 ----
-+
+
 . Upgrade the Helm chart to use the new value:
 +
+[source,bash]
 ----
-$ helm upgrade pulsar -f ~/dev-values_large.yaml --wait datastax-pulsar/pulsar
+helm upgrade pulsar -f ~/dev-values_large.yaml --wait datastax-pulsar/pulsar
 ----
 +
 Now, `bookkeeper-3` will fail to start with `org.apache.bookkeeper.bookie.BookieException$InvalidCookieException`.
+
 . Destroy the bookie's PVC:
++
+[source,bash]
 ----
-$ kubectl delete pvc pulsar-bookkeeper-ledgers-pulsar-bookkeeper-3
+kubectl delete pvc pulsar-bookkeeper-ledgers-pulsar-bookkeeper-3
 ----
 
-== Scaling up your cluster
+== Scale up your cluster
 
-To scale up your cluster, change the `replicaCount` value in the YAML file to a number greater than the current `replicaCount`:
-
-[source,shell]
+. To scale up your cluster, change the `replicaCount` value in the YAML file to a number greater than the current `replicaCount`:
++
+[source,yaml]
 ----
  bookkeeper:
     replicaCount: 5
 ----
+
 . Upgrade the Helm chart to use the new value in the Pulsar cluster:
 +
+[source,bash]
 ----
-$ helm upgrade pulsar -f ~/dev-values_large.yaml --wait datastax-pulsar/pulsar
+helm upgrade pulsar -f ~/dev-values_large.yaml --wait datastax-pulsar/pulsar
 ----
 
-== Recovering from a lost Persistent Volume Claim (PVC)
+== Recover from a lost Persistent Volume Claim (PVC)
 
 . If a PVC goes down, track under-replicated ledgers from any live bookie:
 +
-[source,shell]
+[source,bash]
 ----
-$ ./bin/bookkeeper shell listunderreplicated
+./bin/bookkeeper shell listunderreplicated
 ----
 
 . Double-check the bookie id of the failing bookie:
 +
-[source,shell]
+[source,bash]
 ----
-$ ./bin/bookkeeper shell listbookies -a
+./bin/bookkeeper shell listbookies -a
 ----
 +
-This command will return `Cannot resolve pulsar-bookkeeper-3.pulsar-bookkeeper.default.svc.cluster.local:3181, bookie is unknown`.
+This command returns `Cannot resolve pulsar-bookkeeper-3.pulsar-bookkeeper.default.svc.cluster.local:3181, bookie is unknown`.
+
 . Decommission the bookie:
 +
-[source,shell]
+[source,bash]
 ----
-$ ./bin/bookkeeper shell decommissionbookie -bookieid pulsar-bookkeeper-3.pulsar-bookkeeper.default.svc.cluster.local:3181
+./bin/bookkeeper shell decommissionbookie -bookieid pulsar-bookkeeper-3.pulsar-bookkeeper.default.svc.cluster.local:3181
 ----
 +
-[NOTE]
-====
-The decommissioning will take some time because it triggers the audit and auto-recovery and blocks until auto-recovery completes. 
-====
+This command deletes the cookie of the decommissioned bookie specified by `-bookieid`.
 +
-This command will delete the cookie of the decommissioned bookie: `pulsar-bookkeeper-3.pulsar-bookkeeper.default.svc.cluster.local:3181`.
+The decommissioning takes some time because it triggers the audit and auto-recovery, which blocks until auto-recovery completes.
 
 . Restart the failing bookie with *Ctrl-K* in Kubernetes, or wait for Kubernetes to restart the bookie again.
 +
-The bookie will restart and rejoin the cluster. As expected with deleted PVC, data is lost.
-
-
-
-
-
+The bookie will restart and rejoin the cluster.
+However, as expected with deleted PVC, data is lost.

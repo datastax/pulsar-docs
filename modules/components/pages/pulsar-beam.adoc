@@ -5,13 +5,11 @@
 
 The https://github.com/kafkaesque-io/pulsar-beam[Pulsar Beam] project is an HTTP-based streaming and queueing system for use with Apache Pulsar.
 
-With Pulsar Beam, you can send messages over HTTP, push messages to a webhook or cloud function, chain webhooks and functions together, or stream messages via https://www.html5rocks.com/en/tutorials/eventsource/basics/[server-sent events].
+With Pulsar Beam, you can send messages over HTTP, push messages to a webhook or cloud function, chain webhooks and functions together, or stream messages through server-sent events (SSE).
 
-In this guide we will install a minimal DataStax Pulsar Helm chart that includes Pulsar Beam.
+In this guide, you'll install a minimal DataStax Pulsar Helm chart that includes Pulsar Beam.
 
 == Prerequisites
-
-You will need the following prerequisites in place to complete this guide:
 
 * https://helm.sh/docs/intro/install/[Helm 3 CLI] (this example uses version 3.8.0)
 * Enough access to a K8s cluster to create a namespace, deployments, and pods
@@ -118,6 +116,7 @@ The payload is base64 encoded. Simply decode the string to see the actual messag
 ====
 
 == Clean up
+
 include::partial$cleanup-terminal-and-helm.adoc[]
 
 == Next steps

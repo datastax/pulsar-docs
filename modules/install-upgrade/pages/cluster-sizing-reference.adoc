@@ -16,6 +16,6 @@ The following table lists the minimum hardware requirements for a Pulsar cluster
 
 include::partial$hardware-sizing.adoc[]
 
-== What's next
+== Next steps
 
 For more on cluster sizing, see xref:production-cluster-sizing.adoc[].
