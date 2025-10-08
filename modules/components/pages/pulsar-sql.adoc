@@ -115,7 +115,6 @@ persistent://public/default/mytopic
 
 == Interact with the topic data
 
-And now, the moment of truth...
 
 . Open a Presto shell session using the Presto CLI.
 The server's port number should match the forwarded port number from the previous step.
