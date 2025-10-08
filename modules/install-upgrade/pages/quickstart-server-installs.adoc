@@ -18,7 +18,7 @@ The resulting Luna Streaming deployment includes:
 
 * JDK 11
 +
-Pulsar can run with JDK8, but DataStax Luna Streaming is designed for Java 11. Java 17 LTS will be supported in the future.
+Pulsar can run with JDK8, but DataStax Luna Streaming is designed for Java 11.
 
 * File System
 +
