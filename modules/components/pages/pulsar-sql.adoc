@@ -210,7 +210,6 @@ The Pulsar Presto plugin assumes the catalog name which leaves schema and table,
 
 == Connect with JDBC
 
-Bonus time!
 This example queries messages from a Java app using the Presto JDBC client.
 You'll need the Java runtime to run the example.
 
