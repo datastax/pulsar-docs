@@ -1,1 +1,25 @@
+.Get started
+* xref:ROOT:index.adoc[]
 * xref:ROOT:faqs.adoc[]
+
+.Install and upgrade
+* xref:quickstart-helm-installs.adoc[]
+* xref:quickstart-server-installs.adoc[]
+
+.Components and extensions
+* xref:admin-console-tutorial.adoc[]
+* xref:admin-console-vm.adoc[]
+* xref:pulsar-monitor.adoc[]
+* xref:heartbeat-vm.adoc[]
+* xref:pulsar-beam.adoc[]
+* xref:pulsar-sql.adoc[]
+* xref:starlight-for-kafka.adoc[]
+* xref:starlight-for-rabbitmq.adoc[]
+
+.Operations
+* xref:auth.adoc[]
+* xref:functions.adoc[]
+* xref:io-connectors.adoc[]
+* xref:io-elastic-sink.adoc[]
+* xref:scale-cluster.adoc[]
+* xref:troubleshooting.adoc[]
