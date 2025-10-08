@@ -1,6 +1,6 @@
-In a separate terminal window, port forward the Starlight for Kafka serivce.
+In a separate terminal window, port forward the Starlight for Kafka service:
 
 [source,shell]
 ----
-include::{luna-streaming-examples-repo}/starlight-for-kafka/forward-s4k-service.sh[]
+kubectl port-forward -n datastax-pulsar service/pulsar-proxy 9092:9092
 ----

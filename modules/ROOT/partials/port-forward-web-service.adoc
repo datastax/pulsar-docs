@@ -2,5 +2,5 @@ In a new terminal, port forward Pulsar's admin service:
 
 [source,shell]
 ----
-include::https://raw.githubusercontent.com/datastaxdevs/luna-streaming-examples/main/forward-broker-web-service.sh[]
+kubectl port-forward -n datastax-pulsar service/pulsar-broker 8080:8080
 ----

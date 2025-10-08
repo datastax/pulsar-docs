@@ -1,6 +1,6 @@
-In a separate terminal window, port forward the Starlight for RabbitMQ service.
+In a separate terminal window, port forward the Starlight for RabbitMQ service:
 
 [source,shell]
 ----
-include::{luna-streaming-examples-repo}/starlight-for-rabbitmq/forward-s4r-service.sh[]
+kubectl port-forward -n datastax-pulsar service/pulsar-proxy 5672:5672
 ----

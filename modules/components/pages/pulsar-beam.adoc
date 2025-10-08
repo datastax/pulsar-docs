@@ -78,7 +78,7 @@ touch beam.py
 +
 [source,python]
 ----
-include::{luna-streaming-examples-repo}/beam/produce-consume.py[]
+https://github.com/datastaxdevs/luna-streaming-examples/blob/main/beam/produce-consume.py
 ----
 
 === Run example Python code
