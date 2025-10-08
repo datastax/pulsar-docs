@@ -3,15 +3,15 @@
 
 This document covers installation of Luna Streaming on the Amazon Elastic Kubernetes Environment (EKS).
 
-For an example set of production cluster values, see the DataStax production-ready https://github.com/datastax/pulsar-helm-chart[Helm chart]. +
+For an example set of production cluster values, see the DataStax production-ready https://github.com/datastax/pulsar-helm-chart[Helm chart].
 
-DataStax recommends these hardware resources for running Luna Streaming in a Kubernetes environment: +
+DataStax recommends these hardware resources for running Luna Streaming in a Kubernetes environment:
 
 include::ROOT:partial$helm-chart-recommendations.adoc[]
 
-For the local machine running the Helm chart, you will need: +
+For the local machine running the Helm chart, you will need:
 
-* https://helm.sh/docs/[Helm] version 3 +
+* https://helm.sh/docs/[Helm] version 3
 * An AWS account with privileges to install and configure Kubernetes resources.
 
 == Helm chart `values.yaml`
@@ -103,7 +103,7 @@ helm install pulsar datastax-pulsar/pulsar --namespace pulsar --values storage_v
 
 . Execute `kubectl get pods -A` to view your running pods.
 
-== What's next?
+== Next steps
 
 Once your pods are up and running, continue to xref:install-upgrade:quickstart-helm-installs.adoc[Accessing Pulsar Cluster in Cloud] to access and manage your cluster.
 

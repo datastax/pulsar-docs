@@ -50,7 +50,7 @@ Scroll down to the Consume tab. In this simple example, which verifies that the 
 
 image::test-message.png[Send a message using a test client]
 
-In doing so, you published a message to your server, and in the Test Client you're listening to your own topic. +
+In doing so, you published a message to your server, and in the Test Client you're listening to your own topic.
 
 Your client is working with the Pulsar server.
 
@@ -59,7 +59,7 @@ Your client is working with the Pulsar server.
 
 By default, topics are automatically created when you first publish or subscribe. To manually create a topic or to create a partitioned topic, go to *Topics*.
 
-The first part of a full topic name is your tenant name, followed by the namespace, and then the topic name, as below: +
+The first part of a full topic name is your tenant name, followed by the namespace, and then the topic name, as below:
 
 `public/namespace/my-topic`
 
@@ -72,8 +72,8 @@ To see detailed information about your topics, go to *Topics*.
 [#code-samples]
 == Code samples
 
-On the Pulsar Admin Console's *Code Samples* page, there are examples for Java, Python, Golang, Node.js, WebSocket, and HTTP clients. +
-Each example shows Producer, Consumer, and Reader code, plus language-specific examples of setting project properties and dependencies. +
+On the Pulsar Admin Console's *Code Samples* page, there are examples for Java, Python, Golang, Node.js, WebSocket, and HTTP clients.
+Each example shows Producer, Consumer, and Reader code, plus language-specific examples of setting project properties and dependencies.
 For example, selecting Java will show you how to connect your Java project to Pulsar by modifying your Maven's `pom.xml` file.
 
 [#connect-to-pulsar]
@@ -83,11 +83,11 @@ This section describes how to connect Pulsar components to the Admin console.
 
 === Creating and showing credentials
 
-When connecting clients, you'll need to provide your connect token to identify your account. In the Pulsar APIs, you specify the token when creating the client object. The token is your password to your account, so keep it safe. +
+When connecting clients, you'll need to provide your connect token to identify your account. In the Pulsar APIs, you specify the token when creating the client object. The token is your password to your account, so keep it safe.
 
-The code samples automatically add your client token as part of the source code for convenience. However, a more secure practice would be to read the token from an environment variable or a file. +
+The code samples automatically add your client token as part of the source code for convenience. However, a more secure practice would be to read the token from an environment variable or a file.
 
-In the Admin console's *Credentials* page, select **Create New token** and follow the instructions. +
+In the Admin console's *Credentials* page, select **Create New token** and follow the instructions.
 
 If you previously created a token, use the Credentials page to get its value.
 
@@ -155,6 +155,6 @@ You can also follow along with this video from our *Five Minutes About Pulsar* s
 
 video::1IwblLfPiPQ[youtube, list=PL2g2h-wyI4SqeKH16czlcQ5x4Q_z-X7_m]
 
-== What's next
+== Next steps
 
 For more on building and running a standalone Pulsar Admin console, see the xref:admin-console-vm.adoc[Admin Console on Server/VM] or the Pulsar Admin console repo https://github.com/datastax/pulsar-admin-console#dev[readme].
