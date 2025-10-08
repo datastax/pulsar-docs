@@ -1,1 +1,27 @@
+.Get started
+* xref:ROOT:index.adoc[]
 * xref:ROOT:faqs.adoc[]
+
+.Install and upgrade
+* xref:install-upgrade:quickstart-helm-installs.adoc[]
+* xref:install-upgrade:quickstart-server-installs.adoc[]
+* xref:install-upgrade:supported-versions.adoc[]
+* xref:install-upgrade:production-cluster-sizing.adoc[]
+* xref:install-upgrade:cluster-sizing-reference.adoc[]
+
+.Components and extensions
+* xref:components:admin-console-tutorial.adoc[]
+* xref:components:admin-console-vm.adoc[]
+* xref:components:pulsar-monitor.adoc[]
+* xref:components:heartbeat-vm.adoc[]
+* xref:components:pulsar-beam.adoc[]
+* xref:components:pulsar-sql.adoc[]
+* xref:components:starlight-for-kafka.adoc[]
+* xref:components:starlight-for-rabbitmq.adoc[]
+
+.Operations
+* xref:operations:auth.adoc[]
+* xref:operations:functions.adoc[]
+* xref:operations:io-connectors.adoc[]
+* xref:operations:scale-cluster.adoc[]
+* xref:operations:troubleshooting.adoc[]
