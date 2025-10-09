@@ -57,40 +57,40 @@ xref:streaming-learning:pulsar-io:connectors/sources/kinesis.adoc[Kinesis source
 
 // end::production[]
 // tag::source-experimental[]
-Cassandra Source +
-Kinetica +
-Azure DocumentDB +
-Batch Data Generator +
-Big Query +
-canal +
-CoAP +
-Couchbase +
-datadog +
-diffusion +
-DynamoDB +
-file +
-flume +
-Apache Geode +
-Hazelcast +
-Humio +
-JMS +
-Apache Kudu +
-MarkLogic +
-MongoDB +
-MQTT +
-Neo4J +
-Netty +
-New Relic +
-NSQ +
-OrientDB +
-Apache Phoenix +
-PLC4X +
-RabbitMQ +
-Redis +
-SAP HANA +
-SingleStore +
-Splunk +
-Twitter +
-XTDB +
-Zeebe +
+* Cassandra Source
+* Kinetica
+* Azure DocumentDB
+* Batch Data Generator
+* Big Query
+* canal
+* CoAP
+* Couchbase
+* datadog
+* diffusion
+* DynamoDB
+* file
+* flume
+* Apache Geode
+* Hazelcast
+* Humio
+* JMS
+* Apache Kudu
+* MarkLogic
+* MongoDB
+* MQTT
+* Neo4J
+* Netty
+* New Relic
+* NSQ
+* OrientDB
+* Apache Phoenix
+* PLC4X
+* RabbitMQ
+* Redis
+* SAP HANA
+* SingleStore
+* Splunk
+* Twitter
+* XTDB
+* Zeebe
 // end::source-experimental[]

@@ -7,62 +7,55 @@
 
 |DEVELOPMENT
 |Zookeeper, Broker, and Bookkeeper
-a|* CPU: 8 vCPU +
+a|* CPU: 8 vCPU
 * Memory: 16 GB
 * Data Disk: 64 GB SSD
-a|Data disks are shared by: +
-* Zookeeper data +
-* Bookkeeper journal +
-* Bookkeeper ledger
+a|Data disks are shared by Zookeeper data, Bookkeeper journal, and Bookkeeper ledger
 
 .4+|TEST
 |Zookeeper
-a|* CPU: 2 vCPU +
+a|* CPU: 2 vCPU
 * Memory: 4 GB
 * Data Disk: 32 GB SSD
 |
 |Broker and Function Worker
-a|* CPU: 8 vCPU +
+a|* CPU: 8 vCPU
 * Memory: 16 GB
 |No data disk
 |Bookie
-a|* CPU: 4 vCPU +
-* Memory: 16 GB +
-* Data Disk +
-** Journal: 32 GB SSD +
-** Ledger: 256 GB SSD
+a|* CPU: 4 vCPU
+* Memory: 16 GB
+* Data Disk Journal: 32 GB SSD
+* Data Disk Ledger: 256 GB SSD
 |
 |Pulsar Proxy, Function Worker
-a|* CPU: 4 vCPU +
+a|* CPU: 4 vCPU
 * Memory: 8 GB
 |
 
 .6+|PRODUCTION
 |Zookeeper
-a|* CPU: 4 vCPU +
-* Memory: 4 GB +
+a|* CPU: 4 vCPU
+* Memory: 4 GB
 * Data Disk: 64 GB SSD
 |
 |Broker
-a|* CPU: 8 vCPU +
-* Memory: 16 GB +
+a|* CPU: 8 vCPU
+* Memory: 16 GB
 * No data disk
 |
 |Bookie
-a|* CPU: 8 vCPU +
-* Memory: 32 GB +
-* Data Disk +
-** Journal: 256 GB SSD +
-** Ledger: 1024 GB SSD
+a|* CPU: 8 vCPU
+* Memory: 32 GB
+* Data Disk Journal: 256 GB SSD
+* Data Disk Ledger: 1024 GB SSD
 |Ledger disk capacity can be beyond 1TB.
 |Pulsar Proxy, Autorecovery
-a|* CPU: 4 vCPU +
+a|* CPU: 4 vCPU
 * Memory: 16 GB
 |
 |Dedicated Function Worker
-a|* CPU: 4 vCPU +
+a|* CPU: 4 vCPU
 * Memory: 8 GB
 |
-
 |===
-
