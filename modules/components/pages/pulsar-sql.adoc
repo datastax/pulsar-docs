@@ -34,21 +34,27 @@ include::ROOT:partial$install-helm.adoc[]
 
 == Forward service port
 
-We need to interact with services in the K8s cluster, so let’s map a few ports to those services.
-There’s no need to forward Pulsar’s messaging service ports.
+You'll need to interact with services in the K8s cluster.
+Map a few ports to those services.
+There's no need to forward Pulsar's messaging service ports.
 
-include::ROOT:partial$port-forward-sql.adoc[]
+In a new terminal window, port forward the Presto SQL service:
+
+[source,shell]
+----
+kubectl port-forward -n datastax-pulsar service/pulsar-sql 8090:8090
+----
 
 include::ROOT:partial$port-forward-web-service.adoc[]
 
 == Confirm Presto is available
 
-. In a browser, navigate to \http://localhost:8090. +
-You will be greeted by Presto’s login.
+. In a browser, navigate to \http://localhost:8090.
+You will be greeted by Presto's login.
 +
 image::presto-sql-login.png[Presto SQL login]
 
-. There is no authentication enabled, so input whatever user name you prefer and select “Log In”. +
+. There is no authentication enabled, so input whatever user name you prefer and select **Log In**.
 You will be greeted by a blank dashboard.
 This confirms Presto is up and running.
 +
@@ -57,9 +63,9 @@ image::presto-sql-dashboard.png[Presto SQL dashboard]
 [#create-topic]
 == Fill a topic with the data-generator source
 
-In this example, we will use the “data-generator” source connector to create a topic and add sample data simultaneously.
-The minimalist Helm chart values use the https://github.com/datastax/release-notes/blob/master/Luna_Streaming_2.10_Release_Notes.md#lunastreaming-all-distribution[datastax/lunastreaming-all] image, which includes all supported Pulsar connectors. +
-This example uses the “public” tenant and “default” namespace.
+In this example, we will use the "data-generator" source connector to create a topic and add sample data simultaneously.
+The minimalist Helm chart values use the https://github.com/datastax/release-notes/blob/master/Luna_Streaming_2.10_Release_Notes.md#lunastreaming-all-distribution[datastax/lunastreaming-all] image, which includes all supported Pulsar connectors.
+This example uses the "public" tenant and "default" namespace.
 These are created by default in Pulsar, but you can use whatever tenant and namespace you are comfortable with.
 
 . Download the minimalist Pulsar client.
@@ -109,25 +115,26 @@ persistent://public/default/mytopic
 
 == Interact with the topic data
 
-And now, the moment of truth...
 
 . Open a Presto shell session using the Presto CLI.
-The server’s port number should match the forwarded port number from the previous step.
-The user can match the name you used to login earlier in this guide, but doesn’t have to.
+The server's port number should match the forwarded port number from the previous step.
+The user can match the name you used to login earlier in this guide, but doesn't have to.
 +
 [source,shell]
 ----
 ./presto --user test --server localhost:8090
 ----
 
-. Once inside the shell, let’s have a look around. List the catalogs Presto has loaded.
+. Once inside the shell, try listing the catalogs Presto has loaded:
 +
 [source,shell]
 ----
 presto> show catalogs;
 ----
-You should get an output of:
 +
+Notice the similarities between your Pulsar tenant/namespaces and Presto's output:
++
+.Result
 [source,shell]
 ----
  Catalog
@@ -138,14 +145,15 @@ You should get an output of:
 
 Query 20230103_163242_00000_zvk84, FINISHED, 2 nodes
 ----
-Notice the similarities between your Pulsar tenant/namespaces and Presto’s output.
-. List the tables within the `pulsar.”public/default”` catalog/schema. +
+
+. List the tables within the `pulsar."public/default"` catalog/schema:
 +
 [source,shell]
 ----
 presto> show tables in pulsar."public/default";
 ----
-You should get an output of:
++
+Notice the topic that you created from the data-generator source connector <<create-topic,earlier in this guide>>:
 +
 [source,shell]
 ----
@@ -156,19 +164,18 @@ You should get an output of:
 
 Query 20230103_163355_00001_zvk84, FINISHED, 2 nodes
 ----
-Hey presto{emoji-tada}!
-There’s our topic that was created from the data-generator source connector <<create-topic,earlier in this guide>>!
 
-. Query the table to see the first 10 rows of data.
+. Query the table to see the first 10 rows of data:
 +
 [source,sql]
 ----
 presto> select * from pulsar."public/default".mytopic limit 10;
 ----
++
 The output should be the 10 messages that were added to the Pulsar topic previously.
-
-.. If you prefer, you can query your table with the Presto client REST API.
-The response will include a “nextUri” value.
++
+If you prefer, you can query your table with the Presto client REST API.
+The response will include a `nextUri` value.
 Follow that link to see the results.
 +
 [source,http]
@@ -180,21 +187,22 @@ X-Presto-User: test
 select * from pulsar."public/default".mytopic limit 10
 ----
 
-. Exit the presto shell.
+. Exit the presto shell:
 +
 [source,shell]
 ----
 presto> exit
 ----
 
-You have successfully interacted with a Pulsar Cluster via SQL. Awesome!{emoji-rocket}
+You have successfully interacted with a Pulsar Cluster via SQL.
 
 Want to put your new learnings to the test? Try using the Presto plugin in https://redash.io/data-sources/presto[Redash] or https://superset.apache.org/docs/databases/presto/[Superset] to create useful dashboards.
 
 [#schema-quotes]
-=== Sidebar: Why are there quotes around the schema name?
-You might wonder why there are quotes (“”) around the schema name.
-This is a result of mapping Presto primitives to Pulsar’s primitives.
+=== Why are there quotes around the schema name?
+
+You might wonder why there are quotes ("") around the schema name.
+This is a result of mapping Presto primitives to Pulsar's primitives.
 
 Presto has catalogs, schemas, and tables.
 Pulsar has tenants, namespaces, and topics.
@@ -202,23 +210,50 @@ The Pulsar Presto plugin assumes the catalog name which leaves schema and table,
 
 == Connect with JDBC
 
-Bonus time!
 This example queries messages from a Java app using the Presto JDBC client.
-You’ll need the Java runtime to run the example.
+You'll need the Java runtime to run the example.
 
-. Create a file named “PrestoExample.java” with the following contents.
+. Create a file named "PrestoExample.java" with the following contents.
 Remember to update the JDBC connection with the correct values for your environment.
 +
 [source,java]
 ----
-include::https://raw.githubusercontent.com/datastaxdevs/luna-streaming-examples/main/pulsar-sql/PrestoExample.java[]
+import java.sql.*;
+
+class PrestoExample {
+  public static void main(String[] args) {
+    try {
+      Connection conn = DriverManager.getConnection("jdbc:presto://localhost:8090/pulsar?user=test");
+      System.out.println("Connection established......");
+
+      Statement stmt = conn.createStatement();
+
+      try {
+        ResultSet rs = stmt.executeQuery("select * from pulsar.\"public/default\".mytopic limit 10");
+        while(rs.next()) {
+            String str = rs.getString(1);
+            System.out.println(String.format("%s", str));
+        }
+      }
+      finally {
+        stmt.close();
+        conn.close();
+      }
+    }
+    catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+}
 ----
+
 . Build the Java class.
 +
 [source,shell]
 ----
 javac PrestoExample.java
 ----
+
 . Download the https://repo1.maven.org/maven2/io/prestosql/presto-jdbc/334/presto-jdbc-334.jar[version 334 Presto JDBC driver] to the same folder as the Java class.
 
 . Run the client and observe the output.
@@ -228,8 +263,8 @@ javac PrestoExample.java
 ----
 java -cp .:presto-jdbc-334.jar PrestoExample
 ----
-
-You should get an output of:
++
+.Result
 [source,shell]
 ----
 Connection established......
@@ -246,9 +281,10 @@ Connection established......
 ----
 
 == Clean up
+
 include::ROOT:partial$cleanup-terminal-and-helm.adoc[]
 
-== What's next?
+== Next steps
 
 * xref:pulsar-beam.adoc[]
 * xref:admin-console-tutorial.adoc[]

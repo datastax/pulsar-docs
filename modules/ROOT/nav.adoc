@@ -1,1 +1,30 @@
+.Get started
+* xref:ROOT:index.adoc[]
 * xref:ROOT:faqs.adoc[]
+
+.Install and upgrade
+* xref:install-upgrade:quickstart-helm-installs.adoc[]
+* xref:install-upgrade:quickstart-server-installs.adoc[]
+* xref:ROOT:install-aks.adoc[]
+* xref:ROOT:install-eks.adoc[]
+* xref:ROOT:install-gke.adoc[]
+
+.Components and extensions
+* xref:components:admin-console-tutorial.adoc[]
+* xref:components:admin-console-vm.adoc[]
+* xref:components:pulsar-monitor.adoc[]
+* xref:components:heartbeat-vm.adoc[]
+* xref:components:pulsar-beam.adoc[]
+* xref:components:pulsar-sql.adoc[]
+* Starlight
+** xref:components:starlight.adoc[]
+** xref:components:starlight-for-rabbitmq.adoc[]
+** xref:components:starlight-for-kafka.adoc[]
+
+.Operations
+* xref:operations:auth.adoc[]
+* xref:operations:functions.adoc[]
+* xref:operations:io-connectors.adoc[]
+* xref:operations:io-elastic-sink.adoc[]
+* xref:operations:scale-cluster.adoc[]
+* xref:operations:troubleshooting.adoc[]

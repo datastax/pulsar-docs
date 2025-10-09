@@ -4,15 +4,15 @@
 
 This document will cover installation of Luna Streaming on the Google Kubernetes Environment (GKE).
 
-For an example set of production cluster values, see the DataStax production-ready https://github.com/datastax/pulsar-helm-chart[Helm chart]. +
+For an example set of production cluster values, see the DataStax production-ready https://github.com/datastax/pulsar-helm-chart[Helm chart].
 
-DataStax recommends these hardware resources for running Luna Streaming in a Kubernetes environment: +
+DataStax recommends these hardware resources for running Luna Streaming in a Kubernetes environment:
 
 include::ROOT:partial$helm-chart-recommendations.adoc[]
 
-For the local machine running the Helm chart, you will need: +
+For the local machine running the Helm chart, you will need:
 
-* https://helm.sh/docs/[Helm] version 3 +
+* https://helm.sh/docs/[Helm] version 3
 * A Google account with privileges to install and configure Kubernetes resources.
 
 == Helm chart `values.yaml`
@@ -104,7 +104,7 @@ kubectl config set-context $(kubectl config current-context) --namespace=pulsar
 
 . Execute `kubectl get pods -A` to view your running pods.
 
-== What's next?
+== Next steps
 Once your pods are up and running, continue to xref:install-upgrade:quickstart-helm-installs.adoc#manage-pulsar-cluster[Accessing Pulsar Cluster in Cloud] to access and manage your cluster.
 
 * To learn more about using the Pulsar Admin Console, see xref:components:admin-console-tutorial.adoc[Admin Console Tutorial].

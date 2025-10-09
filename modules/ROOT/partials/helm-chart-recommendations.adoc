@@ -1,5 +1,5 @@
 * Helm version 3
-* A Kubernetes cluster 
+* A Kubernetes cluster
 * Two node pools
 ** One `function-worker` node pool for deploying sink and source connectors, and the other node pool for everything else
 * Must use SSD disks

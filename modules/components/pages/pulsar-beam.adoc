@@ -5,13 +5,11 @@
 
 The https://github.com/kafkaesque-io/pulsar-beam[Pulsar Beam] project is an HTTP-based streaming and queueing system for use with Apache Pulsar.
 
-With Pulsar Beam, you can send messages over HTTP, push messages to a webhook or cloud function, chain webhooks and functions together, or stream messages via https://www.html5rocks.com/en/tutorials/eventsource/basics/[server-sent events].
+With Pulsar Beam, you can send messages over HTTP, push messages to a webhook or cloud function, chain webhooks and functions together, or stream messages through server-sent events (SSE).
 
-In this guide we will install a minimal DataStax Pulsar Helm chart that includes Pulsar Beam.
+In this guide, you'll install a minimal DataStax Pulsar Helm chart that includes Pulsar Beam.
 
 == Prerequisites
-
-You will need the following prerequisites in place to complete this guide:
 
 * https://helm.sh/docs/intro/install/[Helm 3 CLI] (this example uses version 3.8.0)
 * Enough access to a K8s cluster to create a namespace, deployments, and pods
@@ -23,7 +21,21 @@ include::ROOT:partial$install-helm.adoc[]
 
 === Forward service port
 
-include::ROOT:partial$port-forward-beam.adoc[]
+In a separate terminal window, port forward the Beam endpoint service:
+
+[source,shell]
+----
+kubectl port-forward -n datastax-pulsar service/pulsar-proxy 8085:8085
+----
+
+The forwarding service will map the URL:PORT https://127.0.0.1:8085 to Pulsar Proxy running in the new cluster.
+Because Beam was enabled, the Proxy knows to forward on to the Beam service.
+
+[source,shell]
+----
+Forwarding from 127.0.0.1:8085 -> 8085
+Forwarding from [::1]:8085 -> 8085
+----
 
 === Start a message consumer
 
@@ -80,7 +92,24 @@ touch beam.py
 +
 [source,python]
 ----
-include::{luna-streaming-examples-repo}/beam/produce-consume.py[]
+import requests
+import json
+
+beamUrl = "http://127.0.0.1:8085";
+
+tenantName = "public";
+namespace = "default";
+topicName = "my-beam-topic";
+
+topic = "persistent://{0}/{1}/{2}".format(tenantName, namespace, topicName)
+
+# Produce a message
+response = requests.post(beamUrl + "/v2/firehose/persistent/{0}/{1}/{2}".format(tenantName, namespace, topicName), data="Hi there!")
+print("Published 1 message ({0})".format(response.status_code))
+
+# Consume a message
+response = requests.get(beamUrl + "/v2/poll/persistent/{0}/{1}/{2}?SubscriptionType=shared&SubscriptionInitialPosition=earliest&SubscriptionName=my-beam-subscription".format(tenantName, namespace, topicName))
+print("Consumed messages ({0}):\n".format(response.status_code) + json.dumps(response.json(),indent=2))
 ----
 
 === Run example Python code
