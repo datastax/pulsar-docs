@@ -1,10 +1,4 @@
-
-
 = Production cluster sizing
-:messageSize: 1
-:messageThroughput: 100000
-:ttlPolicy: 3
-:messageReplicationFactor: 3
 
 This document summarizes DataStax's recommendations for the sizing and optimization of an Apache Pulsar cluster on Linux in a production environment.
 Remember, a Pulsar *instance* is made of one or many clusters.
@@ -136,16 +130,16 @@ Gather the following workload characteristics to determine your cluster's size r
 |Value
 
 | Average message size
-| {messageSize} Kb
+| 1 Kb
 
 | Incoming message throughput
-| {messageThroughput} messages per second
+| 100000 messages per second
 
 | Message retention
 | Disabled
 
 | TTL Policy
-| {ttlPolicy} hours
+| 3 hours
 
 | Tiered storage
 | N/A
@@ -162,15 +156,15 @@ By default, Pulsar sets Bookkeeper https://pulsar.apache.org/docs/administration
 That means at least 2 bookies in the ensemble need to acknowledge receipt of message data before Pulsar will acknowledge receipt of the message.
 But (very important) we want the message replication factor to be an odd number, so we can tolerate 1 Bookie failure.
 
-. Multiply replication factor ({messageReplicationFactor}) by average message payload size ({messageSize}) by average message throughput ({messageThroughput}), then factor in TTL ({ttlPolicy}) and retention period (3600) (when applicable).
+. Multiply replication factor (3) by average message payload size (1) by average message throughput (100000), then factor in TTL (3) and retention period (3600) (when applicable).
 +
-[source,plain,subs="attributes+"]
+[source,plaintext]
 ----
 Total message size (raw) =
-{messageReplicationFactor} *           // replication factor
-{messageSize} Kb *        // average message payload size
-{messageThroughput} *      // average message throughput
-({ttlPolicy} * 60 * 60)   // TTL in seconds
+3 *             // replication factor
+1 Kb *          // average message payload size
+100000 *        // average message throughput
+(3 * 60 * 60)   // TTL in seconds
 = 3,240,000,000 Kb
 ≅ 3 Tb
 ----
