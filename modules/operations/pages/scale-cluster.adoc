@@ -4,7 +4,7 @@ You can scale Luna Streaming clusters up for more compute capacity and down for 
 
 include::operations:partial$operator-scaling.adoc[]
 
-== Instal Pulsar cluster
+== Install Pulsar cluster
 
 For our Pulsar cluster installation, use this https://github.com/datastax/pulsar-helm-chart[Helm chart].
 
