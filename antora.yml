@@ -5,9 +5,6 @@ start_page: 'index.adoc'
 
 nav:
 - modules/ROOT/nav.adoc
-- modules/install-upgrade/nav.adoc
-- modules/components/nav.adoc
-- modules/operations/nav.adoc
 
 asciidoc:
   attributes:
