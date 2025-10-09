@@ -1,6 +1,5 @@
 = Welcome to DataStax Luna Streaming
 :navtitle: Luna Streaming
-:page-tag: luna-streaming,dev,admin,pulsar
 
 DataStax Luna Streaming is a production-ready distribution of Apache Pulsar built to run seamlessly on any CNCF conformant version of Kubernetes. DataStax Luna Streaming provides all of the core capabilities included in the Apache Community version of Apache Pulsar, plus a number of additional tools and features to facilitate administration and operational tasks associated with running Apache Pulsar in production.
 
@@ -54,7 +53,7 @@ In addition to the distribution of https://pulsar.apache.org/en/versions/[Apache
 
 * Transparent batching of messages
 
-== What's next?
+== Next steps
 
 * If you have an existing Kubernetes environment, deploy Luna Streaming with a xref:install-upgrade:quickstart-helm-installs.adoc[Helm Installation].
 * If you have a bare metal or a cloud environment, see xref:install-upgrade:quickstart-server-installs.adoc[Server/VM Installation].

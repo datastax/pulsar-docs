@@ -1,11 +1,10 @@
 = Quick Start for Helm Chart installs
-:page-tag: luna-streaming,dev,admin,install,pulsar
 
 You have options for installing *DataStax Luna Streaming*:
 
-* Via the provided *DataStax Helm chart* for an existing Kubernetes environment locally or with a cloud provider, as covered in this topic. +
-* Via the *DataStax Luna Streaming tarball* for deployment to a single server/VM, or to multiple servers/VMs. See xref:install-upgrade:quickstart-server-installs.adoc[Quick Start for Server/VM installs]. +
-* Via the *DataStax Ansible scripts* provided at https://github.com/datastax/pulsar-ansible[https://github.com/datastax/pulsar-ansible].
+* With the provided *DataStax Helm chart* for an existing Kubernetes environment locally or with a cloud provider, as covered in this topic.
+* With the *DataStax Luna Streaming tarball* for deployment to a single server/VM, or to multiple servers/VMs. See xref:install-upgrade:quickstart-server-installs.adoc[Quick Start for Server/VM installs].
+* With the *DataStax Ansible scripts* provided at https://github.com/datastax/pulsar-ansible[https://github.com/datastax/pulsar-ansible].
 
 The Helm chart and options described below configure an Apache Pulsar cluster.
 It is designed for production use, but can also be used in local development environments with the proper settings.
@@ -28,20 +27,37 @@ The resulting configuration includes support for:
 
 == Prerequisites
 
-For an example set of production cluster values, see the DataStax production-ready https://github.com/datastax/pulsar-helm-chart[Helm chart]. +
+For an example set of production cluster values, see the DataStax production-ready https://github.com/datastax/pulsar-helm-chart[Helm chart].
 
-DataStax recommends these hardware resources for running Luna Streaming in a Kubernetes environment: +
+DataStax recommends these hardware resources for running Luna Streaming in a Kubernetes environment:
 
-include::ROOT:partial$helm-chart-recommendations.adoc[]
+* Helm version 3
 
-For the local machine running the Helm chart, you will need: +
+* A Kubernetes cluster
 
-* https://helm.sh/docs/[Helm] version 3 +
+* Two node pools: One `function-worker` node pool for deploying sink and source connectors, and the other node pool for everything else
+
+* Must use SSD disks
+
+* Depending on the cloud provider, the latest 'Storage Driver' should be used, along with the fastest disk type, such as GP3 in AWS
+
+* 5 Zookeeper replicas
+
+* 3 Bookies
+
+* 3 Brokers
+
+* 3 Proxies
+
+For the local machine running the Helm chart, you will need:
+
+* https://helm.sh/docs/[Helm] version 3
+
 * A Google, AWS, or Azure account with privileges to install and configure Kubernetes resources.
 
 === Storage Class Settings
 
-The `default_storage` parameter in `values.yaml` controls the default storage class for all persistent volumes created by the Helm chart. +
+The `default_storage` parameter in `values.yaml` controls the default storage class for all persistent volumes created by the Helm chart.
 
 [source,yaml]
 ----
@@ -75,7 +91,7 @@ GKE::
             replication-type: none
 ----
 --
-+
+
 EKS::
 +
 --
@@ -94,7 +110,7 @@ EKS::
             iopsPerGB: "10"
 ----
 --
-+
+
 AKS::
 +
 --
@@ -451,7 +467,8 @@ You can also specify the certificate information directly in the values:
 This is useful if you are using a self-signed certificate.
 
 For automated handling of publicly signed certificates, you can use a tool
-such as https://cert-mananager[cert-manager]. This https://github.com/datastax/pulsar-helm-chart/blob/master/aws-customer-docs.md[page on GitHub] describes how to set up cert-manager in AWS.
+such as https://cert-mananager[cert-manager].
+For more information, see https://github.com/datastax/pulsar-helm-chart/blob/master/aws-customer-docs.md[Using Cert-Manager for Pulsar Certificates in AWS].
 
 Once you have created the secrets that store the certificate info (or specified it in the values), you can enable TLS in the values:
 
@@ -464,6 +481,6 @@ Follow along with this video from our *Five Minutes About Pulsar* series to get 
 
 video::hEBP_IVQqQM[youtube, list=PL2g2h-wyI4SqeKH16czlcQ5x4Q_z-X7_m]
 
-== What's next?
+== Next steps
 
 To learn about installing Luna Streaming for Bare Metal/VM, see xref:install-upgrade:quickstart-server-installs.adoc[Quickstart for Bare Metal/VM Installs].

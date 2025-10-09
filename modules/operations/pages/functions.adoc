@@ -137,6 +137,6 @@ image::admin-console-trigger-function.png[Trigger Function]
 
 Enter your message in the *Message to Send* field, and select the output topic. In this case, the trigger sends the string `Hello world!` to your exclamation function with no output function. If the function has an output topic and the function returns data to the output topic, it will be displayed. 
 
-== Next
+== Next steps
 
 For more about developing functions for Luna Streaming and Pulsar, see https://pulsar.apache.org/docs/en/functions-develop/[here].

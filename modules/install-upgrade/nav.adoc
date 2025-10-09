@@ -1,3 +1,0 @@
-.Install & Upgrade
-* xref:quickstart-helm-installs.adoc[]
-* xref:quickstart-server-installs.adoc[]
