@@ -1,3 +1,107 @@
-= Supported Software
+= Supported software
 
-include::partial$supported-versions-tables.adoc[]
+Support covers only the following Software versions for Apache Pulsar:
+
+[cols="2*"]
+|===
+|Name |Versions
+
+|Apache Pulsar
+|2.10.x
+|===
+
+Support covers only the following Software versions for DataStax Luna Streaming Distribution:
+
+[cols="2*"]
+|===
+|Name |Version
+
+|DataStax Luna Streaming Distribution
+|v.1.0.0 and above
+|===
+
+Support covers only the following Software versions for the Open Source Projects:
+
+[cols="2*"]
+|===
+|Name |Version
+
+|Pulsar Admin Console
+|v.1.0.0 and above
+
+|Pulsar Heartbeat
+|v.1.0.0 and above
+
+|DataStax pulsar-sink
+|v.1.0.0 and above
+
+|Starlight for JMS
+|v.1.0.0 and above
+
+|Starlight for RabbitMQ
+|v.1.0.0 and above
+|===
+
+Support covers only the following Apache Pulsar Connectors (as included in the Apache Pulsar download):
+
+[cols="2*"]
+|===
+|Name |Version
+
+|Cassandra enhanced sink
+|v2.10.x
+
+|Cloud storage sink
+|v2.10.x
+
+|Elasticsearch sink
+|v2.10.x
+
+|HTTP sink
+|v2.10.x
+
+|JDBC-Clickhouse sink
+|v2.10.x
+
+|JDBC-MariaDB sink
+|v2.10.x
+
+|JDBC-Postgres sink
+|v2.10.x
+
+|JDBC-SQLite
+|v2.10.x
+
+|Kafka sink
+|v2.10.x
+
+|Kinesis sink
+|v2.10.x
+
+|Snowflake sink
+|v.0.1.13
+
+|Cassandra source
+|v2.2.2
+
+|Data generator source
+|v2.10.x
+
+|Debezium MongoDB source
+|v2.10.x
+
+|Debezium MySQL source
+|v2.10.x
+
+|Debezium Microsoft SQL Server Source
+|v2.10.x
+
+|Debezium Postgres source
+|v2.10.x
+
+|Kafka source
+|v2.10.x
+
+|Kinesis source
+|v2.10.x
+|===

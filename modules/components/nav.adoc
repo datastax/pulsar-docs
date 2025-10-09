@@ -1,9 +1,0 @@
-.Components & Extensions
-* xref:admin-console-tutorial.adoc[]
-* xref:admin-console-vm.adoc[]
-* xref:pulsar-monitor.adoc[]
-* xref:heartbeat-vm.adoc[]
-* xref:pulsar-beam.adoc[]
-* xref:pulsar-sql.adoc[]
-* xref:starlight-for-kafka.adoc[]
-* xref:starlight-for-rabbitmq.adoc[]
