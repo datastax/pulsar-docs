@@ -1,5 +1,4 @@
 = Heartbeat on VM/Server
-:page-tag: luna-streaming,dev,admin,pulsar
 
 This document describes how to install Pulsar Heartbeat on a virtual machine (VM) or server. For installation with the Docker image, see xref:install-upgrade:quickstart-helm-installs.adoc[Helm Chart Installation].
 
