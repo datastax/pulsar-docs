@@ -5,13 +5,11 @@
 
 The https://github.com/kafkaesque-io/pulsar-beam[Pulsar Beam] project is an HTTP-based streaming and queueing system for use with Apache Pulsar.
 
-With Pulsar Beam, you can send messages over HTTP, push messages to a webhook or cloud function, chain webhooks and functions together, or stream messages via https://www.html5rocks.com/en/tutorials/eventsource/basics/[server-sent events].
+With Pulsar Beam, you can send messages over HTTP, push messages to a webhook or cloud function, chain webhooks and functions together, or stream messages through server-sent events (SSE).
 
-In this guide we will install a minimal DataStax Pulsar Helm chart that includes Pulsar Beam.
+In this guide, you'll install a minimal DataStax Pulsar Helm chart that includes Pulsar Beam.
 
 == Prerequisites
-
-You will need the following prerequisites in place to complete this guide:
 
 * https://helm.sh/docs/intro/install/[Helm 3 CLI] (this example uses version 3.8.0)
 * Enough access to a K8s cluster to create a namespace, deployments, and pods
@@ -44,6 +42,7 @@ Try changing the value to `latest` to only receive new messages that arrive.
 
 Return to the original terminal window and run the following script to produce a new message.
 Don't worry about creating the new topic - if a topic doesn't exist, it is created automatically.
+
 [source,shell]
 ----
 TOPIC="my-beam-topic"
@@ -55,6 +54,7 @@ curl --request POST \
 == Consume the message
 
 The message consumer will output the data of the new message just produced.
+
 [source,shell]
 ----
 id: {9 0 0 0 <nil> 0xc002287ad0}
@@ -69,6 +69,7 @@ This is another example of producing and consuming messages using Beam.
 Instead of using curl, this example will use the "requests" Python library to issue HTTP requests.
 
 === Create project
+
 . Create a new file to hold the Python code.
 +
 [source,shell]
@@ -84,6 +85,7 @@ include::{luna-streaming-examples-repo}/beam/produce-consume.py[]
 ----
 
 === Run example Python code
+
 . Run the Python example (we used Python version 3.8.10).
 +
 [source,shell]
@@ -93,6 +95,7 @@ python3 beam.py
 
 . The output should show 1 message was published and 1 message was consumed.
 +
+[source,console]
 ----
 Published 1 message (200)
 Consumed messages (200):
@@ -111,13 +114,11 @@ Consumed messages (200):
   ]
 }
 ----
-
-[NOTE]
-====
++
 The payload is base64 encoded. Simply decode the string to see the actual message data.
-====
 
 == Clean up
+
 include::partial$cleanup-terminal-and-helm.adoc[]
 
 == Next steps

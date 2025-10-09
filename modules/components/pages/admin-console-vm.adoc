@@ -4,15 +4,15 @@
 
 The Admin Console is a VueJS application that runs in a browser. It also includes a web server that serves up the files for the Admin Console as well as providing configuration and authentication services.
 
-This document covers: +
+This document covers:
 
-* <<install,*Installation*>> +
+* <<install,*Installation*>>
 
-* <<configuration,*Configuration*>> +
+* <<configuration,*Configuration*>>
 
-* <<configuration-reference,*Configuration Reference*>> +
+* <<configuration-reference,*Configuration Reference*>>
 
-* <<auth-modes,*Auth Modes*>> +
+* <<auth-modes,*Auth Modes*>>
 
 [#install]
 == Install Pulsar Admin Console
@@ -26,8 +26,8 @@ tar -xf node-v14.18.3-linux-x64.tar.xz
 ----
 
 . Download and install the Pulsar Admin console tarball to the VM. You can find the most recent Pulsar Admin Console release https://github.com/datastax/pulsar-admin-console/releases[here].
-
-.. The tarball is also available with `wget`:
++
+The tarball is also available with `wget`:
 +
 [source,bash,subs="attributes+"]
 ----
@@ -40,9 +40,10 @@ wget https://github.com/datastax/pulsar-admin-console/releases/download/{admin-c
 ----
 tar xfvz pulsar-admin-console-{admin-console-version}.tar.gz
 ----
++
+This creates a `/pulsar-admin-console-<version>` directory that contains all necessary dependencies for the Admin Console (except node).
 
-. This will create a `/pulsar-admin-console-<version>` directory that contains all necessary dependencies for the Admin Console (except node).
-. Change directory to the `server` subdirectory and run `npm start` to start the Admin Console. This will start the server listening at `localhost:6454`.
+. Change directory to the `server` subdirectory and run `npm start` to start the Admin Console. This starts the server listening at `localhost:6454`.
 +
 [source,bash,subs="attributes+"]
 ----
@@ -50,22 +51,23 @@ cd pulsar-admin-console-{admin-console-version}/server
 npm start
 ----
 
-. Open the Admin Console at \`http://localhost:6454`.
-
-Port 6454 is specified in `pulsar-admin-console/config/default.json`. To change the default Admin Console configuration, see <<configuration,*Configuration*>> below.
+. Open the Admin Console at `\http://localhost:6454`.
++
+Port 6454 is specified in `pulsar-admin-console/config/default.json`.
+To change the default Admin Console configuration, see <<configuration,Configuration>>.
 
 [#configuration]
 == Configuration
 
-The `default.json` configuration file contains a set of general configs for the Admin Console, plus a server-specific set under `server_config`. The Admin Console server proxies all requests from the Admin Console to the Pulsar broker (or Pulsar proxy). +
+The `default.json` configuration file contains a set of general configs for the Admin Console, plus a server-specific set under `server_config`. The Admin Console server proxies all requests from the Admin Console to the Pulsar broker (or Pulsar proxy).
 
-You can modify the configuration for the Admin Console in `pulsar-admin-console/config/default.json`, or place additional configuration files (for example, `local.json`) in the `/config` subdirectory to override parameters. +
+You can modify the configuration for the Admin Console in `pulsar-admin-console/config/default.json`, or place additional configuration files (for example, `local.json`) in the `/config` subdirectory to override parameters.
 
-You need to configure `pulsar_url` to point to one of your brokers or a proxy/loadbalancer in front of the brokers (can be Pulsar proxy). The Admin Console server must be able to directly reach each broker by the IP/hostname that is returned by the Pulsar CLI command `pulsar-admin brokers list <clustername>`. +
+You need to configure `pulsar_url` to point to one of your brokers or a proxy/loadbalancer in front of the brokers (can be Pulsar proxy). The Admin Console server must be able to directly reach each broker by the IP/hostname that is returned by the Pulsar CLI command `pulsar-admin brokers list <clustername>`.
 
 [NOTE]
 ====
-The cluster name can be retrieved with the CLI command `pulsar-admin clusters list`. +
+The cluster name can be retrieved with the CLI command `pulsar-admin clusters list`.
 ====
 
 In a geo-replication configuration, use the cluster name for the local cluster. Set this cluster name in the `cluster_name` setting of the configuration file.
@@ -124,37 +126,37 @@ No login screen is presented. Authentication must be disabled in Pulsar because 
 
 === "auth_mode": "user"
 
-The Admin Console is protected by a login screen. Credentials are configured using the `username` and `password` settings in the `/config/default.json` file. +
+The Admin Console is protected by a login screen. Credentials are configured using the `username` and `password` settings in the `/config/default.json` file.
 Once authenticated with these credentials, the token for connecting to Pulsar is retrieved from the server (configured using `token_path` or `admin_token`) and used to authenticate with the Pulsar cluster.
 
 === "auth_mode": "k8"
 
-The Admin Console is protected by a login screen. The credentials are retrieved from a Kubernetes secret. +
+The Admin Console is protected by a login screen. The credentials are retrieved from a Kubernetes secret.
 
 The Admin Console server *must* have access to a Kubernetes API, either using a `kubeconfig` file in the environment, or by having local access (for example, by running as a pod in a Kubernetes cluster).
 
-The namespace for the secret is set using `k8s_namespace` in the `/config/default.json` file. +
-The secret name must have a prefix of `dashboard-user-` followed by the `username`. +
-For example, the admin user would have a secret name of `dashboard-user-admin`. +
-The password must be stored in the secret with a key of `password` and a value of the password itself. +
+The namespace for the secret is set using `k8s_namespace` in the `/config/default.json` file.
+The secret name must have a prefix of `dashboard-user-` followed by the `username`.
+For example, the admin user would have a secret name of `dashboard-user-admin`.
+The password must be stored in the secret with a key of `password` and a value of the password itself.
 
-Multiple secrets with the prefix can be configured to set up multiple users for the Admin Console. A password can be reset by patching the corresponding Kubernetes secret. +
+Multiple secrets with the prefix can be configured to set up multiple users for the Admin Console. A password can be reset by patching the corresponding Kubernetes secret.
 
 Once the user is authenticated using one of the Kubernetes secrets, the token for connecting to Pulsar is retrieved from the server (configured using `token_path` or `admin_token`) and used to authenticate with the Pulsar cluster.
 
 === "auth_mode": "openidconnect"
 
-In this auth mode, the dashboard will use your login credentials to retrieve a JWT from an authentication provider. +
+In this auth mode, the dashboard will use your login credentials to retrieve a JWT from an authentication provider.
 
-In the *DataStax Pulsar Helm Chart*, this is implemented by integrating the Pulsar Admin Console with Keycloak. Upon successful retrieval of the JWT, the Admin Console will use the retrieved JWT as the bearer token when making calls to Pulsar. +
+In the *DataStax Pulsar Helm Chart*, this is implemented by integrating the Pulsar Admin Console with Keycloak. Upon successful retrieval of the JWT, the Admin Console will use the retrieved JWT as the bearer token when making calls to Pulsar.
 
 In addition to configuring the `auth_mode`, you must also configure the `oauth_client_id` (see <<configuration-reference,*Configuration reference*>>). This is the client id that the Console will use when authenticating with Keycloak. Note that in Keycloak, it is important that this client exists and that it has the sub claim properly mapped to your desired Pulsar subject. Otherwise, the JWT won't work as desired.
 
-==== *Connecting to an OpenID Connect Auth/Identity Provider*
+==== Connecting to an OpenID Connect Auth/Identity Provider
 
-When opening the Admin Console, the first page is the login page. When using the `openidconnect` auth mode, the auth call needs to go to the Provider's server. +
+When opening the Admin Console, the first page is the login page. When using the `openidconnect` auth mode, the auth call needs to go to the Provider's server.
 In the current design, nginx must be configured to route the call to the provider. The *DataStax Pulsar Helm Chart* does this automatically.
 
-== Next
+== Next steps
 
 To install the Admin Console in a cloud environment, see the xref:components:admin-console-tutorial.adoc[Admin Console Tutorial].

@@ -55,7 +55,7 @@ In addition to the distribution of https://pulsar.apache.org/en/versions/[Apache
 
 * Transparent batching of messages
 
-== What's next?
+== Next steps
 
 * If you have an existing Kubernetes environment, deploy Luna Streaming with a xref:install-upgrade:quickstart-helm-installs.adoc[Helm Installation].
 * If you have a bare metal or a cloud environment, see xref:install-upgrade:quickstart-server-installs.adoc[Server/VM Installation].

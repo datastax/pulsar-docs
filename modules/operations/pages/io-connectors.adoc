@@ -8,14 +8,14 @@ There are three versions of the DataStax Luna Streaming distribution.
 The lunastreaming-all version contains all connectors.
 ====
 
+[#sink-connectors]
 == Sink Connectors
 
-[#sink-connectors]
 include::partial$sink-connectors.adoc[tag=production]
 
+[#source-connectors]
 == Source Connectors
 
-[#source-connectors]
 include::partial$source-connectors.adoc[tag=production]
 
 == Experimental Connectors
@@ -24,18 +24,16 @@ DataStax is always experimenting with connectors.
 Below are the connectors available in the luna-streaming-all version of *Luna Streaming*.
 We call these *experimental connectors* because they have not yet been promoted to official support in our *Astra Streaming* clusters, but they will work in your Luna Streaming cluster.
 
+[#sink-experimental]
 === Sink Connectors (experimental)
 
-[#sink-experimental]
 include::partial$sink-connectors.adoc[tag=sink-experimental]
 
+[#source-experimental]
 === Source Connectors (experimental)
 
-[#source-experimental]
 include::partial$source-connectors.adoc[tag=source-experimental]
 
-== What's next?
+== Next steps
 
-For more on connectors and Pulsar, see our xref:streaming-learning:pulsar-io:connectors/index.adoc[] learning page, or check the https://pulsar.apache.org/docs/2.11.x/io-overview/[Pulsar documentation].
-
-
+For more on connectors and Pulsar, see xref:streaming-learning:pulsar-io:connectors/index.adoc[] and the https://pulsar.apache.org/docs/2.11.x/io-overview/[Pulsar documentation].

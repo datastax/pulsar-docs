@@ -7,14 +7,12 @@ Pulsar SQL allows enterprises to query Apache Pulsar topic data with SQL.
 This is a powerful feature for an Enterprise, and SQL is a language they're likely familiar with.
 Stream processing, real-time analytics, and highly customized dashboards are just a few of the possibilities.
 Pulsar offers a pre-made plugin for Trino that is included in its distribution.
-Additionally, Pulsar has built-in options to create Trino workers and automatically configure the communications between Pulsar’s ledger and Trino.
+Additionally, Pulsar has built-in options to create Trino workers and automatically configure the communications between Pulsar's ledger and Trino.
 
 In this guide, we will use the DataStax Pulsar Helm Chart to install a Pulsar cluster with Pulsar SQL.
 The Trino coordinator and desired number of workers will be created directly in the cluster.
 
 == Prerequisites
-
-You will need the following prerequisites in place to complete this guide:
 
 * Pulsar CLI
 * https://trino.io/docs/current/client/cli.html[Trino CLI] (this example version 443)
@@ -24,7 +22,7 @@ You will need the following prerequisites in place to complete this guide:
 
 [IMPORTANT]
 ====
-PrestoDB has been replaced by Trino, and Apache Pulsar is using Trino’s version.
+PrestoDB has been replaced by Trino, and Apache Pulsar is using Trino's version.
 The Trino CLI uses the "X-TRINO-USER" header for authentications.
 ====
 
@@ -34,8 +32,9 @@ include::partial$install-helm.adoc[]
 
 == Forward service port
 
-We need to interact with services in the K8s cluster, so let’s map a few ports to those services.
-There’s no need to forward Pulsar’s messaging service ports.
+You'll need to interact with services in the K8s cluster.
+Map a few ports to those services.
+There's no need to forward Pulsar's messaging service ports.
 
 include::partial$port-forward-sql.adoc[]
 
@@ -43,12 +42,12 @@ include::partial$port-forward-web-service.adoc[]
 
 == Confirm Trino is available
 
-. In a browser, navigate to \http://localhost:8081. +
-You will be greeted by Trino’s login.
+. In a browser, navigate to \http://localhost:8081.
+You will be greeted by Trino's login.
 +
 image::trino-sql-login.png[Trino SQL login]
 
-. There is no authentication enabled, so input whatever user name you prefer and select “Log In”. +
+. There is no authentication enabled, so input whatever user name you prefer and select **Log In**.
 You will be greeted by a blank dashboard.
 This confirms Trino is up and running.
 +
@@ -57,9 +56,9 @@ image::trino-sql-dashboard.png[Trino SQL dashboard]
 [#create-topic]
 == Fill a topic with the data-generator source
 
-In this example, we will use the “data-generator” source connector to create a topic and add sample data simultaneously.
-The minimalist Helm chart values use the https://github.com/datastax/release-notes/blob/master/Luna_Streaming_3.1_Release_Notes.md#lunastreaming-all-distribution[datastax/lunastreaming-all] image, which includes all supported Pulsar connectors. +
-This example uses the “public” tenant and “default” namespace.
+In this example, we will use the "data-generator" source connector to create a topic and add sample data simultaneously.
+The minimalist Helm chart values use the https://github.com/datastax/release-notes/blob/master/Luna_Streaming_3.1_Release_Notes.md#lunastreaming-all-distribution[datastax/lunastreaming-all] image, which includes all supported Pulsar connectors.
+This example uses the "public" tenant and "default" namespace.
 These are created by default in Pulsar, but you can use whatever tenant and namespace you are comfortable with.
 
 . Download the minimalist Pulsar client.
@@ -93,42 +92,42 @@ The topic name will become a table name in Trino, so SQL naming rules apply.
 Names can contain only alphanumeric characters and must begin with an alphabetic character or an underscore (_).
 ====
 
-. Confirm the topic was created.
-
+. Confirm the topic was created:
++
 [source,shell]
 ----
 ./bin/pulsar-admin topics list public/default
 ----
-
-You should get an output of:
-
-[source,shell]
++
+The result should be similar to the following:
++
+[source,console]
 ----
 persistent://public/default/mytopic
 ----
 
 == Interact with the topic data
 
-And now, the moment of truth...
-
 . Open a Trino shell session using the Trino CLI.
-The server’s port number should match the forwarded port number from the previous step.
-The user can match the name you used to login earlier in this guide, but doesn’t have to.
+The server's port number should match the forwarded port number from the previous step.
+The user can match the name you used to login earlier in this guide, but doesn't have to.
 +
 [source,shell]
 ----
 ./trino --user test --server localhost:8081
 ----
 
-. Once inside the shell, let’s have a look around. List the catalogs Trino has loaded.
+. Once inside the shell, try listing the catalogs Presto has loaded:
 +
 [source,shell]
 ----
 trino> show catalogs;
 ----
-You should get an output of:
 +
-[source,shell]
+Notice the similarities between your Pulsar tenant/namespaces and Trino's output:
++
+.Result
+[source,console]
 ----
  Catalog
 ---------
@@ -138,16 +137,18 @@ You should get an output of:
 
 Query 20230103_163242_00000_zvk84, FINISHED, 2 nodes
 ----
-Notice the similarities between your Pulsar tenant/namespaces and Trino’s output.
-. List the tables within the `pulsar.”public/default”` catalog/schema. +
+
+. List the tables within the `pulsar."public/default"` catalog/schema:
 +
 [source,shell]
 ----
 trino> show tables in pulsar."public/default";
 ----
-You should get an output of:
 +
-[source,shell]
+Notice the topic that you created from the data-generator source connector <<create-topic,earlier in this guide>>:
++
+.Result
+[source,console]
 ----
   Table
 ---------
@@ -156,22 +157,21 @@ You should get an output of:
 
 Query 20230103_163355_00001_zvk84, FINISHED, 2 nodes
 ----
-Hey trino{emoji-tada}!
-There’s our topic that was created from the data-generator source connector <<create-topic,earlier in this guide>>!
 
-. Query the table to see the first 10 rows of data.
+. Query the table to see the first 10 rows of data:
 +
 [source,sql]
 ----
 trino> select * from pulsar."public/default".mytopic limit 10;
 ----
++
 The output should be the 10 messages that were added to the Pulsar topic previously.
-
-.. If you prefer, you can query your table with the Trino client REST API.
-The response will include a “nextUri” value.
++
+If you prefer, you can query your table with the Trino client REST API.
+The response will include a `nextUri` value.
 Follow that link to see the results.
 +
-[source,http]
+[source,shell]
 ----
 POST http://localhost:8081/v1/statement  HTTP/1.1
 content-type: application/json
@@ -180,21 +180,22 @@ X-Trino-User: test
 select * from pulsar."public/default".mytopic limit 10
 ----
 
-. Exit the trino shell.
+. Exit the trino shell:
 +
 [source,shell]
 ----
 trino> exit
 ----
 
-You have successfully interacted with a Pulsar Cluster via SQL. Awesome!{emoji-rocket}
+You have successfully interacted with a Pulsar Cluster via SQL.
 
 Want to put your new learnings to the test? Try using the Trino plugin in https://redash.io/data-sources/presto[Redash] or https://superset.apache.org/docs/databases/trino/[Superset] to create useful dashboards.
 
 [#schema-quotes]
-=== Sidebar: Why are there quotes around the schema name?
-You might wonder why there are quotes (“”) around the schema name.
-This is a result of mapping Trino primitives to Pulsar’s primitives.
+=== Why are there quotes around the schema name?
+
+You might wonder why there are quotes ("") around the schema name.
+This is a result of mapping Trino primitives to Pulsar's primitives.
 
 Trino has catalogs, schemas, and tables.
 Pulsar has tenants, namespaces, and topics.
@@ -202,23 +203,24 @@ The Pulsar Trino plugin assumes the catalog name which leaves schema and table, 
 
 == Connect with JDBC
 
-Bonus time!
 This example queries messages from a Java app using the Trino JDBC client.
-You’ll need the Java runtime to run the example.
+You'll need the Java runtime to run the example.
 
-. Create a file named “PrestoExample.java” with the following contents.
+. Create a file named "PrestoExample.java" with the following contents.
 Remember to update the JDBC connection with the correct values for your environment.
 +
 [source,java]
 ----
 include::https://raw.githubusercontent.com/datastaxdevs/luna-streaming-examples/main/pulsar-sql/PrestoExample.java[]
 ----
-. Build the Java class.
+
+. Build the Java class:
 +
 [source,shell]
 ----
 javac PrestoExample.java
 ----
+
 . Download the https://repo1.maven.org/maven2/io/trino/trino-jdbc/443/trino-jdbc-443.jar[version 443 Trino JDBC driver] to the same folder as the Java class.
 
 . Run the client and observe the output.
@@ -228,9 +230,9 @@ javac PrestoExample.java
 ----
 java -cp .:trino-jdbc-443.jar PrestoExample
 ----
-
-You should get an output of:
-[source,shell]
++
+.Result
+[source,console]
 ----
 Connection established......
 {apartmentNumber=235, city=San Francisco, postalCode=29223, street=Tabor Court, streetNumber=94}
@@ -246,9 +248,10 @@ Connection established......
 ----
 
 == Clean up
+
 include::partial$cleanup-terminal-and-helm.adoc[]
 
-== What's next?
+== Next steps
 
 * xref:pulsar-beam.adoc[]
 * xref:admin-console-tutorial.adoc[]

@@ -1,4 +1,4 @@
-= Supported Software
+= Supported software
 :page-aliases: 2.10-1.x@install-upgrade:supported-versions.adoc, 2.10-2.x@install-upgrade:supported-versions.adoc
 
 include::partial$supported-versions-tables.adoc[]

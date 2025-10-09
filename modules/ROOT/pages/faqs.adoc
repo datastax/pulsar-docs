@@ -102,7 +102,7 @@ The DataStax Apache Pulsar Connector allows single-record acknowledgement and ne
 
 * No support for `tinyint` (`int8bit`) and `smallint` (`int16bit`).
 * The key is always a String, but you can write JSON inside it; the support is implemented in pulsar-sink, but not in Pulsar IO.
-* The “value” of a “message property” is always a String; for example, you cannot map the message property to `__ttl` or to `__timestamp`.
+* The "value" of a "message property" is always a String; for example, you cannot map the message property to `__ttl` or to `__timestamp`.
 * Field names inside structures must be valid for Avro, even in case of JSON structures. For example, field names like `Int.field` (with dot) or `int field` (with space) are not valid.
 
 === How is DataStax Apache Pulsar Connector distributed?
@@ -112,7 +112,8 @@ There are two packages:
 * The `pulsar-sink` functionality of DataStax Apache Pulsar Connector is included with DataStax Luna Streaming. It's built in!
 * You can optionally download the DataStax Apache Pulsar Connector tarball from the https://downloads.datastax.com/#pulsar-sink[DataStax Downloads] site, and then use it as its own product with your open-source Apache Pulsar install.
 
-If you're using open-source software (OSS) Apache Pulsar, you can use DataStax Apache Pulsar Connector with the OSS to take advantage of this `pulsar-sink` for Cassandra. See the DataStax Apache Pulsar Connector https://docs.datastax.com/en/pulsar-connector/[documentation].
+If you're using open-source software (OSS) Apache Pulsar, you can use DataStax Apache Pulsar Connector with the OSS to take advantage of this `pulsar-sink` for Cassandra.
+See the xref:pulsar-connector:ROOT:index.adoc[DataStax Apache Pulsar Connector documentation].
 
 == APIs
 

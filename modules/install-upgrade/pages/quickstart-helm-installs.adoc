@@ -7,9 +7,9 @@ The DataStax production-ready Helm chart is now deprecated. For new deployments,
 
 You have options for installing *DataStax Luna Streaming*:
 
-* Via the provided *DataStax Helm chart* for an existing Kubernetes environment locally or with a cloud provider, as covered in this topic. +
-* Via the *DataStax Luna Streaming tarball* for deployment to a single server/VM, or to multiple servers/VMs. See xref:install-upgrade:quickstart-server-installs.adoc[Quick Start for Server/VM installs]. +
-* Via the *DataStax Ansible scripts* provided at https://github.com/datastax/pulsar-ansible[https://github.com/datastax/pulsar-ansible].
+* With the provided *DataStax Helm chart* for an existing Kubernetes environment locally or with a cloud provider, as covered in this topic. +
+* With the *DataStax Luna Streaming tarball* for deployment to a single server/VM, or to multiple servers/VMs. See xref:install-upgrade:quickstart-server-installs.adoc[Quick Start for Server/VM installs]. +
+* With the *DataStax Ansible scripts* provided at https://github.com/datastax/pulsar-ansible[https://github.com/datastax/pulsar-ansible].
 
 The Helm chart and options described below configure an Apache Pulsar cluster.
 It is designed for production use, but can also be used in local development environments with the proper settings.
@@ -32,13 +32,14 @@ The resulting configuration includes support for:
 
 == Prerequisites
 
-DataStax recommends these hardware resources for running Luna Streaming in a Kubernetes environment: +
+DataStax recommends these hardware resources for running Luna Streaming in a Kubernetes environment:
 
 include::partial$helm-chart-recommendations.adoc[]
 
-For the local machine running the Helm chart, you will need: +
+For the local machine running the Helm chart, you will need:
 
-* https://helm.sh/docs/[Helm] version 3 +
+* https://helm.sh/docs/[Helm] version 3
+
 * A Google, AWS, or Azure account with privileges to install and configure Kubernetes resources.
 
 [TIP]
@@ -50,7 +51,7 @@ Check out https://community.intel.com/t5/Blogs/Tech-Innovation/Cloud/Improve-Apa
 
 === Storage Class Settings
 
-The `default_storage` parameter in `values.yaml` controls the default storage class for all persistent volumes created by the Helm chart. +
+The `default_storage` parameter in `values.yaml` controls the default storage class for all persistent volumes created by the Helm chart.
 
 [source,yaml]
 ----
@@ -84,7 +85,7 @@ GKE::
             replication-type: none
 ----
 --
-+
+
 EKS::
 +
 --
@@ -103,7 +104,7 @@ EKS::
             iopsPerGB: "10"
 ----
 --
-+
+
 AKS::
 +
 --
@@ -159,6 +160,7 @@ The default values will create a ClusterIP for all components. ClusterIPs are on
 
 Once you are logged into the bastion, you can run Pulsar admin commands:
 
+[source,shell]
 ----
 bin/pulsar-admin tenants list
 ----
@@ -166,6 +168,7 @@ bin/pulsar-admin tenants list
 For external access, you can use a load balancer.
 Here is an example set of values to use for load balancer on the proxy:
 
+[source,yaml]
 ----
 proxy:
  service:
@@ -179,9 +182,7 @@ proxy:
       protocol: TCP
 ----
 
-If you are using a load balancer on the proxy, you can find the IP address using:
-
-`kubectl get service -n pulsar`
+If you are using a load balancer on the proxy, you can find the IP address using `kubectl get service -n pulsar`.
 
 === Manage Luna Streaming with Pulsar Admin Console
 
@@ -195,6 +196,7 @@ Or if you would rather go directly to the broker:
 
 The Pulsar Admin Console is installed in your cluster by enabling the console with this values setting:
 
+[source,yaml]
 ----
 component:
   pulsarAdminConsole: yes
@@ -204,6 +206,7 @@ The Pulsar Admin Console will be automatically configured to connect to the Puls
 
 By default, the Pulsar Admin Console has authentication disabled. You can enable authentication with these settings:
 
+[source,yaml]
 ----
 pulsarAdminConsole:
     authMode: k8s
@@ -213,12 +216,17 @@ To learn more about using the Pulsar Admin Console, see xref:components:admin-co
 
 == Install Luna Streaming locally
 
-With the prerequisites listed above met, start minikube with adequate resources. For example:
+With the prerequisites listed above met, start minikube with adequate resources.
+For example:
+
+[source,shell]
 ----
 minikube start --cpus 5 --memory 16G
 ----
 
 Next, enter these commands:
+
+[source,shell]
 ----
 helm repo add datastax-pulsar https://datastax.github.io/pulsar-helm-chart
 helm repo update
@@ -229,12 +237,16 @@ The `dev-values.yaml` file can be viewed (https://github.com/datastax/pulsar-hel
 
 To list the version of the chart in the local Helm repository:
 
-`helm search repo datastax-pulsar`
+[source,shell]
+----
+helm search repo datastax-pulsar
+----
 
 It may take 10 or more minutes for all the pods to reach a *Ready* state in your Kubernetes environment.
 
 Example of checking the pods' status:
 
+[source,shell]
 ----
 kubectl get pods
 
@@ -261,9 +273,13 @@ pulsar-zookeeper-metadata-5l58k                       0/1     Completed  0      
 
 Once all the pods are running, you can access the Pulsar Admin Console by forwarding to localhost:
 
-`kubectl port-forward $(kubectl get pods -l component=adminconsole -o jsonpath='{.items[0].metadata.name}') 8080:80`
+[source,shell]
+----
+kubectl port-forward $(kubectl get pods -l component=adminconsole -o jsonpath='{.items[0].metadata.name}') 8080:80
+----
 
-Now open a browser to \http://localhost:8080. In the Pulsar Admin Console, you can test your Pulsar setup using the built-in clients (Test Clients in the left-hand menu).
+Now open a browser to `\http://localhost:8080`.
+In the Pulsar Admin Console, you can test your Pulsar setup using the built-in clients (Test Clients in the left-hand menu).
 
 === Access the Pulsar cluster on localhost
 
@@ -283,11 +299,14 @@ Or if you would rather go directly to the broker:
 
 To access Pulsar Admin Console on your local machine, forward port 80:
 
+[source,shell]
 ----
 kubectl port-forward -n pulsar $(kubectl get pods -n pulsar -l component=adminconsole -o jsonpath='{.items[0].metadata.name}') 8888:80
 ----
 
 TIP: While using the Admin Console and Pulsar Monitoring, if the connection to `localhost:3000` is refused, set a port-forward to the Grafana pod. Example:
+
+[source,shell]
 ----
 kubectl port-forward -n pulsar $(kubectl get pods -n pulsar -l app.kubernetes.io/name=grafana -o jsonpath='{.items[0].metadata.name}') 3000:3000 &
 ----
@@ -308,6 +327,7 @@ TIP: With message/state persistence disabled, the cluster will not survive a res
 
 * `dev-values-tls.yaml`. Development environment with self-signed certificate created by cert-manager. You need to install the cert-manager CRDs before installing the Helm chart. The chart will install the cert-manager application.
 +
+[source,shell]
 ----
 kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.1.0/cert-manager.crds.yaml
 helm install pulsar -f dev-values-auth.yaml datastax-pulsar/pulsar
@@ -321,6 +341,7 @@ In an addition, this chart can deploy Grafana dashboards for Pulsar as well as P
 
 To enable the Prometheus stack, use the following setting in your values file:
 
+[source,yaml]
 ----
 kube-prometheus-stack:
   enabled: yes
@@ -328,6 +349,7 @@ kube-prometheus-stack:
 
 To enable the Grafana dashboards, modify the following setting:
 
+[source,yaml]
 ----
 grafanaDashboards:
   enabled: no
@@ -335,6 +357,7 @@ grafanaDashboards:
 
 To enable the Kubernetes default rules, use the following setting:
 
+[source,yaml]
 ----
 kube-prometheus-stack:
   defaultRules:
@@ -357,8 +380,8 @@ The easiest way to access the Trino command line is to log into the bastion host
 
 Where the value for the `server` option should be the service name plus port. Once you are connected, you can enter Trino commands. Example:
 
-[source,sql]
----------------------------------------
+[source,console]
+----
 trino> SELECT * FROM system.runtime.nodes;
                node_id                |         http_uri         | node_version | coordinator | state
 --------------------------------------+--------------------------+--------------+-------------+--------
@@ -369,7 +392,7 @@ trino> SELECT * FROM system.runtime.nodes;
 Query 20200608_155725_00000_gpdae, FINISHED, 2 nodes
 Splits: 17 total, 17 done (100.00%)
 0:04 [2 rows, 144B] [0 rows/s, 37B/s]
----------------------------------------
+----
 
 To access Pulsar SQL from outside the cluster, you can enable the `ingress` option which will expose the Trino port on hostname. We have tested with the Traefik ingress, but any Kubernetes ingress should work. You can then run SQL queries using the Trino CLI and monitoring Trino using the built-in UI (point browser to the ingress hostname). Authentication is not enabled on the UI, so you can log in with any username.
 
@@ -378,7 +401,7 @@ It is recommended that you match the Trino CLI version to the version running as
 The Trino CLI supports basic authentication, so if you enabled that on the Ingress (using annotations), you can have secure Trino access. Example:
 
 [source,sql]
-----------
+----
 trino --server https://trino.example.com --user admin --password
 Password:
 trino> show catalogs;
@@ -391,7 +414,7 @@ trino> show catalogs;
 Query 20200610_131641_00027_tzc7t, FINISHED, 1 node
 Splits: 19 total, 19 done (100.00%)
 0:01 [0 rows, 0B] [0 rows/s, 0B/s]
-----------
+----
 
 === Dependencies
 
@@ -414,6 +437,7 @@ The chart includes tooling to automatically create the necessary secrets or you 
 
 Use the following settings to enable automatic generation of the secrets and enable token-based authentication:
 
+[source,yaml]
 ----
 enableTokenAuth: yes
 autoRecovery:
@@ -436,7 +460,7 @@ Using these keys, it will generate tokens for each role listed in `superUserRole
 
 === Manual secret creation for token authentication
 
-include::partial$manually-create-credentials.adoc[]
+include::operations:partial$manually-create-credentials.adoc[]
 
 [#tls]
 == Manually configuring certificate secrets for TLS
@@ -450,17 +474,19 @@ The resulting secret will be of type `kubernetes.io/tls`. The key should not be 
 
 You can also specify the certificate information directly in the values:
 
+[source,yaml]
 ----
 # secrets:
-  # key: |
-  # certificate: |
-  # caCertificate: |
+  # key:
+  # certificate:
+  # caCertificate:
 ----
 
 This is useful if you are using a self-signed certificate.
 
 For automated handling of publicly signed certificates, you can use a tool
-such as https://cert-mananager[cert-manager]. This https://github.com/datastax/pulsar-helm-chart/blob/master/aws-customer-docs.md[page on GitHub] describes how to set up cert-manager in AWS.
+such as https://cert-mananager[cert-manager].
+For more information, see https://github.com/datastax/pulsar-helm-chart/blob/master/aws-customer-docs.md[Using Cert-Manager for Pulsar Certificates in AWS].
 
 Once you have created the secrets that store the certificate info (or specified it in the values), you can enable TLS in the values:
 
@@ -473,6 +499,6 @@ Follow along with this video from our *Five Minutes About Pulsar* series to get 
 
 video::hEBP_IVQqQM[youtube, list=PL2g2h-wyI4SqeKH16czlcQ5x4Q_z-X7_m]
 
-== What's next?
+== Next steps
 
 To learn about installing Luna Streaming for Bare Metal/VM, see xref:install-upgrade:quickstart-server-installs.adoc[Quickstart for Bare Metal/VM Installs].
