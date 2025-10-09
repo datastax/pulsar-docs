@@ -2,7 +2,7 @@
 
 You can scale Luna Streaming clusters up for more compute capacity and down for less capacity.
 
-include::partial$operator-scaling.adoc[]
+include::operations:partial$operator-scaling.adoc[]
 
 == Instal Pulsar cluster
 

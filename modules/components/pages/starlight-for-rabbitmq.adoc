@@ -24,7 +24,12 @@ Map a few ports to those services.
 
 include::partial$port-forward-web-service.adoc[]
 
-include::partial$port-forward-s4r.adoc[]
+In a separate terminal window, port forward the Starlight for RabbitMQ service:
+
+[source,shell]
+----
+include::{luna-streaming-examples-repo}/starlight-for-rabbitmq/forward-s4r-service.sh[]
+----
 
 == Produce a message with the RabbitMQ Python client
 
@@ -50,7 +55,7 @@ python ./test-queue.py
 
 The output should look like the following.
 
-[souce,shell]
+[source,console]
 ----
 created test-queue queue
 published message test

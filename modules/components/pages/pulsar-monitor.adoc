@@ -87,7 +87,7 @@ Pulsar Heartbeat's official docker image can be pulled https://hub.docker.com/r/
 
 [source,bash]
 ----
-$ docker-compose up
+docker-compose up
 ----
 
 `./config/runtime.yml` or `./config/runtime.json` must have a Pulsar jwt and must be configured properly.
@@ -96,7 +96,7 @@ $ docker-compose up
 
 [source,bash]
 ----
-$ docker run -d -it -v ./config/runtime.yml:/config/runtime.yml -v /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem:/etc/ssl/certs/ca-bundle.crt -p 8080:8080 --name=pulsar-heartbeat datastax/pulsar-heartbeat:latest
+docker run -d -it -v ./config/runtime.yml:/config/runtime.yml -v /etc/pki/ca-trust/extracted/pem/tls-ca-bundle.pem:/etc/ssl/certs/ca-bundle.crt -p 8080:8080 --name=pulsar-heartbeat datastax/pulsar-heartbeat:latest
 ----
 
 The `runtime.yml/yaml` or `runtime.json` file must be mounted to `/config/runtime.yml` as the default configuration path.

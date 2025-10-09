@@ -8,13 +8,140 @@ This page describes recommended starting points for Pulsar deployments.
 * SINGLE REGION TESTING ENVIRONMENT is a highly-available 3/3/3 deployment.
 * HIGH-AVAILABILITY PRODUCTION ENVIRONMENT is a highly-available deployment replicated across 3 zones in 1 region.
 
-include::partial$minimum-sizing.adoc[]
+The number of nodes in a highly available cluster depends on the number of zones in the region.
+{company} recommends aligning the replication factor with the AZ count.
+For example, if there are 3 zones, set a replication factor of 3.
+
+[cols=4*,options=header]
+|===
+|Environment
+|Server Component
+|Node Count
+|Note
+
+|SANDBOX (STANDALONE)
+|(combined) Zookeeper, Broker, and Bookie
+|1
+|
+
+.3+|DEVELOPMENT (1 region, 1 zone)
+|Zookeeper
+|1
+|
+|Broker
+|1
+|
+|Bookie
+|1
+|
+
+.5+|SINGLE REGION TESTING ENVIRONMENT (1 region, 1 zone)
+|Zookeeper
+|3
+|
+|Broker
+|3
+|
+|Bookie
+|3
+|
+|Pulsar proxy
+|3
+|
+|(Dedicated) Function Worker
+|3
+|
+
+.6+|HIGH-AVAILABILITY PRODUCTION ENVIRONMENT (1 region, 3 zones)
+|Zookeeper
+|5
+|2/2/1 nodes*
+|Broker
+|3
+|1 nodes per AZ^*^
+|(Dedicated) Function Worker
+|3
+|1 node per AZ^*^
+The number of function workers depends on the cluster's functions workload.
+|Bookie
+|6
+|2 nodes per AZ^*^
+|Pulsar proxy
+|3
+|1 node per AZ^*^
+|Autorecovery
+|3
+|1 per AZ^*^
+|===
+
+^*^ Assuming a replication factor of 3
 
 == Hardware sizing
 
 The following table lists the minimum hardware requirements for a Pulsar cluster.
 
-include::partial$hardware-sizing.adoc[]
+[cols=4*,options=header]
+|===
+|Environment
+|Server Component
+|Hardware Spec
+|Note
+
+|DEVELOPMENT
+|Zookeeper, Broker, and Bookkeeper
+a|* CPU: 8 vCPU
+* Memory: 16 GB
+* Data Disk: 64 GB SSD
+a|Data disks are shared by Zookeeper data, Bookkeeper journal, and Bookkeeper ledger
+
+.4+|TEST
+|Zookeeper
+a|* CPU: 2 vCPU
+* Memory: 4 GB
+* Data Disk: 32 GB SSD
+|
+|Broker and Function Worker
+a|* CPU: 8 vCPU
+* Memory: 16 GB
+|No data disk
+|Bookie
+a|* CPU: 4 vCPU
+* Memory: 16 GB
+* Data Disk Journal: 32 GB SSD
+* Data Disk Ledger: 256 GB SSD
+|
+|Pulsar Proxy, Function Worker
+a|* CPU: 4 vCPU
+* Memory: 8 GB
+|
+
+.6+|PRODUCTION
+|Zookeeper
+a|* CPU: 4 vCPU
+* Memory: 4 GB
+* Data Disk: 64 GB SSD
+|
+|Broker
+a|* CPU: 8 vCPU
+* Memory: 16 GB
+* No data disk
+|
+|Bookie
+a|* CPU: 8 vCPU
+* Memory: 32 GB
+* Data Disk Journal: 256 GB SSD
+* Data Disk Ledger: 1024 GB SSD
+|Ledger disk capacity can be beyond 1TB.
+|Pulsar Proxy, Autorecovery
+a|* CPU: 4 vCPU
+* Memory: 16 GB
+|
+|Dedicated Function Worker
+a|* CPU: 4 vCPU
+* Memory: 8 GB
+|
+
+|===
 
 == Next steps
 

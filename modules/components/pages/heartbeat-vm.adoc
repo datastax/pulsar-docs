@@ -11,12 +11,13 @@ For example, `uname -m` in Ubuntu might return `x86_64`, and `uname -o` returns 
 . Download the heartbeat binary `.gz` file matching your OS and process architecture from the https://github.com/datastax/pulsar-heartbeat/releases[releases page].
 
 . Uncompress the file to be an executable binary. The filename structure is `pulsar-heartbeat-<version>-<os>-<arch>`.
-
-Here is an example using Gunzip:
-[subs=attributes+]
++
+Here is an example using `gunzip`:
++
+[source,bash,subs="+attributes"]
 ----
-$ gunzip ~/Downloads/pulsar-heartbeat-{heartbeat-version}-linux-amd64
-$ ls ~/Downloads/pulsar-heartbeat-{heartbeat-version}-linux-amd64
+gunzip ~/Downloads/pulsar-heartbeat-{heartbeat-version}-linux-amd64
+ls ~/Downloads/pulsar-heartbeat-{heartbeat-version}-linux-amd64
 /Users/username/Downloads/pulsar-heartbeat-{heartbeat-version}-linux-amd64
 ----
 
@@ -28,11 +29,11 @@ Run the binary file `pulsar-heartbeat-<version>-<os>-<arch>`.
 
 Here is an example of how to set up and run the application:
 
-[subs=attributes+]
+[source,bash,subs="+attributes"]
 ----
-$ export PULSAR_OPS_MONITOR_CFG=/Users/username/go/src/github.com/datastax/pulsar-heartbeat/config/runtime.yml
+export PULSAR_OPS_MONITOR_CFG=/Users/username/go/src/github.com/datastax/pulsar-heartbeat/config/runtime.yml
 
-$ ./pulsar-heartbeat-{heartbeat-version}-linux-amd64
+./pulsar-heartbeat-{heartbeat-version}-linux-amd64
 2022/01/11 15:16:57  info config file /Users/username/go/src/github.com/datastax/pulsar-heartbeat/config/runtime.yml
 ----
 

@@ -36,7 +36,12 @@ You'll need to interact with services in the K8s cluster.
 Map a few ports to those services.
 There's no need to forward Pulsar's messaging service ports.
 
-include::partial$port-forward-sql.adoc[]
+In a new terminal window, port forward the Presto SQL service:
+
+[source,shell]
+----
+include::https://raw.githubusercontent.com/datastaxdevs/luna-streaming-examples/main/pulsar-sql/forward-pulsar-sql-service.sh[]
+----
 
 include::partial$port-forward-web-service.adoc[]
 
@@ -127,7 +132,7 @@ presto> show catalogs;
 Notice the similarities between your Pulsar tenant/namespaces and Presto's output:
 +
 .Result
-[source,shell]
+[source,console]
 ----
  Catalog
 ---------
@@ -148,7 +153,7 @@ presto> show tables in pulsar."public/default";
 Notice the topic that you created from the data-generator source connector <<create-topic,earlier in this guide>>:
 +
 .Result
-[source,shell]
+[source,console]
 ----
   Table
 ---------
@@ -160,7 +165,7 @@ Query 20230103_163355_00001_zvk84, FINISHED, 2 nodes
 
 . Query the table to see the first 10 rows of data:
 +
-[source,sql]
+[source,shell]
 ----
 presto> select * from pulsar."public/default".mytopic limit 10;
 ----
@@ -171,7 +176,7 @@ If you prefer, you can query your table with the Presto client REST API.
 The response will include a `nextUri` value.
 Follow that link to see the results.
 +
-[source,http]
+[source,shell]
 ----
 POST http://localhost:8090/v1/statement  HTTP/1.1
 content-type: application/json
@@ -232,7 +237,7 @@ java -cp .:presto-jdbc-334.jar PrestoExample
 ----
 +
 .Result
-[source,shell]
+[source,console]
 ----
 Connection established......
 {apartmentNumber=235, city=San Francisco, postalCode=29223, street=Tabor Court, streetNumber=94}
