@@ -28,7 +28,7 @@ In a separate terminal window, port forward the Starlight for RabbitMQ service:
 
 [source,shell]
 ----
-include::{luna-streaming-examples-repo}/starlight-for-rabbitmq/forward-s4r-service.sh[]
+kubectl port-forward -n datastax-pulsar service/pulsar-proxy 5672:5672
 ----
 
 == Produce a message with the RabbitMQ Python client
@@ -42,7 +42,28 @@ The script assumes you have opened the localhost:5672 port.
 
 [source,python]
 ----
-include::{luna-streaming-examples-repo}/starlight-for-rabbitmq/test-queue.py[]
+#!/usr/bin/env python
+import pika
+
+connection = pika.BlockingConnection(pika.ConnectionParameters(port=5672))
+channel = connection.channel()
+
+try:
+    channel.queue_declare("test-queue")
+    print("created test-queue queue")
+
+    channel.basic_publish(exchange="", routing_key="test-queue", body="test".encode('utf-8'))
+    print("published message test")
+
+    _, _, res = channel.basic_get(queue="test-queue", auto_ack=True)
+    assert res is not None, "should have received a message"
+    print("received message: " + res.decode())
+
+    channel.queue_delete("test-queue")
+    print("deleted test-queue queue")
+
+finally:
+    connection.close()
 ----
 
 Open a terminal and return to the safe place where you saved the Python script.
