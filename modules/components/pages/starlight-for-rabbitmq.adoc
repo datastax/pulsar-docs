@@ -24,7 +24,12 @@ Map a few ports to those services.
 
 include::partial$port-forward-web-service.adoc[]
 
-include::partial$port-forward-s4r.adoc[]
+In a separate terminal window, port forward the Starlight for RabbitMQ service:
+
+[source,shell]
+----
+kubectl port-forward -n datastax-pulsar service/pulsar-proxy 5672:5672
+----
 
 == Produce a message with the RabbitMQ Python client
 

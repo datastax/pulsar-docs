@@ -21,7 +21,21 @@ include::partial$install-helm.adoc[]
 
 == Forward service port
 
-include::partial$port-forward-beam.adoc[]
+In a separate terminal window, port forward the Beam endpoint service:
+
+[source,shell]
+----
+kubectl port-forward -n datastax-pulsar service/pulsar-proxy 8085:8085
+----
+
+The forwarding service will map the URL:PORT https://127.0.0.1:8085 to Pulsar Proxy running in the new cluster.
+Because Beam was enabled, the Proxy knows to forward on to the Beam service.
+
+[source,shell]
+----
+Forwarding from 127.0.0.1:8085 -> 8085
+Forwarding from [::1]:8085 -> 8085
+----
 
 == Start a message consumer
 

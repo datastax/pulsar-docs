@@ -36,7 +36,12 @@ You'll need to interact with services in the K8s cluster.
 Map a few ports to those services.
 There's no need to forward Pulsar's messaging service ports.
 
-include::partial$port-forward-sql.adoc[]
+In a new terminal window, port forward the Trino SQL service:
+
+[source,shell]
+----
+kubectl port-forward -n datastax-pulsar service/pulsar-sql 8090:8090
+----
 
 include::partial$port-forward-web-service.adoc[]
 

@@ -24,7 +24,12 @@ Map a few ports to those services.
 
 include::partial$port-forward-web-service.adoc[]
 
-include::partial$port-forward-s4k.adoc[]
+In a separate terminal window, port forward the Starlight for Kafka serivce.
+
+[source,shell]
+----
+kubectl port-forward -n datastax-pulsar service/pulsar-proxy 9092:9092
+----
 
 == Have a look around
 
