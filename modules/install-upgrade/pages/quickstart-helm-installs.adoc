@@ -1,5 +1,4 @@
 = Quick Start for Helm Chart installs (deprecated)
-:page-tag: luna-streaming,dev,admin,install,pulsar
 
 [IMPORTANT]
 ====

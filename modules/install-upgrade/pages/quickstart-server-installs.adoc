@@ -1,5 +1,4 @@
 = Quick Start for Bare Metal/VM installs
-:page-tag: luna-streaming,dev,admin,install
 
 This document explains xref:install-upgrade:quickstart-server-installs.adoc#install[installation] of Luna Streaming for Bare Metal/VM deployments with a Pulsar tarball. +
 
@@ -17,14 +16,14 @@ The resulting Luna Streaming deployment includes:
 * A Linux server or VM +
 * JDK 17 +
 * File System +
-  DataStax recommends XFS, but ext4 will work +
+DataStax recommends XFS, but ext4 will work +
 * For a single node install, a server with at least 8 CPU and 32 GB of memory is required +
 * For a small high-availability server, 4 servers are required. The servers must be on the same network so they can communicate with each other. +
 * Servers should have at least 50 GB in their root disk volume. +
 * BookKeeper should use one volume device for the journal, and one volume device for the ledgers. The journal device should be 20GB. The ledger volume device should be sized to hold the expected amount of stored message data. +
 * DataStax recommends a separate data disk volume for ZooKeeper. +
 * Operating System Settings
-  Disable Swap and set Linux Transparent Huge Pages (THP) to `madvice`. Check this setting with `cat /sys/kernel/mm/transparent_hugepage/enabled` and `cat /sys/kernel/mm/transparent_hugepage/defrag` +
+Disable Swap and set Linux Transparent Huge Pages (THP) to `madvice`. Check this setting with `cat /sys/kernel/mm/transparent_hugepage/enabled` and `cat /sys/kernel/mm/transparent_hugepage/defrag` +
 
 [#install]
 == Installation

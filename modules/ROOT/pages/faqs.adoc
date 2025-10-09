@@ -1,6 +1,5 @@
 = Luna Streaming FAQs
 :navtitle: FAQs
-:page-tag: luna-streaming,dev,admin,pulsar
 
 If you are new to DataStax Luna Streaming and its Apache Pulsar enhancements, these FAQs are for you.
 
@@ -81,7 +80,7 @@ From the Admin Console, you can:
 
 == What is Pulsar Heartbeat?
 
-https://github.com/datastax/pulsar-heartbeat[Pulsar Heartbeat] monitors the availability, tracks the performance, and reports failures of the Pulsar cluster. It produces synthetic workloads to measure end-to-end message pubsub latency.  Pulsar Heartbeat is a cloud-native application that can be installed by Helm within the Pulsar Kubernetes cluster.
+https://github.com/datastax/pulsar-heartbeat[Pulsar Heartbeat] monitors the availability, tracks the performance, and reports failures of the Pulsar cluster. It produces synthetic workloads to measure end-to-end message pubsub latency. Pulsar Heartbeat is a cloud-native application that can be installed by Helm within the Pulsar Kubernetes cluster.
 
 == What is Prometheus?
 

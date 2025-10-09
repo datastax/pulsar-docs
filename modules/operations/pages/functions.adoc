@@ -38,7 +38,7 @@ $ ./pulsar-admin functions create \
 +
 If the function is set up and ready to accept messages, you should see "Created Successfully!"
 
-. Use `./pulsar-admin functions list --tenant <tenant-name>` to list the functions in your tenant and confirm your new function was created.  
+. Use `./pulsar-admin functions list --tenant <tenant-name>` to list the functions in your tenant and confirm your new function was created.
 
 === Trigger with CLI
 
@@ -46,7 +46,7 @@ Triggering a function is a convenient way to test that the function is working. 
 
 To test a function with the Pulsar CLI, send a test value with Pulsar CLI's `trigger`.
 
-. Listen for messages on the output topic: 
+. Listen for messages on the output topic:
 +
 [source,bash]
 ----
