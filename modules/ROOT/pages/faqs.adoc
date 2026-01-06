@@ -115,10 +115,11 @@ There are two packages:
 If you're using open-source software (OSS) Apache Pulsar, you can use DataStax Apache Pulsar Connector with the OSS to take advantage of this `pulsar-sink` for Cassandra.
 See the xref:pulsar-connector:ROOT:index.adoc[DataStax Apache Pulsar Connector documentation].
 
-== APIs
+== What is the {company} Change Data Capture (CDC) for Cassandra connector?
 
-=== What client APIs does DataStax Luna Streaming provide?
+This source connector streams data changes from Cassandra tables to Pulsar topics.
+For more information, see the xref:cdc-for-cassandra:ROOT:index.adoc[{company} CDC for Cassandra connector documentation].
+
+== What client APIs does DataStax Luna Streaming provide?
 
 The same as for Apache Pulsar. See https://pulsar.apache.org/docs/en/client-libraries/.
-
-
