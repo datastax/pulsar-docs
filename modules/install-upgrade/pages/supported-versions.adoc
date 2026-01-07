@@ -1,23 +1,23 @@
 = Supported software
 :page-aliases: 2.10-1.x@install-upgrade:supported-versions.adoc, 2.10-2.x@install-upgrade:supported-versions.adoc
 
-Support covers only the following Software versions for Apache Pulsar:
+Support covers only the following Software versions for {pulsar}:
 
 [cols="2*"]
 |===
 |Name |Versions
 
-|Apache Pulsar
+|{pulsar}
 |3.1.x
 |===
 
-Support covers only the following Software versions for DataStax Luna Streaming Distribution:
+Support covers only the following Software versions for {company} Luna Streaming Distribution:
 
 [cols="2*"]
 |===
 |Name |Version
 
-|DataStax Luna Streaming Distribution
+|{company} Luna Streaming Distribution
 |v.1.0.0 and above
 
 |===
@@ -28,24 +28,24 @@ Support covers only the following Software versions for the Open Source Projects
 |===
 |Name |Version
 
-|Pulsar Admin Console
+|{pulsar-short} Admin Console
 |v.1.0.0 and above
 
-|Pulsar Heartbeat
+|{pulsar-short} Heartbeat
 |v.1.0.0 and above
 
-|DataStax pulsar-sink
+|{company} pulsar-sink
 |v.1.0.0 and above
 
 |Starlight for JMS
 |v.1.0.0 and above
 
-|Starlight for RabbitMQ
+|{starlight-rabbitmq}
 |v.1.0.0 and above
 
 |===
 
-Support covers only the following DataStax Luna Streaming Connectors and Apache Pulsar Connectors (as included in the Apache Pulsar download):
+Support covers only the following {company} Luna Streaming Connectors and {pulsar} Connectors (as included in the {pulsar} download):
 
 [cols="2*"]
 |===

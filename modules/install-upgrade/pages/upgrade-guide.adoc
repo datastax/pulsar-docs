@@ -13,7 +13,7 @@ This section describes changes in Luna Streaming 3.1 that may impact how your de
 
 === Default system topics
 
-In Pulsar 3.1, system topics are now enabled by default.
+In {pulsar-short} 3.1, system topics are now enabled by default.
 
 === Prometheus metrics changes
 
@@ -116,9 +116,9 @@ Prometheus metrics have been updated in Luna Streaming 3.1.
 The following PRs were merged to update metrics:
 
 * https://github.com/apache/pulsar/pull/13785[#13785 - Bump prometheus client version from 0.5.0 to 0.15.0]
-* https://github.com/apache/pulsar/pull/16581[#16581 - Rename Pulsar txn metrics to specify OpenMetrics]
-* https://github.com/apache/pulsar/pull/16610[#16610 - Rename Pulsar schema metrics to specify OpenMetrics]
-* https://github.com/apache/pulsar/pull/16611[#16611 - Rename Pulsar lb metrics to specify OpenMetrics]
+* https://github.com/apache/pulsar/pull/16581[#16581 - Rename {pulsar-short} txn metrics to specify OpenMetrics]
+* https://github.com/apache/pulsar/pull/16610[#16610 - Rename {pulsar-short} schema metrics to specify OpenMetrics]
+* https://github.com/apache/pulsar/pull/16611[#16611 - Rename {pulsar-short} lb metrics to specify OpenMetrics]
 * https://github.com/apache/pulsar/pull/16591[#16591 - Bump prometheus client version from 0.15.0 to 0.16.0]
 * https://github.com/apache/pulsar/pull/17419[#17419 - Removed timestamp from all prometheus metrics.]
 
@@ -133,7 +133,7 @@ The following PRs were merged in Luna Streaming 3.1 that may impact your deploym
 
 |https://github.com/apache/pulsar/pull/19180[#19180]
 |Deprecate blocking AuthorizationService, AuthorizationProvider methods
-|This will affect the public API for the AuthorizationService and the AuthorizationProvider, which only impacts users that are running custom code inside the Pulsar Broker
+|This will affect the public API for the AuthorizationService and the AuthorizationProvider, which only impacts users that are running custom code inside the {pulsar-short} Broker
 
 |https://github.com/apache/pulsar/pull/19182[#19182]
 |Remove AuthorizationProvider methods deprecated in 2.7 and 2.9
@@ -169,9 +169,9 @@ This section describes changes in Luna Streaming 3.1 that may impact your deploy
 * https://github.com/apache/pulsar/pull/14506[PR #14506] removes `managedLedgerNumWorkerThreads`.
 The `MetadataStore` instance is now passed from the `PulsarService` directly to the `ManagedLedgerFactory`.
 
-* The Pulsar SQL `conf/presto` directory has been removed.
-** If you're upgrading Pulsar SQL from 2.11 or earlier, copy the Pulsar SQL config files from `conf/presto` to `trino/conf`.
-** If you're downgrading Pulsar SQL to 2.11 or earlier from newer versions, copy the Pulsar SQL config files from `trino/conf` to `conf/presto`.
+* The {pulsar-short} SQL `conf/presto` directory has been removed.
+** If you're upgrading {pulsar-short} SQL from 2.11 or earlier, copy the {pulsar-short} SQL config files from `conf/presto` to `trino/conf`.
+** If you're downgrading {pulsar-short} SQL to 2.11 or earlier from newer versions, copy the {pulsar-short} SQL config files from `trino/conf` to `conf/presto`.
 
 === Default values changed or deprecated in 3.1
 
@@ -223,7 +223,7 @@ This section describes changes in Luna Streaming 3.1 that may impact how your de
 
 Luna Streaming 3.1 uses JDK 17.
 
-The Pulsar server module's `javac` release version is `17`.
+The {pulsar-short} server module's `javac` release version is `17`.
 
 Client and client-server shared modules remain at the target Java 8 release.
 
@@ -249,7 +249,7 @@ This section describes known issues encountered when upgrading to Luna Streaming
 
 **Downgrading to Luna Streaming 2.10 from Luna Streaming 3.1 is not supported for Bookies and ZooKeeper**.
 
-Pulsar 3.1 uses RocksDB `7.x`, which writes in a format that is not compatible with RocksDB `6.x`.
+{pulsar-short} 3.1 uses RocksDB `7.x`, which writes in a format that is not compatible with RocksDB `6.x`.
 
 Luna Streaming 2.10 uses Bookkeeper 4.14, which uses RocksDB `6.x`.
 
@@ -263,15 +263,15 @@ Luna Streaming can be deployed on bare metal, Docker, and Kubernetes.
 
 This guide only addresses Kubernetes deployment.
 
-For more information on upgrading bare metal and Docker Pulsar deployments, see the https://pulsar.apache.org/docs/3.3.x/administration-upgrade/[Pulsar documentation].
+For more information on upgrading bare metal and Docker {pulsar-short} deployments, see the https://pulsar.apache.org/docs/3.3.x/administration-upgrade/[{pulsar-short} documentation].
 
 === Upgrade Kubernetes deployment with KAAP Operator
 
-Upgrade to Luna Streaming 3.1 on Kubernetes with the KAAP (Kubernetes Autoscaling for Apache Pulsar) operator.
+Upgrade to Luna Streaming 3.1 on Kubernetes with the KAAP (Kubernetes Autoscaling for {pulsar}) operator.
 
 For more information, see the xref:kaap-operator::index.adoc[KAAP documentation].
 
-. To prevent data loss, back up your existing Pulsar data and configuration files.
+. To prevent data loss, back up your existing {pulsar-short} data and configuration files.
 . To save your current Helm release configuration, run the following command:
 +
 [source,bash,subs="+quotes"]
@@ -279,7 +279,7 @@ For more information, see the xref:kaap-operator::index.adoc[KAAP documentation]
 helm get values *RELEASE-NAME* > pulsar-backup-values.yaml
 ----
 +
-. To update the DataStax Pulsar Helm chart repository, run the following command:
+. To update the {company} {pulsar-short} Helm chart repository, run the following command:
 +
 [source,bash]
 ----
@@ -321,7 +321,7 @@ kaap:
         loadBalancerSheddingConditionHitCountThreshold: 1e
 ----
 +
-. To upgrade your existing Pulsar installation, run the following Helm command.
+. To upgrade your existing {pulsar-short} installation, run the following Helm command.
 This command assumes the default `pulsar` namespace. If you are using a different namespace, replace `pulsar` with your namespace.
 The `--wait` flag ensures that Helm waits until all pods are ready before completing the upgrade.
 +
@@ -352,7 +352,7 @@ kubectl logs *POD-NAME* -n *NAMESPACE*
 
 The Helm chart for Luna Streaming is available in the https://github.com/datastax/pulsar-helm-chart/blob/master/helm-chart-sources/pulsar/values.yaml[Helm chart sources] repository.
 
-. To prevent data loss, back up your existing Pulsar data and configuration files.
+. To prevent data loss, back up your existing {pulsar-short} data and configuration files.
 . To save your current Helm release configuration, run the following command:
 +
 [source,bash,subs="+quotes"]
@@ -360,7 +360,7 @@ The Helm chart for Luna Streaming is available in the https://github.com/datasta
 helm get values *RELEASE-NAME* > pulsar-backup-values.yaml
 ----
 +
-. To update the DataStax Pulsar Helm chart repository, run the following command:
+. To update the {company} {pulsar-short} Helm chart repository, run the following command:
 +
 [source,bash]
 ----
@@ -416,7 +416,7 @@ broker:
     brokerDeduplicationEnabled: "false"
 ----
 
-. To upgrade your existing Pulsar installation, run the following Helm command.
+. To upgrade your existing {pulsar-short} installation, run the following Helm command.
 This command assumes the default `pulsar` namespace. If you are using a different namespace, replace `pulsar` with your namespace.
 The `--wait` flag ensures that Helm waits until all pods are ready before completing the upgrade.
 +
