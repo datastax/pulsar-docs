@@ -1,13 +1,13 @@
-= Pulsar Beam with Luna Streaming
-:navtitle: Pulsar Beam
-:description: Install a minimal Luna Streaming helm chart that includes Pulsar Beam
+= {pulsar-short} Beam with Luna Streaming
+:navtitle: {pulsar-short} Beam
+:description: Install a minimal Luna Streaming Helm chart that includes {pulsar-short} Beam
 :helmValuesPath: https://raw.githubusercontent.com/datastaxdevs/luna-streaming-examples/main/beam/values.yaml
 
-The https://github.com/kafkaesque-io/pulsar-beam[Pulsar Beam] project is an HTTP-based streaming and queueing system for use with Apache Pulsar.
+The https://github.com/kafkaesque-io/pulsar-beam[{pulsar-short} Beam] project is an HTTP-based streaming and queueing system for use with {pulsar}.
 
-With Pulsar Beam, you can send messages over HTTP, push messages to a webhook or cloud function, chain webhooks and functions together, or stream messages through server-sent events (SSE).
+With {pulsar-short} Beam, you can send messages over HTTP, push messages to a webhook or cloud function, chain webhooks and functions together, or stream messages through server-sent events (SSE).
 
-In this guide, you'll install a minimal DataStax Pulsar Helm chart that includes Pulsar Beam.
+In this guide, you'll install a minimal {company} {pulsar-short} Helm chart that includes {pulsar-short} Beam.
 
 == Prerequisites
 
@@ -28,7 +28,7 @@ In a separate terminal window, port forward the Beam endpoint service:
 kubectl port-forward -n datastax-pulsar service/pulsar-proxy 8085:8085
 ----
 
-The forwarding service will map the URL:PORT https://127.0.0.1:8085 to Pulsar Proxy running in the new cluster.
+The forwarding service will map the URL:PORT https://127.0.0.1:8085 to {pulsar-short} Proxy running in the new cluster.
 Because Beam was enabled, the Proxy knows to forward on to the Beam service.
 
 [source,shell]
@@ -75,7 +75,7 @@ id: {9 0 0 0 <nil> 0xc002287ad0}
 data: Hi there
 ----
 
-You have now completed the basics of using Beam in a Pulsar Cluster. Refer to the project's https://github.com/kafkaesque-io/pulsar-beam/blob/master/README.md[readme] to see all the possibilities!
+You have now completed the basics of using Beam in a {pulsar-short} Cluster. Refer to the project's https://github.com/kafkaesque-io/pulsar-beam/blob/master/README.md[readme] to see all the possibilities!
 
 == A Python producer and consumer
 
@@ -157,6 +157,6 @@ include::partial$cleanup-terminal-and-helm.adoc[]
 
 Here are links to resources and guides you might be interested in:
 
-* https://github.com/kafkaesque-io/pulsar-beam[Learn more] about the Pulsar Beam project
-* https://kafkaesque-io.github.io/pulsar-beam-swagger[Pulsar Beam API]
+* https://github.com/kafkaesque-io/pulsar-beam[Learn more] about the {pulsar-short} Beam project
+* https://kafkaesque-io.github.io/pulsar-beam-swagger[{pulsar-short} Beam API]
 * xref:pulsar-sql.adoc[]
