@@ -50,7 +50,7 @@ The configuration of the Elasticsearch sink connector has the following properti
 | `socketTimeoutInMs` | Integer | false |60000 | The socket timeout in milliseconds waiting to read the elasticsearch response.
 | `ssl` | ElasticSearchSslConfig | false | string | Configuration for TLS encrypted communication. See xref:io-elastic-sink.adoc#ssl-configuration[].
 | `stripNonPrintableCharacters` | Boolean| false | true| Whether to remove all non-printable characters from the document or not. If it is set to true, all non-printable characters are removed from the document.
-| `stripNulls` | Boolean | false |true | If stripNulls is false, elasticsearch _source includes 'null' for empty fields (for example {"foo": null}), otherwise null fields are stripped.
+| `stripNulls` | Boolean | false |true | If stripNulls is false, elasticsearch _source includes 'null' for empty fields (for example `{"foo": null}`), otherwise null fields are stripped.
 | `token` | String| false | " " (empty string)|The token used by the connector to connect to the ElasticSearch cluster. Only one between basic/token/apiKey authentication mode must be configured.
 | `typeName` | String | false | "_doc" | The type name to which the connector writes messages to. The value should be set explicitly to a valid type name other than "_doc" for Elasticsearch version before 6.2, and left to default otherwise.
 | `username` | String| false |" " (empty string)| The username used by the connector to connect to the elastic search cluster. If `username` is set, then `password` should also be provided.
