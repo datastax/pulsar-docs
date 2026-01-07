@@ -83,7 +83,7 @@ To test your {pulsar-short} cluster with the bastion pod, produce a message with
 
 You should receive a confirmation the message was produced:
 
-`00:16:37.970 [main] INFO  org.apache.pulsar.client.cli.{pulsar-short}ClientTool - 1 messages successfully produced`
+`00:16:37.970 [main] INFO  org.apache.pulsar.client.cli.PulsarClientTool - 1 messages successfully produced`
 
 This means your {pulsar-short} cluster is functional. If the message isn't produced, double-check your message syntax.
 
