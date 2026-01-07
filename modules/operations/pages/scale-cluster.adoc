@@ -2,9 +2,9 @@
 
 This page will show you how to scale Luna Streaming clusters up for more compute capacity, or down for less.
 
-== Installing Pulsar cluster
+== Installing {pulsar-short} cluster
 
-For our Pulsar cluster installation, use this https://github.com/datastax/pulsar-helm-chart[Helm chart].
+For our {pulsar-short} cluster installation, use this https://github.com/datastax/pulsar-helm-chart[Helm chart].
 
 To start the cluster, use the values provided in this https://github.com/datastax/pulsar-helm-chart/blob/master/examples/dev-values.yaml[YAML file].
 
@@ -31,7 +31,7 @@ $ diff ~/dev-values.yaml ~/dev-values_large.yaml
 >     defaultWriteQuorum: 3
 ----
 
-. Create the cluster by installing Pulsar with `dev-values_large.yaml`:
+. Create the cluster by installing {pulsar-short} with `dev-values_large.yaml`:
 +
 ----
 $ helm install pulsar -f ~/dev-values_large.yaml --wait datastax-pulsar/pulsar
@@ -84,7 +84,7 @@ To scale up your cluster, change the `replicaCount` value in the YAML file to a 
  bookkeeper:
     replicaCount: 5
 ----
-. Upgrade the Helm chart to use the new value in the Pulsar cluster:
+. Upgrade the Helm chart to use the new value in the {pulsar-short} cluster:
 +
 ----
 $ helm upgrade pulsar -f ~/dev-values_large.yaml --wait datastax-pulsar/pulsar

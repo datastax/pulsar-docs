@@ -1,6 +1,6 @@
 = Elasticsearch sink connector
 
-The https://www.elastic.co/elasticsearch/[Elasticsearch] sink connector reads messages from Pulsar topics and persists messages to indexes.
+The https://www.elastic.co/elasticsearch/[Elasticsearch] sink connector reads messages from {pulsar-short} topics and persists messages to indexes.
 
 * xref:io-elastic-sink.adoc#configuration[Configuration]
 * xref:io-elastic-sink.adoc#ssl-configuration[ElasticSearchSslConfig properties]
@@ -138,7 +138,7 @@ $ docker run -p 9200:9200 -p 9300:9300 \
     docker.elastic.co/elasticsearch/elasticsearch:7.13.3
 ----
 
-. Start a Pulsar service locally in standalone mode.
+. Start a {pulsar-short} service locally in standalone mode.
 +
 [source,bash]
 ----
@@ -147,7 +147,7 @@ $ bin/pulsar standalone
 +
 . Make sure the connector NAR file is available at `connectors/pulsar-io-elastic-search-@pulsar:version@.nar`.
 +
-. Start the Pulsar Elasticsearch connector in local run mode using the JSON or YAML configuration file.
+. Start the {pulsar-short} Elasticsearch connector in local run mode using the JSON or YAML configuration file.
 +
 [tabs]
 ====
@@ -273,7 +273,7 @@ $ docker run -p 9200:9200 -p 9300:9300 \
     docker.elastic.co/elasticsearch/elasticsearch:7.13.3
 ----
 
-. Start a Pulsar service locally in standalone mode.
+. Start a {pulsar-short} service locally in standalone mode.
 +
 [source,bash]
 ----
@@ -282,7 +282,7 @@ $ bin/pulsar standalone
 +
 . Make sure the connector NAR file is available at `connectors/pulsar-io-elastic-search-@pulsar:version@.nar`.
 +
-. Start the Pulsar Elasticsearch connector in local run mode using the JSON or YAML configuration file.
+. Start the {pulsar-short} Elasticsearch connector in local run mode using the JSON or YAML configuration file.
 +
 [tabs]
 ====

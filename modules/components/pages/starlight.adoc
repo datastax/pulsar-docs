@@ -7,7 +7,7 @@ The goal of these extensions is to create a native, seamless interaction with a 
 Each extension integrates two popular event streaming ecosystems, unlocking new use cases and reducing barriers for users adopting {pulsar-short}.
 Leverage advantages from each ecosystem to build a truly unified event streaming platform, accelerating the development of real-time applications and services.
 
-The Starlight extensions are open source and included in https://www.ibm.com/docs/en/supportforpulsar[IBM Elite Support for Apache Pulsar].
+The Starlight extensions are open source and included in https://www.ibm.com/docs/en/supportforpulsar[IBM Elite Support for {pulsar}].
 
 == {starlight-kafka}
 
@@ -26,3 +26,9 @@ For more information, see the xref:starlight-for-rabbitmq:ROOT:index.adoc[{starl
 The https://github.com/datastax/pulsar-jms[Starlight for JMS extension] allows enterprises to take advantage of the scalability and resiliency of a modern streaming platform to run their existing JMS applications.
 
 For more information, see the xref:starlight-for-jms:ROOT:index.adoc[Starlight for JMS documentation].
+
+== See also
+
+* xref:components:pulsar-beam.adoc[]
+* xref:components:pulsar-sql.adoc[]
+* xref:components:heartbeat-vm.adoc[]
