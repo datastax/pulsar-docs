@@ -1,6 +1,6 @@
 = Elasticsearch sink connector
 
-The https://www.elastic.co/elasticsearch/[Elasticsearch] sink connector reads messages from Pulsar topics and persists messages to indexes.
+The https://www.elastic.co/elasticsearch/[Elasticsearch] sink connector reads messages from {pulsar-short} topics and persists messages to indexes.
 
 * xref:io-elastic-sink.adoc#configuration[Configuration]
 * xref:io-elastic-sink.adoc#ssl-configuration[ElasticSearchSslConfig properties]
@@ -50,7 +50,7 @@ The configuration of the Elasticsearch sink connector has the following properti
 | `socketTimeoutInMs` | Integer | false |60000 | The socket timeout in milliseconds waiting to read the elasticsearch response. 
 | `ssl` | ElasticSearchSslConfig | false | string | Configuration for TLS encrypted communication. See xref:io-elastic-sink.adoc#ssl-configuration[]. 
 | `stripNonPrintableCharacters` | Boolean| false | true| Whether to remove all non-printable characters from the document or not. If it is set to true, all non-printable characters are removed from the document. 
-| `stripNulls` | Boolean | false |true | If stripNulls is false, elasticsearch _source includes 'null' for empty fields (for example {"foo": null}), otherwise null fields are stripped. 
+| `stripNulls` | Boolean | false |true | If stripNulls is false, elasticsearch _source includes 'null' for empty fields (for example `{"foo": null}`), otherwise null fields are stripped. 
 | `token` | String| false | " " (empty string)|The token used by the connector to connect to the ElasticSearch cluster. Only one between basic/token/apiKey authentication mode must be configured. 
 | `typeName` | String | false | "_doc" | The type name to which the connector writes messages to. The value should be set explicitly to a valid type name other than "_doc" for Elasticsearch version before 6.2, and left to default otherwise. 
 | `username` | String| false |" " (empty string)| The username used by the connector to connect to the elastic search cluster. If `username` is set, then `password` should also be provided. 
@@ -138,7 +138,7 @@ $ docker run -p 9200:9200 -p 9300:9300 \
     docker.elastic.co/elasticsearch/elasticsearch:7.13.3
 ----
 
-. Start a Pulsar service locally in standalone mode.
+. Start a {pulsar-short} service locally in standalone mode.
 +
 [source,bash]
 ----   
@@ -147,7 +147,7 @@ $ bin/pulsar standalone
 +
 . Make sure the connector NAR file is available at `connectors/pulsar-io-elastic-search-@pulsar:version@.nar`.
 +
-. Start the Pulsar Elasticsearch connector in local run mode using the JSON or YAML configuration file. 
+. Start the {pulsar-short} Elasticsearch connector in local run mode using the JSON or YAML configuration file. 
 +
 [tabs]
 ====
@@ -273,7 +273,7 @@ $ docker run -p 9200:9200 -p 9300:9300 \
     docker.elastic.co/elasticsearch/elasticsearch:7.13.3
 ----
 
-. Start a Pulsar service locally in standalone mode.
+. Start a {pulsar-short} service locally in standalone mode.
 +
 [source,bash]
 ----   
@@ -282,7 +282,7 @@ $ bin/pulsar standalone
 +
 . Make sure the connector NAR file is available at `connectors/pulsar-io-elastic-search-@pulsar:version@.nar`.
 +
-. Start the Pulsar Elasticsearch connector in local run mode using the JSON or YAML configuration file. 
+. Start the {pulsar-short} Elasticsearch connector in local run mode using the JSON or YAML configuration file. 
 +
 [tabs]
 ====

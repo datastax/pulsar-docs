@@ -12,3 +12,8 @@ asciidoc:
     pulsar-version: '2.10'
     admin-console-version: '2.0.4'
     heartbeat-version: '1.0.12'
+    starlight-kafka: 'Starlight for Kafka'
+    starlight-rabbitmq: 'Starlight for RabbitMQ'
+    pulsar-reg: 'Apache Pulsar(TM)'
+    pulsar: 'Apache Pulsar'
+    pulsar-short: 'Pulsar'
