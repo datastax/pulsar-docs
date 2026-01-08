@@ -3,13 +3,11 @@
 
 If you are new to {company} Luna Streaming and its {pulsar} enhancements, these FAQs are for you.
 
-== Introduction
-
-=== What is {company} Luna Streaming?
+== What is {company} Luna Streaming?
 
 {company} Luna Streaming is a new Kubernetes-based distribution of {pulsar}, based on the technology that https://kesque.com/[Kesque] built to run its {pulsar-short}-as-a-service.
 
-=== What components and features are provided by {company} Luna Streaming?
+== What components and features are provided by {company} Luna Streaming?
 
 In addition to {pulsar} itself, {company} Luna Streaming provides:
 
@@ -19,24 +17,24 @@ In addition to {pulsar} itself, {company} Luna Streaming provides:
 * A management dashboard
 * A monitoring and alerting system
 
-=== On which version of {pulsar} is {company} Luna Streaming based?
+== On which version of {pulsar} is {company} Luna Streaming based?
 
 {company} Luna Streaming {luna-version} is based on its distribution of {pulsar} {pulsar-version}, plus features and additional enhancements from {company} contributors.
 
-=== What does {company} Luna Streaming provide that I cannot get with open-source {pulsar}?
+== What does {company} Luna Streaming provide that I cannot get with open-source {pulsar}?
 
 {company} Luna Streaming is a hardened version of {pulsar} that been run through additional testing to ensure it is ready for production use. It also includes additional tooling to help monitor your system, including an enhanced Admin Console and a Heartbeat service to monitor the system health.
 
-=== Is {company} Luna Streaming an open-source project?
+== Is {company} Luna Streaming an open-source project?
 
 Yes, {company} Luna Streaming is open source. See the <<gitHubRepos,repos FAQ>>.
 
-=== Which Kubernetes platforms are supported by {company} Luna Streaming?
+== Which Kubernetes platforms are supported by {company} Luna Streaming?
 
 They include Minikube, K8d, Kind, Google Kubernetes Engine (GKE), Microsoft Azure Kubernetes Service (AKS), Amazon Elastic Kubernetes Service (EKS), and other commonly used platforms.
 
 [#gitHubRepos]
-=== Where are the {company} Luna Streaming public GitHub repos?
+== Where are the {company} Luna Streaming public GitHub repos?
 
 There are several public repos, each with a different purpose. See:
 
@@ -47,23 +45,21 @@ There are several public repos, each with a different purpose. See:
 * https://github.com/datastax/pulsar-sink[https://github.com/datastax/pulsar-sink] : This is the {company} {pulsar} Connector (`pulsar-sink` for Cassandra) repo.
 * https://github.com/datastax/burnell[https://github.com/datastax/burnell] : This is a utility for {pulsar-short} that provides various functions, such as key initialization for authentication, and JWT token creation API.
 
-== Installation
-
-=== Is there a prerequisite version of Java needed for the {company} Luna Streaming installation?
+== Is there a prerequisite version of Java needed for the {company} Luna Streaming installation?
 
 The {company} Luna Streaming distribution is designed for Java 17. However, because the product releases Docker images, you do not need to install Java 17 in advance. Java 17 is bundled in the Docker image.
 
-=== What are the install options for {company} Luna Streaming?
+== What are the install options for {company} Luna Streaming?
 
 * Use the Helm chart provided at https://github.com/apache/pulsar-helm-chart[https://github.com/datastax/pulsar-helm-chart] to install {company} Luna Streaming in an existing Kubernetes cluster on your laptop or hosted by a cloud provider.
 * Use the tarball provided at https://github.com/datastax/pulsar/releases[https://github.com/datastax/pulsar/releases] to install {company} Luna Streaming on a server or VM.
 * Use the {company} Ansible scripts provided at https://github.com/datastax/pulsar-ansible[https://github.com/datastax/pulsar-ansible] to install {company} Luna Streaming on a server or VM with our provided playbooks.
 
-=== How do I install {company} Luna Streaming in my Kubernetes cluster?
+== How do I install {company} Luna Streaming in my Kubernetes cluster?
 
 Follow the full instructions in xref:install-upgrade:quickstart-helm-installs.adoc[Quick Start for Helm Chart installs].
 
-=== How do I install {company} Luna Streaming on my server or VM?
+== How do I install {company} Luna Streaming on my server or VM?
 
 Follow the full instructions in xref:install-upgrade:quickstart-server-installs.adoc[Quick Start for Server/VM installs].
 
@@ -82,30 +78,20 @@ From the Admin Console, you can:
 
 https://github.com/datastax/pulsar-heartbeat[{pulsar-short} Heartbeat] monitors the availability, tracks the performance, and reports failures of the {pulsar-short} cluster. It produces synthetic workloads to measure end-to-end message pubsub latency. {pulsar-short} Heartbeat is a cloud-native application that can be installed by Helm within the {pulsar-short} Kubernetes cluster.
 
-== What is Prometheus?
-
-https://prometheus.io/docs/introduction/overview/[Prometheus] is an open-source tool to collect metrics on a running app, providing real-time monitoring and alerts.
-
-== What is Grafana?
-
-https://grafana.com/[Grafana] is a visualization tool that helps you make sense of metrics and related data coming from your apps via Prometheus, for example.
-
-== {pulsar-short} Connector
-
-=== What are the features provided by {company} {pulsar} Connector (`pulsar-sink`) that are not supported in `kafka-sink`?
+== What are the features provided by {company} {pulsar} Connector (`pulsar-sink`) that are not supported in `kafka-sink`?
 
 The https://pulsar.apache.org/docs/en/io-overview/[{pulsar-short} IO framework] provides many features that are not possible in Kafka, and has different compression formats and auth/security features. The features are handled by {pulsar-short}. For more, see xref:operations:io-connectors.adoc[Luna Streaming IO Connectors].
 
 The {company} {pulsar} Connector allows single-record acknowledgement and negative acknowledgements.
 
-=== What features are missing in {company} {pulsar} Connector (`pulsar-sink`) compared with `kafka-sink`?
+== What features are missing in {company} {pulsar} Connector (`pulsar-sink`) compared with `kafka-sink`?
 
 * No support for `tinyint` (`int8bit`) and `smallint` (`int16bit`).
 * The key is always a String, but you can write JSON inside it; the support is implemented in pulsar-sink, but not in {pulsar-short} IO.
 * The "value" of a "message property" is always a String; for example, you cannot map the message property to `__ttl` or to `__timestamp`.
 * Field names inside structures must be valid for Avro, even in case of JSON structures. For example, field names like `Int.field` (with dot) or `int field` (with space) are not valid.
 
-=== How is {company} {pulsar} Connector distributed?
+== How is {company} {pulsar} Connector distributed?
 
 There are two packages:
 
@@ -115,10 +101,11 @@ There are two packages:
 If you're using open-source software (OSS) {pulsar}, you can use {company} {pulsar} Connector with the OSS to take advantage of this `pulsar-sink` for Cassandra.
 See the xref:pulsar-connector:ROOT:index.adoc[{company} {pulsar} Connector documentation].
 
-== APIs
+== What is the {company} Change Data Capture (CDC) for Cassandra connector?
 
-=== What client APIs does {company} Luna Streaming provide?
+This source connector streams data changes from Cassandra tables to Pulsar topics.
+For more information, see the xref:cdc-for-cassandra:ROOT:index.adoc[{company} CDC for Cassandra connector documentation].
+
+== What client APIs does {company} Luna Streaming provide?
 
 The same as for {pulsar}. See https://pulsar.apache.org/docs/en/client-libraries/.
-
-
