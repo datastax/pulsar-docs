@@ -51,9 +51,10 @@ The {company} Luna Streaming distribution is designed for Java 17. However, beca
 
 == What are the install options for {company} Luna Streaming?
 
-* Use the Helm chart provided at https://github.com/apache/pulsar-helm-chart[https://github.com/datastax/pulsar-helm-chart] to install {company} Luna Streaming in an existing Kubernetes cluster on your laptop or hosted by a cloud provider.
-* Use the tarball provided at https://github.com/datastax/pulsar/releases[https://github.com/datastax/pulsar/releases] to install {company} Luna Streaming on a server or VM.
-* Use the {company} Ansible scripts provided at https://github.com/datastax/pulsar-ansible[https://github.com/datastax/pulsar-ansible] to install {company} Luna Streaming on a server or VM with our provided playbooks.
+* **KAAP Helm chart (Recommended)**: Use the {company} https://github.com/datastax/kaap/[KAAP operator Helm chart], which provides Kubernetes-native autoscaling and simplified management for {pulsar} clusters. For more information, see the xref:kaap-operator::index.adoc[Kubernetes Autoscaling for {pulsar} (KAAP)] documentation.
+* **Luna Streaming Helm chart**: Use the Helm chart provided at https://github.com/apache/pulsar-helm-chart[https://github.com/datastax/pulsar-helm-chart] to install {company} Luna Streaming in an existing Kubernetes cluster on your laptop or hosted by a cloud provider.
+* **Tarball**: Use the tarball provided at https://github.com/datastax/pulsar/releases[https://github.com/datastax/pulsar/releases] to install {company} Luna Streaming on a server or VM.
+* **Ansible**: Use the {company} Ansible scripts provided at https://github.com/datastax/pulsar-ansible[https://github.com/datastax/pulsar-ansible] to install {company} Luna Streaming on a server or VM with our provided playbooks.
 
 == How do I install {company} Luna Streaming in my Kubernetes cluster?
 
