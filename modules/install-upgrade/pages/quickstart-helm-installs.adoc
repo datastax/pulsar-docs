@@ -322,7 +322,7 @@ helm install pulsar -f dev-values-auth.yaml datastax-pulsar/pulsar
 
 === Enabling the Prometheus stack
 
-You can enable a full Prometheus stack (Prometheus, Alertmanager, Grafana) from [kube-prometheus](https://github.com/prometheus-operator/kube-prometheus). This includes default Prometheus rules and Grafana dashboards for Kubernetes.
+You can enable a full Prometheus stack (Prometheus, Alertmanager, Grafana) from `https://github.com/prometheus-operator/kube-prometheus[kube-prometheus]`. This includes default Prometheus rules and Grafana dashboards for Kubernetes.
 
 In an addition, this chart can deploy Grafana dashboards for {pulsar-short} as well as {pulsar-short}-specific rules for Prometheus.
 
