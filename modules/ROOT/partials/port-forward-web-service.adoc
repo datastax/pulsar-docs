@@ -1,6 +1,0 @@
-In a new terminal, port forward Pulsar's admin service:
-
-[source,shell]
-----
-kubectl port-forward -n datastax-pulsar service/pulsar-broker 8080:8080
-----

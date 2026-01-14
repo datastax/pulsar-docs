@@ -1,23 +1,34 @@
-= Starlight for Luna Streaming
+= {company} Starlight suite of {pulsar-reg} extensions
+:navtitle: Starlight
 
-Starlight for Luna Streaming allows enterprises to take advantage of the scalability and resiliency of a modern streaming platform with various connectors for Apache Pulsar(R).
+The Starlight suite of extensions is a collection of {pulsar-reg} protocol handlers that extend an existing {pulsar-short} cluster.
+The goal of these extensions is to create a native, seamless interaction with a {pulsar-short} cluster using existing tooling and clients.
 
-Starlight is open source and is included in https://www.ibm.com/docs/en/supportforpulsar[IBM Elite Support for Apache Pulsar].
+Each extension integrates two popular event streaming ecosystems, unlocking new use cases and reducing barriers for users adopting {pulsar-short}.
+Leverage advantages from each ecosystem to build a truly unified event streaming platform, accelerating the development of real-time applications and services.
 
-== Starlight for Kafka
+The Starlight extensions are open source and included in https://www.ibm.com/docs/en/supportforpulsar[IBM Elite Support for {pulsar}].
 
-Starlight for Kafka brings native Apache Kafka(R) protocol support to Apache Pulsar by introducing a Kafka protocol handler on Pulsar brokers.
+== {starlight-kafka}
 
-For more information, see the xref:starlight-for-kafka:ROOT:index.adoc[Starlight for Kafka documentation].
+The https://github.com/datastax/starlight-for-kafka[{starlight-kafka} extension] brings native Apache Kafka(R) protocol support to {pulsar} by introducing a Kafka protocol handler on {pulsar-short} brokers.
 
-== Starlight for RabbitMQ
+For more information, see the xref:starlight-for-kafka:ROOT:index.adoc[{starlight-kafka} documentation].
 
-Starlight for RabbitMQ(TM) combines the industry-standard AMQP 0.9.1 (RabbitMQ) API with the cloud-native and horizontally scalable Pulsar streaming platform, providing a powerful way to modernize your RabbitMQ infrastructure, improve performance, and reduce costs.
+== {starlight-rabbitmq}
 
-For more information, see the xref:starlight-for-rabbitmq:ROOT:index.adoc[Starlight for RabbitMQ documentation].
+The https://github.com/datastax/starlight-for-rabbitmq[{starlight-rabbitmq} extension] brings native RabbitMQ(R) protocol support to {pulsar-reg}.
+
+For more information, see the xref:starlight-for-rabbitmq:ROOT:index.adoc[{starlight-rabbitmq} documentation].
 
 == Starlight for JMS
 
-Starlight for JMS allows enterprises to take advantage of the scalability and resiliency of a modern streaming platform to run their existing JMS applications. Because Pulsar is open-source and cloud-native, Starlight for JMS enables enterprises to move their JMS applications to run on-premises and in any cloud environment.
+The https://github.com/datastax/pulsar-jms[Starlight for JMS extension] allows enterprises to take advantage of the scalability and resiliency of a modern streaming platform to run their existing JMS applications.
 
 For more information, see the xref:starlight-for-jms:ROOT:index.adoc[Starlight for JMS documentation].
+
+== See also
+
+* xref:components:pulsar-beam.adoc[]
+* xref:components:pulsar-sql.adoc[]
+* xref:components:heartbeat-vm.adoc[]
