@@ -1,12 +1,12 @@
 = Luna Streaming Authentication
 
-The Helm chart can enable token-based authentication for your Pulsar cluster. For more, see https://pulsar.apache.org/docs/en/security-token-admin/[Pulsar token authentication].
+The Helm chart can enable token-based authentication for your {pulsar-short} cluster. For more, see https://pulsar.apache.org/docs/en/security-token-admin/[{pulsar-short} token authentication].
 
 For authentication to work, the token-generation keys need to be stored in Kubernetes secrets along with superuser default tokens.
 
 The Helm chart includes tooling to automatically create the necessary secrets, or you can do this manually.
 
-== Automatically generating secrets for Pulsar token authentication
+== Automatically generating secrets for {pulsar-short} token authentication
 
 Use the following settings in your `values.yaml` file to enable automatic generation of the secrets and enable token-based authentication:
 
@@ -17,7 +17,7 @@ autoRecovery:
   enableProvisionContainer: yes
 ----
 
-When `enableProvisionContainer` is enabled, Pulsar will check if the required secrets exist. If they don't exist, it will generate new token keys and use those keys to generate the default set of tokens.
+When `enableProvisionContainer` is enabled, {pulsar-short} will check if the required secrets exist. If they don't exist, it will generate new token keys and use those keys to generate the default set of tokens.
 
 The name of the key secrets are:
 
@@ -31,7 +31,7 @@ Using these keys will generate tokens for each role listed in `superUserRoles` i
 * `token-proxy`
 * `token-websocket`
 
-== Manually generating secrets for Pulsar token authentication
+== Manually generating secrets for {pulsar-short} token authentication
 
 include::operations:partial$manually-create-credentials.adoc[]
 
@@ -52,7 +52,7 @@ Create the certificate:
 kubectl create secret tls <tlsSecretName> --key <keyFile> --cert <certFile>
 ----
 
-The resulting secret will be of type `kubernetes.io/tls`. The key should *not* be in `PKCS 8` format, even though that is the format used by Pulsar. The `kubernetes.io/tls` format will be converted by the chart to `PKCS 8`.
+The resulting secret will be of type `kubernetes.io/tls`. The key should *not* be in `PKCS 8` format, even though that is the format used by {pulsar-short}. The `kubernetes.io/tls` format will be converted by the chart to `PKCS 8`.
 
 If you have a self-signed certificate, manually specify the certificate information directly in https://github.com/datastax/pulsar-helm-chart/blob/master/examples/dev-values-keycloak-auth.yaml[values]:
 
@@ -70,11 +70,11 @@ Once you have created the secrets that store the certificate info (or manually s
 
 == Token Authentication via Keycloak Integration
 
-DataStax created the https://github.com/datastax/pulsar-openid-connect-plugin[Pulsar OpenID Connect Authentication Plugin] to provide a more dynamic authentication option for Pulsar. This plugin integrates with any OpenID Connect-compliant identity provider to dynamically retrieve public keys for token validation. This dynamic public key retrieval enables support for key rotation and multiple authentication/identity providers by configuring multiple allowed token issuers. It also means that token secret keys will *not* be stored in Kubernetes secrets.
+{company} created the https://github.com/datastax/pulsar-openid-connect-plugin[{pulsar-short} OpenID Connect Authentication Plugin] to provide a more dynamic authentication option for {pulsar-short}. This plugin integrates with any OpenID Connect-compliant identity provider to dynamically retrieve public keys for token validation. This dynamic public key retrieval enables support for key rotation and multiple authentication/identity providers by configuring multiple allowed token issuers. It also means that token secret keys will *not* be stored in Kubernetes secrets.
 
-In order to simplify deployment for Pulsar cluster components, the plugin provides the option to use Keycloak in conjunction with Pulsar's basic token based authentication. For more, see https://github.com/datastax/pulsar-openid-connect-plugin[Pulsar OpenID Connect Authentication Plugin].
+In order to simplify deployment for {pulsar-short} cluster components, the plugin provides the option to use Keycloak in conjunction with {pulsar-short}'s basic token based authentication. For more, see https://github.com/datastax/pulsar-openid-connect-plugin[{pulsar-short} OpenID Connect Authentication Plugin].
 
-See the example https://github.com/datastax/pulsar-helm-chart/blob/master/examples/dev-values-keycloak-auth.yaml[Keycloak Helm chart] for deploying a working cluster that integrates with Keycloak. By default, the Helm chart creates a Pulsar realm within Keycloak and sets up the client used by the Pulsar Admin Console as well as a sample client and some sample groups. The configuration for the broker side auth plugin should be placed in the `.Values.<component>.configData` maps.
+See the example https://github.com/datastax/pulsar-helm-chart/blob/master/examples/dev-values-keycloak-auth.yaml[Keycloak Helm chart] for deploying a working cluster that integrates with Keycloak. By default, the Helm chart creates a {pulsar-short} realm within Keycloak and sets up the client used by the {pulsar-short} Admin Console as well as a sample client and some sample groups. The configuration for the broker side auth plugin should be placed in the `.Values.<component>.configData` maps.
 
 === Configuring Keycloak for Token Generation
 
@@ -104,20 +104,20 @@ keycloak:
     adminPassword: "F3...ncK@"
 ----
 
-. Navigate to `localhost:8080` in a browser and view the Pulsar realm in the Keycloak UI. Note that the realm name must match the configured realm name (`.Values.keycloak.realm`) for the OpenID Connect plugin to work properly.
+. Navigate to `localhost:8080` in a browser and view the {pulsar-short} realm in the Keycloak UI. Note that the realm name must match the configured realm name (`.Values.keycloak.realm`) for the OpenID Connect plugin to work properly.
 
-The OpenID Connect plugin uses the `sub` (subject) claim from the JWT as the role used for authorization within Pulsar. To get Keycloak to generate the JWT for a client with the right `sub`, create a special "mapper" that is a "Hardcoded claim" mapping claim name sub to a claim value that is the desired role, like `superuser`. The default config installed by https://github.com/datastax/pulsar-helm-chart/blob/master/examples/dev-values-keycloak-auth.yaml[this helm chart] provides examples of how to add custom mapper protocols to clients.
+The OpenID Connect plugin uses the `sub` (subject) claim from the JWT as the role used for authorization within {pulsar-short}. To get Keycloak to generate the JWT for a client with the right `sub`, create a special "mapper" that is a "Hardcoded claim" mapping claim name sub to a claim value that is the desired role, like `superuser`. The default config installed by https://github.com/datastax/pulsar-helm-chart/blob/master/examples/dev-values-keycloak-auth.yaml[this Helm chart] provides examples of how to add custom mapper protocols to clients.
 
-=== Retrieving and using a token from Keycloak with Pulsar Admin CLI
+=== Retrieving and using a token from Keycloak with {pulsar-short} Admin CLI
 
-. After creating your realm and client, retrieve a token with the Pulsar Admin CLI. To generate a token that will have an allowed issuer, you should exec into a bastion pod in the k8s cluster. Exec'ing into a bastion host will give you immediate access to a `pulsar-admin` cli tool that you can use to verify that you have access.
+. After creating your realm and client, retrieve a token with the {pulsar-short} Admin CLI. To generate a token that will have an allowed issuer, you should exec into a bastion pod in the k8s cluster. Exec'ing into a bastion host will give you immediate access to a `pulsar-admin` cli tool that you can use to verify that you have access.
 +
 [source,bash]
 ----
 kubectl -n default exec $(kubectl get pods --namespace default -l "app=pulsar,component=bastion" -o jsonpath="{.items[0].metadata.name}") -it -- bash
 ----
 
-. Run the following from a bastion pod to generate an allowed issuer token.
+. Run the following from a bastion pod to generate an allowed issuer token:
 +
 [source,bash]
 ----
@@ -125,17 +125,29 @@ pulsar@pulsar-bastion-85c9b777f6-gt9ct:/pulsar$ curl -d "client_id=test-client" 
        -d "client_secret=19d9f4a2-65fb-4695-873c-d0c1d6bdadad" \
        -d "grant_type=client_credentials" \
        "http://test-keycloak/auth/realms/pulsar/protocol/openid-connect/token"
-{"access_token":"ey...CE2ug","expires_in":600,"refresh_expires_in":0,"token_type":"Bearer","not-before-policy":0,"scope":"email profile"}
 ----
++
+.Results
+[%collapsible]
+====
+[source,json]
+----
+{
+  "access_token":"ey...CE2ug",
+  "expires_in":600,
+  "refresh_expires_in":0,
+  "token_type":"Bearer",
+  "not-before-policy":0,
+  "scope":"email profile"
+}
+----
+====
 
-. Copy the `access_token` contents and use it here:
+. Copy the `access_token` contents and use it in the `pulsar-admin` command's `--auth-params` option:
 +
 [source,bash]
 ----
-pulsar@pulsar-bastion-85c9b777f6-gt9ct:/pulsar$ bin/pulsar-admin --auth-params "token:e...CE2ug" \
-      tenants list
-"public"
-"pulsar"
+pulsar@pulsar-bastion-85c9b777f6-gt9ct:/pulsar$ bin/pulsar-admin --auth-params "token:e...CE2ug" tenants list
 ----
 
 You're now using Keycloak tokens with `pulsar-admin` CLI.
@@ -148,7 +160,7 @@ An alternative method for retrieving and using a Keycloak token from the bastion
 
 . Create a `creds.json` file and enter your retrieved credentials in this format:
 +
-[source,bash]
+[source,json]
 ----
 {
  "client_id": "pulsar-admin-example-client",
@@ -163,14 +175,12 @@ An alternative method for retrieving and using a Keycloak token from the bastion
 ----
 pulsar@pulsar-broker-79b87f786d-tjvm7:/pulsar$ bin/pulsar-admin \
 --auth-plugin "org.apache.pulsar.client.impl.auth.oauth2.AuthenticationOAuth2"
---auth-params '{"privateKey":"file:///pulsar/creds.json","issuerUrl":"http://test-keycloak:8081/auth/realms/pulsar","audience":"I dont matter"}'
+--auth-params '{"privateKey":"file:///pulsar/creds.json","issuerUrl":"http://test-keycloak:8081/auth/realms/pulsar","audience":"not used"}'
 --tenants list
-public
-pulsar
 ----
 
 You're now using Keycloak tokens with `pulsar-admin` CLI.
 
 == Next steps
 
-To connect with the Pulsar Admin console and start sending and consuming messages, see xref:components:admin-console-tutorial.adoc[Admin Console].
+To connect with the {pulsar-short} Admin console and start sending and consuming messages, see xref:components:admin-console-tutorial.adoc[Admin Console].
