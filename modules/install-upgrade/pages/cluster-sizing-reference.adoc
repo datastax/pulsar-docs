@@ -1,9 +1,9 @@
 = Installation topologies
 :navtitle: Cluster Sizing Reference
 
-This page describes recommended starting points for Pulsar deployments.
+This page describes recommended starting points for {pulsar-short} deployments.
 
-* SANDBOX (or Pulsar Standalone) is an all-in-one single-node deployment that is useful for taking Pulsar for a test drive.
+* SANDBOX (or {pulsar-short} Standalone) is an all-in-one single-node deployment that is useful for taking {pulsar-short} for a test drive.
 * DEVELOPMENT is a 3-node deployment that is not highly available, but able to maintain parity with the TESTING environment.
 * SINGLE REGION TESTING ENVIRONMENT is a highly-available 3/3/3 deployment.
 * HIGH-AVAILABILITY PRODUCTION ENVIRONMENT is a highly-available deployment replicated across 3 zones in 1 region.
@@ -47,7 +47,7 @@ For example, if there are 3 zones, then set a replication factor of 3.
 |Bookie
 |3
 |
-|Pulsar proxy
+|{pulsar-short} Proxy
 |3
 |
 |(Dedicated) Function Worker
@@ -68,7 +68,7 @@ The number of function workers depends on the cluster's functions workload.
 |Bookie
 |6
 |2 nodes per AZ^*^
-|Pulsar proxy
+|{pulsar-short} Proxy
 |3
 |1 node per AZ^*^
 |Autorecovery
@@ -80,7 +80,7 @@ The number of function workers depends on the cluster's functions workload.
 
 == Hardware sizing
 
-The following table lists the minimum hardware requirements for a Pulsar cluster.
+The following table lists the minimum hardware requirements for a {pulsar-short} cluster.
 
 [cols=4*,options=header]
 |===
@@ -112,7 +112,7 @@ a|* CPU: 4 vCPU
 * Data Disk Journal: 32 GB SSD
 * Data Disk Ledger: 256 GB SSD
 |
-|Pulsar Proxy, Function Worker
+|{pulsar-short} Proxy, Function Worker
 a|* CPU: 4 vCPU
 * Memory: 8 GB
 |
@@ -134,7 +134,7 @@ a|* CPU: 8 vCPU
 * Data Disk Journal: 256 GB SSD
 * Data Disk Ledger: 1024 GB SSD
 |Ledger disk capacity can be beyond 1TB.
-|Pulsar Proxy, Autorecovery
+|{pulsar-short} Proxy, Autorecovery
 a|* CPU: 4 vCPU
 * Memory: 16 GB
 |

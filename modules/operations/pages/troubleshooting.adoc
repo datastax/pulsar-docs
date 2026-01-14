@@ -41,7 +41,7 @@ image::gcp-quota-example2.png[GCP Backend Quota]
 
 If your pods are stuck in a *Pending* state after installation or your cloud provider is warning you about *Unschedulable Pods*, there are a few ways to work through this:
 
-* If some of your pods start, but others like `pulsar-adminconsole` and `pulsar-grafana` are left in an *Unschedulable* state, you might need to add CPUs to your existing nodes or an additional node pool. Luna Streaming requires more resources than Apache Pulsar.
+* If some of your pods start, but others like `pulsar-adminconsole` and `pulsar-grafana` are left in an *Unschedulable* state, you might need to add CPUs to your existing nodes or an additional node pool. Luna Streaming requires more resources than {pulsar}.
 
 * To examine a specific pod, use `kubectl describe`. For example, if your `pulsar-bookkeeper-0` pod is not scheduling, use `kubectl describe pods/pulsar-bookkeeper-0` to view detailed output on the pod's state, dependencies, and events.
 
@@ -87,7 +87,7 @@ To create a public namespace, run `pulsar-admin namespaces create public/default
 
 === Publish a message
 
-To test your Pulsar cluster with the bastion pod, produce a message with `pulsar-client` through the bastion pod shell:
+To test your {pulsar-short} cluster with the bastion pod, produce a message with `pulsar-client` through the bastion pod shell:
 
 [source,bash]
 ----
@@ -101,7 +101,7 @@ You should receive a confirmation that the message was produced:
 00:16:37.970 [main] INFO  org.apache.pulsar.client.cli.PulsarClientTool - 1 messages successfully produced
 ----
 
-This means your Pulsar cluster is functional.
+This means your {pulsar-short} cluster is functional.
 If the message isn't produced, double-check your message syntax.
 
 == Next steps
