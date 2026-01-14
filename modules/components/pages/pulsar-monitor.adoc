@@ -1,26 +1,26 @@
-= Pulsar Heartbeat
+= {pulsar-short} Heartbeat
 
-Pulsar Heartbeat monitors the availability, tracks the performance, and reports failures of the Pulsar cluster.
+{pulsar-short} Heartbeat monitors the availability, tracks the performance, and reports failures of the {pulsar-short} cluster.
 It produces synthetic workloads to measure end-to-end message pubsub latency.
 
-Pulsar Heartbeat is a cloud native application that can be installed by Helm within a Pulsar Kubernetes cluster. It can also monitor multiple Pulsar clusters.
+{pulsar-short} Heartbeat is a cloud native application that can be installed by Helm within a {pulsar-short} Kubernetes cluster. It can also monitor multiple {pulsar-short} clusters.
 
-TIP: Pulsar Heartbeat is installed automatically for server/VM installations as described in xref:install-upgrade:quickstart-server-installs.adoc[].
+TIP: {pulsar-short} Heartbeat is installed automatically for server/VM installations as described in xref:install-upgrade:quickstart-server-installs.adoc[].
 
-Pulsar Heartbeat supports the following features:
+{pulsar-short} Heartbeat supports the following features:
 
 * Monitor message pubsub and admin REST API endpoint
 * Measure end-to-end message latency from producing to consuming messages
-* Measure message latency over the websocket interface, and Pulsar function
-* Monitor instance availability of broker, proxy, bookkeeper, and zookeeper in a Pulsar Kubernetes cluster
-* Monitor individual Pulsar broker's health
+* Measure message latency over the websocket interface, and {pulsar-short} function
+* Monitor instance availability of broker, proxy, bookkeeper, and zookeeper in a {pulsar-short} Kubernetes cluster
+* Monitor individual {pulsar-short} broker's health
 * Incident alert integration with OpsGenie
 * Customer configurable alert thresholds and probe test intervals
 * Slack alerts
 
 == Configuration
 
-Pulsar Heartbeat is a data driven tool that sources configuration from a yaml or json file. The configuration json file can be specified in the following order of precedence:
+{pulsar-short} Heartbeat is a data driven tool that sources configuration from a yaml or json file. The configuration json file can be specified in the following order of precedence:
 
 * An environment variable `PULSAR_OPS_MONITOR_CFG`
 * A command line argument `./pulsar-heartbeat -config /path/to/runtime.yml`
@@ -30,7 +30,7 @@ You can download a template https://github.com/datastax/pulsar-heartbeat/blob/ma
 
 == Observability
 
-Pulsar Heartbeat exposes Prometheus compliant metrics at the `\metrics` endpoint for scraping. The exported metrics are:
+{pulsar-short} Heartbeat exposes Prometheus compliant metrics at the `\metrics` endpoint for scraping. The exported metrics are:
 
 [cols="<,^,<"]
 |===
@@ -75,17 +75,17 @@ Pulsar Heartbeat exposes Prometheus compliant metrics at the `\metrics` endpoint
 
 == In-cluster monitoring
 
-Pulsar Heartbeat can be deployed within the same Pulsar Kubernetes cluster.
+{pulsar-short} Heartbeat can be deployed within the same {pulsar-short} Kubernetes cluster.
 
 NOTE: Kubernetes' pod and service, and individual broker monitoring are only supported within the same Kubernetes cluster deployment.
 
 == Docker
 
-Pulsar Heartbeat's official docker image can be pulled https://hub.docker.com/repository/docker/datastax/pulsar-heartbeat/tags?page=1&ordering=last_updated[here]
+{pulsar-short} Heartbeat's official docker image can be pulled https://hub.docker.com/repository/docker/datastax/pulsar-heartbeat/tags?page=1&ordering=last_updated[here]
 
 === Docker compose
 
-`./config/runtime.yml` or `./config/runtime.json` must have a Pulsar jwt and must be configured properly.
+`./config/runtime.yml` or `./config/runtime.json` must have a {pulsar-short} jwt and must be configured properly.
 
 [source,bash]
 ----
@@ -96,7 +96,7 @@ $ docker-compose up
 
 The runtime.yml/yaml or runtime.json file must be mounted to /config/runtime.yml as the default configuration path.
 
-Run docker container with Pulsar CA certificate if TLS is enabled and expose Prometheus metrics for collection.
+Run docker container with {pulsar-short} CA certificate if TLS is enabled and expose Prometheus metrics for collection.
 
 [source,bash]
 ----
