@@ -88,11 +88,11 @@ To deploy the built-in transform function locally in {pulsar-short} standalone, 
 [source,bash]
 ----
 ./bin/pulsar-admin functions localrun \
---jar functions/pulsar-transformations-2.0.1.nar \
---classname com.datastax.oss.pulsar.functions.transforms.TransformFunction \
---inputs $INPUT_TOPIC \
---output $OUTPUT_TOPIC \
---user-config '{"steps": [{"type": "drop-fields", "fields": "password"}, {"type": "merge-key-value"}, {"type": "unwrap-key-value"}, {"type": "cast", "schema-type": "STRING"}]}'
+  --jar functions/pulsar-transformations-2.0.1.nar \
+  --classname com.datastax.oss.pulsar.functions.transforms.TransformFunction \
+  --inputs $INPUT_TOPIC \
+  --output $OUTPUT_TOPIC \
+  --user-config '{"steps": [{"type": "drop-fields", "fields": "password"}, {"type": "merge-key-value"}, {"type": "unwrap-key-value"}, {"type": "cast", "schema-type": "STRING"}]}'
 ----
 +
 For the `user-config` parameters, see the xref:operations:functions-transform.adoc[transform functions configuration reference].
@@ -106,13 +106,13 @@ To deploy a built-in transform function to a {pulsar-short} cluster, do the foll
 [source,bash]
 ----
 ./bin/pulsar-admin functions create \
---tenant $TENANT \
---namespace $NAMESPACE \
---name transform-function \
---inputs persistent://$TENANT/$NAMESPACE/$INPUT_TOPIC \
---output persistent://$TENANT/$NAMESPACE/$OUTPUT_TOPIC  \
---classname com.datastax.oss.pulsar.functions.transforms.TransformFunction \
---jar functions/pulsar-transformations-2.0.1.nar
+  --tenant $TENANT \
+  --namespace $NAMESPACE \
+  --name transform-function \
+  --inputs persistent://$TENANT/$NAMESPACE/$INPUT_TOPIC \
+  --output persistent://$TENANT/$NAMESPACE/$OUTPUT_TOPIC  \
+  --classname com.datastax.oss.pulsar.functions.transforms.TransformFunction \
+  --jar functions/pulsar-transformations-2.0.1.nar
 ----
 +
 This option deployed the functions using the transform function `.nar`.
@@ -139,16 +139,15 @@ For example:
 [source,bash]
 ----
 pulsar-admin sinks create \
---sink-type elastic-sink \
---inputs my-input-topic \
---tenant public \
---namespace default \
---name my-sink \
---transform-function "builtin://transforms" \
---transform-function-config '{"steps": [{"type": "drop-fields", "fields": "password"}, {"type": "merge-key-value"}, {"type": "unwrap-key-value"}'
+  --sink-type elastic-sink \
+  --inputs my-input-topic \
+  --tenant public \
+  --namespace default \
+  --name my-sink \
+  --transform-function "builtin://transforms" \
+  --transform-function-config '{"steps": [{"type": "drop-fields", "fields": "password"}, {"type": "merge-key-value"}, {"type": "unwrap-key-value"}'
 ----
 ====
-
 --
 ======
 
