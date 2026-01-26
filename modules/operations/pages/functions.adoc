@@ -1,8 +1,14 @@
-= Luna Streaming Functions
+= Deploy and manage {product} {pulsar-short} functions
+:navtitle: Deploy and manage {pulsar-short} functions
 
-Functions are lightweight compute processes that enable you to process each message received on a topic or multiple topics. You can apply custom logic to that message, transforming or enriching it, and then output it to a different topic.
+Functions are lightweight compute processes that you can run on each message a topic receives.
+You can apply custom logic to a message, transforming or enriching it, and then output it to a different topic.
 
-Functions run inside Luna Streaming and are therefore serverless. Write the code for your function in Java, Python, or Go, then upload the code to the {pulsar-short} cluster and deploy the function. The function will be automatically run for each message published to the specified input topic. See https://pulsar.apache.org/docs/en/functions-overview/[{pulsar-short} Functions overview] for more information about {pulsar-reg} functions.
+Functions run inside {product}, which makes them serverless.
+You write the code for your function in Java, Python, or Go, and then upload the code to the {pulsar-short} cluster and deploy the function.
+The function automatically runs for each message published to the specified input topic.
+
+Functions are implemented using https://pulsar.apache.org/docs/en/functions-overview/[{pulsar-reg} functions].
 
 == Manage functions using {pulsar-short} Admin CLI 
 
