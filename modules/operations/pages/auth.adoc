@@ -121,8 +121,6 @@ pulsar@pulsar-bastion-85c9b777f6-gt9ct:/pulsar$ curl -d "client_id=test-client" 
 ----
 +
 .Results
-[%collapsible]
-====
 [source,json]
 ----
 {
@@ -134,7 +132,6 @@ pulsar@pulsar-bastion-85c9b777f6-gt9ct:/pulsar$ curl -d "client_id=test-client" 
   "scope":"email profile"
 }
 ----
-====
 
 . Copy the `access_token` contents and use it in the `pulsar-admin` command's `--auth-params` option:
 +
