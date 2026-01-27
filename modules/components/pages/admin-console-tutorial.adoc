@@ -2,14 +2,6 @@
 
 The *{company} Admin Console for {pulsar-reg}* is a web-based UI from {company} that administers topics, namespaces, sources, sinks, and various aspects of {pulsar} features. 
 
-* xref:components:admin-console-tutorial.adoc#getting-started[]
-* xref:components:admin-console-tutorial.adoc#features[]
-* xref:components:admin-console-tutorial.adoc#send-receive[]
-* xref:components:admin-console-tutorial.adoc#create-topics[]
-* xref:components:admin-console-tutorial.adoc#code-samples[]
-* xref:components:admin-console-tutorial.adoc#connect-to-pulsar[]
-* xref:components:admin-console-tutorial.adoc#video[]
-
 [#getting-started]
 == Getting Started in {pulsar-short} Admin Console
 
@@ -150,13 +142,6 @@ pulsar-admin --admin-url https://ip-10-101-32-250.srv101.dsinternal.org:8443 \
 You can get the token from the {pulsar-short} Admin Console's *Credentials* page.
 
 Alternatively, you can save the URL authentication parameters in your `client.conf` file.
-
-[#video]
-== Admin console video
-
-You can also follow along with this video from our *Five Minutes About {pulsar-short}* series to get started with the admin console.
-
-video::1IwblLfPiPQ[youtube, list=PL2g2h-wyI4SqeKH16czlcQ5x4Q_z-X7_m]
 
 == Next steps
 

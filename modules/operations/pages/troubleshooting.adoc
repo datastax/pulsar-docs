@@ -1,11 +1,5 @@
 = Troubleshooting
 
-To troubleshoot Luna Streaming, look at these potential issues:
-
-* xref:troubleshooting.adoc#checkquotas[**Insufficient Quota**]
-* xref:troubleshooting.adoc#containerspending[**Containers in Pending State**]
-* xref:troubleshooting.adoc#bastionpod[**Using the Bastion Pod**]
-
 [#checkquotas]
 == Check quotas
 

@@ -505,13 +505,6 @@ Once you have created the secrets that store the certificate info (or specified 
 
 `enableTls: yes`
 
-[#video]
-== Getting started with Kubernetes video
-
-Follow along with this video from our *Five Minutes About {pulsar-short}* series to get started with a Helm installation.
-
-video::hEBP_IVQqQM[youtube, list=PL2g2h-wyI4SqeKH16czlcQ5x4Q_z-X7_m]
-
 == Next steps
 
 To learn about installing Luna Streaming for Bare Metal/VM, see xref:install-upgrade:quickstart-server-installs.adoc[Quickstart for Bare Metal/VM Installs].
