@@ -14,13 +14,10 @@ https://github.com/datastax/pulsar[Luna Streaming 2.10 or later] is required to 
 
 == Manage functions using {pulsar-short} Admin CLI
 
-Add functions using the {pulsar-short} Admin CLI.
+There are multiple ways to add functions using the {pulsar-short} Admin CLI.
 
-[tabs]
-======
-Deploy custom function code::
-+
---
+=== Deploy custom function code
+
 . Create a file that contains your function code.
 +
 For example purposes, you can use the following sample function that consumes a message from one topic, adds an exclamation point, and then publishes the result to another topic.
@@ -61,29 +58,24 @@ If the function is set up and ready to accept messages, then the output is `Crea
 ./pulsar-admin functions list --tenant $TENANT
 ----
 
---
+=== Deploy {company} transform functions
 
-Deploy {company} transform functions::
-+
---
 Transform functions are built-in functions that perform common data transformation tasks, such as casting data types, dropping fields, flattening nested structures, and merging or unwrapping KeyValue pairs.
 For more information, see the xref:operations:functions-transform.adoc[transform functions configuration reference].
 
 You can find the transform function `.nar` in the `/functions` directory of your {pulsar-short} deployment.
 
-[tabs]
-====
-{pulsar-short} standalone::
-+
+==== Deploy transform functions in {pulsar-short} standalone
+
 To deploy the built-in transform function locally in {pulsar-short} standalone, do the following:
-+
+
 . Start {pulsar-short} standalone:
 +
 [source,shell]
 ----
 ./bin/pulsar standalone
 ----
-+
+
 . Create a transform function in `localrun` mode:
 +
 [source,bash]
@@ -98,10 +90,10 @@ To deploy the built-in transform function locally in {pulsar-short} standalone, 
 +
 For the `user-config` parameters, see the xref:operations:functions-transform.adoc[transform functions configuration reference].
 
-{pulsar-short} cluster::
-+
+==== Deploy transform functions in a {pulsar-short} cluster
+
 To deploy a built-in transform function to a {pulsar-short} cluster, do the following:
-+
+
 . Create a built-in transform function with the {pulsar-short} CLI:
 +
 [source,bash]
@@ -117,10 +109,9 @@ To deploy a built-in transform function to a {pulsar-short} cluster, do the foll
 ----
 +
 This option deployed the functions using the transform function `.nar`.
-+
 You can also deploy individual functions by passing the function configuration in the `--user-config` parameter.
 For more information, see the xref:operations:functions-transform.adoc[transform functions configuration reference].
-+
+
 . Confirm the function was created by listing the functions in the tenant:
 +
 [source,bash]
@@ -128,15 +119,16 @@ For more information, see the xref:operations:functions-transform.adoc[transform
 ./pulsar-admin functions list --tenant $TENANT
 ----
 
-{pulsar-short} sink::
+=== Deploy a function in a {pulsar-short} sink
+
 By default, functions modify data either after it is written to a topic by a source connector, or before it is read from a topic by a sink connector.
 This requires either a custom connector or an intermediate topic (with additional storage, IO, and latency).
-+
+
 Alternatively, you can deploy functions in a sink to apply preprocessing to sink topic writes (outgoing messages from the sink).
-+
+
 To deploy a function in a sink, include the function path and configuration when you create the sink connector.
 For example:
-+
+
 [source,bash]
 ----
 pulsar-admin sinks create \
@@ -148,12 +140,8 @@ pulsar-admin sinks create \
   --transform-function "builtin://transforms" \
   --transform-function-config '{"steps": [{"type": "drop-fields", "fields": "password"}, {"type": "merge-key-value"}, {"type": "unwrap-key-value"}'
 ----
-====
 
---
-======
-
-=== Trigger with CLI
+== Trigger functions with the {pulsar-short} CLI
 
 Triggering a function is a convenient way to test that the function is working. When you trigger a function, you are publishing a message on the function's input topic, which triggers the function to run.
 

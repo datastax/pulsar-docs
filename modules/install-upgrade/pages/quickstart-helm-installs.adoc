@@ -69,13 +69,10 @@ For a component like BookKeeper, which requires stateful storage, we need to ove
 
 There are two ways to override `default_storage`:
 
-* Leave `existingStorageClassName` blank and specify the storage class parameters below.
+* Leave `existingStorageClassName` blank and specify the storage class parameters for your cloud provider:
 +
-[tabs]
-====
-GKE::
+** GKE:
 +
---
 [source,yaml]
 ----
   volumes:
@@ -90,11 +87,9 @@ GKE::
          extraParams:
             replication-type: none
 ----
---
 
-EKS::
+** EKS:
 +
---
 [source,yaml]
 ----
   volumes:
@@ -109,11 +104,9 @@ EKS::
          extraParams:
             iopsPerGB: "10"
 ----
---
 
-AKS::
+** AKS:
 +
---
 [source,yaml]
 ----
   volumes:
@@ -128,8 +121,6 @@ AKS::
          extraParams:
             replication-type: none
 ----
---
-====
 
 * Create a custom storage configuration as a `yaml` file (https://github.com/datastax/pulsar-helm-chart/blob/master/helm-chart-sources/pulsar/templates/bookkeeper/bookkeeper-storageclass.yaml[like the {company} example]) and tell the Helm chart to use that storage configuration when it creates the BookKeeper PVCs.
 +
