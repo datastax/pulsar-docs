@@ -8,6 +8,7 @@ nav:
 
 asciidoc:
   attributes:
+    product: 'Luna Streaming'
     luna-version: '2.10'
     pulsar-version: '2.10'
     admin-console-version: '2.0.4'
