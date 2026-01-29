@@ -1,15 +1,28 @@
-= Luna Streaming Functions
+= Deploy and manage {product} {pulsar-short} functions
+:navtitle: Deploy and manage {pulsar-short} functions
 
-Functions are lightweight compute processes that enable you to process each message received on a topic or multiple topics. You can apply custom logic to that message, transforming or enriching it, and then output it to a different topic.
+Functions are lightweight compute processes that you can run on each message a topic receives.
+You can apply custom logic to a message, transforming or enriching it, and then output it to a different topic.
 
-Functions run inside Luna Streaming and are therefore serverless. Write the code for your function in Java, Python, or Go, then upload the code to the {pulsar-short} cluster and deploy the function. The function will be automatically run for each message published to the specified input topic. See https://pulsar.apache.org/docs/en/functions-overview/[{pulsar-short} Functions overview] for more information about {pulsar-reg} functions.
+Functions run inside {product}, which makes them serverless.
+You write the code for your function in Java, Python, or Go, and then upload the code to the {pulsar-short} cluster and deploy the function.
+The function automatically runs for each message published to the specified input topic.
+
+Functions are implemented using https://pulsar.apache.org/docs/en/functions-overview/[{pulsar-reg} functions].
+
+https://github.com/datastax/pulsar[Luna Streaming 2.10 or later] is required to deploy custom functions in {pulsar-short}.
 
 == Manage functions using {pulsar-short} Admin CLI
 
-Add functions using the {pulsar-short} Admin CLI. Create a new Python function to consume a message from one topic, add an exclamation point, and publish the results to another topic.
+There are multiple ways to add functions using the {pulsar-short} Admin CLI.
 
-. Create the following Python function in `function.py`:
+=== Deploy custom function code
+
+. Create a file that contains your function code.
 +
+For example purposes, you can use the following sample function that consumes a message from one topic, adds an exclamation point, and then publishes the result to another topic.
++
+.function.py
 [source,python]
 ----
 from pulsar import Function
@@ -22,52 +35,143 @@ class ExclamationFunction(Function):
     return input + '!'
 ----
 
-. Deploy `function.py` to your {pulsar-short} cluster using the {pulsar-short} Admin CLI:
+. Deploy your function file to your {pulsar-short} cluster using the {pulsar-short} Admin CLI:
 +
 [source,bash]
 ----
-$ ./pulsar-admin functions create \
+./pulsar-admin functions create \
   --py function.py \
   --classname function.ExclamationFunction \
-  --tenant <tenant-name> \
-  --namespace default \
+  --tenant $TENANT \
+  --namespace $NAMESPACE \
   --name exclamation \
-  --inputs persistent:///default/
-  --output persistent:///default/
+  --inputs persistent://$TENANT/$NAMESPACE/$INPUT_TOPIC \
+  --output persistent://$TENANT/$NAMESPACE/$OUTPUT_TOPIC
 ----
 +
-If the function is set up and ready to accept messages, you should see "Created Successfully!"
+If the function is set up and ready to accept messages, then the output is `Created Successfully`.
 
-. Use `./pulsar-admin functions list --tenant <tenant-name>` to list the functions in your tenant and confirm your new function was created.
+. Confirm the function was created by listing the functions in the tenant:
++
+[source,bash]
+----
+./pulsar-admin functions list --tenant $TENANT
+----
 
-=== Trigger with CLI
+=== Deploy {company} transform functions
+
+Transform functions are built-in functions that perform common data transformation tasks, such as casting data types, dropping fields, flattening nested structures, and merging or unwrapping KeyValue pairs.
+For more information, see the xref:operations:functions-transform.adoc[transform functions configuration reference].
+
+You can find the transform function `.nar` in the `/functions` directory of your {pulsar-short} deployment.
+
+==== Deploy transform functions in {pulsar-short} standalone
+
+To deploy the built-in transform function locally in {pulsar-short} standalone, do the following:
+
+. Start {pulsar-short} standalone:
++
+[source,shell]
+----
+./bin/pulsar standalone
+----
+
+. Create a transform function in `localrun` mode:
++
+[source,bash]
+----
+./bin/pulsar-admin functions localrun \
+  --jar functions/pulsar-transformations-2.0.1.nar \
+  --classname com.datastax.oss.pulsar.functions.transforms.TransformFunction \
+  --inputs $INPUT_TOPIC \
+  --output $OUTPUT_TOPIC \
+  --user-config '{"steps": [{"type": "drop-fields", "fields": "password"}, {"type": "merge-key-value"}, {"type": "unwrap-key-value"}, {"type": "cast", "schema-type": "STRING"}]}'
+----
++
+For the `user-config` parameters, see the xref:operations:functions-transform.adoc[transform functions configuration reference].
+
+==== Deploy transform functions in a {pulsar-short} cluster
+
+To deploy a built-in transform function to a {pulsar-short} cluster, do the following:
+
+. Create a built-in transform function with the {pulsar-short} CLI:
++
+[source,bash]
+----
+./bin/pulsar-admin functions create \
+  --tenant $TENANT \
+  --namespace $NAMESPACE \
+  --name transform-function \
+  --inputs persistent://$TENANT/$NAMESPACE/$INPUT_TOPIC \
+  --output persistent://$TENANT/$NAMESPACE/$OUTPUT_TOPIC  \
+  --classname com.datastax.oss.pulsar.functions.transforms.TransformFunction \
+  --jar functions/pulsar-transformations-2.0.1.nar
+----
++
+This option deployed the functions using the transform function `.nar`.
+You can also deploy individual functions by passing the function configuration in the `--user-config` parameter.
+For more information, see the xref:operations:functions-transform.adoc[transform functions configuration reference].
+
+. Confirm the function was created by listing the functions in the tenant:
++
+[source,bash]
+----
+./pulsar-admin functions list --tenant $TENANT
+----
+
+=== Deploy a function in a {pulsar-short} sink
+
+By default, functions modify data either after it is written to a topic by a source connector, or before it is read from a topic by a sink connector.
+This requires either a custom connector or an intermediate topic (with additional storage, IO, and latency).
+
+Alternatively, you can deploy functions in a sink to apply preprocessing to sink topic writes (outgoing messages from the sink).
+
+To deploy a function in a sink, include the function path and configuration when you create the sink connector.
+For example:
+
+[source,bash]
+----
+pulsar-admin sinks create \
+  --sink-type elastic-sink \
+  --inputs my-input-topic \
+  --tenant public \
+  --namespace default \
+  --name my-sink \
+  --transform-function "builtin://transforms" \
+  --transform-function-config '{"steps": [{"type": "drop-fields", "fields": "password"}, {"type": "merge-key-value"}, {"type": "unwrap-key-value"}'
+----
+
+== Trigger functions with the {pulsar-short} CLI
 
 Triggering a function is a convenient way to test that the function is working. When you trigger a function, you are publishing a message on the function's input topic, which triggers the function to run.
 
-To test a function with the {pulsar-short} CLI, send a test value with {pulsar-short} CLI's `trigger`.
+To test a function with the {pulsar-short} CLI, send a test value with {pulsar-short} CLI's `functions trigger` command:
 
 . Listen for messages on the output topic:
 +
 [source,bash]
 ----
-bin/pulsar-client consume persistent://<tenant-name>/default/<topic-name> \
+bin/pulsar-client consume persistent://$TENANT/$NAMESPACE/$TOPIC \
   --subscription-name my-subscription
   --num-messages 0 # Listen indefinitely
 ----
 
-. Test your exclamation function with `trigger`:
+. Test the function with the `functions trigger` command and a test message.
++
+The following example triggers a function named `exclamation`:
 +
 [source,bash]
 ----
 ./pulsar-admin functions trigger \
   --name exclamation \
-  --tenant <tenant-name> \
-  --namespace default \
+  --tenant $TENANT \
+  --namespace $NAMESPACE \
   --trigger-value "Hello world"
 ----
-+
-The trigger sends the string `Hello world` to your exclamation function.
-Your function should output `Hello world!` to your consumed output.
+
+. Make sure the output shows that the messages was processed as expected based on your function logic.
+For example, the `exclamation` sample function adds an exclamation point to the input string.
+Therefore, the test message `Hello world` should output `Hello world!`.
 
 == Add Functions using {pulsar-short} Admin Console
 
@@ -148,6 +252,6 @@ Enter your message in the *Message to Send* field, and select the output topic.
 In this case, the trigger sends the string `Hello world!` to your exclamation function with no output function.
 If the function has an output topic and the function returns data to the output topic, it is printed.
 
-== Next steps
+== See also
 
-For more information, see the https://pulsar.apache.org/docs/en/functions-develop/[{pulsar-short} documentation on developing functions].
+* https://pulsar.apache.org/docs/en/functions-develop/[{pulsar-short} documentation on developing functions]

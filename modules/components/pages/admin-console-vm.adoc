@@ -4,16 +4,6 @@
 
 The Admin Console is a VueJS application that runs in a browser. It also includes a web server that serves up the files for the Admin Console as well as providing configuration and authentication services.
 
-This document covers:
-
-* <<install,*Installation*>>
-
-* <<configuration,*Configuration*>>
-
-* <<configuration-reference,*Configuration Reference*>>
-
-* <<auth-modes,*Auth Modes*>>
-
 [#install]
 == Install {pulsar-short} Admin Console
 
