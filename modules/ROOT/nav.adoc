@@ -22,6 +22,7 @@
 .Operations
 * xref:operations:auth.adoc[]
 * xref:operations:functions.adoc[]
+* xref:operations:functions-transform.adoc[]
 * xref:operations:io-connectors.adoc[]
 * xref:operations:scale-cluster.adoc[]
 * xref:operations:troubleshooting.adoc[]

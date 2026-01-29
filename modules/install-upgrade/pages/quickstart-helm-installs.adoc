@@ -79,13 +79,10 @@ For a component like BookKeeper, which requires stateful storage, we need to ove
 
 There are two ways to override `default_storage`:
 
-* Leave `existingStorageClassName` blank and specify the storage class parameters below.
+* Leave `existingStorageClassName` blank and specify the storage class parameters for your cloud provider:
 +
-[tabs]
-====
-GKE::
+** GKE:
 +
---
 [source,yaml]
 ----
   volumes:
@@ -100,11 +97,9 @@ GKE::
          extraParams:
             replication-type: none
 ----
---
 
-EKS::
+** EKS:
 +
---
 [source,yaml]
 ----
   volumes:
@@ -119,11 +114,9 @@ EKS::
          extraParams:
             iopsPerGB: "10"
 ----
---
 
-AKS::
+** AKS:
 +
---
 [source,yaml]
 ----
   volumes:
@@ -138,8 +131,6 @@ AKS::
          extraParams:
             replication-type: none
 ----
---
-====
 
 * Create a custom storage configuration as a `yaml` file (https://github.com/datastax/pulsar-helm-chart/blob/master/helm-chart-sources/pulsar/templates/bookkeeper/bookkeeper-storageclass.yaml[like the {company} example]) and tell the Helm chart to use that storage configuration when it creates the BookKeeper PVCs.
 +
@@ -507,13 +498,6 @@ For more information, see https://github.com/datastax/pulsar-helm-chart/blob/mas
 Once you have created the secrets that store the certificate info (or specified it in the values), you can enable TLS in the values:
 
 `enableTls: yes`
-
-[#video]
-== Getting started with Kubernetes video
-
-Follow along with this video from our *Five Minutes About {pulsar-short}* series to get started with a Helm installation.
-
-video::hEBP_IVQqQM[youtube, list=PL2g2h-wyI4SqeKH16czlcQ5x4Q_z-X7_m]
 
 == Next steps
 
