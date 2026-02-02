@@ -10,13 +10,7 @@ There are three versions of the {company} Luna Streaming distribution.
 The `lunastreaming-all` version includes all connectors.
 ====
 
-//Reconcile w/ io-connectors in each version & delete io-connectors page.
-//Luna Streaming: Cloud Storage sink, Google BigQuery sink are experimental
-//Elasticsearch is lowercase
-//3.x are the same
-
-//Luna Streaming -2.x and -1.x have fewer connectors:
-//No experimental
+//Luna Streaming -2.x and -1.x have fewer connectors://No experimental
 //No Cloud storage, BigQuery, JDBC SQLlite, snowflake, data generator, debezium oracle, debezium sqlserver
 
 [#sink-connectors]
@@ -37,49 +31,6 @@ The following sink connectors are included in {product}:
 * xref:connectors:sinks/jdbc-sqllite.adoc[JDBC SQLite sink]
 * xref:connectors:sinks/snowflake.adoc[Snowflake sink]
 
-Experimental sink connectors::
-The following sink connectors are experimental.
-They are available in the `luna-streaming-all` version of {product}, and you can use them in your Luna Streaming cluster.
-They are considered experimental because they aren't fully supported or tested with Astra Streaming.
-+
-* Aerospike
-* Apache Geode
-* Apache HBase
-* Apache Kudu
-* Apache Phoenix
-* Apache Solr
-* Batch Data Generator
-* xref:connectors:sinks/cloud-storage.adoc[Cloud Storage]
-* CoAP
-* Couchbase
-* DataDog
-* Diffusion
-* Flume
-* xref:connectors:sinks/google-bigquery.adoc[Google BigQuery]
-* Hazelcast
-* HDFS 2
-* HDFS 3
-* Humio
-* InfluxDB
-* JMS
-* Kinetica
-* MarkLogic
-* Microsoft Azure Data Explorer (Kusto)
-* Microsoft Azure DocumentDB
-* MongoDB
-* MQTT
-* Neo4J
-* New Relic
-* OrientDB
-* PLC4X
-* RabbitMQ
-* Redis
-* SAP HANA
-* SingleStore
-* Splunk
-* XTDB
-* Zeebe
-
 [#source-connectors]
 == Source connectors
 
@@ -96,48 +47,6 @@ The following source connectors are included in {product}:
 * xref:connectors:sources/debezium-oracle.adoc[Debezium Oracle source]
 * xref:connectors:sources/debezium-postgres.adoc[Debezium PostgreSQL source]
 * xref:connectors:sources/debezium-sqlserver.adoc[Debezium SQL Server source]
-
-Experimental source connectors::
-The following source connectors are experimental.
-They are available in the `luna-streaming-all` version of {product}, and you can use them in your Luna Streaming cluster.
-They are considered experimental because they aren't fully supported or tested with Astra Streaming.
-+
-* {cass}
-* Apache Geode
-* Apache Kudu
-* Apache Phoenix
-* Batch Data Generator
-* Big Query
-* Canal
-* CoAP
-* Couchbase
-* DataDog
-* Diffusion
-* DynamoDB
-* File
-* Flume
-* Hazelcast
-* Humio
-* JMS
-* Kinetica
-* MarkLogic
-* Microsoft Azure DocumentDB
-* MongoDB
-* MQTT
-* Neo4J
-* Netty
-* New Relic
-* NSQ
-* OrientDB
-* PLC4X
-* RabbitMQ
-* Redis
-* SAP HANA
-* SingleStore
-* Splunk
-* Twitter
-* XTDB
-* Zeebe
 
 [#create-and-manage-connectors]
 == Create and manage connectors
