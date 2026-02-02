@@ -10,15 +10,6 @@ There are three versions of the {company} Luna Streaming distribution.
 The `lunastreaming-all` version includes all connectors.
 ====
 
-//Reconcile w/ io-connectors in each version & delete io-connectors page.
-//Luna Streaming: Cloud Storage sink, Google BigQuery sink are experimental
-//Elasticsearch is lowercase
-//3.x are the same
-
-//Luna Streaming -2.x and -1.x have fewer connectors:
-//No experimental
-//No Cloud storage, BigQuery, JDBC SQLlite, snowflake, data generator, debezium oracle, debezium sqlserver
-
 [#sink-connectors]
 == Sink connectors
 
