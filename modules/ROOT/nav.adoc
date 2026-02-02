@@ -45,6 +45,5 @@
 *** xref:connectors:sources/debezium-sqlserver.adoc[]
 *** xref:connectors:sources/kafka.adoc[]
 *** xref:connectors:sources/kinesis.adoc[]
-* xref:operations:io-elastic-sink.adoc[]
 * xref:operations:scale-cluster.adoc[]
 * xref:operations:troubleshooting.adoc[]
