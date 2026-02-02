@@ -18,3 +18,6 @@ asciidoc:
     pulsar-reg: 'Apache Pulsar(TM)'
     pulsar: 'Apache Pulsar'
     pulsar-short: 'Pulsar'
+    scb: 'Secure Connect Bundle (SCB)'
+    scb-short: 'SCB'
+    scb-brief: 'Secure Connect Bundle'
