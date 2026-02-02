@@ -21,3 +21,4 @@ asciidoc:
     scb: 'Secure Connect Bundle (SCB)'
     scb-short: 'SCB'
     scb-brief: 'Secure Connect Bundle'
+    web-ui: 'Admin Console'

@@ -137,7 +137,7 @@ To get access to experimental connectors, contact {support-url}[{company} Suppor
 
 == Create and manage connectors
 
-You can use the {astra-ui}, the `xref:developing:produce-consume-pulsar-client.adoc[pulsar-admin]` CLI, or the xref:apis:api-operations.adoc[{pulsar-short} Admin API] to create, monitor, and manage sink and source connectors.
+You can use the {web-ui}, the `xref:developing:produce-consume-pulsar-client.adoc[pulsar-admin]` CLI, or the xref:apis:api-operations.adoc[{pulsar-short} Admin API] to create, monitor, and manage sink and source connectors.
 
 //Combine below sections w/ "use the Pulsar CLI" page (separate pulsar-client and pulsar-admin) and Admin API ref pages; then replace below w/ links to specific sections
 
