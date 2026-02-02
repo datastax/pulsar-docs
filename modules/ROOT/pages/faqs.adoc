@@ -80,7 +80,7 @@ https://github.com/datastax/pulsar-heartbeat[{pulsar-short} Heartbeat] monitors 
 
 == What are the features provided by {company} {pulsar} Connector (`pulsar-sink`) that are not supported in `kafka-sink`?
 
-The https://pulsar.apache.org/docs/en/io-overview/[{pulsar-short} IO framework] provides many features that are not possible in Kafka, and has different compression formats and auth/security features. The features are handled by {pulsar-short}. For more, see xref:operations:io-connectors.adoc[Luna Streaming IO Connectors].
+The https://pulsar.apache.org/docs/en/io-overview/[{pulsar-short} IO framework] provides many features that are not possible in Kafka, and has different compression formats and auth/security features. The features are handled by {pulsar-short}. For more, see xref:connectors:index.adoc[Luna Streaming IO Connectors].
 
 The {company} {pulsar} Connector allows single-record acknowledgement and negative acknowledgements.
 
