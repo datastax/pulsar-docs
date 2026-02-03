@@ -19,7 +19,21 @@
 * xref:operations:auth.adoc[]
 * xref:operations:functions.adoc[]
 * xref:operations:functions-transform.adoc[]
-* xref:operations:io-connectors.adoc[]
-* xref:operations:io-elastic-sink.adoc[]
+* I/O connectors
+** xref:connectors:index.adoc[]
+** Sinks
+*** xref:connectors:sinks/astra-db.adoc[]
+*** xref:connectors:sinks/elastic-search.adoc[]
+*** xref:connectors:sinks/jdbc-clickhouse.adoc[]
+*** xref:connectors:sinks/jdbc-mariadb.adoc[]
+*** xref:connectors:sinks/jdbc-postgres.adoc[]
+*** xref:connectors:sinks/kafka.adoc[]
+*** xref:connectors:sinks/kinesis.adoc[]
+** Sources
+*** xref:connectors:sources/debezium-mongodb.adoc[]
+*** xref:connectors:sources/debezium-mysql.adoc[]
+*** xref:connectors:sources/debezium-postgres.adoc[]
+*** xref:connectors:sources/kafka.adoc[]
+*** xref:connectors:sources/kinesis.adoc[]
 * xref:operations:scale-cluster.adoc[]
 * xref:operations:troubleshooting.adoc[]
