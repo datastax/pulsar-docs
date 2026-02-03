@@ -18,3 +18,15 @@ asciidoc:
     pulsar-reg: 'Apache Pulsar(TM)'
     pulsar: 'Apache Pulsar'
     pulsar-short: 'Pulsar'
+
+    # Required for include::common partials that are shared with Astra Streaming
+    web-ui: 'Admin Console'
+    astra: 'Astra'
+    astra-db: 'Astra DB'
+    scb: 'Secure Connect Bundle (SCB)'
+    scb-short: 'SCB'
+    scb-brief: 'Secure Connect Bundle'
+    cass-reg: 'Apache Cassandra(R)'
+    cass: 'Apache Cassandra'
+    cass-short: 'Cassandra'
+    debezium-version: '1.7'
