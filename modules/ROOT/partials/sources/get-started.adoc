@@ -26,4 +26,7 @@ You can pass the configuration directly or with a configuration file.
 ----
 +
 .Example configuration data structure
+[source,json,subs="+attributes"]
+----
 include::common:streaming:example$connectors/sources/{connectorType}/sample-data.adoc[]
+----
