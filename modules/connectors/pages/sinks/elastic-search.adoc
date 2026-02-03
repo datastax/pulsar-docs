@@ -1,5 +1,6 @@
 = Elasticsearch
 :connectorType: elastic_search
+:page-aliases: operations:io-elastic-sink.adoc
 
 The Elasticsearch sink connector reads messages from {pulsar-short} topics and writes them to https://www.elastic.co/elasticsearch/[Elasticsearch].
 

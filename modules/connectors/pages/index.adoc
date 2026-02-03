@@ -1,6 +1,6 @@
 = {pulsar-short} I/O connectors in {product}
 :navtitle: {pulsar-short} I/O connectors reference
-:page-aliases: operations:io-connectors.adoc, operations:io-elastic-sink.adoc
+:page-aliases: operations:io-connectors.adoc
 
 {product} offers fully-managed versions of https://pulsar.apache.org/docs/en/io-overview/[{pulsar-reg} sink and source connectors].
 

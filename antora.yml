@@ -30,7 +30,3 @@ asciidoc:
     cass: 'Apache Cassandra'
     cass-short: 'Cassandra'
     debezium-version: '1.7'
-    get-started-sink: 'include::ROOT:partial$sinks/get-started.adoc[]'
-    edit-sink: 'include::ROOT:partial$sinks/edit.adoc[]'
-    get-started-source: 'include::ROOT:partial$sources/get-started.adoc[]'
-    edit-source: 'include::ROOT:partial$sources/edit.adoc[]'
