@@ -221,4 +221,4 @@ Delete a source connector::
 == Connector metrics
 
 {product} exposes Prometheus-formatted metrics for every connector.
-For more information, see xref:operations:astream-scrape-metrics.adoc[].
+For more information, see xref:components:pulsar-monitor.adoc[].
