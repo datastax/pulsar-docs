@@ -26,9 +26,9 @@
 ** xref:connectors:index.adoc[]
 ** Sinks
 *** xref:connectors:sinks/astra-db.adoc[]
-*** xref:connectors:sinks/cloud-storage.adoc[Cloud Storage (experimental)]
+*** xref:connectors:sinks/cloud-storage.adoc[]
 *** xref:connectors:sinks/elastic-search.adoc[]
-*** xref:connectors:sinks/google-bigquery.adoc[Google BigQuery (experimental)]
+*** xref:connectors:sinks/google-bigquery.adoc[]
 *** xref:connectors:sinks/jdbc-clickhouse.adoc[]
 *** xref:connectors:sinks/jdbc-mariadb.adoc[]
 *** xref:connectors:sinks/jdbc-postgres.adoc[]
