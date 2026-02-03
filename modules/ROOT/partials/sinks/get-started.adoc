@@ -26,7 +26,7 @@ You can pass the configuration directly or with a configuration file.
 ----
 +
 .Example configuration data structure
-[source,json,subs="+attributes"]
+[source,json]
 ----
 include::common:streaming:example$connectors/sinks/{connectorType}/sample-data.json[]
 ----
