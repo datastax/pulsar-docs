@@ -1,0 +1,314 @@
+= {pulsar-short} I/O connectors in {product}
+:navtitle: {pulsar-short} I/O connectors reference
+:page-aliases: operations:io-connectors.adoc
+
+{product} offers fully-managed versions of https://pulsar.apache.org/docs/en/io-overview/[{pulsar-reg} sink and source connectors].
+
+[TIP]
+====
+There are three versions of the {company} Luna Streaming distribution.
+The `lunastreaming-all` version includes all connectors.
+====
+
+[#sink-connectors]
+== Sink connectors
+
+Sink connectors export messages from {pulsar-short} topics to external services.
+
+Supported sink connectors::
+The following sink connectors are included in {product}:
++
+* xref:connectors:sinks/astra-db.adoc[{astra-db} and {cass} sink]
+* xref:connectors:sinks/kafka.adoc[Apache Kafka sink]
+* xref:connectors:sinks/kinesis.adoc[AWS Kinesis sink]
+* xref:connectors:sinks/elastic-search.adoc[Elasticsearch sink]
+* xref:connectors:sinks/jdbc-clickhouse.adoc[JDBC ClickHouse sink]
+* xref:connectors:sinks/jdbc-mariadb.adoc[JDBC MariaDB sink]
+* xref:connectors:sinks/jdbc-postgres.adoc[JDBC PostgreSQL sink]
+* xref:connectors:sinks/jdbc-sqllite.adoc[JDBC SQLite sink]
+* xref:connectors:sinks/snowflake.adoc[Snowflake sink]
+
+Experimental sink connectors::
+The following sink connectors are experimental.
+They are available in the `luna-streaming-all` version of {product}, and you can use them in your Luna Streaming cluster.
+They are considered experimental because they aren't fully supported or tested with Astra Streaming.
++
+* Aerospike
+* Apache Geode
+* Apache HBase
+* Apache Kudu
+* Apache Phoenix
+* Apache Solr
+* Batch Data Generator
+* xref:connectors:sinks/cloud-storage.adoc[Cloud Storage]
+* CoAP
+* Couchbase
+* DataDog
+* Diffusion
+* Flume
+* xref:connectors:sinks/google-bigquery.adoc[Google BigQuery]
+* Hazelcast
+* HDFS 2
+* HDFS 3
+* Humio
+* InfluxDB
+* JMS
+* Kinetica
+* MarkLogic
+* Microsoft Azure Data Explorer (Kusto)
+* Microsoft Azure DocumentDB
+* MongoDB
+* MQTT
+* Neo4J
+* New Relic
+* OrientDB
+* PLC4X
+* RabbitMQ
+* Redis
+* SAP HANA
+* SingleStore
+* Splunk
+* XTDB
+* Zeebe
+
+[#source-connectors]
+== Source connectors
+
+Source connectors ingest messages from external services into {pulsar-short} topics.
+
+Supported source connectors::
+The following source connectors are included in {product}:
++
+* xref:connectors:sources/kafka.adoc[Apache Kafka source]
+* xref:connectors:sources/kinesis.adoc[AWS Kinesis source]
+* xref:connectors:sources/data-generator.adoc[Data Generator source]
+* xref:connectors:sources/debezium-mongodb.adoc[Debezium MongoDB source]
+* xref:connectors:sources/debezium-mysql.adoc[Debezium MySQL source]
+* xref:connectors:sources/debezium-oracle.adoc[Debezium Oracle source]
+* xref:connectors:sources/debezium-postgres.adoc[Debezium PostgreSQL source]
+* xref:connectors:sources/debezium-sqlserver.adoc[Debezium SQL Server source]
+
+Experimental source connectors::
+The following source connectors are experimental.
+They are available in the `luna-streaming-all` version of {product}, and you can use them in your Luna Streaming cluster.
+They are considered experimental because they aren't fully supported or tested with Astra Streaming.
++
+* {cass}
+* Apache Geode
+* Apache Kudu
+* Apache Phoenix
+* Batch Data Generator
+* Big Query
+* Canal
+* CoAP
+* Couchbase
+* DataDog
+* Diffusion
+* DynamoDB
+* File
+* Flume
+* Hazelcast
+* Humio
+* JMS
+* Kinetica
+* MarkLogic
+* Microsoft Azure DocumentDB
+* MongoDB
+* MQTT
+* Neo4J
+* Netty
+* New Relic
+* NSQ
+* OrientDB
+* PLC4X
+* RabbitMQ
+* Redis
+* SAP HANA
+* SingleStore
+* Splunk
+* Twitter
+* XTDB
+* Zeebe
+
+[#create-and-manage-connectors]
+== Create and manage connectors
+
+You can use the {web-ui} and the `xref:components:admin-console-tutorial.adoc[pulsar-admin]` CLI to create, monitor, and manage sink and source connectors.
+
+Although you use the same base commands to create and update all {product} {pulsar-short} connectors, each connector has different configuration options.
+For example commands and configuration details, see the documentation for your preferred <<sink-connectors,sink connectors>> and <<source-connectors,source connectors>>.
+
+=== `pulsar-admin` CLI sink operations
+
+Get available sink connectors::
+Get a list of sink connectors that are available in your {product} {pulsar-short} tenant:
++
+[source,shell]
+----
+./bin/pulsar-admin sinks available-sinks
+----
+
+[#get-sink-connector-configuration-data]
+Get sink connector configuration data::
+Get the configuration for an existing sink connector:
++
+[source,shell]
+----
+# Get information about a connector
+./bin/pulsar-admin sinks get \
+  --namespace "$NAMESPACE" \
+  --name "$SINK_NAME" \
+  --tenant "$TENANT"
+----
+
+Start a sink connector::
++
+[source,shell]
+----
+# Start all instances of a connector
+./bin/pulsar-admin sinks start \
+  --namespace "$NAMESPACE" \
+  --name "$SINK_NAME" \
+  --tenant "$TENANT"
+
+# optionally add --instance-id to only start an individual instance
+----
+
+Stop a sink connector::
++
+[source,shell]
+----
+# Stop all instances of a connector
+./bin/pulsar-admin sinks stop \
+  --namespace "$NAMESPACE" \
+  --name "$SINK_NAME" \
+  --tenant "$TENANT"
+
+# optionally add --instance-id to only stop an individual instance
+----
+
+Restart a sink connector::
++
+[source,shell]
+----
+# Restart all instances of a connector
+./bin/pulsar-admin sinks restart \
+  --namespace "$NAMESPACE" \
+  --name "$SINK_NAME" \
+  --tenant "$TENANT"
+
+# optionally add --instance-id to only restart an individual instance
+----
+
+Get sink connector status::
++
+[source,shell]
+----
+# Check connector status
+./bin/pulsar-admin sinks status \
+  --instance-id "$SINK_INSTANCE_ID" \
+  --namespace "$NAMESPACE" \
+  --name "$SINK_NAME" \
+  --tenant "$TENANT"
+----
+
+Delete a sink connector::
++
+[source,shell]
+----
+# Delete all instances of a connector
+./bin/pulsar-admin sinks delete \
+  --namespace "$NAMESPACE" \
+  --name "$SINK_NAME" \
+  --tenant "$TENANT"
+----
+
+=== `pulsar-admin` CLI source operations
+
+Get available source connectors::
+Get a list of source connectors that are available in your {product} {pulsar-short} tenant:
++
+[source,shell]
+----
+./bin/pulsar-admin sources available-sources
+----
+
+[#get-source-connector-configuration-data]
+Get source connector configuration data::
+Get the configuration for an existing source connector:
++
+[source,shell]
+----
+# Get information about connector
+./bin/pulsar-admin sources get \
+  --namespace "$NAMESPACE" \
+  --name "$SOURCE_NAME" \
+  --tenant "$TENANT"
+----
+
+Start a source connector::
++
+[source,shell]
+----
+# Start all instances of a connector
+./bin/pulsar-admin sources start \
+  --namespace "$NAMESPACE" \
+  --name "$SOURCE_NAME" \
+  --tenant "$TENANT"
+
+# optionally add --instance-id to only start an individual instance
+----
+
+Stop a source connector::
++
+[source,shell]
+----
+# Stop all instances of a connector
+./bin/pulsar-admin sources stop \
+  --namespace "$NAMESPACE" \
+  --name "$SOURCE_NAME" \
+  --tenant "$TENANT"
+
+# optionally add --instance-id to only stop an individual instance
+----
+
+Restart a source connector::
++
+[source,shell]
+----
+# Restart all instances of a connector
+./bin/pulsar-admin sources restart \
+  --namespace "$NAMESPACE" \
+  --name "$SOURCE_NAME" \
+  --tenant "$TENANT"
+
+# optionally add --instance-id to only restart an individual instance
+----
+
+Get source connector status::
++
+[source,shell]
+----
+# Check connector status
+./bin/pulsar-admin sources status \
+  --instance-id "$SOURCE_INSTANCE_ID" \
+  --namespace "$NAMESPACE" \
+  --name "$SOURCE_NAME" \
+  --tenant "$TENANT"
+----
+
+Delete a source connector::
++
+[source,shell]
+----
+# Delete all instances of a connector
+./bin/pulsar-admin sources delete \
+  --namespace "$NAMESPACE" \
+  --name "$SOURCE_NAME" \
+  --tenant "$TENANT"
+----
+
+== Connector metrics
+
+{product} exposes Prometheus-formatted metrics for every connector.
+For more information, see xref:components:pulsar-monitor.adoc[].
