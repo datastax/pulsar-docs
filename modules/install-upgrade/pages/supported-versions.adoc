@@ -11,13 +11,13 @@ Support covers only the following Software versions for {pulsar}:
 |3.1.x
 |===
 
-Support covers only the following Software versions for {company} Luna Streaming Distribution:
+Support covers only the following Software versions for {company} {product} Distribution:
 
 [cols="2*"]
 |===
 |Name |Version
 
-|{company} Luna Streaming Distribution
+|{company} {product} Distribution
 |v.1.0.0 and above
 
 |===
@@ -45,13 +45,13 @@ Support covers only the following Software versions for the Open Source Projects
 
 |===
 
-Support covers only the following {company} Luna Streaming Connectors and {pulsar} Connectors (as included in the {pulsar} download):
+Support covers only the following {company} {product} Connectors and {pulsar} Connectors (as included in the {pulsar} download):
 
 [cols="2*"]
 |===
 |Name |Version
 
-|Cassandra enhanced sink
+|{cass-short} enhanced sink
 |v1.6.11
 |Cloud storage sink
 |v2.10.0
@@ -71,7 +71,7 @@ Support covers only the following {company} Luna Streaming Connectors and {pulsa
 |v3.1.x
 |Snowflake sink
 |v0.1.13
-|Cassandra source
+|{cass-short} source
 |v2.2.9
 |Data generator source
 |v3.1.x
