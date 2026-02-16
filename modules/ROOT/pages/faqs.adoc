@@ -103,7 +103,7 @@ See the xref:pulsar-connector:ROOT:index.adoc[{company} {pulsar} Connector docum
 
 == What is the {company} Change Data Capture (CDC) for Cassandra connector?
 
-This source connector streams data changes from Cassandra tables to Pulsar topics.
+This source connector streams data changes from Cassandra tables to {pulsar-short} topics.
 For more information, see the xref:cdc-for-cassandra:ROOT:index.adoc[{company} CDC for Cassandra connector documentation].
 
 == What client APIs does {company} Luna Streaming provide?
