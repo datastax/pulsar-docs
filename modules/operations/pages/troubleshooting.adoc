@@ -30,7 +30,7 @@ image::gcp-quota-example2.png[GCP Backend Quota]
 
 If your pods are stuck in a *Pending* state after installation or your cloud provider is warning you about *Unschedulable Pods*, there are a few ways to work through this:
 
-* If some of your pods start, but others like `pulsar-adminconsole` and `pulsar-grafana` are left in an *Unschedulable* state, you might need to add CPUs to your existing nodes or an additional node pool. Luna Streaming requires more resources than {pulsar}. 
+* If some of your pods start, but others like `pulsar-adminconsole` and `pulsar-grafana` are left in an *Unschedulable* state, you might need to add CPUs to your existing nodes or an additional node pool. {product} requires more resources than {pulsar}. 
 
 * To examine a specific pod, use `kubectl describe`. For example, if your `pulsar-bookkeeper-0` pod is not scheduling, use `kubectl describe pods/pulsar-bookkeeper-0` to view detailed output on the pod's state, dependencies, and events. 
 
@@ -39,7 +39,7 @@ If your pods are stuck in a *Pending* state after installation or your cloud pro
 [#bastionpod]
 == Bastion pod
 
-The bastion pod deploys with Luna Streaming and allows a user to execute administrative commands in a bash shell of the cluster. This can be a helpful troubleshooting tool for testing the health of your cluster. 
+The bastion pod deploys with {product} and allows a user to execute administrative commands in a bash shell of the cluster. This can be a helpful troubleshooting tool for testing the health of your cluster. 
 
 === Access bastion pod
 
