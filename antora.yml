@@ -18,6 +18,7 @@ asciidoc:
     pulsar-reg: 'Apache Pulsar(TM)'
     pulsar: 'Apache Pulsar'
     pulsar-short: 'Pulsar'
+    astra-stream: 'Astra Streaming'
 
     # Required for include::common partials that are shared with Astra Streaming
     web-ui: 'Admin Console'

@@ -1,9 +1,9 @@
 = Quick Start for Helm Chart installs
 
-You have options for installing *{company} Luna Streaming*:
+You have options for installing *{company} {product}*:
 
 * With the provided *{company} Helm chart* for an existing Kubernetes environment locally or with a cloud provider, as covered in this topic.
-* With the *{company} Luna Streaming tarball* for deployment to a single server/VM, or to multiple servers/VMs. See xref:install-upgrade:quickstart-server-installs.adoc[Quick Start for Server/VM installs].
+* With the *{company} {product} tarball* for deployment to a single server/VM, or to multiple servers/VMs. See xref:install-upgrade:quickstart-server-installs.adoc[Quick Start for Server/VM installs].
 * With the *{company} Ansible scripts* provided at https://github.com/datastax/pulsar-ansible[https://github.com/datastax/pulsar-ansible].
 
 The Helm chart and options described below configure an {pulsar} cluster.
@@ -29,7 +29,7 @@ The resulting configuration includes support for:
 
 For an example set of production cluster values, see the {company} production-ready https://github.com/datastax/pulsar-helm-chart[Helm chart].
 
-{company} recommends these hardware resources for running Luna Streaming in a Kubernetes environment:
+{company} recommends these hardware resources for running {product} in a Kubernetes environment:
 
 * Helm version 3
 
@@ -140,7 +140,7 @@ There are two ways to override `default_storage`:
       existingStorageClassName: bookkeeper-storageclass.yaml
 ----
 
-== Install Luna Streaming in a cloud provider
+== Install {product} in a cloud provider
 
 First, create the namespace; in this example, we use `pulsar`.
 
@@ -154,9 +154,9 @@ TIP: To avoid having to specify the `pulsar` namespace on each subsequent comman
 
 `kubectl config set-context $(kubectl config current-context) --namespace=pulsar`
 
-Once {pulsar-short} is installed, you can now access your Luna Streaming cluster.
+Once {pulsar-short} is installed, you can now access your {product} cluster.
 
-=== Access the Luna Streaming cluster
+=== Access the {product} cluster
 
 The default values will create a ClusterIP for all components. ClusterIPs are only accessible within the Kubernetes cluster. The easiest way to work with {pulsar-short} is to log into the bastion host (assuming it is in the `pulsar` namespace):
 
@@ -188,7 +188,7 @@ proxy:
 
 If you are using a load balancer on the proxy, you can find the IP address using `kubectl get service -n pulsar`.
 
-=== Manage Luna Streaming with {pulsar-short} Admin Console
+=== Manage {product} with {pulsar-short} Admin Console
 
 Or if you would rather go directly to the broker:
 
@@ -196,7 +196,7 @@ Or if you would rather go directly to the broker:
 
 `kubectl port-forward -n pulsar $(kubectl get pods -n pulsar -l component=broker -o jsonpath='{.items[0].metadata.name}') 6650:6650`
 
-=== Manage Luna Streaming with {pulsar-short} Admin Console
+=== Manage {product} with {pulsar-short} Admin Console
 
 The {pulsar-short} Admin Console is installed in your cluster by enabling the console with this values setting:
 
@@ -218,7 +218,7 @@ pulsarAdminConsole:
 
 To learn more about using the {pulsar-short} Admin Console, see xref:components:admin-console-tutorial.adoc[Admin Console Tutorial].
 
-== Install Luna Streaming locally
+== Install {product} locally
 
 With the prerequisites listed above met, start minikube with adequate resources.
 For example:
@@ -498,4 +498,4 @@ Once you have created the secrets that store the certificate info (or specified 
 
 == Next steps
 
-To learn about installing Luna Streaming for Bare Metal/VM, see xref:install-upgrade:quickstart-server-installs.adoc[Quickstart for Bare Metal/VM Installs].
+To learn about installing {product} for Bare Metal/VM, see xref:install-upgrade:quickstart-server-installs.adoc[Quickstart for Bare Metal/VM Installs].
