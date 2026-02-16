@@ -13,7 +13,7 @@ In addition to {pulsar} itself, {company} Luna Streaming provides:
 
 * An installer that can stand up a dev or production cluster on bare metal or VMs without a pre-existing Kubernetes environment
 * A Helm chart that can deploy and manage {pulsar-short} on your current Kubernetes infrastructure
-* Cassandra, Elastic, Kinesis, Kafka, and JDBC connectors
+* {cass-short}, Elastic, Kinesis, Kafka, and JDBC connectors
 * A management dashboard
 * A monitoring and alerting system
 
@@ -42,7 +42,7 @@ There are several public repos, each with a different purpose. See:
 * https://github.com/datastax/pulsar-admin-console[https://github.com/datastax/pulsar-admin-console] : This is the repo for the {pulsar-short} admin console, which allows for the configuration and monitoring of {pulsar-short}.
 * https://github.com/datastax/pulsar-heartbeat[https://github.com/datastax/pulsar-heartbeat] : This is a monitoring/observability tool for {pulsar-short} that tracks the health of the cluster and can generate alerts in Slack and OpsGenie.
 * https://github.com/datastax/pulsar-helm-chart[https://github.com/datastax/pulsar-helm-chart] : This is the Helm chart for deploying the {company} {pulsar-short} Distro in an existing Kubernetes cluster.
-* https://github.com/datastax/pulsar-sink[https://github.com/datastax/pulsar-sink] : This is the {company} {pulsar} Connector (`pulsar-sink` for Cassandra) repo.
+* https://github.com/datastax/pulsar-sink[https://github.com/datastax/pulsar-sink] : This is the {company} {pulsar} Connector (`pulsar-sink` for {cass-short}) repo.
 * https://github.com/datastax/burnell[https://github.com/datastax/burnell] : This is a utility for {pulsar-short} that provides various functions, such as key initialization for authentication, and JWT token creation API.
 
 == Is there a prerequisite version of Java needed for the {company} Luna Streaming installation?
@@ -70,7 +70,7 @@ From the Admin Console, you can:
 * Add and run {pulsar-short} clients
 * Establish credentials for secure connections
 * Define topics that can be published for streaming apps
-* Set up {pulsar-short} sinks that publish topics and make them available to subscribers, such as for a Cassandra database table
+* Set up {pulsar-short} sinks that publish topics and make them available to subscribers, such as for a {cass-short} database table
 * Control namespaces used by {pulsar-short}
 * Use the Admin API
 
@@ -98,12 +98,12 @@ There are two packages:
 * The `pulsar-sink` functionality of {company} {pulsar} Connector is included with {company} Luna Streaming. It's built in!
 * You can optionally download the {company} {pulsar} Connector tarball from the https://downloads.datastax.com/#pulsar-sink[{company} Downloads] site, and then use it as its own product with your open-source {pulsar} install.
 
-If you're using open-source software (OSS) {pulsar}, you can use {company} {pulsar} Connector with the OSS to take advantage of this `pulsar-sink` for Cassandra. See the xref:pulsar-connector:ROOT:index.adoc[{company} {pulsar} Connector documentation].
+If you're using open-source software (OSS) {pulsar}, you can use {company} {pulsar} Connector with the OSS to take advantage of this `pulsar-sink` for {cass-short}. See the xref:pulsar-connector:ROOT:index.adoc[{company} {pulsar} Connector documentation].
 
-== What is the {company} Change Data Capture (CDC) for Cassandra connector?
+== What is the {company} Change Data Capture (CDC) for {cass-short} connector?
 
-This source connector streams data changes from Cassandra tables to {pulsar-short} topics.
-For more information, see the xref:cdc-for-cassandra:ROOT:index.adoc[{company} CDC for Cassandra connector documentation].
+This source connector streams data changes from {cass-short} tables to {pulsar-short} topics.
+For more information, see the xref:cdc-for-cassandra:ROOT:index.adoc[{company} CDC for {cass-short} connector documentation].
 
 == What client APIs does {company} Luna Streaming provide?
 

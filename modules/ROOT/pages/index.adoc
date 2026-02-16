@@ -17,7 +17,7 @@ In addition to the distribution of https://pulsar.apache.org/en/versions/[{pulsa
 
 * A xref:install-upgrade:quickstart-helm-installs.adoc[Helm chart] that deploys and manages {pulsar-short} on your current CNCF-conformant Kubernetes infrastructure
 
-* Cassandra, Elastic, Kinesis, Kafka, and JDBC xref:connectors:index.adoc[connectors]
+* {cass-short}, Elastic, Kinesis, Kafka, and JDBC xref:connectors:index.adoc[connectors]
 
 * xref:components:admin-console-vm.adoc[{pulsar-short} Admin Console] for simplified administration of your {pulsar-short} environment
 
