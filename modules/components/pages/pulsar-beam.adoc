@@ -40,7 +40,7 @@ Forwarding from [::1]:8085 -> 8085
 === Start a message consumer
 
 In a new terminal window, run the following curl command to begin streaming server-sent events.
-See xref:astra-streaming:developing:configure-pulsar-env.adoc[configuring your local environment for Astra Streaming].
+See xref:astra-streaming:developing:configure-pulsar-env.adoc[configuring your local environment for {astra-stream}].
 
 [source,shell]
 ----
