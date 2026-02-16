@@ -1,6 +1,6 @@
-= Using {pulsar-short} SQL with Luna Streaming
+= Using {pulsar-short} SQL with {product}
 :navtitle: {pulsar-short} SQL
-:description: This guide installs the Luna Streaming Helm chart using minimum values for a working {pulsar-short} cluster that includes SQL workers
+:description: This guide installs the {product} Helm chart using minimum values for a working {pulsar-short} cluster that includes SQL workers
 :helmValuesPath: https://raw.githubusercontent.com/datastaxdevs/luna-streaming-examples/main/pulsar-sql/values.yaml
 
 {pulsar-short} SQL allows enterprises to query {pulsar} topic data with SQL.
@@ -28,7 +28,7 @@ PrestoDB has been replaced by Trino, but {pulsar} is using Presto’s version.
 The Trino CLI uses the "X-TRINO-USER" header for authentications but Presto expects "X-PRESTO-USER", which is why we use the Presto CLI.
 ====
 
-== Install Luna Streaming Helm chart
+== Install {product} Helm chart
 
 include::ROOT:partial$install-helm.adoc[]
 

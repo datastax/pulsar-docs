@@ -1,12 +1,12 @@
-= Luna Streaming Installation on Google Kubernetes Environment
+= {product} Installation on Google Kubernetes Environment
 :navtitle: Install on Google Kubernetes Environment
 
 
-This document will cover installation of Luna Streaming on the Google Kubernetes Environment (GKE).
+This document will cover installation of {product} on the Google Kubernetes Environment (GKE).
 
 For an example set of production cluster values, see the {company} production-ready https://github.com/datastax/pulsar-helm-chart[Helm chart].
 
-{company} recommends these hardware resources for running Luna Streaming in a Kubernetes environment:
+{company} recommends these hardware resources for running {product} in a Kubernetes environment:
 
 include::ROOT:partial$helm-chart-recommendations.adoc[]
 
@@ -80,7 +80,7 @@ storage_class:
         replication-type: none
 ----
 
-== Install Luna Streaming to GKE
+== Install {product} to GKE
 
 Once you have added your storage settings to the `storage-values.yaml` file, install the Helm chart.
 
