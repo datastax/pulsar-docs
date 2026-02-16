@@ -1,15 +1,15 @@
-= Upgrade Luna Streaming from 2.10 to 3.1
+= Upgrade {product} from 2.10 to 3.1
 :navtitle: Upgrade from 2.10 to 3.1
 
-This guide provides instructions and recommendations for upgrading Luna Streaming from version 2.10 to 3.1.
+This guide provides instructions and recommendations for upgrading {product} from version 2.10 to 3.1.
 
-Upgrades to Luna Streaming 3.1 should only be performed from Luna Streaming 2.10.
+Upgrades to {product} 3.1 should only be performed from {product} 2.10.
 
-All Luna Streaming 2.10 components support the upgrade to 3.1.
+All {product} 2.10 components support the upgrade to 3.1.
 
 == Functional impacts
 
-This section describes changes in Luna Streaming 3.1 that may impact how your deployment functions.
+This section describes changes in {product} 3.1 that may impact how your deployment functions.
 
 === Default system topics
 
@@ -17,7 +17,7 @@ In {pulsar-short} 3.1, system topics are now enabled by default.
 
 === Prometheus metrics changes
 
-Prometheus metrics have been updated in Luna Streaming 3.1.
+Prometheus metrics have been updated in {product} 3.1.
 
 * Prometheus Client version has changed from `0.5.0` to `0.16.0`
 * Prometheus Metric type `UNTYPED` is renamed to `UNKNOWN`
@@ -26,7 +26,7 @@ Prometheus metrics have been updated in Luna Streaming 3.1.
 .Renamed metrics
 [cols="2,2"]
 |===
-|Luna Streaming 2.10 |Luna Streaming 3.1
+|{product} 2.10 |{product} 3.1
 
 |pulsar_expired_token_count
 |pulsar_expired_token_total
@@ -125,7 +125,7 @@ The following PRs were merged to update metrics:
 
 === Other functional impacts
 
-The following PRs were merged in Luna Streaming 3.1 that may impact your deployment's functionality.
+The following PRs were merged in {product} 3.1 that may impact your deployment's functionality.
 
 [cols="1,2,3"]
 |===
@@ -162,7 +162,7 @@ The following PRs were merged in Luna Streaming 3.1 that may impact your deploym
 
 == Configuration impacts
 
-This section describes changes in Luna Streaming 3.1 that may impact your deployment's configuration.
+This section describes changes in {product} 3.1 that may impact your deployment's configuration.
 
 === Configuration values removed in 3.1
 
@@ -175,12 +175,12 @@ The `MetadataStore` instance is now passed from the `PulsarService` directly to 
 
 === Default values changed or deprecated in 3.1
 
-The following default values in `broker.conf` and `standalone.conf` have changed or been deprecated in Luna Streaming 3.1.
+The following default values in `broker.conf` and `standalone.conf` have changed or been deprecated in {product} 3.1.
 
 .`broker.conf` and `standalone.conf` values
 [cols="1,1,1"]
 |===
-|Configuration |Luna Streaming 2.10 Default | Luna Streaming 3.1 Default
+|Configuration |{product} 2.10 Default | {product} 3.1 Default
 
 |`managedLedgerCacheEvictionFrequency``
 |`100.0`
@@ -217,11 +217,11 @@ The following default values in `broker.conf` and `standalone.conf` have changed
 
 == Operational impacts
 
-This section describes changes in Luna Streaming 3.1 that may impact how your deployment operates.
+This section describes changes in {product} 3.1 that may impact how your deployment operates.
 
 === JDK 17 upgrade
 
-Luna Streaming 3.1 uses JDK 17.
+{product} 3.1 uses JDK 17.
 
 The {pulsar-short} server module's `javac` release version is `17`.
 
@@ -231,7 +231,7 @@ This modification is described in detail in https://github.com/apache/pulsar/pul
 
 === Python 2 support removed
 
-Luna Streaming 3.1 removes Python 2 from build scripts.
+{product} 3.1 removes Python 2 from build scripts.
 
 Python 3 is used in the build image.
 
@@ -243,15 +243,15 @@ This modification is described in detail in https://github.com/apache/pulsar/pul
 
 == Known issues
 
-This section describes known issues encountered when upgrading to Luna Streaming 3.1.
+This section describes known issues encountered when upgrading to {product} 3.1.
 
 === Bookkeeper / RocksDB format
 
-**Downgrading to Luna Streaming 2.10 from Luna Streaming 3.1 is not supported for Bookies and ZooKeeper**.
+**Downgrading to {product} 2.10 from {product} 3.1 is not supported for Bookies and ZooKeeper**.
 
 {pulsar-short} 3.1 uses RocksDB `7.x`, which writes in a format that is not compatible with RocksDB `6.x`.
 
-Luna Streaming 2.10 uses Bookkeeper 4.14, which uses RocksDB `6.x`.
+{product} 2.10 uses Bookkeeper 4.14, which uses RocksDB `6.x`.
 
 All other components such as Broker, Proxy, and Functions Worker can be downgraded at any time.
 
@@ -259,7 +259,7 @@ For more information, see https://github.com/apache/pulsar/issues/22051[Issue 22
 
 == Upgrade procedure
 
-Luna Streaming can be deployed on bare metal, Docker, and Kubernetes.
+{product} can be deployed on bare metal, Docker, and Kubernetes.
 
 This guide only addresses Kubernetes deployment.
 
@@ -267,7 +267,7 @@ For more information on upgrading bare metal and Docker {pulsar-short} deploymen
 
 === Upgrade Kubernetes deployment with KAAP Operator
 
-Upgrade to Luna Streaming 3.1 on Kubernetes with the KAAP (Kubernetes Autoscaling for {pulsar}) operator.
+Upgrade to {product} 3.1 on Kubernetes with the KAAP (Kubernetes Autoscaling for {pulsar}) operator.
 
 For more information, see the xref:kaap-operator::index.adoc[KAAP documentation].
 
@@ -350,7 +350,7 @@ kubectl logs *POD-NAME* -n *NAMESPACE*
 
 === Upgrade Kubernetes deployment with Helm chart
 
-The Helm chart for Luna Streaming is available in the https://github.com/datastax/pulsar-helm-chart/blob/master/helm-chart-sources/pulsar/values.yaml[Helm chart sources] repository.
+The Helm chart for {product} is available in the https://github.com/datastax/pulsar-helm-chart/blob/master/helm-chart-sources/pulsar/values.yaml[Helm chart sources] repository.
 
 . To prevent data loss, back up your existing {pulsar-short} data and configuration files.
 . To save your current Helm release configuration, run the following command:

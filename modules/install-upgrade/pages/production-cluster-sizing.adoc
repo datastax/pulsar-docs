@@ -40,7 +40,7 @@ Scale bookies up on disc usage percentage. Scale down manually by making a booki
 [#recommended]
 === Recommended server components
 
-The {company} Luna Streaming Helm chart deployment includes optional but highly recommended server components for better {pulsar-short} cluster metrics monitoring and operation visibility.
+The {company} {product} Helm chart deployment includes optional but highly recommended server components for better {pulsar-short} cluster metrics monitoring and operation visibility.
 
 * https://bookkeeper.apache.org/docs/admin/autorecovery[Bookkeeper AutoRecovery] - This is a {pulsar-short} component that recovers Bookkeeper data in the event of a bookie outage. While optional you will want the insurance of autorecovery working on your behalf.
 A single instance of Autorecovery should be adequate - only in the most heavily-used clusters will you need more.

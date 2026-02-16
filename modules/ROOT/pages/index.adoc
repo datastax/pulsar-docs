@@ -1,23 +1,23 @@
-= Welcome to {company} Luna Streaming
-:navtitle: Luna Streaming
+= Welcome to {company} {product}
+:navtitle: {product}
 
-{company} Luna Streaming is a production-ready distribution of {pulsar} built to run seamlessly on any CNCF conformant version of Kubernetes. {company} Luna Streaming provides all of the core capabilities included in the Apache Community version of {pulsar}, plus a number of additional tools and features to facilitate administration and operational tasks associated with running {pulsar} in production.
+{company} {product} is a production-ready distribution of {pulsar} built to run seamlessly on any CNCF conformant version of Kubernetes. {company} {product} provides all of the core capabilities included in the Apache Community version of {pulsar}, plus a number of additional tools and features to facilitate administration and operational tasks associated with running {pulsar} in production.
 
 == Release notes
 
-The latest release of {company} Luna Streaming is {luna-version}, which matches the supported, distributed {pulsar-short} version numbers.
+The latest release of {company} {product} is {luna-version}, which matches the supported, distributed {pulsar-short} version numbers.
 
-The prior Luna Streaming release (2.10.x) provided the {pulsar-short} 2.10.x distribution.
+The prior {product} release (2.10.x) provided the {pulsar-short} 2.10.x distribution.
 
-Refer to the {company} Luna Streaming https://github.com/datastax/release-notes/blob/master/Luna_Streaming_3.1_Release_Notes.md[release notes], which are hosted in our public GitHub repo, for information &amp; linked commit IDs that were implemented in the latest Luna Streaming {luna-version} release.
+Refer to the {company} {product} https://github.com/datastax/release-notes/blob/master/Luna_Streaming_3.1_Release_Notes.md[release notes], which are hosted in our public GitHub repo, for information &amp; linked commit IDs that were implemented in the latest {product} {luna-version} release.
 
 == Components
 
-In addition to the distribution of https://pulsar.apache.org/en/versions/[{pulsar} {pulsar-version}], {company} Luna Streaming provides:
+In addition to the distribution of https://pulsar.apache.org/en/versions/[{pulsar} {pulsar-version}], {company} {product} provides:
 
 * A xref:install-upgrade:quickstart-helm-installs.adoc[Helm chart] that deploys and manages {pulsar-short} on your current CNCF-conformant Kubernetes infrastructure
 
-* Cassandra, Elastic, Kinesis, Kafka, and JDBC xref:connectors:index.adoc[connectors]
+* {cass-short}, Elastic, Kinesis, Kafka, and JDBC xref:connectors:index.adoc[connectors]
 
 * The xref:components:starlight.adoc[Starlight suite of {pulsar-short} protocol handlers for Kafka, RabbitMQ, and JMS]
 
@@ -57,7 +57,7 @@ In addition to the distribution of https://pulsar.apache.org/en/versions/[{pulsa
 
 == Next steps
 
-* If you have an existing Kubernetes environment, deploy Luna Streaming with a xref:install-upgrade:quickstart-helm-installs.adoc[Helm Installation].
+* If you have an existing Kubernetes environment, deploy {product} with a xref:install-upgrade:quickstart-helm-installs.adoc[Helm Installation].
 * If you have a bare metal or a cloud environment, see xref:install-upgrade:quickstart-server-installs.adoc[Server/VM Installation].
 * If you want to learn about monitoring with {pulsar-short} Heartbeat, see xref:components:pulsar-monitor.adoc[{pulsar-short} Heartbeat].
-* If you have questions about Luna Streaming, see xref::faqs.adoc[Luna Streaming FAQs].
+* If you have questions about {product}, see xref::faqs.adoc[{product} FAQs].
