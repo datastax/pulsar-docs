@@ -1,4 +1,4 @@
-= Luna Streaming Authentication
+= {product} Authentication
 
 The Helm chart can enable token-based authentication for your {pulsar-short} cluster. For more, see https://pulsar.apache.org/docs/en/security-token-admin/[{pulsar-short} token authentication].
 

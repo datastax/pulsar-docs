@@ -10,13 +10,13 @@ Support covers only the following Software versions for {pulsar}:
 |2.10.x
 |===
 
-Support covers only the following Software versions for {company} Luna Streaming Distribution:
+Support covers only the following Software versions for {company} {product} Distribution:
 
 [cols="2*"]
 |===
 |Name |Version
 
-|{company} Luna Streaming Distribution
+|{company} {product} Distribution
 |v.1.0.0 and above
 |===
 

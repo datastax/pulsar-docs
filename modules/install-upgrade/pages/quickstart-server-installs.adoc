@@ -1,8 +1,8 @@
 = Quick Start for Bare Metal/VM installs
 
-This document explains xref:install-upgrade:quickstart-server-installs.adoc#install[installation] of Luna Streaming for Bare Metal/VM deployments with a {pulsar-short} tarball.
+This document explains xref:install-upgrade:quickstart-server-installs.adoc#install[installation] of {product} for Bare Metal/VM deployments with a {pulsar-short} tarball.
 
-The resulting Luna Streaming deployment includes:
+The resulting {product} deployment includes:
 
 * *Tiered Storage:* Offload historical messages to more cost effective object storages such as AWS S3, Azure Blob, Google Cloud Storage, and HDFS.
 * *Built-in Schema Registry:* Guarantee messaging type safety on a per-topic basis without relying on any external facility.
@@ -17,7 +17,7 @@ The resulting Luna Streaming deployment includes:
 
 * JDK 11
 +
-{pulsar-short} can run with JDK8, but {company} Luna Streaming is designed for Java 11.
+{pulsar-short} can run with JDK8, but {company} {product} is designed for Java 11.
 
 * File System
 +
@@ -43,12 +43,12 @@ Check this setting with `cat /sys/kernel/mm/transparent_hugepage/enabled` and `c
 [#install]
 == Installation
 
-. Download the {company} Luna Streaming tarball from the https://github.com/datastax/pulsar/releases[{company} GitHub repo]. There are three versions of Luna Streaming currently available:
+. Download the {company} {product} tarball from the https://github.com/datastax/pulsar/releases[{company} GitHub repo]. There are three versions of {product} currently available:
 +
 [cols="1,1"]
 [%autowidth]
 |===
-|*Luna Streaming filename*
+|*{product} filename*
 |*Included components*
 
 |`lunastreaming-core-<version>-bin.tar.gz`
@@ -70,7 +70,7 @@ tar xzvf lunastreaming-2.10.0-bin.tar.gz
 cd lunastreaming-2.10.0
 ----
 
-. Enter `ls -al` to view your Luna Streaming files:
+. Enter `ls -al` to view your {product} files:
 +
 [source,bash]
 ----
@@ -89,11 +89,11 @@ drwxr-xr-x@ 277 firstname.lastname  staff   8864 May 17 05:58 lib
 drwxr-xr-x@  25 firstname.lastname  staff    800 Jan 22  2020 licenses
 ----
 
-You have successfully installed the {company} Luna Streaming tarball.
+You have successfully installed the {company} {product} tarball.
 
 == Additional tooling
 
-Once the {company} Luna Streaming tarball is installed, you may want to add additional tooling to your server/VM deployment.
+Once the {company} {product} tarball is installed, you may want to add additional tooling to your server/VM deployment.
 
 * *{pulsar-short} Admin Console:* Web-based UI that administrates {pulsar-short}.
 Download the latest version from the https://github.com/datastax/pulsar-admin-console[{company} GitHub repo] and follow the instructions xref:components:admin-console-vm.adoc[here].
