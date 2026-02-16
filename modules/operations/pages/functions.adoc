@@ -10,7 +10,7 @@ The function automatically runs for each message published to the specified inpu
 
 Functions are implemented using https://pulsar.apache.org/docs/en/functions-overview/[{pulsar-reg} functions].
 
-https://github.com/datastax/pulsar[Luna Streaming 2.10 or later] is required to deploy custom functions in {pulsar-short}.
+https://github.com/datastax/pulsar[{product} 2.10 or later] is required to deploy custom functions in {pulsar-short}.
 
 == Manage functions using {pulsar-short} Admin CLI
 
