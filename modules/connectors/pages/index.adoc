@@ -31,7 +31,7 @@ The following sink connectors are included in {product}:
 Experimental sink connectors::
 The following sink connectors are experimental.
 They are available in the `luna-streaming-all` version of {product}, and you can use them in your Luna Streaming cluster.
-They are considered experimental because they aren't fully supported or tested with Astra Streaming.
+They are considered experimental because they aren't fully supported or tested with {astra-stream}.
 +
 * Aerospike
 * Apache Geode
@@ -91,7 +91,7 @@ The following source connectors are included in {product}:
 Experimental source connectors::
 The following source connectors are experimental.
 They are available in the `luna-streaming-all` version of {product}, and you can use them in your Luna Streaming cluster.
-They are considered experimental because they aren't fully supported or tested with Astra Streaming.
+They are considered experimental because they aren't fully supported or tested with {astra-stream}.
 +
 * {cass}
 * Apache Geode
