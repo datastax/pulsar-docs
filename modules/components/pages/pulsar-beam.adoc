@@ -1,6 +1,6 @@
-= {pulsar-short} Beam with Luna Streaming
+= {pulsar-short} Beam with {product}
 :navtitle: {pulsar-short} Beam
-:description: Install a minimal Luna Streaming Helm chart that includes {pulsar-short} Beam
+:description: Install a minimal {product} Helm chart that includes {pulsar-short} Beam
 :helmValuesPath: https://raw.githubusercontent.com/datastaxdevs/luna-streaming-examples/main/beam/values.yaml
 
 The https://github.com/kafkaesque-io/pulsar-beam[{pulsar-short} Beam] project is an HTTP-based streaming and queueing system for use with {pulsar}.
@@ -15,7 +15,7 @@ In this guide, you'll install a minimal {company} {pulsar-short} Helm chart that
 * Enough access to a K8s cluster to create a namespace, deployments, and pods
 * https://kubernetes.io/docs/tasks/tools/[Kubectl CLI] (this example uses version 1.23.4)
 
-=== Install Luna Streaming Helm chart
+=== Install {product} Helm chart
 
 include::ROOT:partial$install-helm.adoc[]
 
@@ -40,7 +40,7 @@ Forwarding from [::1]:8085 -> 8085
 === Start a message consumer
 
 In a new terminal window, run the following curl command to begin streaming server-sent events.
-See xref:astra-streaming:developing:configure-pulsar-env.adoc[configuring your local environment for Astra Streaming].
+See xref:astra-streaming:developing:configure-pulsar-env.adoc[configuring your local environment for {astra-stream}].
 
 [source,shell]
 ----

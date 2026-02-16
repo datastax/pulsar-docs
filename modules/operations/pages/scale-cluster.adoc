@@ -1,6 +1,6 @@
-= Scaling your Luna Streaming cluster
+= Scaling your {product} cluster
 
-This page will show you how to scale Luna Streaming clusters up for more compute capacity, or down for less.
+This page will show you how to scale {product} clusters up for more compute capacity, or down for less.
 
 == Installing {pulsar-short} cluster
 

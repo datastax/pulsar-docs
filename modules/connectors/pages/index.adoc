@@ -6,7 +6,7 @@
 
 [TIP]
 ====
-There are three versions of the {company} Luna Streaming distribution.
+There are three versions of the {company} {product} distribution.
 The `lunastreaming-all` version includes all connectors.
 ====
 

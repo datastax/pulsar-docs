@@ -1,11 +1,11 @@
-= Luna Streaming Installation on Amazon Elastic Kubernetes Environment
+= {product} Installation on Amazon Elastic Kubernetes Environment
 :navtitle: Install on Amazon Elastic Kubernetes Environment
 
-This document covers installation of Luna Streaming on the Amazon Elastic Kubernetes Environment (EKS).
+This document covers installation of {product} on the Amazon Elastic Kubernetes Environment (EKS).
 
 For an example set of production cluster values, see the {company} production-ready https://github.com/datastax/pulsar-helm-chart[Helm chart].
 
-{company} recommends these hardware resources for running Luna Streaming in a Kubernetes environment:
+{company} recommends these hardware resources for running {product} in a Kubernetes environment:
 
 include::ROOT:partial$helm-chart-recommendations.adoc[]
 
@@ -79,7 +79,7 @@ storage_class:
       iopsPerGB: "10"
 ----
 
-== Install Luna Streaming to EKS
+== Install {product} to EKS
 
 Once you have added your storage settings to the `storage-values.yaml` file, install the Helm chart using the `storage-values.yaml` provisioning.
 

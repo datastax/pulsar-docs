@@ -1,11 +1,11 @@
-= Luna Streaming Installation on Azure Kubernetes Service
+= {product} Installation on Azure Kubernetes Service
 :navtitle: Install on Azure Kubernetes Service
 
-This document covers installation of Luna Streaming on the Azure Kubernetes Service (AKS).
+This document covers installation of {product} on the Azure Kubernetes Service (AKS).
 
 For an example set of production cluster values, see the {company} production-ready https://github.com/datastax/pulsar-helm-chart[Helm chart].
 
-{company} recommends these hardware resources for running Luna Streaming in a Kubernetes environment:
+{company} recommends these hardware resources for running {product} in a Kubernetes environment:
 
 include::ROOT:partial$helm-chart-recommendations.adoc[]
 
@@ -81,7 +81,7 @@ storage_class:
      cachingmode: ReadOnly
 ----
 
-== Install Luna Streaming to AKS
+== Install {product} to AKS
 
 Once you have added your storage settings to the `storage-values.yaml` file, install the Helm chart.
 
