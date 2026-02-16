@@ -48,7 +48,7 @@ Support covers only the following {pulsar} Connectors (as included in the {pulsa
 |===
 |Name |Version
 
-|Cassandra enhanced sink
+|{cass-short} enhanced sink
 |v2.10.x
 
 |Cloud storage sink
@@ -81,7 +81,7 @@ Support covers only the following {pulsar} Connectors (as included in the {pulsa
 |Snowflake sink
 |v.0.1.13
 
-|Cassandra source
+|{cass-short} source
 |v2.2.2
 
 |Data generator source
