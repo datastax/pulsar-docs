@@ -13,13 +13,13 @@ The resulting configuration includes support for:
 
 * xref:install-upgrade:quickstart-helm-installs.adoc#tls[TLS]
 * xref:install-upgrade:quickstart-helm-installs.adoc#authentication[Authentication]
-* WebSocket Proxy
-* Standalone Functions Workers
-* {pulsar-short} IO Connectors
-* xref:install-upgrade:quickstart-helm-installs.adoc#_tiered_storage_configuration[Tiered Storage] including Tardigarde distributed cloud storage
-* xref:install-upgrade:quickstart-helm-installs.adoc#_pulsar_sql_configuration[{pulsar-short} SQL Workers]
+* WebSocket proxy
+* Standalone functions workers
+* {pulsar-short} I/O connectors
+* xref:install-upgrade:quickstart-helm-installs.adoc#_tiered_storage_configuration[Tiered storage] including Tardigarde distributed cloud storage
+* xref:install-upgrade:quickstart-helm-installs.adoc#_pulsar_sql_configuration[{pulsar-short} SQL workers]
 * {pulsar-short} Admin Console for managing the cluster
-* {pulsar-short} heartbeat
+* {pulsar-short} Heartbeat
 * Burnell for API-based token generation
 * Prometheus, Grafana, and Alertmanager stack with default Grafana dashboards and {pulsar-short}-specific alerting rules
 * cert-manager with support for self-signed certificates as well as public certificates using ACME; such as Let's Encrypt
@@ -49,7 +49,7 @@ default_storage:
   existingStorageClassName: default
 ----
 
-For a component like BookKeeper, which requires stateful storage, we need to override the `default_storage` class when the BookKeeper Persistent Volume Claims (PVCs) are created.
+For a component like {bookkeeper-short}, which requires stateful storage, we need to override the `default_storage` class when the {bookkeeper-short} Persistent Volume Claims (PVCs) are created.
 
 There are two ways to override `default_storage`:
 
@@ -106,7 +106,7 @@ There are two ways to override `default_storage`:
             replication-type: none
 ----
 
-* Create a custom storage configuration as a `yaml` file ({pulsar-helm-chart-repo}/blob/master/helm-chart-sources/pulsar/templates/bookkeeper/bookkeeper-storageclass.yaml[like the {company} example]) and tell the Helm chart to use that storage configuration when it creates the BookKeeper PVCs.
+* Create a custom storage configuration as a `yaml` file ({pulsar-helm-chart-repo}/blob/master/helm-chart-sources/pulsar/templates/bookkeeper/bookkeeper-storageclass.yaml[like the {company} example]) and tell the Helm chart to use that storage configuration when it creates the {bookkeeper-short} PVCs.
 +
 [source,yaml]
 ----
@@ -280,7 +280,7 @@ There are several example configurations in the {pulsar-helm-chart-repo}/blob/ma
 
 * {pulsar-helm-chart-repo}/blob/master/examples/dev-values.yaml[dev-values.yaml example file]. A configuration for setting up a development environment to run in a local Kubernetes environment (for example, https://minikube.sigs.k8s.io/docs/start/[minikube], or https://kind.sigs.k8s.io/[kind]). Message/state persistence, redundancy, authentication, and TLS are disabled.
 +
-TIP: With message/state persistence disabled, the cluster will not survive a restart of the ZooKeeper or BookKeeper.
+TIP: With message/state persistence disabled, the cluster will not survive a restart of the {zookeeper-short} or {bookkeeper-short}.
 
 * `dev-values-persistence.yaml`. Same as above, but persistence is enabled. This will allow for the cluster to survive the restarts of the pods, but requires persistent volume claims (PVC) to be supported by the Kubernetes environment.
 
@@ -288,7 +288,7 @@ TIP: With message/state persistence disabled, the cluster will not survive a res
 +
 `helm install pulsar -f dev-values-auth.yaml datastax-pulsar/pulsar`
 
-* `dev-values-tls.yaml`. Development environment with self-signed certificate created by cert-manager. You need to install the cert-manager CRDs before installing the Helm chart. The chart will install the cert-manager application.
+* `dev-values-tls.yaml`. Development environment with self-signed certificate created by cert-manager. You need to install the cert-manager {crd} before installing the Helm chart. The chart will install the cert-manager application.
 +
 ----
 kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.1.0/cert-manager.crds.yaml
@@ -331,7 +331,7 @@ In addition, you can configure any S3 compatible storage. There is explicit supp
 
 === {pulsar-short} SQL Configuration
 
-If you enable {pulsar-short} SQL, the cluster provides https://prestodb.io/[Presto] access to the data stored in BookKeeper (and tiered storage, if enabled). Presto is exposed on the service named `<release>-sql`.
+If you enable {pulsar-short} SQL, the cluster provides https://prestodb.io/[Presto] access to the data stored in {bookkeeper-short} (and tiered storage, if enabled). Presto is exposed on the service named `<release>-sql`.
 
 The easiest way to access the Presto command line is to log into the bastion host and then connect to the Presto service port, like this:
 

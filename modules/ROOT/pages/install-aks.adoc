@@ -18,11 +18,11 @@ For the local machine running the Helm chart, you will need:
 
 The {pulsar-helm-chart-repo}/blob/master/helm-chart-sources/pulsar/values.yaml[`values.yaml`] will deploy {pulsar-short} with:
 
-* 1 ZooKeeper cluster with `replicaCount:3`
-* 1 Bookkeeper cluster with `replicaCount:3`
-* 1 Broker cluster with `replicaCount: 3`
+* One {zookeeper-reg} cluster with `replicaCount:3`
+* One {bookkeeper-reg} cluster with `replicaCount:3`
+* One broker cluster with `replicaCount: 3`
 ** Ledgers: `defaultEnsembleSize: 2`, `defaultAckQuorum: 2`, `defaultWriteQuorum: 2`
-* 1 Function cluster with a `replicaCount: 2`
+* One function cluster with a `replicaCount: 2`
 
 === `default_storage`
 The `default_storage` parameter in `values.yaml` controls the default storage class for all persistent volumes created by the Helm chart.
@@ -33,7 +33,7 @@ default_storage:
   existingStorageClassName: default
 ----
 
-For a component like BookKeeper, which requires stateful storage, we need to override the `default_storage` class when the BookKeeper Persistent Volume Claims (PVCs) are created.
+For a component like {bookkeeper-short}, which requires stateful storage, we need to override the `default_storage` class when the {bookkeeper-short} Persistent Volume Claims (PVCs) are created.
 
 There are two ways to override `default_storage`:
 
@@ -54,7 +54,7 @@ There are two ways to override `default_storage`:
             replication-type: none
 ----
 
-* Create a custom storage configuration as a `yaml` file ({pulsar-helm-chart-repo}/blob/master/helm-chart-sources/pulsar/templates/bookkeeper/bookkeeper-storageclass.yaml[like the {company} example]) and tell the Helm chart to use that storage configuration when it creates the BookKeeper PVCs.
+* Create a custom storage configuration as a `yaml` file ({pulsar-helm-chart-repo}/blob/master/helm-chart-sources/pulsar/templates/bookkeeper/bookkeeper-storageclass.yaml[like the {company} example]) and tell the Helm chart to use that storage configuration when it creates the {bookkeeper-short} PVCs.
 +
 [source,yaml]
 ----
@@ -67,7 +67,7 @@ There are two ways to override `default_storage`:
 
 === AKS-specific storage class
 
-Here is an example `storage-values.yaml` as used above for the BookKeeper node. Paste it into a `yaml` file to provision a persistent SSD with the `ext4` file system.
+Here is an example `storage-values.yaml` as used above for the {bookkeeper-short} node. Paste it into a `yaml` file to provision a persistent SSD with the `ext4` file system.
 
 [source,yaml]
 ----
@@ -104,11 +104,11 @@ kubectl config set-context $(kubectl config current-context) --namespace=pulsar
 ----
 
 . Execute `kubectl get pods -A` to view your running pods.
-. Once your pods are up and running, continue to xref:install-upgrade:quickstart-helm-installs.adoc[Accessing {pulsar-short} Cluster in Cloud] to access and manage your cluster.
+. Once your pods are up and running, continue to xref:install-upgrade:quickstart-helm-installs.adoc[Accessing {pulsar-short} cluster in cloud] to access and manage your cluster.
 
 == Next steps
 
-Once your pods are up and running, continue to xref:install-upgrade:quickstart-helm-installs.adoc[Accessing {pulsar-short} Cluster in Cloud] to access and manage your cluster.
+Once your pods are up and running, continue to xref:install-upgrade:quickstart-helm-installs.adoc[Accessing {pulsar-short} cluster in cloud] to access and manage your cluster.
 
 * To learn more about using the {pulsar-short} Admin Console, see xref:components:admin-console-tutorial.adoc[Admin Console Tutorial].
 * To learn more about installing {pulsar-short} on a server or virtual machine, see xref:install-upgrade:quickstart-server-installs.adoc[Quickstart for Server/VM Install].
