@@ -41,7 +41,7 @@ Check this setting with `cat /sys/kernel/mm/transparent_hugepage/enabled` and `c
 [#install]
 == Installation
 
-. Download the {company} {product} tarball from the https://github.com/datastax/pulsar/releases[{company} GitHub repo]. There are three versions of {product} currently available:
+. Download the {company} {product} tarball from the {pulsar-repo}/releases[{company} GitHub repo]. There are three versions of {product} currently available:
 +
 [cols="1,1"]
 [%autowidth]
@@ -93,12 +93,12 @@ You have successfully installed the {company} {product} tarball.
 Once the {company} {product} tarball is installed, you may want to add additional tooling to your server/VM deployment.
 
 * *{pulsar-short} Admin Console:* Web-based UI that administrates {pulsar-short}.
-Download the latest version from the https://github.com/datastax/pulsar-admin-console[{company} GitHub repo] and follow the instructions xref:components:admin-console-vm.adoc[here].
+Download the latest version from the {pulsar-admin-console-repo}[{company} GitHub repo] and follow the instructions xref:components:admin-console-vm.adoc[here].
 +
 Admin Console requires https://nodejs.org/download/release/latest-v14.x/[NodeJS 14 LTS] and Nginx version 1.17.9+.
 
 * *{pulsar-short} Heartbeat:* Monitors {pulsar-short} cluster availability.
-Download the latest version from the https://github.com/datastax/pulsar-heartbeat/releases/[{company} GitHub repo] and follow the instructions xref:components:heartbeat-vm.adoc[here].
+Download the latest version from the {pulsar-heartbeat-repo}/releases/[{company} GitHub repo] and follow the instructions xref:components:heartbeat-vm.adoc[here].
 
 == Next steps
 
@@ -108,4 +108,4 @@ Download the latest version from the https://github.com/datastax/pulsar-heartbea
 
 * For installation to existing Kubernetes environments or with a cloud provider, see xref:install-upgrade:quickstart-helm-installs.adoc[Quick Start for Helm Chart installs].
 
-* For Ansible deployment, use the {company} Ansible scripts provided at https://github.com/datastax/pulsar-ansible[https://github.com/datastax/pulsar-ansible].
+* For Ansible deployment, use the {company} Ansible scripts provided at {pulsar-ansible-repo}[{pulsar-ansible-repo}].

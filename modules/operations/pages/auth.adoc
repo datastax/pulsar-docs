@@ -54,7 +54,7 @@ kubectl create secret tls <tlsSecretName> --key <keyFile> --cert <certFile>
 
 The resulting secret will be of type `kubernetes.io/tls`. The key should *not* be in `PKCS 8` format, even though that is the format used by {pulsar-short}. The `kubernetes.io/tls` format will be converted by the chart to `PKCS 8`.
 
-If you have a self-signed certificate, manually specify the certificate information directly in https://github.com/datastax/pulsar-helm-chart/blob/master/examples/dev-values-keycloak-auth.yaml[values]:
+If you have a self-signed certificate, manually specify the certificate information directly in {pulsar-helm-chart-repo}/blob/master/examples/dev-values-keycloak-auth.yaml[values]:
 
 [source,yaml]
 ----
@@ -64,17 +64,17 @@ If you have a self-signed certificate, manually specify the certificate informat
   # caCertificate: |
 ----
 
-Once you have created the secrets that store the certificate info (or manually specified it in https://github.com/datastax/pulsar-helm-chart/blob/master/examples/dev-values-keycloak-auth.yaml[values]), enable TLS in the values:
+Once you have created the secrets that store the certificate info (or manually specified it in {pulsar-helm-chart-repo}/blob/master/examples/dev-values-keycloak-auth.yaml[values]), enable TLS in the values:
 
 `enableTls: yes`
 
 == Token Authentication via Keycloak Integration
 
-{company} created the https://github.com/datastax/pulsar-openid-connect-plugin[{pulsar-short} OpenID Connect Authentication Plugin] to provide a more dynamic authentication option for {pulsar-short}. This plugin integrates with any OpenID Connect-compliant identity provider to dynamically retrieve public keys for token validation. This dynamic public key retrieval enables support for key rotation and multiple authentication/identity providers by configuring multiple allowed token issuers. It also means that token secret keys will *not* be stored in Kubernetes secrets.
+{company} created the {pulsar-openid-connect-repo}[{pulsar-short} OpenID Connect Authentication Plugin] to provide a more dynamic authentication option for {pulsar-short}. This plugin integrates with any OpenID Connect-compliant identity provider to dynamically retrieve public keys for token validation. This dynamic public key retrieval enables support for key rotation and multiple authentication/identity providers by configuring multiple allowed token issuers. It also means that token secret keys will *not* be stored in Kubernetes secrets.
 
-In order to simplify deployment for {pulsar-short} cluster components, the plugin provides the option to use Keycloak in conjunction with {pulsar-short}'s basic token based authentication. For more, see https://github.com/datastax/pulsar-openid-connect-plugin[{pulsar-short} OpenID Connect Authentication Plugin].
+In order to simplify deployment for {pulsar-short} cluster components, the plugin provides the option to use Keycloak in conjunction with {pulsar-short}'s basic token based authentication. For more, see {pulsar-openid-connect-repo}[{pulsar-short} OpenID Connect Authentication Plugin].
 
-See the example https://github.com/datastax/pulsar-helm-chart/blob/master/examples/dev-values-keycloak-auth.yaml[Keycloak Helm chart] for deploying a working cluster that integrates with Keycloak. By default, the Helm chart creates a {pulsar-short} realm within Keycloak and sets up the client used by the {pulsar-short} Admin Console as well as a sample client and some sample groups. The configuration for the broker side auth plugin should be placed in the `.Values.<component>.configData` maps.
+See the example {pulsar-helm-chart-repo}/blob/master/examples/dev-values-keycloak-auth.yaml[Keycloak Helm chart] for deploying a working cluster that integrates with Keycloak. By default, the Helm chart creates a {pulsar-short} realm within Keycloak and sets up the client used by the {pulsar-short} Admin Console as well as a sample client and some sample groups. The configuration for the broker side auth plugin should be placed in the `.Values.<component>.configData` maps.
 
 === Configuring Keycloak for Token Generation
 
@@ -85,7 +85,7 @@ See the example https://github.com/datastax/pulsar-helm-chart/blob/master/exampl
 helm install test --values ../../examples/dev-values-keycloak-auth.yaml
 ----
 
-. Ensure your deployment name matches the working cluster's name. The name of the deployment is *very important* for a working cluster. The https://github.com/datastax/pulsar-helm-chart/blob/master/examples/dev-values-keycloak-auth.yaml[values] file assumes that the cluster's name is `test`.
+. Ensure your deployment name matches the working cluster's name. The name of the deployment is *very important* for a working cluster. The {pulsar-helm-chart-repo}/blob/master/examples/dev-values-keycloak-auth.yaml[values] file assumes that the cluster's name is `test`.
 
 . Once the cluster is operational, port forward to Keycloak:
 +
@@ -106,7 +106,7 @@ keycloak:
 
 . Navigate to `localhost:8080` in a browser and view the {pulsar-short} realm in the Keycloak UI. Note that the realm name must match the configured realm name (`.Values.keycloak.realm`) for the OpenID Connect plugin to work properly.
 
-The OpenID Connect plugin uses the `sub` (subject) claim from the JWT as the role used for authorization within {pulsar-short}. To get Keycloak to generate the JWT for a client with the right `sub`, create a special "mapper" that is a "Hardcoded claim" mapping claim name sub to a claim value that is the desired role, like `superuser`. The default config installed by https://github.com/datastax/pulsar-helm-chart/blob/master/examples/dev-values-keycloak-auth.yaml[this Helm chart] provides examples of how to add custom mapper protocols to clients.
+The OpenID Connect plugin uses the `sub` (subject) claim from the JWT as the role used for authorization within {pulsar-short}. To get Keycloak to generate the JWT for a client with the right `sub`, create a special "mapper" that is a "Hardcoded claim" mapping claim name sub to a claim value that is the desired role, like `superuser`. The default config installed by {pulsar-helm-chart-repo}/blob/master/examples/dev-values-keycloak-auth.yaml[this Helm chart] provides examples of how to add custom mapper protocols to clients.
 
 === Retrieving and using a token from Keycloak with {pulsar-short} Admin CLI
 

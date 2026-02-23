@@ -2,14 +2,14 @@
 
 [IMPORTANT]
 ====
-The {company} production-ready Helm chart is now deprecated. For new deployments, we recommend using the {company} https://github.com/datastax/kaap/[KAAP operator Helm chart], which provides Kubernetes-native autoscaling and simplified management for {pulsar} clusters. For more information, see the xref:kaap-operator::index.adoc[Kubernetes Autoscaling for {pulsar} (KAAP)] documentation.
+The {company} production-ready Helm chart is now deprecated. For new deployments, we recommend using the {company} {kaap-operator-repo}[KAAP operator Helm chart], which provides Kubernetes-native autoscaling and simplified management for {pulsar} clusters. For more information, see the xref:kaap-operator::index.adoc[Kubernetes Autoscaling for {pulsar} (KAAP)] documentation.
 ====
 
 You have options for installing *{company} {product}*:
 
 * With the provided *{company} Helm chart* for an existing Kubernetes environment locally or with a cloud provider, as covered in this topic.
 * With the *{company} {product} tarball* for deployment to a single server/VM, or to multiple servers/VMs. See xref:install-upgrade:quickstart-server-installs.adoc[Quick Start for Server/VM installs].
-* With the *{company} Ansible scripts* provided at https://github.com/datastax/pulsar-ansible[https://github.com/datastax/pulsar-ansible].
+* With the *{company} Ansible scripts* provided at {pulsar-ansible-repo}[{pulsar-ansible-repo}].
 
 The Helm chart and options described below configure an {pulsar} cluster.
 It is designed for production use, but can also be used in local development environments with the proper settings.
@@ -132,7 +132,7 @@ There are two ways to override `default_storage`:
             replication-type: none
 ----
 
-* Create a custom storage configuration as a `yaml` file (https://github.com/datastax/pulsar-helm-chart/blob/master/helm-chart-sources/pulsar/templates/bookkeeper/bookkeeper-storageclass.yaml[like the {company} example]) and tell the Helm chart to use that storage configuration when it creates the BookKeeper PVCs.
+* Create a custom storage configuration as a `yaml` file ({pulsar-helm-chart-repo}/blob/master/helm-chart-sources/pulsar/templates/bookkeeper/bookkeeper-storageclass.yaml[like the {company} example]) and tell the Helm chart to use that storage configuration when it creates the BookKeeper PVCs.
 +
 [source,yaml]
 ----
@@ -240,7 +240,7 @@ helm repo update
 curl -LOs https://datastax.github.io/pulsar-helm-chart/examples/dev-values.yaml
 ----
 
-The `dev-values.yaml` file can be viewed (https://github.com/datastax/pulsar-helm-chart/blob/master/examples/dev-values.yaml[here]).
+The `dev-values.yaml` file can be viewed ({pulsar-helm-chart-repo}/blob/master/examples/dev-values.yaml[here]).
 
 To list the version of the chart in the local Helm repository:
 
@@ -320,9 +320,9 @@ kubectl port-forward -n pulsar $(kubectl get pods -n pulsar -l app.kubernetes.io
 
 == Example configurations
 
-There are several example configurations in the https://github.com/datastax/pulsar-helm-chart/blob/master/examples[examples] directory:
+There are several example configurations in the {pulsar-helm-chart-repo}/blob/master/examples[examples] directory:
 
-* https://github.com/datastax/pulsar-helm-chart/blob/master/examples/dev-values.yaml[dev-values.yaml example file]. A configuration for setting up a development environment to run in a local Kubernetes environment (for example, https://minikube.sigs.k8s.io/docs/start/[minikube], or https://kind.sigs.k8s.io/[kind]). Message/state persistence, redundancy, authentication, and TLS are disabled.
+* {pulsar-helm-chart-repo}/blob/master/examples/dev-values.yaml[dev-values.yaml example file]. A configuration for setting up a development environment to run in a local Kubernetes environment (for example, https://minikube.sigs.k8s.io/docs/start/[minikube], or https://kind.sigs.k8s.io/[kind]). Message/state persistence, redundancy, authentication, and TLS are disabled.
 +
 TIP: With message/state persistence disabled, the cluster will not survive a restart of the ZooKeeper or BookKeeper.
 
@@ -493,7 +493,7 @@ This is useful if you are using a self-signed certificate.
 
 For automated handling of publicly signed certificates, you can use a tool
 such as https://cert-mananager[cert-manager].
-For more information, see https://github.com/datastax/pulsar-helm-chart/blob/master/aws-customer-docs.md[Using Cert-Manager for {pulsar-short} Certificates in AWS].
+For more information, see {pulsar-helm-chart-repo}/blob/master/aws-customer-docs.md[Using Cert-Manager for {pulsar-short} Certificates in AWS].
 
 Once you have created the secrets that store the certificate info (or specified it in the values), you can enable TLS in the values:
 

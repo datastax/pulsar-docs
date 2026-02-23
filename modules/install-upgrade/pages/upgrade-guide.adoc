@@ -115,12 +115,12 @@ Prometheus metrics have been updated in {product} 3.1.
 
 The following PRs were merged to update metrics:
 
-* https://github.com/apache/pulsar/pull/13785[#13785 - Bump prometheus client version from 0.5.0 to 0.15.0]
-* https://github.com/apache/pulsar/pull/16581[#16581 - Rename {pulsar-short} txn metrics to specify OpenMetrics]
-* https://github.com/apache/pulsar/pull/16610[#16610 - Rename {pulsar-short} schema metrics to specify OpenMetrics]
-* https://github.com/apache/pulsar/pull/16611[#16611 - Rename {pulsar-short} lb metrics to specify OpenMetrics]
-* https://github.com/apache/pulsar/pull/16591[#16591 - Bump prometheus client version from 0.15.0 to 0.16.0]
-* https://github.com/apache/pulsar/pull/17419[#17419 - Removed timestamp from all prometheus metrics.]
+* {apache-pulsar-repo}/pull/13785[#13785 - Bump prometheus client version from 0.5.0 to 0.15.0]
+* {apache-pulsar-repo}/pull/16581[#16581 - Rename {pulsar-short} txn metrics to specify OpenMetrics]
+* {apache-pulsar-repo}/pull/16610[#16610 - Rename {pulsar-short} schema metrics to specify OpenMetrics]
+* {apache-pulsar-repo}/pull/16611[#16611 - Rename {pulsar-short} lb metrics to specify OpenMetrics]
+* {apache-pulsar-repo}/pull/16591[#16591 - Bump prometheus client version from 0.15.0 to 0.16.0]
+* {apache-pulsar-repo}/pull/17419[#17419 - Removed timestamp from all prometheus metrics.]
 
 
 === Other functional impacts
@@ -131,31 +131,31 @@ The following PRs were merged in {product} 3.1 that may impact your deployment's
 |===
 |PR Link |Title |Functional Impact
 
-|https://github.com/apache/pulsar/pull/19180[#19180]
+|{apache-pulsar-repo}/pull/19180[#19180]
 |Deprecate blocking AuthorizationService, AuthorizationProvider methods
 |This will affect the public API for the AuthorizationService and the AuthorizationProvider, which only impacts users that are running custom code inside the {pulsar-short} Broker
 
-|https://github.com/apache/pulsar/pull/19182[#19182]
+|{apache-pulsar-repo}/pull/19182[#19182]
 |Remove AuthorizationProvider methods deprecated in 2.7 and 2.9
 |Removing deprecated methods allowTenantOperationAsync, allowTenantOperation, allowNamespaceOperationAsync, allowNamespaceOperation, allowNamespacePolicyOperationAsync, allowNamespacePolicyOperation, allowTopicOperationAsync, allowTopicOperation. These methods could be used by third party extensions
 
-|https://github.com/apache/pulsar/pull/19197[#19197]
+|{apache-pulsar-repo}/pull/19197[#19197]
 |Update AuthenticationProvider to simplify HTTP Authn
 |This changes the public API within the broker as some methods are marked as @Deprecated
 
-|https://github.com/apache/pulsar/pull/19295[#19295]
+|{apache-pulsar-repo}/pull/19295[#19295]
 |OneStageAuth State: move authn out of constructor
 |This could break 3rd party plugins in the broker if they were relying on authentication to happen in the constructor. In order to make those implementations fail fast, this PR includes a change to throw an exception when the getAuthRole is called without first calling authenticateAsync or authenticate. That makes these changes semi-backwards compatible.
 
-|https://github.com/apache/pulsar/pull/19314[#19314]
+|{apache-pulsar-repo}/pull/19314[#19314]
 |TokenAuthenticationState: authenticate token only once
 |In a sense, this breaks an implicit contract that the class had. However, because the getAuthRole() method will throw an exception if called incorrectly, it is likely that misuse of this class will result in a fail fast behavior.
 
-|https://github.com/apache/pulsar/pull/19455[#19455]
+|{apache-pulsar-repo}/pull/19455[#19455]
 |Require authRole is proxyRole to set originalPrincipal
 |This change affects the binary protocol's usage without changing the binary protocol itself. Upgrading existing proxies will not work if the proxyRoles is not correctly configured in the broker.conf.
 
-|https://github.com/apache/pulsar/pull/19486[#19486]
+|{apache-pulsar-repo}/pull/19486[#19486]
 |Remove default 30s ackTimeout when setting DLQ policy on java consumer
 |Removed setting default ackTimeoutMillis in java ConsumerBuilder when a deadLetterPolicy is set. It has to be specified exclusively to use.
 |===
@@ -166,7 +166,7 @@ This section describes changes in {product} 3.1 that may impact your deployment'
 
 === Configuration values removed in 3.1
 
-* https://github.com/apache/pulsar/pull/14506[PR #14506] removes `managedLedgerNumWorkerThreads`.
+* {apache-pulsar-repo}/pull/14506[PR #14506] removes `managedLedgerNumWorkerThreads`.
 The `MetadataStore` instance is now passed from the `PulsarService` directly to the `ManagedLedgerFactory`.
 
 * The {pulsar-short} SQL `conf/presto` directory has been removed.
@@ -227,7 +227,7 @@ The {pulsar-short} server module's `javac` release version is `17`.
 
 Client and client-server shared modules remain at the target Java 8 release.
 
-This modification is described in detail in https://github.com/apache/pulsar/pull/15207[PIP-156].
+This modification is described in detail in {apache-pulsar-repo}/pull/15207[PIP-156].
 
 === Python 2 support removed
 
@@ -239,7 +239,7 @@ The build image is updated to use `ubuntu:20.04`, as there is no Python 3.7 supp
 
 Executable scripts have been updated to invoke `python3` instead of `python`.
 
-This modification is described in detail in https://github.com/apache/pulsar/pull/15376[PIP-155]
+This modification is described in detail in {apache-pulsar-repo}/pull/15376[PIP-155]
 
 == Known issues
 
@@ -255,7 +255,7 @@ This section describes known issues encountered when upgrading to {product} 3.1.
 
 All other components such as Broker, Proxy, and Functions Worker can be downgraded at any time.
 
-For more information, see https://github.com/apache/pulsar/issues/22051[Issue 22051].
+For more information, see {apache-pulsar-repo}/issues/22051[Issue 22051].
 
 == Upgrade procedure
 
@@ -350,7 +350,7 @@ kubectl logs *POD-NAME* -n *NAMESPACE*
 
 === Upgrade Kubernetes deployment with Helm chart
 
-The Helm chart for {product} is available in the https://github.com/datastax/pulsar-helm-chart/blob/master/helm-chart-sources/pulsar/values.yaml[Helm chart sources] repository.
+The Helm chart for {product} is available in the {pulsar-helm-chart-repo}/blob/master/helm-chart-sources/pulsar/values.yaml[Helm chart sources] repository.
 
 . To prevent data loss, back up your existing {pulsar-short} data and configuration files.
 . To save your current Helm release configuration, run the following command:
