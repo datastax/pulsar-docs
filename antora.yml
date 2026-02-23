@@ -28,6 +28,14 @@ asciidoc:
     kudu-reg: 'Apache Kudu(TM)'
     phoenix-reg: 'Apache Phoenix(TM)'
     solr-reg: 'Apache Solr(TM)'
+    pulsar-admin-console-repo: 'https://github.com/datastax/pulsar-admin-console'
+    pulsar-heartbeat-repo: 'https://github.com/datastax/pulsar-heartbeat'
+    pulsar-sink-repo: 'https://github.com/datastax/pulsar-sink'
+    pulsar-ansible-repo: 'https://github.com/datastax/pulsar-ansible'
+    pulsar-helm-chart-repo: 'https://github.com/datastax/pulsar-helm-chart'
+    pulsar-openid-connect-repo: 'https://github.com/datastax/pulsar-openid-connect-plugin'
+    pulsar-repo: 'https://github.com/datastax/pulsar'
+    pulsar-beam-repo: 'https://github.com/kafkaesque-io/pulsar-beam'
 
     # Required for include::common partials that are shared with Astra Streaming
     web-ui: 'Admin Console'

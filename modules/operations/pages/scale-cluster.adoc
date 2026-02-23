@@ -6,9 +6,9 @@ include::operations:partial$operator-scaling.adoc[]
 
 == Install {pulsar-short} cluster
 
-For our {pulsar-short} cluster installation, use this https://github.com/datastax/pulsar-helm-chart[Helm chart].
+For our {pulsar-short} cluster installation, use this {pulsar-helm-chart-repo}[Helm chart].
 
-To start the cluster, use the values provided in this https://github.com/datastax/pulsar-helm-chart/blob/master/examples/dev-values.yaml[YAML file]:
+To start the cluster, use the values provided in this {pulsar-helm-chart-repo}/blob/master/examples/dev-values.yaml[YAML file]:
 
 [source,bash]
 ----
