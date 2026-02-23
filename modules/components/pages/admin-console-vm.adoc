@@ -15,13 +15,13 @@ wget https://nodejs.org/dist/v14.18.3/node-v14.18.3-linux-x64.tar.xz /
 tar -xf node-v14.18.3-linux-x64.tar.xz
 ----
 
-. Download and install the {pulsar-short} Admin console tarball to the VM. You can find the most recent {pulsar-short} Admin Console release https://github.com/datastax/pulsar-admin-console/releases[here].
+. Download and install the {pulsar-short} Admin console tarball to the VM. You can find the most recent {pulsar-short} Admin Console release {pulsar-admin-console-repo}/releases[here].
 
 .. The tarball is also available with `wget`:
 +
-[source,bash,subs="attributes+"]
+[source,bash,subs="+attributes"]
 ----
-wget https://github.com/datastax/pulsar-admin-console/releases/download/{admin-console-version}/pulsar-admin-console-2.0.0.tar.gz
+wget {pulsar-admin-console-repo}/releases/download/{admin-console-version}/pulsar-admin-console-2.0.0.tar.gz
 ----
 
 . Extract the tarball:

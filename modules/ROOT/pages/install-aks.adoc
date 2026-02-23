@@ -3,7 +3,7 @@
 
 This document covers installation of {product} on the Azure Kubernetes Service (AKS).
 
-For an example set of production cluster values, see the {company} production-ready https://github.com/datastax/pulsar-helm-chart[Helm chart].
+For an example set of production cluster values, see the {company} production-ready {pulsar-helm-chart-repo}[Helm chart].
 
 {company} recommends these hardware resources for running {product} in a Kubernetes environment:
 
@@ -16,7 +16,7 @@ For the local machine running the Helm chart, you will need:
 
 == Helm chart `values.yaml`
 
-The https://github.com/datastax/pulsar-helm-chart/blob/master/helm-chart-sources/pulsar/values.yaml[`values.yaml`] will deploy {pulsar-short} with:
+The {pulsar-helm-chart-repo}/blob/master/helm-chart-sources/pulsar/values.yaml[`values.yaml`] will deploy {pulsar-short} with:
 
 * 1 ZooKeeper cluster with `replicaCount:3`
 * 1 Bookkeeper cluster with `replicaCount:3`
@@ -54,7 +54,7 @@ There are two ways to override `default_storage`:
             replication-type: none
 ----
 
-* Create a custom storage configuration as a `yaml` file (https://github.com/datastax/pulsar-helm-chart/blob/master/helm-chart-sources/pulsar/templates/bookkeeper/bookkeeper-storageclass.yaml[like the {company} example]) and tell the Helm chart to use that storage configuration when it creates the BookKeeper PVCs.
+* Create a custom storage configuration as a `yaml` file ({pulsar-helm-chart-repo}/blob/master/helm-chart-sources/pulsar/templates/bookkeeper/bookkeeper-storageclass.yaml[like the {company} example]) and tell the Helm chart to use that storage configuration when it creates the BookKeeper PVCs.
 +
 [source,yaml]
 ----

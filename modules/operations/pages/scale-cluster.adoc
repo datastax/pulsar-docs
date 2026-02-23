@@ -4,9 +4,9 @@ This page will show you how to scale {product} clusters up for more compute capa
 
 == Installing {pulsar-short} cluster
 
-For our {pulsar-short} cluster installation, use this https://github.com/datastax/pulsar-helm-chart[Helm chart].
+For our {pulsar-short} cluster installation, use this {pulsar-helm-chart-repo}[Helm chart].
 
-To start the cluster, use the values provided in this https://github.com/datastax/pulsar-helm-chart/blob/master/examples/dev-values.yaml[YAML file].
+To start the cluster, use the values provided in this {pulsar-helm-chart-repo}/blob/master/examples/dev-values.yaml[YAML file].
 
 ----
 $ diff ~/dev-values.yaml ~/dev-values_large.yaml
