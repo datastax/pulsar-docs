@@ -3,7 +3,7 @@
 :description: Install a minimal {product} Helm chart that includes {pulsar-short} Beam
 :helmValuesPath: https://raw.githubusercontent.com/datastaxdevs/luna-streaming-examples/main/beam/values.yaml
 
-The https://github.com/kafkaesque-io/pulsar-beam[{pulsar-short} Beam] project is an HTTP-based streaming and queueing system for use with {pulsar}.
+The {pulsar-beam-repo}[{pulsar-short} Beam] project is an HTTP-based streaming and queueing system for use with {pulsar}.
 
 With {pulsar-short} Beam, you can send messages over HTTP, push messages to a webhook or cloud function, chain webhooks and functions together, or stream messages through server-sent events (SSE).
 
@@ -73,7 +73,7 @@ id: {9 0 0 0 <nil> 0xc002287ad0}
 data: Hi there
 ----
 
-You have now completed the basics of using Beam in a {pulsar-short} Cluster. Refer to the project's https://github.com/kafkaesque-io/pulsar-beam/blob/master/README.md[readme] to see all the possibilities!
+You have now completed the basics of using Beam in a {pulsar-short} Cluster. Refer to the project's {pulsar-beam-repo}/blob/master/README.md[readme] to see all the possibilities!
 
 == A Python producer and consumer
 
@@ -153,6 +153,6 @@ include::ROOT:partial$cleanup-terminal-and-helm.adoc[]
 
 Here are links to resources and guides you might be interested in:
 
-* https://github.com/kafkaesque-io/pulsar-beam[Learn more] about the {pulsar-short} Beam project
+* {pulsar-beam-repo}[{pulsar-short} Beam project]
 * https://kafkaesque-io.github.io/pulsar-beam-swagger[{pulsar-short} Beam API]
 * xref:pulsar-sql.adoc[]

@@ -26,7 +26,7 @@ TIP: {pulsar-short} Heartbeat is installed automatically for server/VM installat
 * A command line argument `./pulsar-heartbeat -config /path/to/runtime.yml`
 * A default path to `../config/runtime.yml`
 
-You can download a template https://github.com/datastax/pulsar-heartbeat/blob/master/config/runtime-template.yml[here].
+You can download a template {pulsar-heartbeat-repo}/blob/master/config/runtime-template.yml[here].
 
 == Observability
 
