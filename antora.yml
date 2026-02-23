@@ -23,6 +23,11 @@ asciidoc:
     kafka: 'Apache Kafka'
     kafka-short: 'Kafka'
     kafka-connect: 'Kafka Connect'
+    geode-reg: 'Apache Geode(TM)'
+    hbase-reg: 'Apache HBase(R)'
+    kudu-reg: 'Apache Kudu(TM)'
+    phoenix-reg: 'Apache Phoenix(TM)'
+    solr-reg: 'Apache Solr(TM)'
 
     # Required for include::common partials that are shared with Astra Streaming
     web-ui: 'Admin Console'
