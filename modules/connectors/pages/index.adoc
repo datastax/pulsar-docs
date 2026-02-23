@@ -19,7 +19,7 @@ Supported sink connectors::
 The following sink connectors are included in {product}:
 +
 * xref:connectors:sinks/astra-db.adoc[{astra-db} and {cass} sink]
-* xref:connectors:sinks/kafka.adoc[Apache Kafka sink]
+* xref:connectors:sinks/kafka.adoc[{kafka-reg} sink]
 * xref:connectors:sinks/kinesis.adoc[AWS Kinesis sink]
 * xref:connectors:sinks/elastic-search.adoc[Elasticsearch sink]
 * xref:connectors:sinks/jdbc-clickhouse.adoc[JDBC ClickHouse sink]
@@ -79,7 +79,7 @@ Source connectors ingest messages from external services into {pulsar-short} top
 Supported source connectors::
 The following source connectors are included in {product}:
 +
-* xref:connectors:sources/kafka.adoc[Apache Kafka source]
+* xref:connectors:sources/kafka.adoc[{kafka-reg} source]
 * xref:connectors:sources/kinesis.adoc[AWS Kinesis source]
 * xref:connectors:sources/data-generator.adoc[Data Generator source]
 * xref:connectors:sources/debezium-mongodb.adoc[Debezium MongoDB source]

@@ -19,6 +19,10 @@ asciidoc:
     pulsar: 'Apache Pulsar'
     pulsar-short: 'Pulsar'
     astra-stream: 'Astra Streaming'
+    kafka-reg: 'Apache Kafka(R)'
+    kafka: 'Apache Kafka'
+    kafka-short: 'Kafka'
+    kafka-connect: 'Kafka Connect'
 
     # Required for include::common partials that are shared with Astra Streaming
     web-ui: 'Admin Console'

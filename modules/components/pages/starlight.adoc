@@ -11,7 +11,7 @@ The Starlight extensions are open source and included in https://www.ibm.com/doc
 
 == {starlight-kafka}
 
-The https://github.com/datastax/starlight-for-kafka[{starlight-kafka} extension] brings native Apache Kafka(R) protocol support to {pulsar} by introducing a Kafka protocol handler on {pulsar-short} brokers.
+The https://github.com/datastax/starlight-for-kafka[{starlight-kafka} extension] brings native {kafka-reg} protocol support to {pulsar} by introducing a {kafka-short} protocol handler on {pulsar-short} brokers.
 
 For more information, see the xref:starlight-for-kafka:ROOT:index.adoc[{starlight-kafka} documentation].
 
