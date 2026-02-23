@@ -18,6 +18,7 @@ asciidoc:
     pulsar-reg: 'Apache Pulsar(TM)'
     pulsar: 'Apache Pulsar'
     pulsar-short: 'Pulsar'
+    pulsar-beam: 'Pulsar Beam'
     astra-stream: 'Astra Streaming'
     kafka-reg: 'Apache Kafka(R)'
     kafka: 'Apache Kafka'
@@ -31,6 +32,11 @@ asciidoc:
     pulsar-openid-connect-repo: 'https://github.com/datastax/pulsar-openid-connect-plugin'
     pulsar-repo: 'https://github.com/datastax/pulsar'
     pulsar-beam-repo: 'https://github.com/kafkaesque-io/pulsar-beam'
+    bookkeeper-reg: 'Apache BookKeeper(TM)'
+    bookkeeper-short: 'BookKeeper'
+    zookeeper-reg: 'Apache ZooKeeper(TM)'
+    zookeeper-short: 'ZooKeeper'
+    crd: 'custom resource definition (CRD)'
 
     # Required for include::common partials that are shared with Astra Streaming
     web-ui: 'Admin Console'

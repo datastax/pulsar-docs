@@ -30,10 +30,10 @@ The servers must be on the same network so they can communicate with each other.
 
 * Servers should have at least 50 GB in their root disk volume.
 
-* BookKeeper should use one volume device for the journal, and one volume device for the ledgers.
+* {bookkeeper-reg} should use one volume device for the journal, and one volume device for the ledgers.
 The journal device should be 20GB. The ledger volume device should be sized to hold the expected amount of stored message data.
 
-* {company} recommends a separate data disk volume for ZooKeeper.
+* {company} recommends a separate data disk volume for {zookeeper-reg}.
 
 * Operating System Settings
 +
@@ -52,7 +52,7 @@ Check this setting with `cat /sys/kernel/mm/transparent_hugepage/enabled` and `c
 |*Included components*
 
 |`lunastreaming-core-<version>-bin.tar.gz`
-|Contains the core {pulsar-short} modules: Zookeeper, Broker, BookKeeper, and function worker
+|Contains the core {pulsar-short} modules: {zookeeper-short}, broker, {bookkeeper-short}, and function worker
 
 |`lunastreaming-<version>-bin.tar.gz`
 |Contains all components from `lunastreaming-core` as well as support for {pulsar-short} SQL
@@ -108,7 +108,7 @@ Download the latest version from the {pulsar-heartbeat-repo}/releases/[{company}
 
 == Next steps
 
-* For initializing {pulsar-short} components like BookKeeper and ZooKeeper, see the https://pulsar.apache.org/docs/deploy-bare-metal[{pulsar-short} documentation].
+* For initializing {pulsar-short} components like {bookkeeper-short} and {zookeeper-short}, see the https://pulsar.apache.org/docs/deploy-bare-metal[{pulsar-short} documentation].
 
 * For installing optional built-in connectors or tiered storage included in `lunastreaming-all`, see the https://pulsar.apache.org/docs/deploy-bare-metal#install-builtin-connectors-optional[{pulsar-short} documentation].
 
