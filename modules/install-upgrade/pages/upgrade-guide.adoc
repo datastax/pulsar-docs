@@ -133,7 +133,7 @@ The following PRs were merged in {product} 3.1 that may impact your deployment's
 
 |{apache-pulsar-repo}/pull/19180[#19180]
 |Deprecate blocking AuthorizationService, AuthorizationProvider methods
-|This will affect the public API for the AuthorizationService and the AuthorizationProvider, which only impacts users that are running custom code inside the {pulsar-short} Broker
+|This will affect the public API for the AuthorizationService and the AuthorizationProvider, which only impacts users that are running custom code inside the {pulsar-short} broker
 
 |{apache-pulsar-repo}/pull/19182[#19182]
 |Remove AuthorizationProvider methods deprecated in 2.7 and 2.9
@@ -245,15 +245,18 @@ This modification is described in detail in {apache-pulsar-repo}/pull/15376[PIP-
 
 This section describes known issues encountered when upgrading to {product} 3.1.
 
-=== Bookkeeper / RocksDB format
+=== {bookkeeper} and RocksDB format
 
-**Downgrading to {product} 2.10 from {product} 3.1 is not supported for Bookies and ZooKeeper**.
+[IMPORTANT]
+====
+Downgrading to {product} 2.10 from {product} 3.1 is not supported for the {bookkeeper-reg} and {zookeeper-reg} components.
+====
 
 {pulsar-short} 3.1 uses RocksDB `7.x`, which writes in a format that is not compatible with RocksDB `6.x`.
 
-{product} 2.10 uses Bookkeeper 4.14, which uses RocksDB `6.x`.
+{product} 2.10 uses {bookkeeper} 4.14, which uses RocksDB `6.x`.
 
-All other components such as Broker, Proxy, and Functions Worker can be downgraded at any time.
+All other components such as broker, proxy, and Functions Worker can be downgraded at any time.
 
 For more information, see {apache-pulsar-repo}/issues/22051[Issue 22051].
 
@@ -265,11 +268,11 @@ This guide only addresses Kubernetes deployment.
 
 For more information on upgrading bare metal and Docker {pulsar-short} deployments, see the https://pulsar.apache.org/docs/3.3.x/administration-upgrade/[{pulsar-short} documentation].
 
-=== Upgrade Kubernetes deployment with KAAP Operator
+=== Upgrade Kubernetes deployment with {kaap-short}
 
-Upgrade to {product} 3.1 on Kubernetes with the KAAP (Kubernetes Autoscaling for {pulsar}) operator.
+Upgrade to {product} 3.1 on Kubernetes with {kaap}.
 
-For more information, see the xref:kaap-operator::index.adoc[KAAP documentation].
+For more information, see the xref:kaap-operator::index.adoc[{kaap-short} documentation].
 
 . To prevent data loss, back up your existing {pulsar-short} data and configuration files.
 . To save your current Helm release configuration, run the following command:

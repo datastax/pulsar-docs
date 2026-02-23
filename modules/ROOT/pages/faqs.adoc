@@ -51,7 +51,7 @@ The {company} {product} distribution is designed for Java 17. However, because t
 
 == What are the install options for {company} {product}?
 
-* **KAAP Helm chart (Recommended)**: Use the {company} {kaap-operator-repo}[KAAP operator Helm chart], which provides Kubernetes-native autoscaling and simplified management for {pulsar} clusters. For more information, see the xref:kaap-operator::index.adoc[Kubernetes Autoscaling for {pulsar} (KAAP)] documentation.
+* **{kaap-short} Helm chart (Recommended)**: Use the {company} {kaap-operator-repo}[{kaap-short} Helm chart], which provides Kubernetes-native autoscaling and simplified management for {pulsar} clusters. For more information, see the xref:kaap-operator::index.adoc[{kaap}] documentation.
 * **{product} Helm chart**: Use the Helm chart provided at {pulsar-helm-chart-repo}[{pulsar-helm-chart-repo}] to install {company} {product} in an existing Kubernetes cluster on your laptop or hosted by a cloud provider.
 * **Tarball**: Use the tarball provided at {pulsar-repo}/releases[{pulsar-repo}/releases] to install {company} {product} on a server or VM.
 * **Ansible**: Use the {company} Ansible scripts provided at {pulsar-ansible-repo}[{pulsar-ansible-repo}] to install {company} {product} on a server or VM with our provided playbooks.

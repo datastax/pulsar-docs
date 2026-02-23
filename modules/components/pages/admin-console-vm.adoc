@@ -78,7 +78,7 @@ These values can be modified in the JSON configuration file.
 | cluster_name | standalone | Name of {pulsar-short} cluster connecting to. The cluster name can be retrieved with the CLI command `pulsar-admin clusters list`.
 | functions_disabled | false | If functions are not enabled in the cluster, disable the function sections (Functions, Sinks, Sources).
 | grafana_url | | If `render_monitoring_tab` is enabled, URL for Grafana.
-| host_overrides.http | \http://localhost:8964 | URL to display in console to connect to {pulsar-short} Beam HTTP proxy.
+| host_overrides.http | \http://localhost:8964 | URL to display in console to connect to {pulsar-beam} HTTP proxy.
 | host_overrides.pulsar | \http://localhost:6650 | URL to display in console to connect to {pulsar-short}.
 | host_overrides.ws | //localhost:8080 | URL to display in console to connect to WebSocket proxy.
 | notice_text | | Custom notice to appear at top of console.

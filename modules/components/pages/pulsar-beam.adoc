@@ -1,13 +1,13 @@
-= {pulsar-short} Beam with {product}
-:navtitle: {pulsar-short} Beam
-:description: Install a minimal {product} Helm chart that includes {pulsar-short} Beam
+= {pulsar-beam} with {product}
+:navtitle: {pulsar-beam}
+:description: Install a minimal {product} Helm chart that includes {pulsar-beam}
 :helmValuesPath: https://raw.githubusercontent.com/datastaxdevs/luna-streaming-examples/main/beam/values.yaml
 
-The {pulsar-beam-repo}[{pulsar-short} Beam] project is an HTTP-based streaming and queueing system for use with {pulsar}.
+The {pulsar-beam-repo}[{pulsar-beam}] project is an HTTP-based streaming and queueing system for use with {pulsar}.
 
-With {pulsar-short} Beam, you can send messages over HTTP, push messages to a webhook or cloud function, chain webhooks and functions together, or stream messages through server-sent events (SSE).
+With {pulsar-beam}, you can send messages over HTTP, push messages to a webhook or cloud function, chain webhooks and functions together, or stream messages through server-sent events (SSE).
 
-In this guide, you'll install a minimal {company} {pulsar-short} Helm chart that includes {pulsar-short} Beam.
+In this guide, you'll install a minimal {company} {pulsar-short} Helm chart that includes {pulsar-beam}.
 
 == Prerequisites
 
@@ -21,15 +21,15 @@ include::partial$install-helm.adoc[]
 
 == Forward service port
 
-In a separate terminal window, port forward the Beam endpoint service:
+In a separate terminal window, port forward the {pulsar-beam} endpoint service:
 
 [source,shell]
 ----
 kubectl port-forward -n datastax-pulsar service/pulsar-proxy 8085:8085
 ----
 
-The forwarding service will map the URL:PORT https://127.0.0.1:8085 to {pulsar-short} Proxy running in the new cluster.
-Because Beam was enabled, the Proxy knows to forward on to the Beam service.
+The forwarding service will map the URL:PORT https://127.0.0.1:8085 to {pulsar-short} proxy running in the new cluster.
+Because {pulsar-beam} was enabled, the proxy knows to forward on to the {pulsar-beam} service.
 
 [source,shell]
 ----
@@ -49,7 +49,7 @@ curl http://127.0.0.1:8085/v2/sse/persistent/public/default/$TOPIC?SubscriptionI
 ----
 
 Note the use of `SubscriptionInitialPosition=earliest` in the message consumer.
-This instructs Beam to create a subscription on the topic starting at the earliest message.
+This instructs {pulsar-beam} to create a subscription on the topic starting at the earliest message.
 Try changing the value to `latest` to only receive new messages that arrive.
 
 == Produce a new message
@@ -75,11 +75,11 @@ id: {9 0 0 0 <nil> 0xc002287ad0}
 data: Hi there
 ----
 
-You have now completed the basics of using Beam in a {pulsar-short} Cluster. Refer to the project's {pulsar-beam-repo}/blob/master/README.md[readme] to see all the possibilities!
+You have now completed the basics of using {pulsar-beam} in a {pulsar-short} cluster. Refer to the project's {pulsar-beam-repo}/blob/master/README.md[readme] to see all the possibilities!
 
 == A Python producer and consumer
 
-This is another example of producing and consuming messages using Beam.
+This is another example of producing and consuming messages using {pulsar-beam}.
 Instead of using curl, this example will use the "requests" Python library to issue HTTP requests.
 
 === Create project
@@ -156,6 +156,6 @@ include::partial$cleanup-terminal-and-helm.adoc[]
 
 Here are links to resources and guides you might be interested in:
 
-* {pulsar-beam-repo}[Learn more] about the {pulsar-short} Beam project
-* https://kafkaesque-io.github.io/pulsar-beam-swagger[{pulsar-short} Beam API]
+* {pulsar-beam-repo}[Learn more] about the {pulsar-beam} project
+* https://kafkaesque-io.github.io/pulsar-beam-swagger[{pulsar-beam} API]
 * xref:pulsar-sql.adoc[]
