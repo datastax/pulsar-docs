@@ -71,7 +71,7 @@ The number of function workers depends on the cluster's functions workload.
 |{pulsar-short} proxy
 |3
 |1 node per AZ^*^
-|Autorecovery
+|AutoRecovery
 |3
 |1 per AZ^*^
 |===
@@ -134,7 +134,7 @@ a|* CPU: 8 vCPU
 * Data Disk Journal: 256 GB SSD
 * Data Disk Ledger: 1024 GB SSD
 |Ledger disk capacity can be beyond 1TB.
-|{pulsar-short} proxy, Autorecovery
+|{pulsar-short} proxy, AutoRecovery
 a|* CPU: 4 vCPU
 * Memory: 16 GB
 |

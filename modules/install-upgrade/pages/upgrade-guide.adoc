@@ -245,7 +245,7 @@ This modification is described in detail in {apache-pulsar-repo}/pull/15376[PIP-
 
 This section describes known issues encountered when upgrading to {product} 3.1.
 
-=== {bookkeeper} and RocksDB format
+=== {bookkeeper-short} and RocksDB format
 
 [IMPORTANT]
 ====

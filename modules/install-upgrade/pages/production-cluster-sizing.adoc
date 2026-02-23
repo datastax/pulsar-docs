@@ -42,8 +42,8 @@ Scale bookies up on disc usage percentage. Scale down manually by making a booki
 
 The {company} {product} Helm chart deployment includes optional but highly recommended server components for better {pulsar-short} cluster metrics monitoring and operation visibility.
 
-* https://bookkeeper.apache.org/docs/admin/autorecovery[{bookkeeper-short} AutoRecovery] - This is a {pulsar-short} component that recovers {bookkeeper-short} data in the event of a bookie outage. While optional you will want the insurance of Autorecovery working on your behalf.
-A single instance of Autorecovery should be adequate - only in the most heavily-used clusters will you need more.
+* https://bookkeeper.apache.org/docs/admin/autorecovery[{bookkeeper-short} AutoRecovery] - This is a {pulsar-short} component that recovers {bookkeeper-short} data in the event of a bookie outage. While optional you will want the insurance of AutoRecovery working on your behalf.
+A single instance of AutoRecovery should be adequate - only in the most heavily-used clusters will you need more.
 * https://pulsar.apache.org/docs/concepts-architecture-overview/#pulsar-proxy[{pulsar-short} proxy] - The {pulsar-short} proxy is just that - a proxy.
 It runs at the edge of the cluster with public facing endpoints.
 Without it, your brokers would expose those endpoints, which is not an ideal configuration in production.
@@ -215,7 +215,7 @@ Now that we know how many server instances of broker and bookie are required to 
 |3
 |1 per zone
 
-|Autorecovery
+|AutoRecovery
 |3
 |1 per zone
 

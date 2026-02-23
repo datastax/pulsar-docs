@@ -45,7 +45,6 @@ asciidoc:
     bookkeeper: 'Apache BookKeeper'
     bookkeeper-short: 'BookKeeper'
     zookeeper-reg: 'Apache ZooKeeper(TM)'
-    zookeeper: 'Apache ZooKeeper'
     zookeeper-short: 'ZooKeeper'
     crd: 'custom resource definition (CRD)'
 
