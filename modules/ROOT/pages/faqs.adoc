@@ -13,7 +13,7 @@ In addition to {pulsar} itself, {company} {product} provides:
 
 * An installer that can stand up a dev or production cluster on bare metal or VMs without a pre-existing Kubernetes environment
 * A Helm chart that can deploy and manage {pulsar-short} on your current Kubernetes infrastructure
-* {cass-short}, Elastic, Kinesis, Kafka, and JDBC connectors
+* {cass-short}, Elastic, Kinesis, {kafka-reg}, and JDBC connectors
 * A management dashboard
 * A monitoring and alerting system
 
@@ -42,7 +42,7 @@ There are several public repos, each with a different purpose. See:
 * https://github.com/datastax/pulsar-admin-console[https://github.com/datastax/pulsar-admin-console] : This is the repo for the {pulsar-short} admin console, which allows for the configuration and monitoring of {pulsar-short}.
 * https://github.com/datastax/pulsar-heartbeat[https://github.com/datastax/pulsar-heartbeat] : This is a monitoring/observability tool for {pulsar-short} that tracks the health of the cluster and can generate alerts in Slack and OpsGenie.
 * https://github.com/datastax/pulsar-helm-chart[https://github.com/datastax/pulsar-helm-chart] : This is the Helm chart for deploying the {company} {pulsar-short} Distro in an existing Kubernetes cluster.
-* https://github.com/datastax/pulsar-sink[https://github.com/datastax/pulsar-sink] : This is the {company} {pulsar} Connector (`pulsar-sink` for {cass-short}) repo.
+* https://github.com/datastax/pulsar-sink[https://github.com/datastax/pulsar-sink] : This is the {company} {pulsar} Connector (`pulsar-sink`) repo.
 * https://github.com/datastax/burnell[https://github.com/datastax/burnell] : This is a utility for {pulsar-short} that provides various functions, such as key initialization for authentication, and JWT token creation API.
 
 == Is there a prerequisite version of Java needed for the {company} {product} installation?
@@ -80,7 +80,7 @@ https://github.com/datastax/pulsar-heartbeat[{pulsar-short} Heartbeat] monitors 
 
 == What are the features provided by {company} {pulsar} Connector (`pulsar-sink`) that are not supported in `kafka-sink`?
 
-The https://pulsar.apache.org/docs/en/io-overview/[{pulsar-short} IO framework] provides many features that are not possible in Kafka, and has different compression formats and auth/security features. The features are handled by {pulsar-short}. For more, see xref:connectors:index.adoc[{product} IO Connectors].
+The https://pulsar.apache.org/docs/en/io-overview/[{pulsar-short} IO framework] provides many features that are not possible in {kafka-short}, and has different compression formats and auth/security features. The features are handled by {pulsar-short}. For more, see xref:connectors:index.adoc[{product} IO Connectors].
 
 The {company} {pulsar} Connector allows single-record acknowledgement and negative acknowledgements.
 
