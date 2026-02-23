@@ -20,12 +20,12 @@ For example, if there are 3 zones, set a replication factor of 3.
 |Note
 
 |SANDBOX (STANDALONE)
-|(combined) Zookeeper, Broker, and Bookie
+|{zookeeper-short}, broker, and bookie (combined)
 |1
 |
 
 .3+|DEVELOPMENT (1 region, 1 zone)
-|Zookeeper
+|{zookeeper-short}
 |1
 |
 |Broker
@@ -36,7 +36,7 @@ For example, if there are 3 zones, set a replication factor of 3.
 |
 
 .5+|SINGLE REGION TESTING ENVIRONMENT (1 region, 1 zone)
-|Zookeeper
+|{zookeeper-short}
 |3
 |
 |Broker
@@ -45,31 +45,31 @@ For example, if there are 3 zones, set a replication factor of 3.
 |Bookie
 |3
 |
-|{pulsar-short} Proxy
+|{pulsar-short} proxy
 |3
 |
-|(Dedicated) Function Worker
+|Function worker (dedicated)
 |3
 |
 
 .6+|HIGH-AVAILABILITY PRODUCTION ENVIRONMENT (1 region, 3 zones)
-|Zookeeper
+|{zookeeper-short}
 |5
 |2/2/1 nodes*
 |Broker
 |3
 |1 nodes per AZ^*^
-|(Dedicated) Function Worker
+|Function worker (dedicated)
 |3
 |1 node per AZ^*^
 The number of function workers depends on the cluster's functions workload.
 |Bookie
 |6
 |2 nodes per AZ^*^
-|{pulsar-short} Proxy
+|{pulsar-short} proxy
 |3
 |1 node per AZ^*^
-|Autorecovery
+|AutoRecovery
 |3
 |1 per AZ^*^
 |===
@@ -88,19 +88,19 @@ The following table lists the minimum hardware requirements for a {pulsar-short}
 |Note
 
 |DEVELOPMENT
-|Zookeeper, Broker, and Bookkeeper
+|{zookeeper-short}, broker, and {bookkeeper-short}
 a|* CPU: 8 vCPU
 * Memory: 16 GB
 * Data Disk: 64 GB SSD
-a|Data disks are shared by Zookeeper data, Bookkeeper journal, and Bookkeeper ledger
+a|Data disks are shared by {zookeeper-short} data, {bookkeeper-short} journal, and {bookkeeper-short} ledger
 
 .4+|TEST
-|Zookeeper
+|{zookeeper-short}
 a|* CPU: 2 vCPU
 * Memory: 4 GB
 * Data Disk: 32 GB SSD
 |
-|Broker and Function Worker
+|Broker and function worker
 a|* CPU: 8 vCPU
 * Memory: 16 GB
 |No data disk
@@ -110,13 +110,13 @@ a|* CPU: 4 vCPU
 * Data Disk Journal: 32 GB SSD
 * Data Disk Ledger: 256 GB SSD
 |
-|{pulsar-short} Proxy, Function Worker
+|{pulsar-short} proxy, function worker
 a|* CPU: 4 vCPU
 * Memory: 8 GB
 |
 
 .6+|PRODUCTION
-|Zookeeper
+|{zookeeper-short}
 a|* CPU: 4 vCPU
 * Memory: 4 GB
 * Data Disk: 64 GB SSD
@@ -132,11 +132,11 @@ a|* CPU: 8 vCPU
 * Data Disk Journal: 256 GB SSD
 * Data Disk Ledger: 1024 GB SSD
 |Ledger disk capacity can be beyond 1TB.
-|{pulsar-short} Proxy, Autorecovery
+|{pulsar-short} proxy, AutoRecovery
 a|* CPU: 4 vCPU
 * Memory: 16 GB
 |
-|Dedicated Function Worker
+|Function worker (dedicated)
 a|* CPU: 4 vCPU
 * Memory: 8 GB
 |
