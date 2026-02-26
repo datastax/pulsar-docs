@@ -4,9 +4,9 @@ This page will show you how to scale {product} clusters up for more compute capa
 
 == Installing {pulsar-short} cluster
 
-For our {pulsar-short} cluster installation, use this https://github.com/datastax/pulsar-helm-chart[Helm chart].
+For our {pulsar-short} cluster installation, use this {pulsar-helm-chart-repo}[Helm chart].
 
-To start the cluster, use the values provided in this https://github.com/datastax/pulsar-helm-chart/blob/master/examples/dev-values.yaml[YAML file].
+To start the cluster, use the values provided in this {pulsar-helm-chart-repo}/blob/master/examples/dev-values.yaml[YAML file].
 
 ----
 $ diff ~/dev-values.yaml ~/dev-values_large.yaml
@@ -99,7 +99,7 @@ $ helm upgrade pulsar -f ~/dev-values_large.yaml --wait datastax-pulsar/pulsar
 $ ./bin/bookkeeper shell listunderreplicated
 ----
 
-. Double-check the bookie id of the failing bookie:
+. Double-check the `bookieid` of the failing bookie:
 +
 [source,shell]
 ----
@@ -116,7 +116,7 @@ $ ./bin/bookkeeper shell decommissionbookie -bookieid pulsar-bookkeeper-3.pulsar
 +
 [NOTE]
 ====
-The decommissioning will take some time because it triggers the audit and auto-recovery and blocks until auto-recovery completes.
+The decommissioning will take some time because it triggers the audit and AutoRecovery and blocks until AutoRecovery completes.
 ====
 +
 This command will delete the cookie of the decommissioned bookie: `pulsar-bookkeeper-3.pulsar-bookkeeper.default.svc.cluster.local:3181`.
