@@ -44,4 +44,4 @@ include::common:streaming:partial$connectors/sinks/astra-db-topic.adoc[]
 
 == See also
 
-* https://github.com/datastax/pulsar-sink[{company} {pulsar} connector GitHub repository]
+* {pulsar-sink-repo}[{company} {pulsar} connector GitHub repository]

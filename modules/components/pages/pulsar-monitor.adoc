@@ -12,7 +12,7 @@ TIP: {pulsar-short} Heartbeat is installed automatically for server/VM installat
 * Monitor message pubsub and admin REST API endpoint
 * Measure end-to-end message latency from producing to consuming messages
 * Measure message latency over the websocket interface, and {pulsar-short} function
-* Monitor instance availability of broker, proxy, bookkeeper, and zookeeper in a {pulsar-short} Kubernetes cluster
+* Monitor instance availability of broker, proxy, {bookkeeper-short}, and {zookeeper-short} in a {pulsar-short} Kubernetes cluster
 * Monitor individual {pulsar-short} broker's health
 * Incident alert integration with OpsGenie
 * Customer configurable alert thresholds and probe test intervals
@@ -26,7 +26,7 @@ TIP: {pulsar-short} Heartbeat is installed automatically for server/VM installat
 * A command line argument `./pulsar-heartbeat -config /path/to/runtime.yml`
 * A default path to `../config/runtime.yml`
 
-You can download a template https://github.com/datastax/pulsar-heartbeat/blob/master/config/runtime-template.yml[here].
+You can download a template {pulsar-heartbeat-repo}/blob/master/config/runtime-template.yml[here].
 
 == Observability
 
@@ -50,7 +50,7 @@ You can download a template https://github.com/datastax/pulsar-heartbeat/blob/ma
 
 | pulsar_k8s_bookkeeper_offline_counter
 | gauge
-| bookkeeper offline instances in Kubernetes cluster
+| {bookkeeper-short} offline instances in Kubernetes cluster
 
 | pulsar_k8s_broker_offline_counter
 | gauge
@@ -62,7 +62,7 @@ You can download a template https://github.com/datastax/pulsar-heartbeat/blob/ma
 
 | pulsar_k8s_bookkeeper_zookeeper_counter
 | gauge
-| zookeeper offline instances in the Kubernetes cluster
+| {zookeeper-short} offline instances in the Kubernetes cluster
 
 | pulsar_monitor_counter
 | counter
