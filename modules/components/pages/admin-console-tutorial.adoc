@@ -69,7 +69,7 @@ On the {pulsar-short} Admin Console's *Code Samples* page, there are examples fo
 
 Each example shows Producer, Consumer, and Reader code, plus language-specific examples of setting project properties and dependencies.
 
-For example, selecting Java will show you how to connect your Java project to {pulsar-short} by modifying your Maven's `pom.xml` file.
+For example, selecting Java will show you how to connect your Java project to {pulsar-short} by modifying your project's `pom.xml` file.
 
 [#connect-to-pulsar]
 == Connecting to {pulsar-short}
@@ -145,4 +145,4 @@ Alternatively, you can save the URL authentication parameters in your `client.co
 
 == Next steps
 
-For more on building and running a standalone {pulsar-short} Admin console, see the xref:admin-console-vm.adoc[Admin Console on Server/VM] or the https://github.com/datastax/pulsar-admin-console#dev[{pulsar-short} Admin console README].
+For more on building and running a standalone {pulsar-short} Admin console, see the xref:admin-console-vm.adoc[Admin Console on Server/VM] or the {pulsar-admin-console-repo}#dev[{pulsar-short} Admin console README].

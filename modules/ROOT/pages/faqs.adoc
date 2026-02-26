@@ -13,7 +13,7 @@ In addition to {pulsar} itself, {company} {product} provides:
 
 * An installer that can stand up a dev or production cluster on bare metal or VMs without a pre-existing Kubernetes environment
 * A Helm chart that can deploy and manage {pulsar-short} on your current Kubernetes infrastructure
-* {cass-short}, Elastic, Kinesis, Kafka, and JDBC connectors
+* {cass-short}, Elastic, Kinesis, {kafka-reg}, and JDBC connectors
 * A management dashboard
 * A monitoring and alerting system
 
@@ -38,11 +38,11 @@ They include Minikube, K8d, Kind, Google Kubernetes Engine (GKE), Microsoft Azur
 
 There are several public repos, each with a different purpose. See:
 
-* https://github.com/datastax/pulsar[https://github.com/datastax/pulsar] : This is the distro repo (a fork of apache/pulsar).
-* https://github.com/datastax/pulsar-admin-console[https://github.com/datastax/pulsar-admin-console] : This is the repo for the {pulsar-short} admin console, which allows for the configuration and monitoring of {pulsar-short}.
-* https://github.com/datastax/pulsar-heartbeat[https://github.com/datastax/pulsar-heartbeat] : This is a monitoring/observability tool for {pulsar-short} that tracks the health of the cluster and can generate alerts in Slack and OpsGenie.
-* https://github.com/datastax/pulsar-helm-chart[https://github.com/datastax/pulsar-helm-chart] : This is the Helm chart for deploying the {company} {pulsar-short} Distro in an existing Kubernetes cluster.
-* https://github.com/datastax/pulsar-sink[https://github.com/datastax/pulsar-sink] : This is the {company} {pulsar} Connector (`pulsar-sink` for {cass-short}) repo.
+* {pulsar-repo}[{pulsar-repo}] : This is the distro repo (a fork of apache/pulsar).
+* {pulsar-admin-console-repo}[{pulsar-admin-console-repo}] : This is the repo for the {pulsar-short} admin console, which allows for the configuration and monitoring of {pulsar-short}.
+* {pulsar-heartbeat-repo}[{pulsar-heartbeat-repo}] : This is a monitoring/observability tool for {pulsar-short} that tracks the health of the cluster and can generate alerts in Slack and OpsGenie.
+* {pulsar-helm-chart-repo}[{pulsar-helm-chart-repo}] : This is the Helm chart for deploying the {company} {pulsar-short} Distro in an existing Kubernetes cluster.
+* {pulsar-sink-repo}[{pulsar-sink-repo}] : This is the {company} {pulsar} Connector (`pulsar-sink`) repo.
 * https://github.com/datastax/burnell[https://github.com/datastax/burnell] : This is a utility for {pulsar-short} that provides various functions, such as key initialization for authentication, and JWT token creation API.
 
 == Is there a prerequisite version of Java needed for the {company} {product} installation?
@@ -51,9 +51,9 @@ The {company} {product} distribution is designed for Java 11. However, because t
 
 == What are the install options for {company} {product}?
 
-* Use the Helm chart provided at https://github.com/apache/pulsar-helm-chart[https://github.com/datastax/pulsar-helm-chart] to install {company} {product} in an existing Kubernetes cluster on your laptop or hosted by a cloud provider.
-* Use the tarball provided at https://github.com/datastax/pulsar/releases[https://github.com/datastax/pulsar/releases] to install {company} {product} on a server or VM.
-* Use the {company} Ansible scripts provided at https://github.com/datastax/pulsar-ansible[https://github.com/datastax/pulsar-ansible] to install {company} {product} on a server or VM with our provided playbooks.
+* Use the Helm chart provided at {pulsar-helm-chart-repo}[{pulsar-helm-chart-repo}] to install {company} {product} in an existing Kubernetes cluster on your laptop or hosted by a cloud provider.
+* Use the tarball provided at {pulsar-repo}/releases[{pulsar-repo}/releases] to install {company} {product} on a server or VM.
+* Use the {company} Ansible scripts provided at {pulsar-ansible-repo}[{pulsar-ansible-repo}] to install {company} {product} on a server or VM with our provided playbooks.
 
 == How do I install {company} {product} in my Kubernetes cluster?
 
@@ -76,11 +76,11 @@ From the Admin Console, you can:
 
 == What is {pulsar-short} Heartbeat?
 
-https://github.com/datastax/pulsar-heartbeat[{pulsar-short} Heartbeat] monitors the availability, tracks the performance, and reports failures of the {pulsar-short} cluster. It produces synthetic workloads to measure end-to-end message pubsub latency.  {pulsar-short} Heartbeat is a cloud-native application that can be installed by Helm within the {pulsar-short} Kubernetes cluster.
+{pulsar-heartbeat-repo}[{pulsar-short} Heartbeat] monitors the availability, tracks the performance, and reports failures of the {pulsar-short} cluster. It produces synthetic workloads to measure end-to-end message pubsub latency.  {pulsar-short} Heartbeat is a cloud-native application that can be installed by Helm within the {pulsar-short} Kubernetes cluster.
 
 == What are the features provided by {company} {pulsar} Connector (`pulsar-sink`) that are not supported in `kafka-sink`?
 
-The https://pulsar.apache.org/docs/en/io-overview/[{pulsar-short} IO framework] provides many features that are not possible in Kafka, and has different compression formats and auth/security features. The features are handled by {pulsar-short}. For more, see xref:connectors:index.adoc[{product} IO Connectors].
+The https://pulsar.apache.org/docs/en/io-overview/[{pulsar-short} IO framework] provides many features that are not possible in {kafka-short}, and has different compression formats and auth/security features. The features are handled by {pulsar-short}. For more, see xref:connectors:index.adoc[{product} IO Connectors].
 
 The {company} {pulsar} Connector allows single-record acknowledgement and negative acknowledgements.
 
