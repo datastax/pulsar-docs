@@ -22,7 +22,7 @@ While Kubernetes is the more popular option, it is easier to express disk calcul
 
 === Required components
 
-* https://pulsar.apache.org/docs/concepts-architecture-overview/#metadata-store[Zookeeper] - This is {pulsar-short}'s meta data store. It stores data about a cluster's configuration, helps the proxy direct messages to the correct broker, and holds Bookie configurations. Start with 1 instance of Zookeeper in each availability zone (AZ) to mitigate a single failure point, and scale Zookeeper as cluster traffic increases. You could scale Zookeeper as traffic within the cluster increases, but it shouldn't be very often as it can handle quite a bit of load.
+* https://pulsar.apache.org/docs/concepts-architecture-overview/#metadata-store[{zookeeper-reg}] - This is {pulsar-short}'s meta data store. It stores data about a cluster's configuration, helps the proxy direct messages to the correct broker, and holds bookie configurations. Start with 1 instance of {zookeeper-short} in each availability zone (AZ) to mitigate a single failure point, and scale {zookeeper-short} as cluster traffic increases. You could scale {zookeeper-short} as traffic within the cluster increases, but it shouldn't be very often as it can handle quite a bit of load.
 
 * https://pulsar.apache.org/docs/concepts-architecture-overview/#brokers[Broker] - This is {pulsar-short}'s message router.
 Ideally, each broker should be fully utilized without becoming a performance bottleneck.
@@ -30,9 +30,9 @@ The {pulsar-short} broker is stateless, so it requires considerable computing po
 Start with 1 broker instance in each zone, and set a scaling rule that watches CPU load.
 The best way to optimize this is through performance testing based on your cluster's workload characteristics.
 
-* https://pulsar.apache.org/docs/concepts-architecture-overview/#apache-bookkeeper[Bookkeeper (bookie)] - This is {pulsar-short}'s data store.
-Bookkeeper stores message data in a low-latency, resilient way.
-{pulsar-short} uses Bookkeeper's quorum math to function, so a loss of 1 Bookkeeper instance won't bring your system down, but will cause some data loss.
+* https://pulsar.apache.org/docs/concepts-architecture-overview/#apache-bookkeeper[{bookkeeper-reg} (bookie)] - This is {pulsar-short}'s data store.
+{bookkeeper-short} stores message data in a low-latency, resilient way.
+{pulsar-short} uses {bookkeeper-short}'s quorum math to function, so a loss of 1 {bookkeeper-short} instance won't bring your system down, but will cause some data loss.
 Start with at least 3 bookies, with 1 in each AZ.
 At least 2 bookies per AZ are required for high availability, so if one bookie goes down, the other bookie in the AZ can take over.
 Scale bookies up on disc usage percentage. Scale down manually by making a bookie read-only, offloading its data, then terminating the instance.
@@ -42,8 +42,8 @@ Scale bookies up on disc usage percentage. Scale down manually by making a booki
 
 The {company} {product} Helm chart deployment includes optional but highly recommended server components for better {pulsar-short} cluster metrics monitoring and operation visibility.
 
-* https://bookkeeper.apache.org/docs/admin/autorecovery[Bookkeeper AutoRecovery] - This is a {pulsar-short} component that recovers Bookkeeper data in the event of a bookie outage. While optional you will want the insurance of autorecovery working on your behalf.
-A single instance of Autorecovery should be adequate - only in the most heavily-used clusters will you need more.
+* https://bookkeeper.apache.org/docs/admin/autorecovery[{bookkeeper-short} AutoRecovery] - This is a {pulsar-short} component that recovers {bookkeeper-short} data in the event of a bookie outage. While optional you will want the insurance of AutoRecovery working on your behalf.
+A single instance of AutoRecovery should be adequate - only in the most heavily-used clusters will you need more.
 * https://pulsar.apache.org/docs/concepts-architecture-overview/#pulsar-proxy[{pulsar-short} proxy] - The {pulsar-short} proxy is just that - a proxy.
 It runs at the edge of the cluster with public facing endpoints.
 Without it, your brokers would expose those endpoints, which is not an ideal configuration in production.
@@ -66,8 +66,8 @@ image::pulsar-components.png[]
 [#message-retention]
 == Message retention
 
-The broker ensures messages are received and delivered appropriately, but it is a stateless process so it doesn't use its memory to track this. Instead, the broker uses Bookkeepers (or "bookies") to store message data and the message's acknowledgement state.
-A great benefit of Bookkeeper is its quorum policies. These policies make each bookie aware of the other bookies to form a bookkeeper cluster. With a cluster established, the cluster can have acknowledgement rules that form a data replication factor. For example, if you had 3 bookies in a Bookkeeper cluster with an acknowledgement rule that at least 2 of the 3 bookies must have a copy of the data, then the cluster has a replication factor of 2. A {pulsar-short} broker uses the `managedLedgerDefaultAckQuorum` and `managedLedgerDefaultWriteQuorum` configurations to set the bounds of this rule. For more about Bookkeeper persistence, see https://pulsar.apache.org/docs/administration-zk-bk/#bookkeeper-persistence-policies[here].
+The broker ensures messages are received and delivered appropriately, but it is a stateless process so it doesn't use its memory to track this. Instead, the broker uses {bookkeeper-short}s (bookies) to store message data and the message's acknowledgement state.
+A great benefit of {bookkeeper-short} is its quorum policies. These policies make each bookie aware of the other bookies to form a {bookkeeper-short} cluster. With a cluster established, the cluster can have acknowledgement rules that form a data replication factor. For example, if you had 3 bookies in a {bookkeeper-short} cluster with an acknowledgement rule that at least 2 of the 3 bookies must have a copy of the data, then the cluster has a replication factor of 2. A {pulsar-short} broker uses the `managedLedgerDefaultAckQuorum` and `managedLedgerDefaultWriteQuorum` configurations to set the bounds of this rule. For more about {bookkeeper-short} persistence, see https://pulsar.apache.org/docs/administration-zk-bk/#bookkeeper-persistence-policies[here].
 
 When a client produces a message, the broker will not acknowledge receipt until the replication factor has been achieved. Continuing from the above example, if the replication factor is 2, a broker's acknowledgment means a minimum of 2 bookies have confirmed storage of message data. If the broker times out waiting for at least 2 responses from the bookies, then the broker will not acknowledge receipt with the client. The client will need to handle the exception by attempting to resend or fail. This process forms one of {pulsar-short}'s core values - guaranteed message receipt.
 
@@ -113,7 +113,7 @@ For more on message compression, see the https://pulsar.apache.org/docs/concepts
 
 * _Message retention and TTL period_ - the size or time acknowledged messages are kept on disk. See message retention above for more detail.
 
-* _Tiered storage policies_ - Tiered storage offloads bookkeeper data to cheaper, long-term storage, and can impact cluster sizing if that storage service is included in the cluster. For our calculations we will not be including this feature. For more on tiered storage, see https://pulsar.apache.org/docs/tiered-storage-overview/[{pulsar-short} documentation].
+* _Tiered storage policies_ - Tiered storage offloads {bookkeeper-short} data to cheaper, long-term storage, and can impact cluster sizing if that storage service is included in the cluster. For our calculations we will not be including this feature. For more on tiered storage, see https://pulsar.apache.org/docs/tiered-storage-overview/[{pulsar-short} documentation].
 
 There are other factors that could be a part of the aggregated cluster workload. As you gain familiarity with {pulsar-short} you can further customize this calculation. For now, we will estimate with the above numbers to size a cluster.
 
@@ -148,11 +148,10 @@ Gather the following workload characteristics to determine your cluster's size r
 
 With the aggregated workload characteristics, we can now apply our methodology to these characteristics to size a production cluster.
 
-First, we will size the bookkeeper's disk.
-We size this first because it's the most important component (bookies store message data) and are also the hardest to scale.
-By default, {pulsar-short} sets Bookkeeper https://pulsar.apache.org/docs/administration-zk-bk/#bookkeeper-persistence-policies[ack-quorum] size to 2.
+First, size the {bookkeeper-short} disk because it's the most important component (bookies store message data) and the hardest to scale.
+By default, {pulsar-short} sets {bookkeeper-short} https://pulsar.apache.org/docs/administration-zk-bk/#bookkeeper-persistence-policies[ack-quorum] size to 2.
 That means at least 2 bookies in the ensemble need to acknowledge receipt of message data before {pulsar-short} will acknowledge receipt of the message.
-But (very important) we want the message replication factor to be an odd number, so we can tolerate 1 Bookie failure.
+But (very important) we want the message replication factor to be an odd number, so we can tolerate 1 bookie failure.
 
 . Multiply replication factor (3) by average message payload size (1) by average message throughput (100000), then factor in TTL (3) and retention period (3600) (when applicable).
 +
@@ -167,19 +166,19 @@ Total message size (raw) =
 ≅ 3 Tb
 ----
 +
-We now know our cluster needs 3 Tb of storage for Bookkeeper ledger data.
+We now know our cluster needs 3 Tb of storage for {bookkeeper-short} ledger data.
 
-. Calculate the number of Bookkeeper nodes with an individual ledger disk capacity.
+. Calculate the number of {bookkeeper-short} nodes with an individual ledger disk capacity.
 +
-[source,plain]
+[source,plain,subs="+attributes"]
 ----
-Bookkeeper count(raw)=ceiling(3/(4 * 0.85)) = 1
+{bookkeeper-short} count(raw)=ceiling(3/(4 * 0.85)) = 1
 ----
 +
-If our bookie has a 4Tb disk and we anticipate at least 3Tb of workload, only 1 Bookie is needed.
+If our bookie has a 4Tb disk and we anticipate at least 3Tb of workload, only 1 bookie is needed.
 For fault tolerance, we adjust this to a number that is divisible by the number of zones, which equals 3 bookies.
 
-. Given the replication factor of 3, we will need at least 1 broker to write messages to the bookies. That gives us a broker-to-bookkeeper ratio of 1:3. Now we can calculate the total number of brokers across 3 zones.
+. Given the replication factor of 3, we will need at least 1 broker to write messages to the bookies. That gives us a broker-to-{bookkeeper-short} ratio of 1:3. Now we can calculate the total number of brokers across 3 zones.
 +
 [source,plain]
 ----
@@ -191,7 +190,7 @@ To be evenly divisible by the number of zones, we will set brokers to 3.
 
 === {pulsar-short} component instance counts
 
-Now that we know how many server instances of broker and Bookie are required to support our workload, we include the other components to size the overall cluster.
+Now that we know how many server instances of broker and bookie are required to support our workload, we include the other components to size the overall cluster.
 
 .{pulsar-short} cluster component count
 [cols="2,2,2", options=header]
@@ -200,11 +199,11 @@ Now that we know how many server instances of broker and Bookie are required to 
 |VM Count
 |Notes
 
-|Zookeeper
+|{zookeeper-short}
 |3
 |1 per zone
 
-|Bookkeeper (bookie)
+|{bookkeeper-short} (bookie)
 |3
 |Calculated above
 
@@ -216,7 +215,7 @@ Now that we know how many server instances of broker and Bookie are required to 
 |3
 |1 per zone
 
-|Autorecovery
+|AutoRecovery
 |3
 |1 per zone
 

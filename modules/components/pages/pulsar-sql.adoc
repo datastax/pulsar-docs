@@ -197,7 +197,7 @@ select * from pulsar."public/default".mytopic limit 10
 trino> exit
 ----
 
-You have successfully interacted with a {pulsar-short} Cluster via SQL.
+You have successfully interacted with a {pulsar-short} cluster via SQL.
 
 Want to put your new learnings to the test? Try using the Trino plugin in https://redash.io/data-sources/presto[Redash] or https://superset.apache.org/docs/databases/trino/[Superset] to create useful dashboards.
 
