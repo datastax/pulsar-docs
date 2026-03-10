@@ -1,7 +1,7 @@
 = {pulsar-beam} with {product}
 :navtitle: {pulsar-beam}
 :description: Install a minimal {product} Helm chart that includes {pulsar-beam}
-:helmValuesPath: https://raw.githubusercontent.com/datastaxdevs/luna-streaming-examples/main/beam/values.yaml
+:helmValuesPath: beam
 
 The {pulsar-beam-repo}[{pulsar-beam}] project is an HTTP-based streaming and queueing system for use with {pulsar}.
 

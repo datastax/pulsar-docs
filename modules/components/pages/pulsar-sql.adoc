@@ -1,7 +1,7 @@
 = Using {pulsar-short} SQL with {product}
 :navtitle: {pulsar-short} SQL
 :description: This guide installs the {product} Helm chart using minimum values for a working {pulsar-short} cluster that includes SQL workers
-:helmValuesPath: https://raw.githubusercontent.com/datastaxdevs/luna-streaming-examples/main/pulsar-sql/values.yaml
+:helmValuesPath: sql
 
 {pulsar-short} SQL allows enterprises to query {pulsar} topic data with SQL.
 This is a powerful feature for an Enterprise, and SQL is a language they're likely familiar with.
@@ -71,20 +71,14 @@ The minimalist Helm chart values use the https://github.com/datastax/release-not
 This example uses the "public" tenant and "default" namespace.
 These are created by default in {pulsar-short}, but you can use whatever tenant and namespace you are comfortable with.
 
-. Download the minimalist {pulsar-short} client.
-This "client.conf" assumes the port forwarding addresses we will perform in the next step.
-+
-[source,shell]
-----
-wget https://raw.githubusercontent.com/datastaxdevs/luna-streaming-examples/main/client.conf
-----
+. xref:components:attachment$client.conf[Download the minimalist {pulsar-short} client].
+This `client.conf` assumes the port forwarding addresses we will perform in the next step.
 
-. Set the client environment variable. Replace the value with the absolute path to the "client.conf" you just downloaded.
+. Set a client configuration environment variable with the absolute path to the downloaded `client.conf` file:
 +
 [source,shell]
 ----
-# the client conf path must be an absolute path to the downloaded conf file
-export PULSAR_CLIENT_CONF=<REPLACE_WITH /path/to/client.conf>
+export PULSAR_CLIENT_CONF=/path/to/client.conf
 ----
 
 . Navigate to the {pulsar-short} home folder and run the following command.
