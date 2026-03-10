@@ -1,3 +1,9 @@
+[IMPORTANT]
+====
+The {pulsar-helm-chart-repo}[{company} {pulsar-short} Helm chart] is deprecated.
+For Kubernetes deployments, use xref:kaap-operator::index.adoc[{kaap}] instead.
+====
+
 . Add the {company} Helm chart repo to your Helm store:
 +
 [source,shell]
@@ -9,13 +15,12 @@ helm repo add datastax-pulsar https://datastax.github.io/pulsar-helm-chart
 This command creates a Helm release named "my-pulsar-cluster" using the {company} Luna Helm chart, within the K8s namespace "datastax-pulsar".
 The minimal cluster creates only the essential components and has no ingress or load balanced services.
 +
-[source,shell,subs="attributes+"]
+[source,shell]
 ----
-VALUES_URL="{helmValuesPath}"
 helm install \
   --namespace datastax-pulsar \
   --create-namespace \
-  --values $VALUES_URL \
+  --values /path/to/values.yaml \
   --version 3.0.4 \
   my-pulsar-cluster \
   datastax-pulsar/pulsar
@@ -24,7 +29,7 @@ helm install \
 . Wait for the broker pod to be in a running state.
 You might see a few restarts as your components start up.
 +
-[source,shell,subs="attributes+"]
+[source,shell]
 ----
 kubectl -n datastax-pulsar wait --for=condition=Ready pod/pulsar-broker-0 --timeout=120s
 ----
