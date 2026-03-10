@@ -6,9 +6,13 @@ include::operations:partial$operator-scaling.adoc[]
 
 == Install {pulsar-short} cluster
 
-For our {pulsar-short} cluster installation, use this {pulsar-helm-chart-repo}[Helm chart].
+[IMPORTANT]
+====
+The {pulsar-helm-chart-repo}[{company} Pulsar Helm chart] is deprecated.
+For Kubernetes deployments, use xref:kaap-operator::index.adoc[{kaap}] instead.
+====
 
-To start the cluster, use the values provided in this {pulsar-helm-chart-repo}/blob/master/examples/dev-values.yaml[YAML file]:
+To start the cluster, use the values provided in the {pulsar-helm-chart-repo}/blob/master/examples/dev-values.yaml[{company} Pulsar values YAML file]:
 
 [source,bash]
 ----

@@ -353,6 +353,12 @@ kubectl logs *POD-NAME* -n *NAMESPACE*
 
 === Upgrade Kubernetes deployment with Helm chart
 
+[IMPORTANT]
+====
+The {pulsar-helm-chart-repo}[{company} Pulsar Helm chart] is deprecated.
+For Kubernetes deployments, use xref:kaap-operator::index.adoc[{kaap}] instead.
+====
+
 The Helm chart for {product} is available in the {pulsar-helm-chart-repo}/blob/master/helm-chart-sources/pulsar/values.yaml[Helm chart sources] repository.
 
 . To prevent data loss, back up your existing {pulsar-short} data and configuration files.

@@ -35,7 +35,7 @@ asciidoc:
     pulsar-heartbeat-repo: 'https://github.com/datastax/pulsar-heartbeat'
     pulsar-sink-repo: 'https://github.com/datastax/pulsar-sink'
     pulsar-ansible-repo: 'https://github.com/datastax/pulsar-ansible'
-    pulsar-helm-chart-repo: 'https://github.com/datastax/pulsar-helm-chart'
+    pulsar-helm-chart-repo: 'https://github.com/datastax/pulsar-helm-chart' # deprecated, use kaap-operator-repo, kaap, and kaap-short instead
     pulsar-openid-connect-repo: 'https://github.com/datastax/pulsar-openid-connect-plugin'
     pulsar-repo: 'https://github.com/datastax/pulsar'
     pulsar-beam-repo: 'https://github.com/kafkaesque-io/pulsar-beam'
