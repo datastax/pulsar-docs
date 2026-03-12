@@ -8,11 +8,11 @@ include::operations:partial$operator-scaling.adoc[]
 
 [IMPORTANT]
 ====
-The {pulsar-helm-chart-repo}[{company} Pulsar Helm chart] is deprecated.
+The {pulsar-helm-chart-repo}[{company} {pulsar-short} Helm chart] is deprecated.
 For Kubernetes deployments, use xref:kaap-operator::index.adoc[{kaap}] instead.
 ====
 
-To start the cluster, use the values provided in the {pulsar-helm-chart-repo}/blob/master/examples/dev-values.yaml[{company} Pulsar values YAML file]:
+To start the cluster, use the values provided in the {pulsar-helm-chart-repo}/blob/master/examples/dev-values.yaml[{company} {pulsar-short} values YAML file]:
 
 [source,bash]
 ----

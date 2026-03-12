@@ -38,11 +38,13 @@ They include Minikube, K8d, Kind, Google Kubernetes Engine (GKE), Microsoft Azur
 
 There are several public repos, each with a different purpose. See:
 
-* {pulsar-repo}[{pulsar-repo}] : This is the distro repo (a fork of `apache/pulsar`).
-* {pulsar-admin-console-repo}[{pulsar-admin-console-repo}] : This is the repo for the {pulsar-short} admin console, which allows for the configuration and monitoring of {pulsar-short}.
+* {pulsar-repo}[{pulsar-repo}]: This is the distro repo (a fork of `apache/pulsar`).
+* {pulsar-admin-console-repo}[{pulsar-admin-console-repo}]: This is the repo for the {pulsar-short} admin console, which allows for the configuration and monitoring of {pulsar-short}.
 * {pulsar-heartbeat-repo}[{pulsar-heartbeat-repo}] : This is a monitoring/observability tool for {pulsar-short} that tracks the health of the cluster and can generate alerts in Slack and OpsGenie.
-* {kaap-operator-repo}[{kaap-operator-repo}] : This is the utility for deploying the {company} {pulsar-short} Distro in an existing Kubernetes cluster.
-* {pulsar-sink-repo}[{pulsar-sink-repo}] : This is the {company} {pulsar} Connector (`pulsar-sink`) repo.
+* {kaap-operator-repo}[{kaap-operator-repo}]: Use the {kaap-short} to deploy the {company} {pulsar-short} Distro in an existing Kubernetes cluster.
++
+{company} recommends the {kaap-short} as a replacement for the deprecated {pulsar-helm-chart-repo}[{company} {pulsar-short} Helm chart].
+* {pulsar-sink-repo}[{pulsar-sink-repo}]: This is the {company} {pulsar} Connector (`pulsar-sink`) repo.
 
 == Is there a prerequisite version of Java needed for the {company} {product} installation?
 

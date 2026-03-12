@@ -11,7 +11,7 @@ You have options for installing *{company} {product}*:
 +
 [IMPORTANT]
 ====
-The {pulsar-helm-chart-repo}[{company} Pulsar Helm chart] is deprecated.
+The {pulsar-helm-chart-repo}[{company} {pulsar-short} Helm chart] is deprecated.
 For Kubernetes deployments, use xref:kaap-operator::index.adoc[{kaap}] instead.
 ====
 
