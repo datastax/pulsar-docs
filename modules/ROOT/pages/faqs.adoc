@@ -97,7 +97,7 @@ The {company} {pulsar} Connector allows single-record acknowledgement and negati
 There are two packages:
 
 * The `pulsar-sink` functionality of {company} {pulsar} Connector is included with {company} {product}. It's built in!
-* You can optionally download the {company} {pulsar} Connector tarball from the https://downloads.datastax.com/#pulsar-sink[{company} Downloads] site, and then use it as its own product with your open-source {pulsar} install.
+* You can optionally download the {company} {pulsar} Connector `.nar` file from the {pulsar-sink-repo}/releases[`pulsar-sink` repository], and then use it as its own product with your open-source {pulsar} install.
 
 If you're using open-source software (OSS) {pulsar}, you can use {company} {pulsar} Connector with the OSS to take advantage of this `pulsar-sink` for {cass-short}.
 See the xref:pulsar-connector:ROOT:index.adoc[{company} {pulsar} Connector documentation].
