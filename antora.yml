@@ -1,6 +1,6 @@
 name: 'luna-streaming'
 version: '3.1-3.x'
-title: 'Luna Streaming'
+title: 'IBM Elite Support for Apache Pulsar'
 start_page: 'index.adoc'
 
 nav:
@@ -8,9 +8,9 @@ nav:
 
 asciidoc:
   attributes:
-    product: 'Luna Streaming'
-    luna-version: '3.1'
-    pulsar-version: '3.1'
+    product: 'IBM Elite Support for Apache Pulsar'
+    luna-version: '4.1'
+    pulsar-version: '4.1'
     admin-console-version: '2.0.4'
     heartbeat-version: '1.0.12'
     starlight-kafka: 'Starlight for Kafka'
