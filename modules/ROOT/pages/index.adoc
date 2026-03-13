@@ -3,7 +3,7 @@
 
 {product-full} is a production-ready distribution of {pulsar} built to run seamlessly on any CNCF conformant version of Kubernetes.
 
-{product} provides all of the core capabilities included in the Apache Community version of {pulsar}, plus a number of additional tools and features to facilitate administration and operational tasks associated with running {pulsar} in production.
+IBM Elite Support for Apache Pulsar provides all of the core capabilities included in the Apache Community version of {pulsar}, plus a number of additional tools and features to facilitate administration and operational tasks associated with running {pulsar} in production.
 
 include::partial$luna-name.adoc[]
 
