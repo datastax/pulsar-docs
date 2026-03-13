@@ -7,6 +7,11 @@ If you are new to {company} {product} and its {pulsar} enhancements, these FAQs 
 
 {company} {product} is a new Kubernetes-based distribution of {pulsar}, based on the technology that https://kesque.com/[Kesque] built to run its {pulsar-short}-as-a-service.
 
+== Are {product-full} and {product} the same offering?
+
+Yes.
+include::partial$luna-name.adoc[]
+
 == What components and features are provided by {company} {product}?
 
 In addition to {pulsar} itself, {company} {product} provides:
