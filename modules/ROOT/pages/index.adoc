@@ -1,11 +1,15 @@
-= Welcome to {company} {product}
+= Welcome to {product} (formerly {company} Luna Streaming)
 :navtitle: {product}
 
-{company} {product} is a production-ready distribution of {pulsar} built to run seamlessly on any CNCF conformant version of Kubernetes. {company} {product} provides all of the core capabilities included in the Apache Community version of {pulsar}, plus a number of additional tools and features to facilitate administration and operational tasks associated with running {pulsar} in production.
+{product} is a production-ready distribution of {pulsar} built to run seamlessly on any CNCF conformant version of Kubernetes.
+
+{product} provides all of the core capabilities included in the Apache Community version of {pulsar}, plus a number of additional tools and features to facilitate administration and operational tasks associated with running {pulsar} in production.
+
+include::partial$luna-name.adoc[]
 
 == Release notes
 
-The latest release of {company} {product} is {luna-version}, which matches the supported, distributed {pulsar-short} version numbers.
+The latest release of {product} is {luna-version}, which matches the supported, distributed {pulsar-short} version numbers.
 
 The prior {product} release (numbered 1.0.x or 2.7.2) provided the {pulsar-short} 2.7.2 distribution.
 
