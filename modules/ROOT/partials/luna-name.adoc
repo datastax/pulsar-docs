@@ -1,4 +1,4 @@
-{product-full} is the new name for {product} after IBM acquired DataStax.
-In this documentation, {product} and {product-full} refer to the same product.
+{product} is the new name for Luna Streaming after IBM acquired DataStax.
+In this documentation, {product} and Luna Streaming refer to the same product.
 
 For an overview of IBM Elite Support for Apache Pulsar, see the https://www.ibm.com/docs/en/supportforpulsar?topic=elite-support-pulsar[IBM Elite Support for Apache Pulsar documentation].
