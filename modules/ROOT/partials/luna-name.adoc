@@ -1,4 +1,4 @@
 {product} is the new name for Luna Streaming after IBM acquired DataStax.
 In this documentation, {product} and Luna Streaming refer to the same product.
 
-For an overview of IBM Elite Support for Apache Pulsar, see the https://www.ibm.com/docs/en/supportforpulsar?topic=elite-support-pulsar[IBM Elite Support for Apache Pulsar documentation].
+For technical specifications, inclusions, and exclusions of the {product} offering, see the https://www.ibm.com/docs/en/supportforpulsar?topic=elite-support-pulsar[{product} page in the IBM documentation].
