@@ -22,7 +22,7 @@ The resulting {product} deployment includes:
 
 * JDK 11
 +
-{pulsar-short} can run with JDK8, but {company} {product} is designed for Java 11.
+{pulsar-short} can run with JDK8, but {product} is designed for Java 11.
 
 * File System
 +
