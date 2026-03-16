@@ -3,6 +3,11 @@
 
 This guide provides instructions and recommendations for upgrading {product} from version 2.10 to 3.1.
 
+[NOTE]
+====
+include::ROOT:partial$luna-name.adoc[]
+====
+
 Upgrades to {product} 3.1 should only be performed from {product} 2.10.
 
 All {product} 2.10 components support the upgrade to 3.1.
@@ -282,7 +287,7 @@ For more information, see the xref:kaap-operator::index.adoc[{kaap-short} docume
 helm get values *RELEASE-NAME* > pulsar-backup-values.yaml
 ----
 +
-. To update the {company} {pulsar-short} Helm chart repository, run the following command:
+. To update the {product} Helm chart repository, run the following command:
 +
 [source,bash]
 ----
@@ -363,7 +368,7 @@ The Helm chart for {product} is available in the {pulsar-helm-chart-repo}/blob/m
 helm get values *RELEASE-NAME* > pulsar-backup-values.yaml
 ----
 +
-. To update the {company} {pulsar-short} Helm chart repository, run the following command:
+. To update the {product} Helm chart repository, run the following command:
 +
 [source,bash]
 ----

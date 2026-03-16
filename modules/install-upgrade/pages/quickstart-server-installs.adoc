@@ -2,6 +2,11 @@
 
 This document explains xref:install-upgrade:quickstart-server-installs.adoc#install[installation] of {product} for Bare Metal/VM deployments with a {pulsar-short} tarball.
 
+[NOTE]
+====
+include::ROOT:partial$luna-name.adoc[]
+====
+
 The resulting {product} deployment includes:
 
 * *Tiered Storage:* Offload historical messages to more cost effective object storages such as AWS S3, Azure Blob, Google Cloud Storage, and HDFS.
@@ -41,7 +46,7 @@ Check this setting with `cat /sys/kernel/mm/transparent_hugepage/enabled` and `c
 [#install]
 == Installation
 
-. Download the {company} {product} tarball from the {pulsar-repo}/releases[{company} GitHub repo]. There are three versions of {product} currently available:
+. Download the {product} tarball from the {pulsar-repo}/releases[{company} GitHub repo]. There are three versions of {product} currently available:
 +
 [cols="1,1"]
 [%autowidth]
@@ -86,11 +91,11 @@ drwxr-xr-x@ 277 firstname.lastname  staff   8864 May 17 05:58 lib
 drwxr-xr-x@  25 firstname.lastname  staff    800 Jan 22  2020 licenses
 ----
 
-You have successfully installed the {company} {product} tarball.
+You have successfully installed the {product} tarball.
 
 == Additional tooling
 
-Once the {company} {product} tarball is installed, you may want to add additional tooling to your server/VM deployment.
+Once the {product} tarball is installed, you may want to add additional tooling to your server/VM deployment.
 
 * *{pulsar-short} Admin Console:* Web-based UI that administrates {pulsar-short}.
 Download the latest version from the {pulsar-admin-console-repo}[{company} GitHub repo] and follow the instructions xref:components:admin-console-vm.adoc[here].

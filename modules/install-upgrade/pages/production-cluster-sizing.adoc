@@ -40,7 +40,7 @@ Scale bookies up on disc usage percentage. Scale down manually by making a booki
 [#recommended]
 === Recommended server components
 
-The {company} {product} Helm chart deployment includes optional but highly recommended server components for better {pulsar-short} cluster metrics monitoring and operation visibility.
+The {product} Helm chart deployment includes optional but highly recommended server components for better {pulsar-short} cluster metrics monitoring and operation visibility.
 
 * https://bookkeeper.apache.org/docs/admin/autorecovery[{bookkeeper-short} AutoRecovery] - This is a {pulsar-short} component that recovers {bookkeeper-short} data in the event of a bookie outage. While optional you will want the insurance of AutoRecovery working on your behalf.
 A single instance of AutoRecovery should be adequate - only in the most heavily-used clusters will you need more.
