@@ -56,7 +56,6 @@ The {product} distribution is designed for Java 11. However, because the product
 
 == What are the install options for {product}?
 
-* **{kaap-short} Helm chart (Recommended)**: Use the {company} {kaap-operator-repo}[{kaap-short} Helm chart], which provides Kubernetes-native autoscaling and simplified management for {pulsar} clusters. For more information, see the xref:kaap-operator::index.adoc[{kaap}] documentation.
 * **{product} Helm chart**: Use the Helm chart provided at {pulsar-helm-chart-repo}[{pulsar-helm-chart-repo}] to install {product} in an existing Kubernetes cluster on your laptop or hosted by a cloud provider.
 * **Tarball**: Use the tarball provided at {pulsar-repo}/releases[{pulsar-repo}/releases] to install {product} on a server or VM.
 * **Ansible**: Use the {company} Ansible scripts provided at {pulsar-ansible-repo}[{pulsar-ansible-repo}] to install {product} on a server or VM with our provided playbooks.
