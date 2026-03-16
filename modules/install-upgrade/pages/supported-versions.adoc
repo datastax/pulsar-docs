@@ -1,0 +1,94 @@
+= Supported software
+:page-aliases: 2.10-1.x@install-upgrade:supported-versions.adoc, 2.10-2.x@install-upgrade:supported-versions.adoc
+
+Support covers only the following Software versions for {pulsar}:
+
+[NOTE]
+====
+include::ROOT:partial$luna-name.adoc[]
+====
+
+[cols="2*"]
+|===
+|Name |Versions
+
+|{pulsar}
+|3.1.x
+|===
+
+Support covers only the following Software versions for {product} Distribution:
+
+[cols="2*"]
+|===
+|Name |Version
+
+|{product} Distribution
+|v.1.0.0 and above
+
+|===
+
+Support covers only the following Software versions for the Open Source Projects:
+
+[cols="2*"]
+|===
+|Name |Version
+
+|{pulsar-short} Admin Console
+|v.1.0.0 and above
+
+|{pulsar-short} Heartbeat
+|v.1.0.0 and above
+
+|{company} pulsar-sink
+|v.1.0.0 and above
+
+|Starlight for JMS
+|v.1.0.0 and above
+
+|{starlight-rabbitmq}
+|v.1.0.0 and above
+
+|===
+
+Support covers only the following {product} Connectors and {pulsar} Connectors (as included in the {pulsar} download):
+
+[cols="2*"]
+|===
+|Name |Version
+
+|{cass-short} enhanced sink
+|v1.6.11
+|Cloud storage sink
+|v2.10.0
+|Elasticsearch sink
+|v3.1.x
+|HTTP sink
+|v3.1.x
+|JDBC-Clickhouse sink
+|v3.1.x
+|JDBC-MariaDB sink
+|v3.1.x
+|JDBC-Postgres sink
+|v3.1.x
+|JDBC-SQLite
+|v3.1.x
+|Kinesis sink
+|v3.1.x
+|Snowflake sink
+|v0.1.13
+|{cass-short} source
+|v2.2.9
+|Data generator source
+|v3.1.x
+|Debezium MongoDB source
+|v3.1.x
+|Debezium MySQL source
+|v3.1.x
+|Debezium Microsoft SQL Server Source
+|v3.1.x
+|Debezium Postgres source
+|v3.1.x
+|Kinesis source
+|v3.1.x
+
+|===
