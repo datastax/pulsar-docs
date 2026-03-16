@@ -2,7 +2,14 @@
 
 This page will show you how to scale {product} clusters up for more compute capacity, or down for less.
 
-== Installing {pulsar-short} cluster
+[NOTE]
+====
+include::ROOT:partial$luna-name.adoc[]
+====
+
+include::operations:partial$operator-scaling.adoc[]
+
+== Install {pulsar-short} cluster
 
 For our {pulsar-short} cluster installation, use this {pulsar-helm-chart-repo}[Helm chart].
 

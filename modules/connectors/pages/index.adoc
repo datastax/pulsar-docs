@@ -2,11 +2,16 @@
 :navtitle: {pulsar-short} I/O connectors reference
 :page-aliases: operations:io-connectors.adoc
 
+[NOTE]
+====
+include::ROOT:partial$luna-name.adoc[]
+====
+
 {product} offers fully-managed versions of https://pulsar.apache.org/docs/en/io-overview/[{pulsar-reg} sink and source connectors].
 
 [TIP]
 ====
-There are three versions of the {company} {product} distribution.
+There are three versions of the {product} distribution.
 The `lunastreaming-all` version includes all connectors.
 ====
 
@@ -45,13 +50,13 @@ The following source connectors are included in {product}:
 
 You can use the {web-ui} and the `xref:components:admin-console-tutorial.adoc[pulsar-admin]` CLI to create, monitor, and manage sink and source connectors.
 
-Although you use the same base commands to create and update all {product} {pulsar-short} connectors, each connector has different configuration options.
+Although you use the same base commands to create and update all {pulsar-short} connectors, each connector has different configuration options.
 For example commands and configuration details, see the documentation for your preferred <<sink-connectors,sink connectors>> and <<source-connectors,source connectors>>.
 
 === `pulsar-admin` CLI sink operations
 
 Get available sink connectors::
-Get a list of sink connectors that are available in your {product} {pulsar-short} tenant:
+Get a list of sink connectors that are available in your {pulsar-short} tenant:
 +
 [source,shell]
 ----
@@ -136,7 +141,7 @@ Delete a sink connector::
 === `pulsar-admin` CLI source operations
 
 Get available source connectors::
-Get a list of source connectors that are available in your {product} {pulsar-short} tenant:
+Get a list of source connectors that are available in your {pulsar-short} tenant:
 +
 [source,shell]
 ----
