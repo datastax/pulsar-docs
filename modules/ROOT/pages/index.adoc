@@ -11,11 +11,13 @@ include::partial$luna-name.adoc[]
 
 The latest release of {product} is {luna-version}, which matches the supported, distributed {pulsar-short} version numbers.
 
-Refer to the {company} {product} https://github.com/datastax/release-notes/blob/master/Luna_Streaming_2.10_Release_Notes.md[release notes], which are hosted in our public GitHub repo, for information &amp; linked commit IDs that were implemented in the latest {product} {luna-version} release.
+The prior {product} release (2.10.x) provided the {pulsar-short} 2.10.x distribution.
+
+Refer to the {product} https://github.com/datastax/release-notes/blob/master/Luna_Streaming_3.1_Release_Notes.md[release notes], which are hosted in our public GitHub repo, for information &amp; linked commit IDs that were implemented in the latest {product} {luna-version} release.
 
 == Components
 
-In addition to the distribution of https://pulsar.apache.org/en/versions/[{pulsar} {pulsar-version}], {company} {product} provides:
+In addition to the distribution of https://pulsar.apache.org/en/versions/[{pulsar} {pulsar-version}], {product} provides:
 
 * A xref:install-upgrade:quickstart-helm-installs.adoc[Helm chart] that deploys and manages {pulsar-short} on your current CNCF-conformant Kubernetes infrastructure
 

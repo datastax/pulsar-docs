@@ -7,7 +7,12 @@ The {pulsar-beam-repo}[{pulsar-beam}] project is an HTTP-based streaming and que
 
 With {pulsar-beam}, you can send messages over HTTP, push messages to a webhook or cloud function, chain webhooks and functions together, or stream messages through server-sent events (SSE).
 
-In this guide, you'll install a minimal {company} {pulsar-short} Helm chart that includes {pulsar-beam}.
+[NOTE]
+====
+include::ROOT:partial$luna-name.adoc[]
+====
+
+In this guide, you'll install a minimal {product} Helm chart that includes {pulsar-beam}.
 
 == Prerequisites
 
