@@ -7,8 +7,6 @@ This page will show you how to scale {product} clusters up for more compute capa
 include::ROOT:partial$luna-name.adoc[]
 ====
 
-include::operations:partial$operator-scaling.adoc[]
-
 For our {pulsar-short} cluster installation, use this {pulsar-helm-chart-repo}[Helm chart]. 
 
 To start the cluster, use the values provided in this {pulsar-helm-chart-repo}/blob/master/examples/dev-values.yaml[YAML file].
