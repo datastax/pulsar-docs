@@ -1,7 +1,7 @@
-= {company} {product} Docs
+= {product} Docs (formerly {company} Luna Streaming)
 // Variables:
 :company: DataStax
-:product: Luna Streaming
+:product: IBM Elite Support for Apache Pulsar
 :repo-name: pulsar-docs
 :github-org: datastax
 // Settings:
@@ -32,7 +32,7 @@ endif::[]
 // External URLs:
 :asciidoc-language: https://docs.asciidoctor.org/asciidoc/latest/
 
-This repository contains the source files for the {company} {product} documentation.
+This repository contains the source files for the {product} documentation.
 
 toc::[]
 

@@ -1,6 +1,6 @@
 name: 'luna-streaming'
 version: '2.10-2.x'
-title: 'Luna Streaming'
+title: 'IBM Elite Support for Apache Pulsar'
 start_page: 'index.adoc'
 
 nav:
@@ -8,7 +8,7 @@ nav:
 
 asciidoc:
   attributes:
-    product: 'Luna Streaming'
+    product: 'IBM Elite Support for Apache Pulsar'
     luna-version: '2.10'
     pulsar-version: '2.10'
     admin-console-version: '2.0.4'
