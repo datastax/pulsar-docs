@@ -1,4 +1,4 @@
-= {product} {pulsar-short} transform functions configuration reference
+= {pulsar-short} transform functions configuration reference
 :navtitle: Transform functions configuration reference
 
 include::common:streaming:partial$transform-functions/intro.adoc[]

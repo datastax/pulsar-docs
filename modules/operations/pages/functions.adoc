@@ -1,10 +1,16 @@
-= Deploy and manage {product} {pulsar-short} functions
+= Deploy and manage {pulsar-short} functions
 :navtitle: Deploy and manage {pulsar-short} functions
 
 Functions are lightweight compute processes that you can run on each message a topic receives.
 You can apply custom logic to a message, transforming or enriching it, and then output it to a different topic.
 
 Functions run inside {product}, which makes them serverless.
+
+[NOTE]
+====
+include::ROOT:partial$luna-name.adoc[]
+====
+
 You write the code for your function in Java, Python, or Go, and then upload the code to the {pulsar-short} cluster and deploy the function.
 The function automatically runs for each message published to the specified input topic.
 
