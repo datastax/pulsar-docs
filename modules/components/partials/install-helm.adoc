@@ -4,7 +4,7 @@ The {pulsar-helm-chart-repo}[{company} {pulsar-short} Helm chart] is deprecated.
 For Kubernetes deployments, use xref:kaap-operator::index.adoc[{kaap}] instead.
 ====
 
-. Add the {company} Helm chart repo to your Helm store:
+. Add the {company} {pulsar-short} Helm chart repo to your Helm store:
 +
 [source,shell]
 ----
@@ -12,7 +12,7 @@ helm repo add datastax-pulsar https://datastax.github.io/pulsar-helm-chart
 ----
 
 . Install the Helm chart using a minimalist values file.
-This command creates a Helm release named "my-pulsar-cluster" using the {company} Luna Helm chart, within the K8s namespace "datastax-pulsar".
+This command creates a Helm release named "my-pulsar-cluster" using the {company} {pulsar-short} Helm chart, within the K8s namespace "datastax-pulsar".
 The minimal cluster creates only the essential components and has no ingress or load balanced services.
 +
 [source,shell]

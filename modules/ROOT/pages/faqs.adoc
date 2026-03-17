@@ -58,17 +58,17 @@ The {product} distribution is designed for Java 17. However, because the product
 == What are the install options for {product}?
 
 * **{kaap-short} Helm chart (Recommended)**: Use the {company} {kaap-operator-repo}[{kaap-short} Helm chart], which provides Kubernetes-native autoscaling and simplified management for {pulsar} clusters. For more information, see the xref:kaap-operator::index.adoc[{kaap}] documentation.
-* **{product} Helm chart (Deprecated)**: The Helm chart provided at {pulsar-helm-chart-repo}[{pulsar-helm-chart-repo}] is deprecated and no longer maintained. Use the {kaap-short} instead.
+* **{company} {pulsar-short} Helm chart (Deprecated)**: The Helm chart provided at {pulsar-helm-chart-repo}[{pulsar-helm-chart-repo}] is deprecated and no longer maintained. Use the {kaap-short} instead.
 * **Tarball**: Use the tarball provided at {pulsar-repo}/releases[{pulsar-repo}/releases] to install {product} on a server or VM.
 * **Ansible**: Use the {company} Ansible scripts provided at {pulsar-ansible-repo}[{pulsar-ansible-repo}] to install {product} on a server or VM with our provided playbooks.
 
 == How do I install {product} in my Kubernetes cluster?
 
-Follow the full instructions in xref:install-upgrade:quickstart-helm-installs.adoc[Quick Start for Helm Chart installs].
+Follow the full instructions in xref:install-upgrade:quickstart-helm-installs.adoc[].
 
 == How do I install {product} on my server or VM?
 
-Follow the full instructions in xref:install-upgrade:quickstart-server-installs.adoc[Quick Start for Server/VM installs].
+Follow the full instructions in xref:install-upgrade:quickstart-server-installs.adoc[].
 
 == What task can I perform in the {product} Admin Console?
 
