@@ -7,7 +7,7 @@ The *Admin Console for {pulsar-reg}* is a web-based UI from {company} that admin
 
 In the *{pulsar-short} Admin Console*, you can use {pulsar-short} clients to send and receive pub/sub messages.
 
-If you installed the Admin console with the xref:install-upgrade:quickstart-helm-installs.adoc[{company} Helm chart], access the Admin console via the `pulsar-adminconsole` external load balancer endpoint in your cloud provider:
+If you installed the Admin console with the xref:install-upgrade:quickstart-helm-installs.adoc[{company} {pulsar-short} Helm chart], access the Admin console via the `pulsar-adminconsole` external load balancer endpoint in your cloud provider:
 
 image::GCP-all-pods.png[GCP Pods]
 
