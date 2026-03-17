@@ -2,6 +2,11 @@
 
 You can scale {product} clusters up for more compute capacity and down for less capacity.
 
+[NOTE]
+====
+include::ROOT:partial$luna-name.adoc[]
+====
+
 include::operations:partial$operator-scaling.adoc[]
 
 == Install {pulsar-short} cluster

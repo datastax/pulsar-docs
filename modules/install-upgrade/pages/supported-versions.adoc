@@ -3,6 +3,11 @@
 
 Support covers only the following Software versions for {pulsar}:
 
+[NOTE]
+====
+include::ROOT:partial$luna-name.adoc[]
+====
+
 [cols="2*"]
 |===
 |Name |Versions
@@ -11,13 +16,13 @@ Support covers only the following Software versions for {pulsar}:
 |3.1.x
 |===
 
-Support covers only the following Software versions for {company} {product} Distribution:
+Support covers only the following Software versions for {product} Distribution:
 
 [cols="2*"]
 |===
 |Name |Version
 
-|{company} {product} Distribution
+|{product} Distribution
 |v.1.0.0 and above
 
 |===
@@ -45,7 +50,7 @@ Support covers only the following Software versions for the Open Source Projects
 
 |===
 
-Support covers only the following {company} {product} Connectors and {pulsar} Connectors (as included in the {pulsar} download):
+Support covers only the following {product} Connectors and {pulsar} Connectors (as included in the {pulsar} download):
 
 [cols="2*"]
 |===
