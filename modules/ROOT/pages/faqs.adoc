@@ -1,20 +1,20 @@
 = {product} FAQs
 :navtitle: FAQs
 
-If you are new to {company} {product} and its {pulsar} enhancements, these FAQs are for you.
+If you are new to {product} and its {pulsar} enhancements, these FAQs are for you.
 
-== What is {company} {product}?
+== What is {product}?
 
-{company} {product} is a new Kubernetes-based distribution of {pulsar}, based on the technology that https://kesque.com/[Kesque] built to run its {pulsar-short}-as-a-service.
+{product} is a Kubernetes-based distribution of {pulsar}, based on the technology that https://kesque.com/[Kesque] built to run its {pulsar-short}-as-a-service.
 
 == Are {product} and {company} Luna Streaming the same offering?
 
 Yes.
 include::partial$luna-name.adoc[]
 
-== What components and features are provided by {company} {product}?
+== What components and features are provided by {product}?
 
-In addition to {pulsar} itself, {company} {product} provides:
+In addition to {pulsar} itself, {product} provides:
 
 * An installer that can stand up a dev or production cluster on bare metal or VMs without a pre-existing Kubernetes environment
 * A Helm chart that can deploy and manage {pulsar-short} on your current Kubernetes infrastructure
@@ -22,54 +22,55 @@ In addition to {pulsar} itself, {company} {product} provides:
 * A management dashboard
 * A monitoring and alerting system
 
-== On which version of {pulsar} is {company} {product} based?
+== On which version of {pulsar} is {product} based?
 
-{company} {product} {luna-version} is based on its distribution of {pulsar} {pulsar-version}, plus features and additional enhancements from {company} contributors.
+{product} {luna-version} is based on its distribution of {pulsar} {pulsar-version}, plus features and additional enhancements from {company} contributors.
 
-== What does {company} {product} provide that I cannot get with open-source {pulsar}?
+== What does {product} provide that I cannot get with open-source {pulsar}?
 
-{company} {product} is a hardened version of {pulsar} that been run through additional testing to ensure it is ready for production use. It also includes additional tooling to help monitor your system, including an enhanced Admin Console and a Heartbeat service to monitor the system health.
+{product} is a hardened version of {pulsar} that been run through additional testing to ensure it is ready for production use. It also includes additional tooling to help monitor your system, including an enhanced Admin Console and a Heartbeat service to monitor the system health.
 
-== Is {company} {product} an open-source project?
+== Is {product} an open-source project?
 
-Yes, {company} {product} is open source. See the <<gitHubRepos,repos FAQ>>.
+Yes, {product} is open source. See the <<gitHubRepos,repos FAQ>>.
 
-== Which Kubernetes platforms are supported by {company} {product}?
+== Which Kubernetes platforms are supported by {product}?
 
 They include Minikube, K8d, Kind, Google Kubernetes Engine (GKE), Microsoft Azure Kubernetes Service (AKS), Amazon Elastic Kubernetes Service (EKS), and other commonly used platforms.
 
 [#gitHubRepos]
-== Where are the {company} {product} public GitHub repos?
+== Where are the {product} public GitHub repos?
 
 There are several public repos, each with a different purpose. See:
 
-* {pulsar-repo}[{pulsar-repo}] : This is the distro repo (a fork of apache/pulsar).
-* {pulsar-admin-console-repo}[{pulsar-admin-console-repo}] : This is the repo for the {pulsar-short} admin console, which allows for the configuration and monitoring of {pulsar-short}.
+* {pulsar-repo}[{pulsar-repo}]: This is the distro repo (a fork of `apache/pulsar`).
+* {pulsar-admin-console-repo}[{pulsar-admin-console-repo}]: This is the repo for the {pulsar-short} admin console, which allows for the configuration and monitoring of {pulsar-short}.
 * {pulsar-heartbeat-repo}[{pulsar-heartbeat-repo}] : This is a monitoring/observability tool for {pulsar-short} that tracks the health of the cluster and can generate alerts in Slack and OpsGenie.
-* {pulsar-helm-chart-repo}[{pulsar-helm-chart-repo}] : This is the Helm chart for deploying the {company} {pulsar-short} Distro in an existing Kubernetes cluster.
-* {pulsar-sink-repo}[{pulsar-sink-repo}] : This is the {company} {pulsar} Connector (`pulsar-sink`) repo.
-* https://github.com/datastax/burnell[https://github.com/datastax/burnell] : This is a utility for {pulsar-short} that provides various functions, such as key initialization for authentication, and JWT token creation API.
+* {kaap-operator-repo}[{kaap-operator-repo}]: Use the {kaap-short} to deploy the {company} {pulsar-short} Distro in an existing Kubernetes cluster.
++
+{company} recommends the {kaap-short} as a replacement for the deprecated {pulsar-helm-chart-repo}[{company} {pulsar-short} Helm chart].
+* {pulsar-sink-repo}[{pulsar-sink-repo}]: This is the {company} {pulsar} Connector (`pulsar-sink`) repo.
 
-== Is there a prerequisite version of Java needed for the {company} {product} installation?
+== Is there a prerequisite version of Java needed for the {product} installation?
 
-The {company} {product} distribution is designed for Java 17. However, because the product releases Docker images, you do not need to install Java 17 in advance. Java 17 is bundled in the Docker image.
+The {product} distribution is designed for Java 17. However, because the product releases Docker images, you do not need to install Java 17 in advance. Java 17 is bundled in the Docker image.
 
-== What are the install options for {company} {product}?
+== What are the install options for {product}?
 
 * **{kaap-short} Helm chart (Recommended)**: Use the {company} {kaap-operator-repo}[{kaap-short} Helm chart], which provides Kubernetes-native autoscaling and simplified management for {pulsar} clusters. For more information, see the xref:kaap-operator::index.adoc[{kaap}] documentation.
-* **{product} Helm chart**: Use the Helm chart provided at {pulsar-helm-chart-repo}[{pulsar-helm-chart-repo}] to install {company} {product} in an existing Kubernetes cluster on your laptop or hosted by a cloud provider.
-* **Tarball**: Use the tarball provided at {pulsar-repo}/releases[{pulsar-repo}/releases] to install {company} {product} on a server or VM.
-* **Ansible**: Use the {company} Ansible scripts provided at {pulsar-ansible-repo}[{pulsar-ansible-repo}] to install {company} {product} on a server or VM with our provided playbooks.
+* **{company} {pulsar-short} Helm chart (Deprecated)**: The Helm chart provided at {pulsar-helm-chart-repo}[{pulsar-helm-chart-repo}] is deprecated and no longer maintained. Use the {kaap-short} instead.
+* **Tarball**: Use the tarball provided at {pulsar-repo}/releases[{pulsar-repo}/releases] to install {product} on a server or VM.
+* **Ansible**: Use the {company} Ansible scripts provided at {pulsar-ansible-repo}[{pulsar-ansible-repo}] to install {product} on a server or VM with our provided playbooks.
 
-== How do I install {company} {product} in my Kubernetes cluster?
+== How do I install {product} in my Kubernetes cluster?
 
-Follow the full instructions in xref:install-upgrade:quickstart-helm-installs.adoc[Quick Start for Helm Chart installs].
+Follow the full instructions in xref:install-upgrade:quickstart-helm-installs.adoc[].
 
-== How do I install {company} {product} on my server or VM?
+== How do I install {product} on my server or VM?
 
-Follow the full instructions in xref:install-upgrade:quickstart-server-installs.adoc[Quick Start for Server/VM installs].
+Follow the full instructions in xref:install-upgrade:quickstart-server-installs.adoc[].
 
-== What task can I perform in the {company} {product} Admin Console?
+== What task can I perform in the {product} Admin Console?
 
 From the Admin Console, you can:
 
@@ -101,7 +102,7 @@ The {company} {pulsar} Connector allows single-record acknowledgement and negati
 
 There are two packages:
 
-* The `pulsar-sink` functionality of {company} {pulsar} Connector is included with {company} {product}. It's built in!
+* The `pulsar-sink` functionality of {company} {pulsar} Connector is included with {product}. It's built in!
 * You can optionally download the {company} {pulsar} Connector `.nar` file from the {pulsar-sink-repo}/releases[`pulsar-sink` repository], and then use it as its own product with your open-source {pulsar} install.
 
 If you're using open-source software (OSS) {pulsar}, you can use {company} {pulsar} Connector with the OSS to take advantage of this `pulsar-sink` for {cass-short}.
@@ -112,6 +113,6 @@ See the xref:pulsar-connector:ROOT:index.adoc[{company} {pulsar} Connector docum
 This source connector streams data changes from {cass-short} tables to {pulsar-short} topics.
 For more information, see the xref:cdc-for-cassandra:ROOT:index.adoc[{company} CDC for {cass-short} connector documentation].
 
-== What client APIs does {company} {product} provide?
+== What client APIs does {product} provide?
 
 The same as for {pulsar}. See https://pulsar.apache.org/docs/en/client-libraries/.

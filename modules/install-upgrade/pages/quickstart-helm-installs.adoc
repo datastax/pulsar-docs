@@ -2,13 +2,21 @@
 
 [IMPORTANT]
 ====
-The {company} production-ready Helm chart is now deprecated. For new deployments, we recommend using the {company} {kaap-operator-repo}[{kaap-short} Helm chart], which provides Kubernetes-native autoscaling and simplified management for {pulsar} clusters. For more information, see the xref:kaap-operator::index.adoc[{kaap}] documentation.
+include::ROOT:partial$luna-name.adoc[]
 ====
 
-You have options for installing *{company} {product}*:
+You have options for installing {product}:
 
-* With the provided *{company} Helm chart* for an existing Kubernetes environment locally or with a cloud provider, as covered in this topic.
-* With the *{company} {product} tarball* for deployment to a single server/VM, or to multiple servers/VMs. See xref:install-upgrade:quickstart-server-installs.adoc[Quick Start for Server/VM installs].
+* With the provided *{company} {pulsar-short} Helm chart* for an existing Kubernetes environment locally or with a cloud provider, as covered in this topic.
++
+[IMPORTANT]
+====
+The {pulsar-helm-chart-repo}[{company} {pulsar-short} Helm chart] is deprecated.
+For Kubernetes deployments, use xref:kaap-operator::index.adoc[{kaap}] instead.
+====
+
+* With the *{product} tarball* for deployment to a single server/VM, or to multiple servers/VMs. See xref:install-upgrade:quickstart-server-installs.adoc[Quick Start for Server/VM installs].
+
 * With the *{company} Ansible scripts* provided at {pulsar-ansible-repo}[{pulsar-ansible-repo}].
 
 The Helm chart and options described below configure an {pulsar} cluster.
@@ -190,8 +198,6 @@ proxy:
 ----
 
 If you are using a load balancer on the proxy, you can find the IP address using `kubectl get service -n pulsar`.
-
-=== Manage {product} with {pulsar-short} Admin Console
 
 Or if you would rather go directly to the broker:
 

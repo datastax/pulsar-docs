@@ -3,6 +3,11 @@
 
 This guide provides instructions and recommendations for upgrading {product} from version 2.10 to 3.1.
 
+[NOTE]
+====
+include::ROOT:partial$luna-name.adoc[]
+====
+
 Upgrades to {product} 3.1 should only be performed from {product} 2.10.
 
 All {product} 2.10 components support the upgrade to 3.1.
@@ -353,7 +358,13 @@ kubectl logs *POD-NAME* -n *NAMESPACE*
 
 === Upgrade Kubernetes deployment with Helm chart
 
-The Helm chart for {product} is available in the {pulsar-helm-chart-repo}/blob/master/helm-chart-sources/pulsar/values.yaml[Helm chart sources] repository.
+[IMPORTANT]
+====
+The {pulsar-helm-chart-repo}[{company} {pulsar-short} Helm chart] is deprecated.
+For Kubernetes deployments, use xref:kaap-operator::index.adoc[{kaap}] instead.
+====
+
+The {company} {pulsar-short} Helm chart is available in the {pulsar-helm-chart-repo}/blob/master/helm-chart-sources/pulsar/values.yaml[Helm chart sources] repository.
 
 . To prevent data loss, back up your existing {pulsar-short} data and configuration files.
 . To save your current Helm release configuration, run the following command:

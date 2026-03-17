@@ -40,7 +40,7 @@ Scale bookies up on disc usage percentage. Scale down manually by making a booki
 [#recommended]
 === Recommended server components
 
-The {company} {product} Helm chart deployment includes optional but highly recommended server components for better {pulsar-short} cluster metrics monitoring and operation visibility.
+The {company} {pulsar-short} Helm chart deployment includes optional but highly recommended server components for better {pulsar-short} cluster metrics monitoring and operation visibility.
 
 * https://bookkeeper.apache.org/docs/admin/autorecovery[{bookkeeper-short} AutoRecovery] - This is a {pulsar-short} component that recovers {bookkeeper-short} data in the event of a bookie outage. While optional you will want the insurance of AutoRecovery working on your behalf.
 A single instance of AutoRecovery should be adequate - only in the most heavily-used clusters will you need more.
@@ -59,7 +59,7 @@ Function worker spec is usually focused on compute and memory.
 Scale the workers based on overall usage (both CPU and memory).
 * xref:luna-streaming:components:admin-console-tutorial.adoc[{pulsar-short} AdminConsole] - This is an optional web-based admin console for managing {pulsar-short} clusters, and makes management much easier than tons of CLI commands. The sizing and scaling for AdminConsole has nothing to do with the cluster, as it is not a failure point.
 * xref:luna-streaming:components:heartbeat-vm.adoc[{pulsar-short} Heartbeat] - This is an optional component that monitors the health of {pulsar-short} cluster and emits metrics about the cluster that are helpful for observing and debugging issues.
-* Prometheus/Grafana/Alert manager stack - This is the default observability stack for a cluster. The Luna Helm chart includes pre-made dashboards in Grafana and pre-wires all the metrics scraping.
+* Prometheus/Grafana/Alert manager stack - This is the default observability stack for a cluster. The {company} {pulsar-short} Helm chart includes pre-made dashboards in Grafana and pre-wires all the metrics scraping.
 
 image::pulsar-components.png[]
 
