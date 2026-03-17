@@ -56,17 +56,17 @@ The {product} distribution is designed for Java 17. However, because the product
 
 == What are the install options for {product}?
 
-* **{product} Helm chart**: Use the Helm chart provided at {pulsar-helm-chart-repo}[{pulsar-helm-chart-repo}] to install {product} in an existing Kubernetes cluster on your laptop or hosted by a cloud provider.
+* **{company} {pulsar-short} Helm chart**: Use the Helm chart provided at {pulsar-helm-chart-repo}[{pulsar-helm-chart-repo}] to install {product} in an existing Kubernetes cluster on your laptop or hosted by a cloud provider.
 * **Tarball**: Use the tarball provided at {pulsar-repo}/releases[{pulsar-repo}/releases] to install {product} on a server or VM.
 * **Ansible**: Use the {company} Ansible scripts provided at {pulsar-ansible-repo}[{pulsar-ansible-repo}] to install {product} on a server or VM with our provided playbooks.
 
 == How do I install {product} in my Kubernetes cluster?
 
-Follow the full instructions in xref:install-upgrade:quickstart-helm-installs.adoc[Quick Start for Helm Chart installs].
+Follow the full instructions in xref:install-upgrade:quickstart-helm-installs.adoc[].
 
 == How do I install {product} on my server or VM?
 
-Follow the full instructions in xref:install-upgrade:quickstart-server-installs.adoc[Quick Start for Server/VM installs].
+Follow the full instructions in xref:install-upgrade:quickstart-server-installs.adoc[].
 
 == What task can I perform in the {product} Admin Console?
 
