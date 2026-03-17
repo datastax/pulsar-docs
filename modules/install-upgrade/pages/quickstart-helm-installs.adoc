@@ -7,7 +7,7 @@ include::ROOT:partial$luna-name.adoc[]
 
 You have options for installing {product}:
 
-* With the provided *{company} Helm chart* for an existing Kubernetes environment locally or with a cloud provider, as covered in this topic.
+* With the provided *{company} {pulsar-short} Helm chart* for an existing Kubernetes environment locally or with a cloud provider, as covered in this topic.
 * With the *{product} tarball* for deployment to a single server/VM, or to multiple servers/VMs. See xref:install-upgrade:quickstart-server-installs.adoc[Quick Start for Server/VM installs].
 * With the *{company} Ansible scripts* provided at {pulsar-ansible-repo}[{pulsar-ansible-repo}].
 
