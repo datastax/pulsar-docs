@@ -199,8 +199,6 @@ proxy:
 
 If you are using a load balancer on the proxy, you can find the IP address using `kubectl get service -n pulsar`.
 
-=== Manage {product} with {pulsar-short} Admin Console
-
 Or if you would rather go directly to the broker:
 
 `kubectl port-forward -n pulsar $(kubectl get pods -n pulsar -l component=broker -o jsonpath='{.items[0].metadata.name}') 8080:8080`
