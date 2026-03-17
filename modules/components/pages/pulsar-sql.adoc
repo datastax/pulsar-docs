@@ -9,7 +9,12 @@ Stream processing, real-time analytics, and highly customized dashboards are jus
 {pulsar-short} offers a pre-made plugin for Trino that is included in its distribution.
 Additionally, {pulsar-short} has built-in options to create Trino workers and automatically configure the communications between {pulsar-short}’s ledger and Trino.
 
-In this guide, we will use the {company} {pulsar-short} Helm Chart to install a {pulsar-short} cluster with {pulsar-short} SQL.
+[NOTE]
+====
+include::ROOT:partial$luna-name.adoc[]
+====
+
+In this guide, we will use the {product} Helm Chart to install a {pulsar-short} cluster with {pulsar-short} SQL.
 The Trino coordinator and desired number of workers will be created directly in the cluster.
 
 == Prerequisites

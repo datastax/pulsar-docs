@@ -1,11 +1,11 @@
 = {pulsar-short} Admin Console
 
-The *{company} Admin Console for {pulsar-reg}* is a web-based UI from {company} that administers topics, namespaces, sources, sinks, and various aspects of {pulsar} features.
+The *Admin Console for {pulsar-reg}* is a web-based UI from {company} that administers topics, namespaces, sources, sinks, and various aspects of {pulsar} features.
 
 [#getting-started]
 == Getting Started in {pulsar-short} Admin Console
 
-In the *{product} {pulsar-short} Admin Console*, you can use {pulsar-short} clients to send and receive pub/sub messages.
+In the *{pulsar-short} Admin Console*, you can use {pulsar-short} clients to send and receive pub/sub messages.
 
 If you installed the Admin console with the xref:install-upgrade:quickstart-helm-installs.adoc[{company} Helm chart], access the Admin console via the `pulsar-adminconsole` external load balancer endpoint in your cloud provider:
 
