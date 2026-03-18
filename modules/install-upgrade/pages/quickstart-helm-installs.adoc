@@ -8,8 +8,8 @@ include::ROOT:partial$luna-name.adoc[]
 The {pulsar-helm-chart-repo}[{company} {pulsar-short} Helm chart] is deprecated.
 For Kubernetes deployments, use xref:kaap-operator::index.adoc[{kaap}] instead.
 
-{kaap-short} offers the same features as the Helm chart, but with Pulsar components like brokers and bookies registered as custom resources.
-The {kaap-operator} can then automatically scale Pulsar pods based on specifications you set in the Helm chart, and adjust according to your cluster's workload.
+{kaap} offers the same features as the Helm chart, but with Pulsar components like brokers and bookies registered as custom resources.
+The {kaap-short} can then automatically scale Pulsar pods based on specifications you set in the Helm chart, and adjust according to your cluster's workload.
 
 For more information, see xref:kaap-operator::index.adoc[{kaap}].
 
