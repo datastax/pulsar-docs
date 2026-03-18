@@ -1,19 +1,25 @@
-= Quick Start for Helm Chart installs (deprecated)
+= Quick Start for Helm Chart installs
 
 [IMPORTANT]
 ====
 include::ROOT:partial$luna-name.adoc[]
 ====
 
-The {pulsar-helm-chart-repo}[{company} {pulsar-short} Helm chart] is deprecated.
-For Kubernetes deployments, use xref:kaap-operator::index.adoc[{kaap}] instead.
+This guide explains how to install {product} with a Helm chart.
 
-{kaap} offers the same features as the Helm chart, but with Pulsar components like brokers and bookies registered as custom resources.
+== Use {kaap} (recommended)
+
+{kaap} is recommended for {product} deployments to Kubernetes clusters.
+
+The {kaap-short} offers the same features as the {company} {pulsar-short} Helm chart, but with Pulsar components like brokers and bookies registered as custom resources.
 The {kaap-short} can then automatically scale Pulsar pods based on specifications you set in the Helm chart, and adjust according to your cluster's workload.
 
-For more information, see xref:kaap-operator::index.adoc[{kaap}].
+For more information, see the xref:kaap-operator::index.adoc[].
 
-== Install the {company} {pulsar-short} Helm chart
+== Use the {company} {pulsar-short} Helm chart (deprecated)
+
+The {pulsar-helm-chart-repo}[{company} {pulsar-short} Helm chart] is deprecated.
+For Kubernetes deployments, use xref:kaap-operator::index.adoc[{kaap}] instead.
 
 You have options for installing {product}:
 
@@ -42,7 +48,7 @@ The resulting configuration includes support for:
 * cert-manager with support for self-signed certificates as well as public certificates using ACME; such as Let's Encrypt
 * Ingress for all HTTP ports ({pulsar-short} Admin Console, Prometheus, Grafana, others)
 
-== Prerequisites
+=== Prerequisites
 
 {company} recommends these hardware resources for running {product} in a Kubernetes environment:
 
@@ -77,7 +83,7 @@ Interested in a production benchmark of a {pulsar-short} cluster?
 Check out https://community.intel.com/t5/Blogs/Tech-Innovation/Cloud/Improve-Apache-Pulsar-Performance-on-3rd-Gen-Intel-Xeon-Scalable/post/1547895[Improve {pulsar} Performance on 3rd Gen Intel Xeon Scalable Processors], where Intel and {company} benchmark a {pulsar-short} cluster on 3rd Gen Intel(R) Xeon(R) processors running in AWS VM instances.
 ====
 
-=== Storage Class Settings
+==== Storage Class Settings
 
 The `default_storage` parameter in `values.yaml` controls the default storage class for all persistent volumes created by the Helm chart.
 
@@ -155,7 +161,7 @@ There are two ways to override `default_storage`:
       existingStorageClassName: bookkeeper-storageclass.yaml
 ----
 
-== Install {product} in a cloud provider
+=== Install {product} in a cloud provider
 
 First, create the namespace; in this example, we use `pulsar`.
 
@@ -171,7 +177,7 @@ TIP: To avoid having to specify the `pulsar` namespace on each subsequent comman
 
 Once {pulsar-short} is installed, you can now access your {product} cluster.
 
-=== Access the {product} cluster
+==== Access the {product} cluster
 
 The default values will create a ClusterIP for all components. ClusterIPs are only accessible within the Kubernetes cluster. The easiest way to work with {pulsar-short} is to log into the bastion host (assuming it is in the `pulsar` namespace):
 
@@ -209,7 +215,7 @@ Or if you would rather go directly to the broker:
 
 `kubectl port-forward -n pulsar $(kubectl get pods -n pulsar -l component=broker -o jsonpath='{.items[0].metadata.name}') 6650:6650`
 
-=== Manage {product} with {pulsar-short} Admin Console
+==== Manage {product} with {pulsar-short} Admin Console
 
 The {pulsar-short} Admin Console is installed in your cluster by enabling the console with this values setting:
 
@@ -231,7 +237,7 @@ pulsarAdminConsole:
 
 To learn more about using the {pulsar-short} Admin Console, see xref:components:admin-console-tutorial.adoc[Admin Console Tutorial].
 
-== Install {product} locally
+=== Install {product} locally
 
 With the prerequisites listed above met, start minikube with adequate resources.
 For example:
@@ -298,7 +304,7 @@ kubectl port-forward $(kubectl get pods -l component=adminconsole -o jsonpath='{
 Now open a browser to `\http://localhost:8080`.
 In the {pulsar-short} Admin Console, you can test your {pulsar-short} setup using the built-in clients (Test Clients in the left-hand menu).
 
-=== Access the {pulsar-short} cluster on localhost
+==== Access the {pulsar-short} cluster on localhost
 
 To port forward the proxy admin and {pulsar-short} ports to your local machine:
 
@@ -312,7 +318,7 @@ Or if you would rather go directly to the broker:
 
 `kubectl port-forward -n pulsar $(kubectl get pods -n pulsar -l component=broker -o jsonpath='{.items[0].metadata.name}') 6650:6650`
 
-=== Access Admin Console on your local machine
+==== Access Admin Console on your local machine
 
 To access {pulsar-short} Admin Console on your local machine, forward port 80:
 
@@ -328,7 +334,7 @@ TIP: While using the Admin Console and {pulsar-short} Monitoring, if the connect
 kubectl port-forward -n pulsar $(kubectl get pods -n pulsar -l app.kubernetes.io/name=grafana -o jsonpath='{.items[0].metadata.name}') 3000:3000 &
 ----
 
-== Example configurations
+=== Example configurations
 
 There are several example configurations in the {pulsar-helm-chart-repo}/blob/master/examples[examples] directory:
 
@@ -350,7 +356,7 @@ kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.1
 helm install pulsar -f dev-values-auth.yaml datastax-pulsar/pulsar
 ----
 
-=== Enabling the Prometheus stack
+==== Enabling the Prometheus stack
 
 You can enable a full Prometheus stack (Prometheus, Alertmanager, Grafana) from `https://github.com/prometheus-operator/kube-prometheus[kube-prometheus]`. This includes default Prometheus rules and Grafana dashboards for Kubernetes.
 
@@ -381,13 +387,13 @@ kube-prometheus-stack:
     create: yes
 ----
 
-=== Tiered Storage Configuration
+==== Tiered Storage Configuration
 
 Tiered storage (offload to blob storage) can be configured in the `storageOffload` section of the `values.yaml` file. Instructions for AWS S3 and Google Cloud Storage are provided in the file.
 
 In addition, you can configure any S3 compatible storage. There is explicit support for https://tardigrade.io[Tardigrade], which is a provider of secure, decentralized storage. You can enable the Tardigarde S3 gateway in the `extra` configuration. The instructions for configuring the gateway are provided in the `tardigrade` section of the `values.yaml` file.
 
-=== {pulsar-short} SQL Configuration
+==== {pulsar-short} SQL Configuration
 
 If you enable {pulsar-short} SQL, the cluster provides https://trino.io/[Trino] access to the data stored in {bookkeeper-short} (and tiered storage, if enabled). Trino is exposed on the service named `<release>-sql`.
 
@@ -433,7 +439,7 @@ Splits: 19 total, 19 done (100.00%)
 0:01 [0 rows, 0B] [0 rows/s, 0B/s]
 ----
 
-=== Dependencies
+==== Dependencies
 
 The Helm chart has the following optional dependencies:
 
@@ -441,7 +447,7 @@ The Helm chart has the following optional dependencies:
 * https://cert-manager.io/[cert-manager]
 
 [#authentication]
-=== Authentication
+==== Authentication
 
 The chart can enable token-based authentication for your {pulsar-short} cluster. For information on token-based
 authentication in {pulsar-short}, see https://pulsar.apache.org/docs/en/security-token-admin/[{pulsar-short} token authentication admin documentation].
@@ -450,7 +456,7 @@ For authentication to work, the token-generation keys need to be stored in Kuber
 
 The chart includes tooling to automatically create the necessary secrets or you can do this manually.
 
-=== Automatic generation of secrets for token authentication
+==== Automatic generation of secrets for token authentication
 
 Use the following settings to enable automatic generation of the secrets and enable token-based authentication:
 
@@ -475,7 +481,7 @@ Using these keys, it will generate tokens for each role listed in `superUserRole
 * `token-proxy`
 * `token-websocket`
 
-=== Manual secret creation for token authentication
+==== Manual secret creation for token authentication
 
 include::operations:partial$manually-create-credentials.adoc[]
 
