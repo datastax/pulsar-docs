@@ -8,7 +8,6 @@
 * xref:install-upgrade:supported-versions.adoc[]
 * xref:install-upgrade:production-cluster-sizing.adoc[]
 * xref:install-upgrade:cluster-sizing-reference.adoc[]
-* xref:install-upgrade:upgrade-guide.adoc[]
 
 .Components and extensions
 * xref:components:admin-console-tutorial.adoc[]
