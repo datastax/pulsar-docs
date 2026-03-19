@@ -2,7 +2,7 @@
 * xref:ROOT:index.adoc[]
 * xref:ROOT:faqs.adoc[]
 
-.Install and upgrade
+.Install
 * xref:install-upgrade:quickstart-helm-installs.adoc[]
 * xref:install-upgrade:quickstart-server-installs.adoc[]
 * xref:install-upgrade:supported-versions.adoc[]
