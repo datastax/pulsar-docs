@@ -46,7 +46,6 @@ asciidoc:
     bookkeeper-short: 'BookKeeper'
     zookeeper-reg: 'Apache ZooKeeper(TM)'
     zookeeper-short: 'ZooKeeper'
-    crd: 'custom resource definition (CRD)'
 
     # Required for include::common partials that are shared with Astra Streaming
     web-ui: 'Admin Console'
