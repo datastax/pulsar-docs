@@ -58,3 +58,7 @@ asciidoc:
     cass: 'Apache Cassandra'
     cass-short: 'Cassandra'
     debezium-version: '1.7'
+    pulsar-admin-functions-cli-ref-url: 'https://pulsar.apache.org/docs/{pulsar-version}.x/functions-cli'
+    pulsar-admin-sinks-ref-url: 'https://pulsar.apache.org/reference/#/{pulsar-version}.x/pulsar-admin/sinks'
+    pulsar-admin-sources-ref-url: 'https://pulsar.apache.org/reference/#/{pulsar-version}.x/pulsar-admin/sources'
+    debezium-release-url: 'https://debezium.io/releases/{debezium-version}'
