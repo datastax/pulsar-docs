@@ -1,6 +1,6 @@
 = Quick Start for Helm Chart installs (deprecated)
 
-[IMPORTANT]
+[TIP]
 ====
 include::ROOT:partial$luna-name.adoc[]
 ====
@@ -24,13 +24,13 @@ It is designed for production use, but can also be used in local development env
 
 The resulting configuration includes support for:
 
-* xref:install-upgrade:quickstart-helm-installs.adoc#tls[TLS]
-* xref:install-upgrade:quickstart-helm-installs.adoc#authentication[Authentication]
+* <<tls,TLS>>
+* <<authentication,Authentication>>
 * WebSocket proxy
 * Standalone Functions Workers
 * {pulsar-short} I/O connectors
-* xref:install-upgrade:quickstart-helm-installs.adoc#_tiered_storage_configuration[Tiered storage] including Tardigarde distributed cloud storage
-* xref:install-upgrade:quickstart-helm-installs.adoc#_pulsar_sql_configuration[{pulsar-short} SQL workers]
+* <<tiered_storage_configuration,Tiered storage>> including Tardigarde distributed cloud storage
+* <<pulsar-sql-configuration,{pulsar-short} SQL workers>>
 * {pulsar-short} Admin Console for managing the cluster
 * {pulsar-short} Heartbeat
 * Burnell for API-based token generation
@@ -262,7 +262,10 @@ Example of checking the pods' status:
 [source,shell]
 ----
 kubectl get pods
+----
 
+[source,console]
+----
 NAME                                                  READY   STATUS     RESTARTS  AGE
 prometheus-pulsar-kube-prometheus-sta-prometheus-0    2/2     Running    1         10m
 pulsar-adminconsole-9669f6d98-dxjvp                   2/2     Running    3         12m
@@ -377,12 +380,14 @@ kube-prometheus-stack:
     create: yes
 ----
 
+[#tiered-storage-configuration]
 === Tiered Storage Configuration
 
 Tiered storage (offload to blob storage) can be configured in the `storageOffload` section of the `values.yaml` file. Instructions for AWS S3 and Google Cloud Storage are provided in the file.
 
 In addition, you can configure any S3 compatible storage. There is explicit support for https://tardigrade.io[Tardigrade], which is a provider of secure, decentralized storage. You can enable the Tardigarde S3 gateway in the `extra` configuration. The instructions for configuring the gateway are provided in the `tardigrade` section of the `values.yaml` file.
 
+[#pulsar-sql-configuration]
 === {pulsar-short} SQL Configuration
 
 If you enable {pulsar-short} SQL, the cluster provides https://trino.io/[Trino] access to the data stored in {bookkeeper-short} (and tiered storage, if enabled). Trino is exposed on the service named `<release>-sql`.
@@ -393,9 +398,13 @@ The easiest way to access the Trino command line is to log into the bastion host
 
 Where the value for the `server` option should be the service name plus port. Once you are connected, you can enter Trino commands. Example:
 
-[source,console]
+[source,shell]
 ----
 trino> SELECT * FROM system.runtime.nodes;
+----
+
+[source,console]
+----
                node_id                |         http_uri         | node_version | coordinator | state
 --------------------------------------+--------------------------+--------------+-------------+--------
  64b7c5a1-9a72-4598-b494-b140169abc55 | http://10.244.5.164:8080 | 0.206        | true        | active
@@ -413,11 +422,22 @@ It is recommended that you match the Trino CLI version to the version running as
 
 The Trino CLI supports basic authentication, so if you enabled that on the Ingress (using annotations), you can have secure Trino access. Example:
 
-[source,sql]
+Connect:
+
+[source,shell]
 ----
 trino --server https://trino.example.com --user admin --password
-Password:
+----
+
+Enter password when prompted, and then get catalogs:
+
+[source,shell]
+----
 trino> show catalogs;
+----
+
+[source,console]
+----
  Catalog
 ---------
  pulsar

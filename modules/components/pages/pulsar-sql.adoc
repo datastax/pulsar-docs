@@ -9,7 +9,7 @@ Stream processing, real-time analytics, and highly customized dashboards are jus
 {pulsar-short} offers a pre-made plugin for Trino that is included in its distribution.
 Additionally, {pulsar-short} has built-in options to create Trino workers and automatically configure the communications between {pulsar-short}'s ledger and Trino.
 
-[NOTE]
+[TIP]
 ====
 include::ROOT:partial$luna-name.adoc[]
 ====
@@ -33,7 +33,7 @@ The Trino CLI uses the "X-TRINO-USER" header for authentications.
 
 == Install the {company} {pulsar-short} Helm chart
 
-include::partial$install-helm.adoc[]
+include::components:partial$install-helm.adoc[]
 
 == Forward service port
 
@@ -60,13 +60,13 @@ kubectl port-forward -n datastax-pulsar service/pulsar-broker 8080:8080
 . In a browser, navigate to \http://localhost:8081.
 You will be greeted by Trino's login.
 +
-image::trino-sql-login.png[Trino SQL login]
+image::components:trino-sql-login.png[Trino SQL login]
 
 . There is no authentication enabled, so input whatever user name you prefer and select **Log In**.
 You will be greeted by a blank dashboard.
 This confirms Trino is up and running.
 +
-image::trino-sql-dashboard.png[Trino SQL dashboard]
+image::components:trino-sql-dashboard.png[Trino SQL dashboard]
 
 [#create-topic]
 == Fill a topic with the data-generator source
@@ -94,12 +94,8 @@ The CLI will use the environment variable's value as configuration for interacti
 ./bin/pulsar-admin sources create --name generator --destination-topic-name public/default/mytopic --source-type data-generator
 ----
 +
-[NOTE]
-====
-The topic name will become a table name in Trino, so SQL naming rules apply.
-
+The topic name becomes the Trino table name, so SQL naming rules apply.
 Names can contain only alphanumeric characters and must begin with an alphabetic character or an underscore (_).
-====
 
 . Confirm the topic was created:
 +
@@ -284,9 +280,9 @@ Connection established......
 
 == Clean up
 
-include::partial$cleanup-terminal-and-helm.adoc[]
+include::components:partial$cleanup-terminal-and-helm.adoc[]
 
 == Next steps
 
-* xref:pulsar-beam.adoc[]
-* xref:admin-console-tutorial.adoc[]
+* xref:components:pulsar-beam.adoc[]
+* xref:components:admin-console-tutorial.adoc[]

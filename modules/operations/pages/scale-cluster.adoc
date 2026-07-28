@@ -2,7 +2,7 @@
 
 You can scale {product} clusters up for more compute capacity and down for less capacity.
 
-[NOTE]
+[TIP]
 ====
 include::ROOT:partial$luna-name.adoc[]
 ====
@@ -22,6 +22,10 @@ To start the cluster, use the values provided in the {pulsar-helm-chart-repo}/bl
 [source,bash]
 ----
 diff ~/dev-values.yaml ~/dev-values_large.yaml
+----
+
+[source,console]
+----
 40c40,47
 <   replicaCount: 1
 ---
