@@ -10,7 +10,7 @@ If you are new to {product} and its {pulsar} enhancements, these FAQs are for yo
 == Are {product} and {company} Luna Streaming the same offering?
 
 Yes.
-include::partial$luna-name.adoc[]
+include::ROOT:partial$luna-name.adoc[]
 
 == What components and features are provided by {product}?
 

@@ -146,4 +146,4 @@ a|* CPU: 4 vCPU
 
 == Next steps
 
-For more on cluster sizing, see xref:production-cluster-sizing.adoc[].
+For more on cluster sizing, see xref:install-upgrade:production-cluster-sizing.adoc[].

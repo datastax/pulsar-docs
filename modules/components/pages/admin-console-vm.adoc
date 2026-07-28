@@ -55,7 +55,7 @@ You can modify the configuration for the Admin Console in `pulsar-admin-console/
 
 You need to configure `pulsar_url` to point to one of your brokers or a proxy/loadbalancer in front of the brokers (can be {pulsar-short} proxy). The Admin Console server must be able to directly reach each broker by the IP/hostname that is returned by the {pulsar-short} CLI command `pulsar-admin brokers list <clustername>`.
 
-[NOTE]
+[TIP]
 ====
 The cluster name can be retrieved with the CLI command `pulsar-admin clusters list`.
 ====

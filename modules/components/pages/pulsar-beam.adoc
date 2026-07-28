@@ -7,7 +7,7 @@ The {pulsar-beam-repo}[{pulsar-beam}] project is an HTTP-based streaming and que
 
 With {pulsar-beam}, you can send messages over HTTP, push messages to a webhook or cloud function, chain webhooks and functions together, or stream messages through server-sent events (SSE).
 
-[NOTE]
+[TIP]
 ====
 include::ROOT:partial$luna-name.adoc[]
 ====
@@ -22,7 +22,7 @@ In this guide, you'll install a minimal {company} {pulsar-short} Helm chart that
 
 == Install the {company} {pulsar-short} Helm chart
 
-include::partial$install-helm.adoc[]
+include::components:partial$install-helm.adoc[]
 
 == Forward service port
 
@@ -36,7 +36,7 @@ kubectl port-forward -n datastax-pulsar service/pulsar-proxy 8085:8085
 The forwarding service will map the URL:PORT https://127.0.0.1:8085 to {pulsar-short} proxy running in the new cluster.
 Because {pulsar-beam} was enabled, the proxy knows to forward on to the {pulsar-beam} service.
 
-[source,shell]
+[source,console]
 ----
 Forwarding from 127.0.0.1:8085 -> 8085
 Forwarding from [::1]:8085 -> 8085
@@ -74,7 +74,7 @@ curl --request POST \
 
 The message consumer will output the data of the new message just produced.
 
-[source,shell]
+[source,console]
 ----
 id: {9 0 0 0 <nil> 0xc002287ad0}
 data: Hi there
@@ -155,7 +155,7 @@ The payload is base64 encoded. Simply decode the string to see the actual messag
 
 == Clean up
 
-include::partial$cleanup-terminal-and-helm.adoc[]
+include::components:partial$cleanup-terminal-and-helm.adoc[]
 
 == Next steps
 
@@ -163,4 +163,4 @@ Here are links to resources and guides you might be interested in:
 
 * {pulsar-beam-repo}[Learn more] about the {pulsar-beam} project
 * https://kafkaesque-io.github.io/pulsar-beam-swagger[{pulsar-beam} API]
-* xref:pulsar-sql.adoc[]
+* xref:components:pulsar-sql.adoc[]

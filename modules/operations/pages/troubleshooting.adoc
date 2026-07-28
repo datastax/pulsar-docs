@@ -9,7 +9,7 @@ You can check quotas in the cloud provider's user interface.
 For example, in the Google Cloud (GCP) console, check for any unhealthy pods in your GKE project. Then in the *IAM & Admin* section of the GCP console, navigate to *Quotas*.
 Look for any reported issues with backend services:
 
-image::gcp-quota-example1.png[GCP Quota]
+image::operations:gcp-quota-example1.png[GCP Quota]
 
 From the GCP Console *Quotas* page:
 
@@ -28,7 +28,7 @@ From the GCP Console *Quotas* page:
 In the following example, the Backend services quota is set to '5', and the requested limit is '50'.
 For K8ssandra deployments, such as Stargate, cass-operator, Reaper, and Medusa, `10` might be a sufficient quota.
 
-image::gcp-quota-example2.png[GCP Backend Quota]
+image::operations:gcp-quota-example2.png[GCP Backend Quota]
 
 [#containerspending]
 == Containers in Pending state
@@ -65,8 +65,12 @@ pulsar@pulsar-bastion-78d4cd74ff-ctvvh:/pulsar$
 
 === Test bastion pod
 
-To verify that your bastion pod sees your cluster, run `pulsar admin namespaces list public`.
-It should return a list of your public namespaces:
+To verify that your bastion pod sees your cluster, run the following command to get a list of your public namespaces:
+
+[source,bash]
+----
+pulsar admin namespaces list public
+----
 
 [source,console]
 ----

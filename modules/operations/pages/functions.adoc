@@ -6,7 +6,7 @@ You can apply custom logic to a message, transforming or enriching it, and then 
 
 Functions run inside {product}, which makes them serverless.
 
-[NOTE]
+[TIP]
 ====
 include::ROOT:partial$luna-name.adoc[]
 ====
@@ -187,7 +187,7 @@ If the {pulsar-short} Admin Console is deployed, you can also add and manage the
 In this example, we chose `exclamation_function.py`.
 Choose the file you want to pull the function from and which function you want to use within that file.
 +
-image:admin-console-add-function.png[Add Function in Admin Console]
+image::operations:admin-console-add-function.png[Add Function in Admin Console]
 +
 To specify the class name, it depends on the programming language or runtime of the function.
 Python, Java, and Go functions are added differently from each other.
@@ -220,14 +220,14 @@ You have created a function for this namespace. You can confirm your function wa
 
 You can start, stop, and restart your function by selecting *Manage* in the *Functions* dashboard.
 
-image::admin-console-function-added.png[Manage Functions]
+image::operations:admin-console-function-added.png[Manage Functions]
 
 === Monitor your function
 
 Functions produce logs to help you in debugging.
 To view your function's logs, select *Logs* in the *Manage* dashboard.
 
-image::admin-console-logs.png[Function Log]
+image::operations:admin-console-logs.png[Function Log]
 
 === Update your function
 
@@ -253,7 +253,7 @@ A *Function-name Deleted Successfully!* flag will appear to let you know you've 
 
 To trigger a function in the {pulsar-short} Admin Console, select *Trigger* in the *Manage* dashboard.
 
-image::admin-console-trigger-function.png[Trigger Function]
+image::operations:admin-console-trigger-function.png[Trigger Function]
 
 Enter your message in the *Message to Send* field, and select the output topic.
 In this case, the trigger sends the string `Hello world!` to your exclamation function with no output function.
