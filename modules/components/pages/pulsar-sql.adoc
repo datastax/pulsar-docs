@@ -33,7 +33,7 @@ The Trino CLI uses the "X-TRINO-USER" header for authentications.
 
 == Install the {company} {pulsar-short} Helm chart
 
-include::partial$install-helm.adoc[]
+include::components:partial$install-helm.adoc[]
 
 == Forward service port
 
@@ -284,7 +284,7 @@ Connection established......
 
 == Clean up
 
-include::partial$cleanup-terminal-and-helm.adoc[]
+include::components:partial$cleanup-terminal-and-helm.adoc[]
 
 == Next steps
 
