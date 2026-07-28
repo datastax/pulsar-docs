@@ -272,7 +272,10 @@ Example of checking the pods' status:
 [source,shell]
 ----
 kubectl get pods
+----
 
+[source,console]
+----
 NAME                                                  READY   STATUS     RESTARTS  AGE
 prometheus-pulsar-kube-prometheus-sta-prometheus-0    2/2     Running    1         10m
 pulsar-adminconsole-9669f6d98-dxjvp                   2/2     Running    3         12m
@@ -405,9 +408,13 @@ The easiest way to access the Trino command line is to log into the bastion host
 
 Where the value for the `server` option should be the service name plus port. Once you are connected, you can enter Trino commands. Example:
 
-[source,console]
+[source,shell]
 ----
 trino> SELECT * FROM system.runtime.nodes;
+----
+
+[source,console]
+----
                node_id                |         http_uri         | node_version | coordinator | state
 --------------------------------------+--------------------------+--------------+-------------+--------
  64b7c5a1-9a72-4598-b494-b140169abc55 | http://10.244.5.164:8080 | 0.206        | true        | active
@@ -425,11 +432,22 @@ It is recommended that you match the Trino CLI version to the version running as
 
 The Trino CLI supports basic authentication, so if you enabled that on the Ingress (using annotations), you can have secure Trino access. Example:
 
-[source,sql]
+Connect:
+
+[source,shell]
 ----
 trino --server https://trino.example.com --user admin --password
-Password:
+----
+
+Enter password when prompted, and then get catalogs:
+
+[source,shell]
+----
 trino> show catalogs;
+----
+
+[source,console]
+----
  Catalog
 ---------
  pulsar
