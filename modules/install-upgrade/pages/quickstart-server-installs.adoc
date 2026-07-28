@@ -1,6 +1,6 @@
 = Quick Start for Bare Metal/VM installs
 
-This document explains xref:install-upgrade:quickstart-server-installs.adoc#install[installation] of {product} for Bare Metal/VM deployments with a {pulsar-short} tarball.
+This document explains installation of {product} for Bare Metal/VM deployments with a {pulsar-short} tarball.
 
 [NOTE]
 ====
