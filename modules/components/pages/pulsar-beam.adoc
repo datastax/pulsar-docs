@@ -163,4 +163,4 @@ Here are links to resources and guides you might be interested in:
 
 * {pulsar-beam-repo}[Learn more] about the {pulsar-beam} project
 * https://kafkaesque-io.github.io/pulsar-beam-swagger[{pulsar-beam} API]
-* xref:pulsar-sql.adoc[]
+* xref:components:pulsar-sql.adoc[]

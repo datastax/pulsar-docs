@@ -24,13 +24,13 @@ It is designed for production use, but can also be used in local development env
 
 The resulting configuration includes support for:
 
-* xref:install-upgrade:quickstart-helm-installs.adoc#tls[TLS]
-* xref:install-upgrade:quickstart-helm-installs.adoc#authentication[Authentication]
+* <<tls,TLS>>
+* <<authentication,Authentication>>
 * WebSocket proxy
 * Standalone Functions Workers
 * {pulsar-short} I/O connectors
-* xref:install-upgrade:quickstart-helm-installs.adoc#_tiered_storage_configuration[Tiered storage] including Tardigarde distributed cloud storage
-* xref:install-upgrade:quickstart-helm-installs.adoc#_pulsar_sql_configuration[{pulsar-short} SQL workers]
+* <<tiered_storage_configuration,Tiered storage>> including Tardigarde distributed cloud storage
+* <<pulsar-sql-configuration,{pulsar-short} SQL workers>>
 * {pulsar-short} Admin Console for managing the cluster
 * {pulsar-short} Heartbeat
 * Burnell for API-based token generation
@@ -377,12 +377,14 @@ kube-prometheus-stack:
     create: yes
 ----
 
+[#tiered-storage-configuration]
 === Tiered Storage Configuration
 
 Tiered storage (offload to blob storage) can be configured in the `storageOffload` section of the `values.yaml` file. Instructions for AWS S3 and Google Cloud Storage are provided in the file.
 
 In addition, you can configure any S3 compatible storage. There is explicit support for https://tardigrade.io[Tardigrade], which is a provider of secure, decentralized storage. You can enable the Tardigarde S3 gateway in the `extra` configuration. The instructions for configuring the gateway are provided in the `tardigrade` section of the `values.yaml` file.
 
+[#pulsar-sql-configuration]
 === {pulsar-short} SQL Configuration
 
 If you enable {pulsar-short} SQL, the cluster provides https://trino.io/[Trino] access to the data stored in {bookkeeper-short} (and tiered storage, if enabled). Trino is exposed on the service named `<release>-sql`.

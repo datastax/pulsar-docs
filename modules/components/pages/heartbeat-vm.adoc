@@ -39,4 +39,4 @@ export PULSAR_OPS_MONITOR_CFG=/Users/username/go/src/github.com/datastax/pulsar-
 
 == Next steps
 
-Learn more about monitoring your cluster with Heartbeat, see xref:pulsar-monitor.adoc[].
+Learn more about monitoring your cluster with Heartbeat, see xref:components:pulsar-monitor.adoc[].
