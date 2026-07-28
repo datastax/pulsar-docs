@@ -5,7 +5,7 @@
 
 {product} provides all of the core capabilities included in the Apache Community version of {pulsar}, plus a number of additional tools and features to facilitate administration and operational tasks associated with running {pulsar} in production.
 
-include::partial$luna-name.adoc[]
+include::ROOT:partial$luna-name.adoc[]
 
 == Release notes
 

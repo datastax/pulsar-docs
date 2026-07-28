@@ -22,7 +22,7 @@ In this guide, you'll install a minimal {company} {pulsar-short} Helm chart that
 
 == Install the {company} {pulsar-short} Helm chart
 
-include::partial$install-helm.adoc[]
+include::components:partial$install-helm.adoc[]
 
 == Forward service port
 
@@ -155,7 +155,7 @@ The payload is base64 encoded. Simply decode the string to see the actual messag
 
 == Clean up
 
-include::partial$cleanup-terminal-and-helm.adoc[]
+include::components:partial$cleanup-terminal-and-helm.adoc[]
 
 == Next steps
 
