@@ -288,5 +288,5 @@ include::components:partial$cleanup-terminal-and-helm.adoc[]
 
 == Next steps
 
-* xref:pulsar-beam.adoc[]
-* xref:admin-console-tutorial.adoc[]
+* xref:components:pulsar-beam.adoc[]
+* xref:components:admin-console-tutorial.adoc[]

@@ -64,4 +64,4 @@ In addition to the distribution of https://pulsar.apache.org/en/versions/[{pulsa
 * If you have an existing Kubernetes environment, deploy {product} with a xref:install-upgrade:quickstart-helm-installs.adoc[Helm Installation].
 * If you have a bare metal or a cloud environment, see xref:install-upgrade:quickstart-server-installs.adoc[Server/VM Installation].
 * If you want to learn about monitoring with {pulsar-short} Heartbeat, see xref:components:pulsar-monitor.adoc[{pulsar-short} Heartbeat].
-* If you have questions about {product}, see xref::faqs.adoc[{product} FAQs].
+* If you have questions about {product}, see xref:ROOT:faqs.adoc[{product} FAQs].
