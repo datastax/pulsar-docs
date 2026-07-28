@@ -1,6 +1,6 @@
 = Quick Start for Helm Chart installs (deprecated)
 
-[IMPORTANT]
+[TIP]
 ====
 include::ROOT:partial$luna-name.adoc[]
 ====

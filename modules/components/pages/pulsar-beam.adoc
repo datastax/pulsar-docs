@@ -7,7 +7,7 @@ The {pulsar-beam-repo}[{pulsar-beam}] project is an HTTP-based streaming and que
 
 With {pulsar-beam}, you can send messages over HTTP, push messages to a webhook or cloud function, chain webhooks and functions together, or stream messages through server-sent events (SSE).
 
-[NOTE]
+[TIP]
 ====
 include::ROOT:partial$luna-name.adoc[]
 ====
