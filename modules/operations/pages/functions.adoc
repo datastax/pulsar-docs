@@ -6,7 +6,7 @@ You can apply custom logic to a message, transforming or enriching it, and then 
 
 Functions run inside {product}, which makes them serverless.
 
-[NOTE]
+[TIP]
 ====
 include::ROOT:partial$luna-name.adoc[]
 ====

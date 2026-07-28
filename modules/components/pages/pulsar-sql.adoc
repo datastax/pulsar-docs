@@ -9,7 +9,7 @@ Stream processing, real-time analytics, and highly customized dashboards are jus
 {pulsar-short} offers a pre-made plugin for Trino that is included in its distribution.
 Additionally, {pulsar-short} has built-in options to create Trino workers and automatically configure the communications between {pulsar-short}'s ledger and Trino.
 
-[NOTE]
+[TIP]
 ====
 include::ROOT:partial$luna-name.adoc[]
 ====
@@ -94,12 +94,8 @@ The CLI will use the environment variable's value as configuration for interacti
 ./bin/pulsar-admin sources create --name generator --destination-topic-name public/default/mytopic --source-type data-generator
 ----
 +
-[NOTE]
-====
-The topic name will become a table name in Trino, so SQL naming rules apply.
-
+The topic name becomes the Trino table name, so SQL naming rules apply.
 Names can contain only alphanumeric characters and must begin with an alphabetic character or an underscore (_).
-====
 
 . Confirm the topic was created:
 +

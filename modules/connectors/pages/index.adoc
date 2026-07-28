@@ -2,18 +2,15 @@
 :navtitle: {pulsar-short} I/O connectors reference
 :page-aliases: operations:io-connectors.adoc
 
-[NOTE]
+[TIP]
 ====
 include::ROOT:partial$luna-name.adoc[]
 ====
 
 {product} offers fully-managed versions of https://pulsar.apache.org/docs/en/io-overview/[{pulsar-reg} sink and source connectors].
 
-[TIP]
-====
 There are three versions of the {product} distribution.
 The `lunastreaming-all` version includes all connectors.
-====
 
 [#sink-connectors]
 == Sink connectors

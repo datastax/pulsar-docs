@@ -2,7 +2,7 @@
 
 Support covers only the following Software versions for {pulsar}:
 
-[NOTE]
+[TIP]
 ====
 include::ROOT:partial$luna-name.adoc[]
 ====
