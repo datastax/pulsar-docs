@@ -65,8 +65,12 @@ pulsar@pulsar-bastion-78d4cd74ff-ctvvh:/pulsar$
 
 === Test bastion pod
 
-To verify that your bastion pod sees your cluster, run `pulsar admin namespaces list public`.
-It should return a list of your public namespaces:
+To verify that your bastion pod sees your cluster, run the following command to get a list of your public namespaces:
+
+[source,bash]
+----
+pulsar admin namespaces list public
+----
 
 [source,console]
 ----
