@@ -3,7 +3,7 @@
 
 This guide provides instructions and recommendations for upgrading {product} from version 2.10 to 3.1.
 
-[NOTE]
+[TIP]
 ====
 include::ROOT:partial$luna-name.adoc[]
 ====
