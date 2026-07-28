@@ -9,7 +9,7 @@ In the *{pulsar-short} Admin Console*, you can use {pulsar-short} clients to sen
 
 If you installed the Admin console with the xref:install-upgrade:quickstart-helm-installs.adoc[{company} {pulsar-short} Helm chart], access the Admin console via the `pulsar-adminconsole` external load balancer endpoint in your cloud provider:
 
-image::GCP-all-pods.png[GCP Pods]
+image::components:GCP-all-pods.png[GCP Pods]
 
 Log in with username `admin`.
 
@@ -22,11 +22,11 @@ To try out your service, use the built-in WebSocket test clients on the {pulsar-
 
 To see currently available namespaces, go to *Namespaces*, or select the button in the upper right corner.
 
-image::luna-streaming-select-namespace.png[Select Namespace]
+image::components:luna-streaming-select-namespace.png[Select Namespace]
 
 Messages published to namespaces are automatically replicated to all node(s) in the cluster.
 
-image::luna-streaming-admin-console.png[{product} Admin Console]
+image::components:luna-streaming-admin-console.png[{product} Admin Console]
 
 For interactive code samples, go to *Code Samples*.
 
@@ -42,7 +42,7 @@ This action creates a connection from the {pulsar-short} Admin Console that's ru
 Scroll down to the Consume tab. In this simple example, which verifies that the service is running properly, add a `hello world` message and click Send.
 For example:
 
-image::test-message.png[Send a message using a test client]
+image::components:test-message.png[Send a message using a test client]
 
 In doing so, you published a message to your server, and in the Test Client you're listening to your own topic.
 
