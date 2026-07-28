@@ -60,13 +60,13 @@ kubectl port-forward -n datastax-pulsar service/pulsar-broker 8080:8080
 . In a browser, navigate to \http://localhost:8081.
 You will be greeted by Trino's login.
 +
-image::trino-sql-login.png[Trino SQL login]
+image::components:trino-sql-login.png[Trino SQL login]
 
 . There is no authentication enabled, so input whatever user name you prefer and select **Log In**.
 You will be greeted by a blank dashboard.
 This confirms Trino is up and running.
 +
-image::trino-sql-dashboard.png[Trino SQL dashboard]
+image::components:trino-sql-dashboard.png[Trino SQL dashboard]
 
 [#create-topic]
 == Fill a topic with the data-generator source
