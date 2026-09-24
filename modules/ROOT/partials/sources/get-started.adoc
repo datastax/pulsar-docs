@@ -25,7 +25,8 @@ You can pass the configuration directly or with a configuration file.
   --source-config-file configs.json
 ----
 +
-.Example configuration data structure
+Example configuration data structure:
++
 [source,json]
 ----
 include::common:streaming:example$connectors/sources/{connectorType}/sample-data.json[]

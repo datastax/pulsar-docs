@@ -77,7 +77,7 @@ Until all subscribers have acknowledged receipt of a message, the broker will no
 
 Unfortunately, this isn't realistic. Things happen. Processes lock up. Networks go down. If we tell {pulsar-short} to indefinitely attempt message delivery to all subscribers on all topics, the backlog would grow out of control, with bookie disks continuously filling and never draining. So, guaranteed message delivery must be managed with some rules.
 
-{pulsar-short} has different ways of managing the broker's backlog (ie: guaranteed message delivery). Combining these different settings make up the rules of message retention. The rules of message retention directly impact how full a bookie's disk can be. We can't cover every possability within {pulsar-short}'s message retention system, so we will focus on 3 key areas and let those drive our sizing calculation. For more on message retention and expiration, see https://pulsar.apache.org/docs/concepts-messaging/#message-retention-and-expiry[{pulsar-short}'s message retention and expiry documentation].
+{pulsar-short} has different ways of managing the broker's backlog (ie: guaranteed message delivery). Combining these different settings make up the rules of message retention. The rules of message retention directly impact how full a bookie's disk can be. We can't cover every possibility within {pulsar-short}'s message retention system, so we will focus on 3 key areas and let those drive our sizing calculation. For more on message retention and expiration, see https://pulsar.apache.org/docs/concepts-messaging/#message-retention-and-expiry[{pulsar-short}'s message retention and expiry documentation].
 
 === Retention policy
 
