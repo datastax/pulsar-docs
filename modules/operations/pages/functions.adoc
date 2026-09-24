@@ -28,7 +28,6 @@ There are multiple ways to add functions using the {pulsar-short} Admin CLI.
 +
 For example purposes, you can use the following sample function that consumes a message from one topic, adds an exclamation point, and then publishes the result to another topic.
 +
-.function.py
 [source,python]
 ----
 from pulsar import Function

@@ -131,7 +131,6 @@ trino> show catalogs;
 +
 Notice the similarities between your {pulsar-short} tenant/namespaces and Trino's output:
 +
-.Result
 [source,console]
 ----
  Catalog
@@ -152,7 +151,6 @@ trino> show tables in pulsar."public/default";
 +
 Notice the topic that you created from the data-generator source connector <<create-topic,earlier in this guide>>:
 +
-.Result
 [source,console]
 ----
   Table
@@ -254,15 +252,15 @@ javac PrestoExample.java
 
 . Download the https://repo1.maven.org/maven2/io/trino/trino-jdbc/443/trino-jdbc-443.jar[version 443 Trino JDBC driver] to the same folder as the Java class.
 
-. Run the client and observe the output.
-`-cp` tells Java to use the downloaded trino-jdbc jar in your classpath to connect.
+. Run the client and observe the output:
 +
 [source,shell]
 ----
 java -cp .:trino-jdbc-443.jar PrestoExample
 ----
 +
-.Result
+`-cp` tells Java to use the downloaded trino-jdbc jar in your classpath to connect.
++
 [source,console]
 ----
 Connection established......
