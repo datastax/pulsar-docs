@@ -127,7 +127,6 @@ pulsar@pulsar-bastion-85c9b777f6-gt9ct:/pulsar$ curl -d "client_id=test-client" 
        "http://test-keycloak/auth/realms/pulsar/protocol/openid-connect/token"
 ----
 +
-.Results
 [source,json]
 ----
 {

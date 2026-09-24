@@ -9,7 +9,7 @@ include::ROOT:partial$luna-name.adoc[]
 
 The resulting {product} deployment includes:
 
-* *Tiered Storage:* Offload historical messages to more cost effective object storages such as AWS S3, Azure Blob, Google Cloud Storage, and HDFS.
+* *Tiered Storage:* Offload historical messages to more cost effective object storage such as AWS S3, Azure Blob, Google Cloud Storage, and HDFS.
 * *Built-in Schema Registry:* Guarantee messaging type safety on a per-topic basis without relying on any external facility.
 * *{pulsar-short} I/O connectors:* Enables {pulsar-short} to exchange data with external systems, either as sources or sinks.
 * *{pulsar-short} Function:* Lightweight compute extensions of {pulsar-short} brokers which enable real-time simple event processing within {pulsar-short}.
