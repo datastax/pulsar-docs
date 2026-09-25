@@ -37,22 +37,19 @@ include::operations:partial$manually-create-credentials.adoc[]
 
 == TLS
 
-=== Automatically generating certificates using cert-manager
-
 To automatically generate certificates using cert-manager, see https://cert-manager.io/docs/[Cert-Manager Documentation].
 
-=== Manually configuring certificate secrets for TLS
+Alternatively, you can manually configure certificate secrets for TLS by creating a certificate and storing it in the secret defined by `tlsSecretName`.
 
-To use TLS, you must first create a certificate and store it in the secret defined by `tlsSecretName`.
-
-Create the certificate:
+Use `kubectl create secret tls` to create a secret of type `kubernetes.io/tls`:
 
 [source,bash]
 ----
 kubectl create secret tls <tlsSecretName> --key <keyFile> --cert <certFile>
 ----
 
-The resulting secret will be of type `kubernetes.io/tls`. The key should *not* be in `PKCS 8` format, even though that is the format used by {pulsar-short}. The `kubernetes.io/tls` format will be converted by the chart to `PKCS 8`.
+It is expected that this key will _not_ be in `PKCS 8` format, even though that is the format used by {pulsar-short}.
+The `kubernetes.io/tls` format will be converted to `PKCS 8` by the chart.
 
 If you have a self-signed certificate, manually specify the certificate information directly in {pulsar-helm-chart-repo}/blob/master/examples/dev-values-keycloak-auth.yaml[values]:
 
@@ -64,9 +61,7 @@ If you have a self-signed certificate, manually specify the certificate informat
   # caCertificate: |
 ----
 
-Once you have created the secrets that store the certificate info (or manually specified it in {pulsar-helm-chart-repo}/blob/master/examples/dev-values-keycloak-auth.yaml[values]), enable TLS in the values:
-
-`enableTls: yes`
+Once you have created the secrets that store the certificate info (or manually specified it in {pulsar-helm-chart-repo}/blob/master/examples/dev-values-keycloak-auth.yaml[values]), enable TLS in the values with `enableTls: yes`.
 
 == Token Authentication via Keycloak Integration
 
