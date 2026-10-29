@@ -1,6 +1,5 @@
 = {pulsar-short} I/O connectors in {product}
 :navtitle: {pulsar-short} I/O connectors reference
-:page-aliases: operations:io-connectors.adoc
 
 [TIP]
 ====
